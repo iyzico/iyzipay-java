@@ -1,5 +1,7 @@
 package com.iyzipay;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.http.HttpHeaders;
 
 public class IyzipayResource {
@@ -86,5 +88,10 @@ public class IyzipayResource {
 
     public void setConversationId(String conversationId) {
         this.conversationId = conversationId;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
