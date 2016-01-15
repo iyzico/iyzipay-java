@@ -7,8 +7,9 @@ import com.iyzipay.Options;
 public class ApiTest extends IyzipayResource {
 
     public static IyzipayResource retrieve(Options options) {
-        return HttpClient.create().get(options.getBaseUrl() + "/payment/test",
-                IyzipayResource.class)
+        return HttpClient.create()
+                .get(options.getBaseUrl() + "/payment/test",
+                        IyzipayResource.class)
                 .getBody();
     }
 

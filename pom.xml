@@ -38,7 +38,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
-                <options>
+                <configuration>
                     <encoding>UTF-8</encoding>
                     <compilerId>javac</compilerId>
                     <source>${java-compileSource.version}</source>
@@ -47,7 +47,7 @@
                     <showWarnings>true</showWarnings>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                </options>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

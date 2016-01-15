@@ -7,11 +7,11 @@ import com.iyzipay.request.CreatePaymentAuthRequest;
 public class PaymentAuth extends Payment {
 
     public static PaymentAuth create(CreatePaymentAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/auth/ecom",
-                getHttpHeaders(request, options),
-                request,
-                PaymentAuth.class)
+        return HttpClient.create()
+                .post(options.getBaseUrl() + "/payment/iyzipos/auth/ecom",
+                        getHttpHeaders(request, options),
+                        request,
+                        PaymentAuth.class)
                 .getBody();
     }
-
 }
