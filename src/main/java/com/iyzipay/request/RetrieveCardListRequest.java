@@ -3,7 +3,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class RetrieveCardRequest extends Request {
+public class RetrieveCardListRequest extends Request {
 
     private String cardUserKey;
 

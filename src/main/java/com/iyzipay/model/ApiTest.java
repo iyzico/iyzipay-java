@@ -12,5 +12,4 @@ public class ApiTest extends IyzipayResource {
                         IyzipayResource.class)
                 .getBody();
     }
-
 }

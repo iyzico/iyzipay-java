@@ -4,6 +4,8 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveTransactionsRequest;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.List;
 
@@ -27,4 +29,8 @@ public class PayoutCompletedTransactionList extends IyzipayResource {
         this.payoutCompletedTransactions = payoutCompletedTransactions;
     }
 
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
 }

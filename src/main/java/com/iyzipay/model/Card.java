@@ -5,7 +5,7 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
-import com.iyzipay.request.RetrieveCardRequest;
+import com.iyzipay.request.RetrieveCardListRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -38,15 +38,6 @@ public class Card extends IyzipayResource {
                         getHttpHeaders(request, options),
                         request,
                         Card.class)
-                .getBody();
-    }
-
-    public static CardList retrieve(RetrieveCardRequest request, Options options) {
-        return HttpClient.create().
-                post(options.getBaseUrl() + "/cardstorage/cards",
-                        getHttpHeaders(request, options),
-                        request,
-                        CardList.class)
                 .getBody();
     }
 

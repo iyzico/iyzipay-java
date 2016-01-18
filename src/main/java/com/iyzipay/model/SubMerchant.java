@@ -6,6 +6,8 @@ import com.iyzipay.Options;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class SubMerchant extends IyzipayResource {
 
@@ -158,5 +160,10 @@ public class SubMerchant extends IyzipayResource {
 
     public void setSubMerchantKey(String subMerchantKey) {
         this.subMerchantKey = subMerchantKey;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
