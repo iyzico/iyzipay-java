@@ -3,23 +3,23 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class RetrieveConnectBKMAuthRequest extends Request {
+public class RetrieveTransactionsRequest extends Request {
 
-    private String token;
+    private String date;
 
-    public String getToken() {
-        return token;
+    public String getDate() {
+        return date;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
                 .appendSuper(super.toString())
-                .append("token", token)
+                .append("date", date)
                 .toString();
     }
 }

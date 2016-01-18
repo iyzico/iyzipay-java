@@ -4,17 +4,17 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveBKMAuthRequest;
 
-public class ConnectBKMAuth extends ConnectPaymentAuth {
+public class BKMAuth extends Payment {
 
     private String token;
     private String callbackUrl;
     private String paymentStatus;
 
-    public static ConnectBKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
+    public static BKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
-                ConnectBKMAuth.class)
+                BKMAuth.class)
                 .getBody();
     }
 
