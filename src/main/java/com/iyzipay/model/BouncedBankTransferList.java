@@ -1,5 +1,6 @@
 package com.iyzipay.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
@@ -11,7 +12,8 @@ import java.util.List;
 
 public class BouncedBankTransferList extends IyzipayResource {
 
-    private List<BankTransfer> bouncedRows;
+    @JsonProperty("bouncedRows")
+    private List<BankTransfer> bankTransfers;
 
     public static BouncedBankTransferList retrieve(RetrieveTransactionsRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/reporting/settlement/bounced",
@@ -21,13 +23,12 @@ public class BouncedBankTransferList extends IyzipayResource {
                 .getBody();
     }
 
-
-    public List<BankTransfer> getBouncedRows() {
-        return bouncedRows;
+    public List<BankTransfer> getBankTransfers() {
+        return bankTransfers;
     }
 
-    public void setBouncedRows(List<BankTransfer> bouncedRows) {
-        this.bouncedRows = bouncedRows;
+    public void setBankTransfers(List<BankTransfer> bankTransfers) {
+        this.bankTransfers = bankTransfers;
     }
 
     @Override
