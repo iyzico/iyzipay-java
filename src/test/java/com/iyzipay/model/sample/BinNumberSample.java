@@ -11,13 +11,7 @@ public class BinNumberSample extends Sample {
         RetrieveBinNumberRequest request = new RetrieveBinNumberRequest();
         request.setBinNumber("454671");
         BinNumber binNumber = BinNumber.retrieve(request, options);
-        System.out.println(binNumber.getBankCode());
-        System.out.println(binNumber.getBankName());
-        System.out.println(binNumber.getBinNumber());
-        System.out.println(binNumber.getCardAssociation());
-        System.out.println(binNumber.getCardFamily());
-        System.out.println(binNumber.getCardType());
-        System.out.println(binNumber.getStatus());
+        System.out.println(binNumber);
     }
 
 }

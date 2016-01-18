@@ -4,13 +4,13 @@ import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectThreeDSRequest;
+import com.iyzipay.request.CreateConnectThreeDSInitializeRequest;
 
 public class ConnectThreeDSInitialize extends IyzipayResource {
 
     private String htmlContent;
 
-    public static ConnectThreeDSInitialize create(CreateConnectThreeDSRequest request, Options options) {
+    public static ConnectThreeDSInitialize create(CreateConnectThreeDSInitializeRequest request, Options options) {
         ConnectThreeDSInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
                 getHttpHeaders(request, options),
                 request,

@@ -3,7 +3,7 @@ package com.iyzipay.model;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateCancelRequest;
+import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 
 public class CheckoutFormInitialize extends IyzipayResource {
 
@@ -12,7 +12,7 @@ public class CheckoutFormInitialize extends IyzipayResource {
     private Long tokenExpireTime;
     private String paymentPageUrl;
 
-    public static CheckoutFormInitialize create(CreateCancelRequest request, Options options) {
+    public static CheckoutFormInitialize create(CreateCheckoutFormInitializeRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/ecom",
                 getHttpHeaders(request, options),
                 request,

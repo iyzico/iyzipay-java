@@ -2,7 +2,7 @@ package com.iyzipay.request;
 
 import com.iyzipay.ToStringRequestBuilder;
 
-public class CreateConnectThreeDSRequest extends CreateConnectPaymentRequest {
+public class CreateConnectThreeDSInitializeRequest extends CreateConnectPaymentRequest {
 
     private String callbackUrl;
 

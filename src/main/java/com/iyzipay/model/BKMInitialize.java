@@ -4,13 +4,13 @@ import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectBKMInitializeRequest;
+import com.iyzipay.request.CreateBKMInitializeRequest;
 
 public class BKMInitialize extends IyzipayResource {
 
     private String htmlContent;
 
-    public static BKMInitialize create(CreateConnectBKMInitializeRequest request, Options options) {
+    public static BKMInitialize create(CreateBKMInitializeRequest request, Options options) {
         BKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/initializebkm/ecom",
                 getHttpHeaders(request, options),
                 request,
