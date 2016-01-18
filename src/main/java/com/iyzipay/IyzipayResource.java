@@ -1,5 +1,6 @@
 package com.iyzipay;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +11,7 @@ public class IyzipayResource {
     private static final String RANDOM_HEADER_NAME = "x-iyzi-rnd";
     private static final String IYZIWS_HEADER_NAME = "IYZWS ";
     private static final String COLON = ":";
+    private static final int RANDOM_STRING_SIZE = 8;
 
     private String status;
     private String errorCode;
@@ -22,7 +24,7 @@ public class IyzipayResource {
     public IyzipayResource(){}
 
     protected static HttpHeaders getHttpHeaders(Request request, Options options) {
-        String randomString = RandomStringGenerator.generateRandomString();
+        String randomString = System.currentTimeMillis() + RandomStringUtils.randomAlphanumeric(RANDOM_STRING_SIZE);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(RANDOM_HEADER_NAME, randomString);
         httpHeaders.add(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
