@@ -1,11 +1,16 @@
 package com.iyzipay.model;
 
 import com.iyzipay.HttpClient;
+import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCancelRequest;
 
-public class ConnectCancel extends Cancel {
+import java.math.BigDecimal;
 
+public class ConnectCancel extends IyzipayResource {
+
+    private String paymentId;
+    private BigDecimal price;
     private String connectorName;
 
     public static ConnectCancel create(CreateCancelRequest request, Options options) {
@@ -16,6 +21,22 @@ public class ConnectCancel extends Cancel {
                 .getBody();
     }
 
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     public String getConnectorName() {
         return connectorName;
     }
@@ -23,5 +44,4 @@ public class ConnectCancel extends Cancel {
     public void setConnectorName(String connectorName) {
         this.connectorName = connectorName;
     }
-
 }

@@ -3,7 +3,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class CreateConnectPaymentPostAuthRequest extends Request {
+public class CreatePaymentPostAuthRequest extends Request {
 
     private String paymentId;
     private String ip;
