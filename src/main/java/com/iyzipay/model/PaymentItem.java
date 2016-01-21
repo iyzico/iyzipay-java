@@ -1,8 +1,5 @@
 package com.iyzipay.model;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 import java.math.BigDecimal;
 
 public class PaymentItem {
@@ -168,10 +165,5 @@ public class PaymentItem {
 
     public void setMerchantPayoutAmount(BigDecimal merchantPayoutAmount) {
         this.merchantPayoutAmount = merchantPayoutAmount;
-    }
-
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }

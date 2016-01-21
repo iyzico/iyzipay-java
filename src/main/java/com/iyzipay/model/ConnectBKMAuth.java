@@ -3,8 +3,6 @@ package com.iyzipay.model;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveBKMAuthRequest;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class ConnectBKMAuth extends ConnectPayment {
 
@@ -42,10 +40,5 @@ public class ConnectBKMAuth extends ConnectPayment {
 
     public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
-    }
-
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
