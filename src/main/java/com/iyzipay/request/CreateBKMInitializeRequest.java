@@ -2,10 +2,9 @@ package com.iyzipay.request;
 
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
+import com.iyzipay.model.Address;
 import com.iyzipay.model.BasketItem;
-import com.iyzipay.model.BillingAddress;
 import com.iyzipay.model.Buyer;
-import com.iyzipay.model.ShippingAddress;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,8 +16,8 @@ public class CreateBKMInitializeRequest extends Request {
     private String paymentGroup;
     private String paymentSource;
     private Buyer buyer;
-    private ShippingAddress shippingAddress;
-    private BillingAddress billingAddress;
+    private Address shippingAddress;
+    private Address billingAddress;
     private List<BasketItem> basketItems;
     private String callbackUrl;
 
@@ -62,19 +61,19 @@ public class CreateBKMInitializeRequest extends Request {
         this.buyer = buyer;
     }
 
-    public ShippingAddress getShippingAddress() {
+    public Address getShippingAddress() {
         return shippingAddress;
     }
 
-    public void setShippingAddress(ShippingAddress shippingAddress) {
+    public void setShippingAddress(Address shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 
-    public BillingAddress getBillingAddress() {
+    public Address getBillingAddress() {
         return billingAddress;
     }
 
-    public void setBillingAddress(BillingAddress billingAddress) {
+    public void setBillingAddress(Address billingAddress) {
         this.billingAddress = billingAddress;
     }
 

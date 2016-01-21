@@ -72,8 +72,8 @@ public class CheckoutFormSample extends Sample {
         return buyer;
     }
 
-    private ShippingAddress newShippingAddress() {
-        ShippingAddress shippingAddress = new ShippingAddress();
+    private Address newShippingAddress() {
+        Address shippingAddress = new Address();
         shippingAddress.setContactName("Hakan Erdoğan");
         shippingAddress.setCity("Istanbul");
         shippingAddress.setCountry("Turkiye");
@@ -82,8 +82,8 @@ public class CheckoutFormSample extends Sample {
         return shippingAddress;
     }
 
-    private BillingAddress newBillingAddress() {
-        BillingAddress billingAddress = new BillingAddress();
+    private Address newBillingAddress() {
+        Address billingAddress = new Address();
         billingAddress.setContactName("Hakan Erdoğan");
         billingAddress.setCity("İstanbul");
         billingAddress.setCountry("Türkiye");

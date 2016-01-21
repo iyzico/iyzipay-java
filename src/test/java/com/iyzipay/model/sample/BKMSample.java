@@ -70,8 +70,8 @@ public class BKMSample extends Sample {
         return buyer;
     }
 
-    private ShippingAddress newShippingAddress() {
-        ShippingAddress address = new ShippingAddress();
+    private Address newShippingAddress() {
+        Address address = new Address();
         address.setAddress("Malte Plaza No:56");
         address.setZipCode("34840");
         address.setContactName("Hakan");
@@ -80,8 +80,8 @@ public class BKMSample extends Sample {
         return address;
     }
 
-    private BillingAddress newBillingAddress() {
-        BillingAddress address = new BillingAddress();
+    private Address newBillingAddress() {
+        Address address = new Address();
         address.setAddress("Malte Plaza No:56");
         address.setZipCode("34840");
         address.setContactName("Hakan");

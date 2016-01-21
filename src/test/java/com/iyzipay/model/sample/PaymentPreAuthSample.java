@@ -51,7 +51,7 @@ public class PaymentPreAuthSample extends Sample {
         buyer.setZipCode("34732");
         request.setBuyer(buyer);
 
-        ShippingAddress shippingAddress = new ShippingAddress();
+        Address shippingAddress = new Address();
         shippingAddress.setContactName("Hakan Erdoğan");
         shippingAddress.setCity("İstanbul");
         shippingAddress.setCountry("Türkiye");
@@ -59,7 +59,7 @@ public class PaymentPreAuthSample extends Sample {
         shippingAddress.setZipCode("34742");
         request.setShippingAddress(shippingAddress);
 
-        BillingAddress billingAddress = new BillingAddress();
+        Address billingAddress = new Address();
         billingAddress.setContactName("Hakan Erdoğan");
         billingAddress.setCity("İstanbul");
         billingAddress.setCountry("Türkiye");
@@ -149,7 +149,7 @@ public class PaymentPreAuthSample extends Sample {
         buyer.setZipCode("34732");
         request.setBuyer(buyer);
 
-        ShippingAddress shippingAddress = new ShippingAddress();
+        Address shippingAddress = new Address();
         shippingAddress.setContactName("Hakan Erdoğan");
         shippingAddress.setCity("İstanbul");
         shippingAddress.setCountry("Türkiye");
@@ -157,7 +157,7 @@ public class PaymentPreAuthSample extends Sample {
         shippingAddress.setZipCode("34742");
         request.setShippingAddress(shippingAddress);
 
-        BillingAddress billingAddress = new BillingAddress();
+        Address billingAddress = new Address();
         billingAddress.setContactName("Hakan Erdoğan");
         billingAddress.setCity("İstanbul");
         billingAddress.setCountry("Türkiye");
