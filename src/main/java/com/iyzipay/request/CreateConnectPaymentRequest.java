@@ -16,6 +16,7 @@ public class CreateConnectPaymentRequest extends Request {
     private String buyerEmail;
     private String buyerId;
     private String buyerIp;
+    private String posOrderId;
     private PaymentCard paymentCard;
     private String connectorName;
 
@@ -71,6 +72,14 @@ public class CreateConnectPaymentRequest extends Request {
         this.buyerIp = buyerIp;
     }
 
+    public String getPosOrderId() {
+        return posOrderId;
+    }
+
+    public void setPosOrderId(String posOrderId) {
+        this.posOrderId = posOrderId;
+    }
+
     public PaymentCard getPaymentCard() {
         return paymentCard;
     }
@@ -97,6 +106,7 @@ public class CreateConnectPaymentRequest extends Request {
                 .append("buyerEmail", buyerEmail)
                 .append("buyerId", buyerId)
                 .append("buyerIp", buyerIp)
+                .append("posOrderId", posOrderId)
                 .append("paymentCard", paymentCard)
                 .append("connectorName", connectorName)
                 .toString();

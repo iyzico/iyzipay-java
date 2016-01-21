@@ -15,6 +15,7 @@ public class CreateConnectBKMInitializeRequest extends Request {
     private String buyerEmail;
     private String buyerId;
     private String buyerIp;
+    private String posOrderId;
     private List<BKMInstallment> installmentDetails;
 
     public String getConnectorName() {
@@ -65,6 +66,14 @@ public class CreateConnectBKMInitializeRequest extends Request {
         this.buyerIp = buyerIp;
     }
 
+    public String getPosOrderId() {
+        return posOrderId;
+    }
+
+    public void setPosOrderId(String posOrderId) {
+        this.posOrderId = posOrderId;
+    }
+
     public List<BKMInstallment> getInstallmentDetails() {
         return installmentDetails;
     }
@@ -83,6 +92,7 @@ public class CreateConnectBKMInitializeRequest extends Request {
                 .append("buyerEmail", buyerEmail)
                 .append("buyerId", buyerId)
                 .append("buyerIp", buyerIp)
+                .append("posOrderId", posOrderId)
                 .append("installmentDetails", installmentDetails)
                 .toString();
     }

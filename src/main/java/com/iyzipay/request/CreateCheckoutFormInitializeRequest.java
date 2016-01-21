@@ -24,6 +24,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private String callbackUrl;
     private Integer forceThreeDS;
     private String cardUserKey;
+    private String posOrderId;
 
     public BigDecimal getPrice() {
         return price;
@@ -121,6 +122,14 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.cardUserKey = cardUserKey;
     }
 
+    public String getPosOrderId() {
+        return posOrderId;
+    }
+
+    public void setPosOrderId(String posOrderId) {
+        this.posOrderId = posOrderId;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -134,6 +143,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("basketItems", basketItems)
                 .append("callbackUrl", callbackUrl)
                 .append("paymentSource", paymentSource)
+                .append("posOrderId", posOrderId)
                 .append("paidPrice", paidPrice)
                 .append("forceThreeDS", forceThreeDS)
                 .append("cardUserKey", cardUserKey)

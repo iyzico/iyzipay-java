@@ -15,8 +15,7 @@ public class BinNumber extends IyzipayResource {
     private Long bankCode;
 
     public static BinNumber retrieve(RetrieveBinNumberRequest request, Options options) {
-        return HttpClient.create()
-                .post(options.getBaseUrl() + "/payment/bin/check",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/bin/check",
                         getHttpHeaders(request, options),
                         request,
                         BinNumber.class)
