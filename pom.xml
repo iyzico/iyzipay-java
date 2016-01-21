@@ -7,7 +7,7 @@
     <groupId>com.iyzipay</groupId>
     <artifactId>iyzipay-java</artifactId>
     <packaging>jar</packaging>
-    <version>1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>iyzipay-java</name>
     <description>iyzipay - payment api java client module</description>
     <licenses>
