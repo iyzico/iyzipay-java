@@ -13,7 +13,7 @@ public class PayoutCompletedTransactionList extends IyzipayResource {
 
     private List<PayoutCompletedTransaction> payoutCompletedTransactions;
 
-    public static PayoutCompletedTransactionList retrieve(RetrieveTransactionsRequest request, Options options){
+    public static PayoutCompletedTransactionList retrieve(RetrieveTransactionsRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/reporting/settlement/payoutcompleted",
                 getHttpHeaders(request, options),
                 request,

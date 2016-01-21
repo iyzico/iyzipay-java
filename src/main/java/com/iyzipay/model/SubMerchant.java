@@ -42,7 +42,7 @@ public class SubMerchant extends IyzipayResource {
                 .getBody();
     }
 
-    public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options){
+    public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/onboarding/submerchant/detail",
                 getHttpHeaders(request, options),
                 request,
