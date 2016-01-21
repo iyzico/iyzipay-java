@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 public class PostAuthSample extends Sample {
 
     @Test
-    public void should_post_auth(){
+    public void should_post_auth() {
         CreatePaymentPostAuthRequest request = new CreatePaymentPostAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

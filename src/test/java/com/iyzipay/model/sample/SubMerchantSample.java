@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class SubMerchantSample extends Sample {
 
     @Test
-    public void should_create_personal_sub_merchant(){
+    public void should_create_personal_sub_merchant() {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -39,7 +39,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_create_private_sub_merchant(){
+    public void should_create_private_sub_merchant() {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -62,7 +62,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_create_limited_company_sub_merchant(){
+    public void should_create_limited_company_sub_merchant() {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -87,7 +87,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_update_personal_sub_merchant(){
+    public void should_update_personal_sub_merchant() {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -111,7 +111,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_update_private_sub_merchant(){
+    public void should_update_private_sub_merchant() {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -135,7 +135,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_update_limited_company_sub_merchant(){
+    public void should_update_limited_company_sub_merchant() {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -159,7 +159,7 @@ public class SubMerchantSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_sub_merchant(){
+    public void should_retrieve_sub_merchant() {
         RetrieveSubMerchantRequest request = new RetrieveSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

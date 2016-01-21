@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class ConnectPaymentAuthSample extends Sample {
 
     @Test
-    public void should_pay_with_card(){
+    public void should_pay_with_card() {
         CreateConnectPaymentAuthRequest request = new CreateConnectPaymentAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -45,7 +45,7 @@ public class ConnectPaymentAuthSample extends Sample {
     }
 
     @Test
-    public void should_pay_with_card_token(){
+    public void should_pay_with_card_token() {
         CreateConnectPaymentAuthRequest request = new CreateConnectPaymentAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

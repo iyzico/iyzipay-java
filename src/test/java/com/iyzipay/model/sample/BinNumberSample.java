@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 public class BinNumberSample extends Sample {
 
     @Test
-    public void should_retrieve_bin_number(){
+    public void should_retrieve_bin_number() {
         RetrieveBinNumberRequest request = new RetrieveBinNumberRequest();
         request.setBinNumber("454671");
         request.setConversationId("123456");

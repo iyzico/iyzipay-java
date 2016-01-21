@@ -41,7 +41,7 @@ public class CardStorageSample extends Sample {
     }
 
     @Test
-    public void should_create_card(){
+    public void should_create_card() {
         CardInformation cardInformation = new CardInformation();
         cardInformation.setCardAlias("card alias");
         cardInformation.setCardHolderName("card holder name");
@@ -65,7 +65,7 @@ public class CardStorageSample extends Sample {
     }
 
     @Test
-    public void should_delete_card(){
+    public void should_delete_card() {
         DeleteCardRequest request = new DeleteCardRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -82,7 +82,7 @@ public class CardStorageSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_cards(){
+    public void should_retrieve_cards() {
         RetrieveCardListRequest request = new RetrieveCardListRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

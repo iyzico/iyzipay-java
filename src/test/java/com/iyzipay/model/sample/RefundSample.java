@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class RefundSample extends Sample {
 
     @Test
-    public void should_refund(){
+    public void should_refund() {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -32,7 +32,7 @@ public class RefundSample extends Sample {
     }
 
     @Test
-    public void should_refund_charged_from_merchant(){
+    public void should_refund_charged_from_merchant() {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

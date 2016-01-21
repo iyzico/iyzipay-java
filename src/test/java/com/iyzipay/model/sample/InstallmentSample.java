@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 public class InstallmentSample extends Sample {
 
     @Test
-    public void should_retrieve_installment_info(){
+    public void should_retrieve_installment_info() {
         RetrieveInstallmentInfoRequest request = new RetrieveInstallmentInfoRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

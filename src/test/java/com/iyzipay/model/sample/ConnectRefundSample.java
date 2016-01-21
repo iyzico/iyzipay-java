@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 public class ConnectRefundSample extends Sample {
 
     @Test
-    public void should_refund_payment(){
+    public void should_refund_payment() {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

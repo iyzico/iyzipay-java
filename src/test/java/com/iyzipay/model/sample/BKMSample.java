@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class BKMSample extends Sample {
 
     @Test
-    public void should_initialize_bkm_express(){
+    public void should_initialize_bkm_express() {
         CreateBKMInitializeRequest request = new CreateBKMInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -41,7 +41,7 @@ public class BKMSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_bkm_auth(){
+    public void should_retrieve_bkm_auth() {
         RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -70,7 +70,7 @@ public class BKMSample extends Sample {
         return buyer;
     }
 
-    private ShippingAddress newShippingAddress(){
+    private ShippingAddress newShippingAddress() {
         ShippingAddress address = new ShippingAddress();
         address.setAddress("Malte Plaza No:56");
         address.setZipCode("34840");
@@ -80,7 +80,7 @@ public class BKMSample extends Sample {
         return address;
     }
 
-    private BillingAddress newBillingAddress(){
+    private BillingAddress newBillingAddress() {
         BillingAddress address = new BillingAddress();
         address.setAddress("Malte Plaza No:56");
         address.setZipCode("34840");

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class ThreeDSSample extends Sample {
 
     @Test
-    public void should_create_market_place_physical_and_virtual_product_with_three_ds_payment(){
+    public void should_create_market_place_physical_and_virtual_product_with_three_ds_payment() {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
 
         request.setLocale(Locale.TR.getValue());
@@ -114,7 +114,7 @@ public class ThreeDSSample extends Sample {
     }
 
     @Test
-    public void should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment(){
+    public void should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment() {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
 
         request.setLocale(Locale.TR.getValue());
@@ -207,7 +207,7 @@ public class ThreeDSSample extends Sample {
     }
 
     @Test
-    public void should_auth_threeds(){
+    public void should_auth_threeds() {
         CreateThreeDSAuthRequest request = new CreateThreeDSAuthRequest();
 
         request.setLocale(Locale.TR.getValue());

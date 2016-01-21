@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 public class ApiTestSample extends Sample {
 
     @Test
-    public void should_test_api(){
+    public void should_test_api() {
         IyzipayResource iyzipayResource = ApiTest.retrieve(options);
 
         System.out.println(iyzipayResource);

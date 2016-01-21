@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 public class RetrieveTransactionsSample extends Sample {
 
     @Test
-    public void should_retrieve_payout_completed_transactions(){
+    public void should_retrieve_payout_completed_transactions() {
         RetrieveTransactionsRequest request = new RetrieveTransactionsRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -28,7 +28,7 @@ public class RetrieveTransactionsSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_bounced_bank_transfers(){
+    public void should_retrieve_bounced_bank_transfers() {
         RetrieveTransactionsRequest request = new RetrieveTransactionsRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

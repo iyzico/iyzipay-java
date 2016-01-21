@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class PaymentPreAuthSample extends Sample {
 
     @Test
-    public void should_create_market_place_non_threeds_physical_and_virtual_product_payment(){
+    public void should_create_market_place_non_threeds_physical_and_virtual_product_payment() {
         CreatePaymentPreAuthRequest request = new CreatePaymentPreAuthRequest();
 
         request.setLocale(Locale.TR.getValue());
@@ -112,7 +112,7 @@ public class PaymentPreAuthSample extends Sample {
     }
 
     @Test
-    public void should_create_physical_and_virtual_listing_or_subscription_payment(){
+    public void should_create_physical_and_virtual_listing_or_subscription_payment() {
         CreatePaymentPreAuthRequest request = new CreatePaymentPreAuthRequest();
 
         request.setLocale(Locale.TR.getValue());

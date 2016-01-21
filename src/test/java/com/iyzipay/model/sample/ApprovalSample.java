@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 public class ApprovalSample extends Sample {
 
     @Test
-    public void should_approve_payment_item(){
+    public void should_approve_payment_item() {
         CreateApprovalRequest request = new CreateApprovalRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -31,7 +31,7 @@ public class ApprovalSample extends Sample {
     }
 
     @Test
-    public void should_disapprove_payment_item(){
+    public void should_disapprove_payment_item() {
         CreateApprovalRequest request = new CreateApprovalRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

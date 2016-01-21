@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class CheckoutFormSample extends Sample {
 
     @Test
-    public void should_initialize_checkout_form(){
+    public void should_initialize_checkout_form() {
         CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -39,7 +39,7 @@ public class CheckoutFormSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_checkout_form_auth(){
+    public void should_retrieve_checkout_form_auth() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

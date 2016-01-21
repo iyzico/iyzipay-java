@@ -11,7 +11,7 @@ import java.util.List;
 public class PaymentAuthSample extends Sample {
 
     @Test
-    public void should_create_payment_with_virtual_product_for_market_place(){
+    public void should_create_payment_with_virtual_product_for_market_place() {
         CreatePaymentAuthRequest request = new CreatePaymentAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -104,7 +104,7 @@ public class PaymentAuthSample extends Sample {
     }
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription(){
+    public void should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
         CreatePaymentAuthRequest request = new CreatePaymentAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

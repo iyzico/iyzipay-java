@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 public class ConnectThreeDSSample extends Sample {
 
     @Test
-    public void should_initialize_threeds_with_card(){
+    public void should_initialize_threeds_with_card() {
         CreateConnectThreeDSInitializeRequest request = new CreateConnectThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -48,7 +48,7 @@ public class ConnectThreeDSSample extends Sample {
     }
 
     @Test
-    public void should_initialize_threeds_with_card_token(){
+    public void should_initialize_threeds_with_card_token() {
         CreateConnectThreeDSInitializeRequest request = new CreateConnectThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -76,7 +76,7 @@ public class ConnectThreeDSSample extends Sample {
     }
 
     @Test
-    public void should_auth_threeds(){
+    public void should_auth_threeds() {
         CreateConnectThreeDSAuthRequest request = new CreateConnectThreeDSAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

@@ -12,7 +12,7 @@ import java.util.List;
 public class ConnectBKMSample extends Sample {
 
     @Test
-    public void should_initialize_bkm_express(){
+    public void should_initialize_bkm_express() {
         CreateConnectBKMInitializeRequest request = new CreateConnectBKMInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -34,7 +34,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_bkm_auth(){
+    public void should_retrieve_bkm_auth() {
         RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
 
         request.setLocale(Locale.TR.getValue());
@@ -46,7 +46,7 @@ public class ConnectBKMSample extends Sample {
         System.out.println(connectBKMAuth);
     }
 
-    List<BKMInstallment> prepareInstallmentDetails(){
+    List<BKMInstallment> prepareInstallmentDetails() {
         List<BKMInstallment> installmentDetails = new ArrayList<BKMInstallment>();
 
         installmentDetails.add(isbankInstallmentDetails());
@@ -60,7 +60,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //is bankasi installment details
-    BKMInstallment isbankInstallmentDetails(){
+    BKMInstallment isbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(64L);
 
@@ -98,7 +98,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //finansbank installment details
-    BKMInstallment finansbankInstallmentDetails(){
+    BKMInstallment finansbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(111L);
 
@@ -136,7 +136,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //akbank installment details
-    BKMInstallment akbankInstallmentDetails(){
+    BKMInstallment akbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(46L);
 
@@ -174,7 +174,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //yapikredi installment details
-    BKMInstallment ykbInstallmentDetails(){
+    BKMInstallment ykbInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(67L);
 
@@ -212,7 +212,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //denizbank installment details
-    BKMInstallment denizbankInstallmentDetails(){
+    BKMInstallment denizbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(134L);
 
@@ -250,7 +250,7 @@ public class ConnectBKMSample extends Sample {
     }
 
     //halkbank installment details
-    BKMInstallment halkbankInstallmentDetails(){
+    BKMInstallment halkbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(12L);
 

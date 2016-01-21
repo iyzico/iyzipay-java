@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class CrossBookingSample extends Sample {
 
     @Test
-    public void should_send_money_to_sub_merchant(){
+    public void should_send_money_to_sub_merchant() {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -32,7 +32,7 @@ public class CrossBookingSample extends Sample {
     }
 
     @Test
-    public void should_receive_money_from_sub_merchant(){
+    public void should_receive_money_from_sub_merchant() {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

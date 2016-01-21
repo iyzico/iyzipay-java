@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 public class ConnectCancelSample extends Sample {
 
     @Test
-    public void should_cancel_payment(){
+    public void should_cancel_payment() {
         CreateCancelRequest request = new CreateCancelRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
