@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class BKMSample extends Sample {
 
     @Test
@@ -28,6 +31,13 @@ public class BKMSample extends Sample {
         BKMInitialize bkmInitialize = BKMInitialize.create(request, options);
 
         System.out.println(bkmInitialize);
+
+        assertNotNull(bkmInitialize.getSystemTime());
+        assertEquals("success", bkmInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
+        assertEquals("123456", bkmInitialize.getConversationId());
+
+        assertNotNull(bkmInitialize.getHtmlContent());
     }
 
     @Test
@@ -90,7 +100,7 @@ public class BKMSample extends Sample {
         firstBasketItem.setCategory2("Aksesuar");
         firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
         firstBasketItem.setPrice(new BigDecimal("0.3"));
-        firstBasketItem.setSubMerchantKey("sub merchant key");
+        firstBasketItem.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
         firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
 
         BasketItem secondBasketItem = new BasketItem();
@@ -100,11 +110,22 @@ public class BKMSample extends Sample {
         secondBasketItem.setCategory2("Online Oyun Kodlari");
         secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
         secondBasketItem.setPrice(new BigDecimal("0.5"));
-        secondBasketItem.setSubMerchantKey("sub merchant key");
+        secondBasketItem.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
         secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
+
+        BasketItem thirdBasketItem = new BasketItem();
+        thirdBasketItem.setId("BI103");
+        thirdBasketItem.setName("EDC Marka Usb");
+        thirdBasketItem.setCategory1("Elektronik");
+        thirdBasketItem.setCategory2("Usb / Cable");
+        thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
+        thirdBasketItem.setPrice(new BigDecimal("0.2"));
+        thirdBasketItem.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
 
         paymentBasketItemDtoList.add(firstBasketItem);
         paymentBasketItemDtoList.add(secondBasketItem);
+        paymentBasketItemDtoList.add(thirdBasketItem);
         return paymentBasketItemDtoList;
     }
 }

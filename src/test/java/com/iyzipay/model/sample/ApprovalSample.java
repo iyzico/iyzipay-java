@@ -17,14 +17,17 @@ public class ApprovalSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentTransactionId("2");
+
         Approval approval = Approval.create(request, options);
+
+        System.out.println(approval);
 
         assertNotNull(approval.getSystemTime());
         assertEquals("success", approval.getStatus());
+        assertEquals(Locale.TR.getValue(), approval.getLocale());
         assertEquals("123456789", approval.getConversationId());
-        assertEquals("2", approval.getPaymentTransactionId());
 
-        System.out.println(approval);
+        assertEquals("2", approval.getPaymentTransactionId());
     }
 
     @Test
@@ -33,13 +36,16 @@ public class ApprovalSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentTransactionId("2");
+
         Disapproval disapproval = Disapproval.create(request, options);
+
+        System.out.println(disapproval);
 
         assertNotNull(disapproval.getSystemTime());
         assertEquals("success", disapproval.getStatus());
+        assertEquals(Locale.TR.getValue(), disapproval.getLocale());
         assertEquals("123456789", disapproval.getConversationId());
-        assertEquals("2", disapproval.getPaymentTransactionId());
 
-        System.out.println(disapproval);
+        assertEquals("2", disapproval.getPaymentTransactionId());
     }
 }

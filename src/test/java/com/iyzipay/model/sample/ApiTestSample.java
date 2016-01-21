@@ -13,9 +13,9 @@ public class ApiTestSample extends Sample {
     public void should_test_api(){
         IyzipayResource iyzipayResource = ApiTest.retrieve(options);
 
+        System.out.println(iyzipayResource);
+
         assertNotNull(iyzipayResource.getSystemTime());
         assertEquals("success", iyzipayResource.getStatus());
-
-        System.out.println(iyzipayResource);
     }
 }

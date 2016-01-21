@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <version>1.0.0</version>
     <name>iyzipay-java</name>
-    <description>iyzipay - payment api java client module</description>
+    <description>iyzipay api java client</description>
     <licenses>
         <license>
             <name>MIT</name>
