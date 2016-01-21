@@ -1,5 +1,7 @@
 package com.iyzipay.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BankTransfer {
 
     private String subMerchantKey;
@@ -7,7 +9,8 @@ public class BankTransfer {
     private String contactName;
     private String contactSurname;
     private String legalCompanyTitle;
-    private String marketplaceSubmerchantType;
+    @JsonProperty("marketplaceSubmerchantType")
+    private String marketplaceSubMerchantType;
 
     public String getSubMerchantKey() {
         return subMerchantKey;
@@ -49,11 +52,11 @@ public class BankTransfer {
         this.legalCompanyTitle = legalCompanyTitle;
     }
 
-    public String getMarketplaceSubmerchantType() {
-        return marketplaceSubmerchantType;
+    public String getMarketplaceSubMerchantType() {
+        return marketplaceSubMerchantType;
     }
 
-    public void setMarketplaceSubmerchantType(String marketplaceSubmerchantType) {
-        this.marketplaceSubmerchantType = marketplaceSubmerchantType;
+    public void setMarketplaceSubMerchantType(String marketplaceSubMerchantType) {
+        this.marketplaceSubMerchantType = marketplaceSubMerchantType;
     }
 }
