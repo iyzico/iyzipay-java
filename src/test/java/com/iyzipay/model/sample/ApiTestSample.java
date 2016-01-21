@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.model.ApiTest;
+import com.iyzipay.model.Status;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +17,6 @@ public class ApiTestSample extends Sample {
         System.out.println(iyzipayResource);
 
         assertNotNull(iyzipayResource.getSystemTime());
-        assertEquals("success", iyzipayResource.getStatus());
+        assertEquals(Status.SUCCESS.getValue(), iyzipayResource.getStatus());
     }
 }

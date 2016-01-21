@@ -3,6 +3,7 @@ package com.iyzipay.model.sample;
 import com.iyzipay.model.Approval;
 import com.iyzipay.model.Disapproval;
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateApprovalRequest;
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class ApprovalSample extends Sample {
         System.out.println(approval);
 
         assertNotNull(approval.getSystemTime());
-        assertEquals("success", approval.getStatus());
+        assertEquals(Status.SUCCESS.getValue(), approval.getStatus());
         assertEquals(Locale.TR.getValue(), approval.getLocale());
         assertEquals("123456789", approval.getConversationId());
 
@@ -42,7 +43,7 @@ public class ApprovalSample extends Sample {
         System.out.println(disapproval);
 
         assertNotNull(disapproval.getSystemTime());
-        assertEquals("success", disapproval.getStatus());
+        assertEquals(Status.SUCCESS.getValue(), disapproval.getStatus());
         assertEquals(Locale.TR.getValue(), disapproval.getLocale());
         assertEquals("123456789", disapproval.getConversationId());
 

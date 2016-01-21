@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.BinNumber;
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.RetrieveBinNumberRequest;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class BinNumberSample extends Sample {
         System.out.println(binNumber);
 
         assertNotNull(binNumber.getSystemTime());
-        assertEquals("success", binNumber.getStatus());
+        assertEquals(Status.SUCCESS.getValue(), binNumber.getStatus());
         assertEquals(Locale.TR.getValue(), binNumber.getLocale());
         assertEquals("123456", binNumber.getConversationId());
 

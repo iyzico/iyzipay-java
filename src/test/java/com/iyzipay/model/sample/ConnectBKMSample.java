@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class ConnectBKMSample extends Sample {
 
     @Test
@@ -31,6 +34,11 @@ public class ConnectBKMSample extends Sample {
         ConnectBKMInitialize connectBKMInitialize = ConnectBKMInitialize.create(request, options);
 
         System.out.println(connectBKMInitialize);
+
+        assertNotNull(connectBKMInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), connectBKMInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), connectBKMInitialize.getLocale());
+        assertEquals("123456789", connectBKMInitialize.getConversationId());
     }
 
     @Test
@@ -39,11 +47,16 @@ public class ConnectBKMSample extends Sample {
 
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("10bfd53e-56a9-447a-84a2-9a7d33fff224");
+        request.setToken("mockToken1453392332672");
 
         ConnectBKMAuth connectBKMAuth = ConnectBKMAuth.retrieve(request, options);
 
         System.out.println(connectBKMAuth);
+
+        assertNotNull(connectBKMAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), connectBKMAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), connectBKMAuth.getLocale());
+        assertEquals("123456789", connectBKMAuth.getConversationId());
     }
 
     List<BKMInstallment> prepareInstallmentDetails() {

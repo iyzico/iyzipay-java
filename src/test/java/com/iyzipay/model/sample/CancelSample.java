@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.Cancel;
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCancelRequest;
 import org.junit.Test;
 
@@ -15,16 +16,16 @@ public class CancelSample extends Sample {
         CreateCancelRequest request = new CreateCancelRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentId("12345");
+        request.setPaymentId("1");
         request.setIp("127.0.0.1");
 
         Cancel cancel = Cancel.create(request, options);
 
         System.out.println(cancel);
 
-        assertNotNull(cancel.getConversationId());
-        assertNotNull(cancel.getLocale());
+        assertNotNull(cancel.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), cancel.getStatus());
         assertEquals(Locale.TR.getValue(), cancel.getLocale());
+        assertEquals("123456789", cancel.getConversationId());
     }
-
 }

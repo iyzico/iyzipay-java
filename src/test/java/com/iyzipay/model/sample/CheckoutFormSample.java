@@ -33,25 +33,25 @@ public class CheckoutFormSample extends Sample {
 
         System.out.println(checkoutFormInitialize);
 
-        assertNotNull(checkoutFormInitialize.getConversationId());
-        assertNotNull(checkoutFormInitialize.getLocale());
-        assertEquals(Locale.TR.getValue(), request.getLocale());
+        assertNotNull(checkoutFormInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
+        assertEquals("123456789", checkoutFormInitialize.getConversationId());
     }
 
     @Test
     public void should_retrieve_checkout_form_auth() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
-        request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("token");
+        request.setToken("700e1665-5647-43fe-93ec-de1e9c03ecbb");
 
         CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
 
         System.out.println(checkoutFormAuth);
 
-        assertNotNull(checkoutFormAuth.getConversationId());
-        assertNotNull(checkoutFormAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), checkoutFormAuth.getLocale());
+        assertNotNull(checkoutFormAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
+        assertEquals("123456789", checkoutFormAuth.getConversationId());
     }
 
     private Buyer newBuyer() {

@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.Card;
-import com.iyzipay.model.CardInformation;
-import com.iyzipay.model.CardList;
-import com.iyzipay.model.Locale;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
 import com.iyzipay.request.RetrieveCardListRequest;
@@ -14,15 +11,14 @@ import static org.junit.Assert.assertNotNull;
 
 public class CardStorageSample extends Sample {
 
-
     @Test
     public void should_create_user_and_add_card() {
         CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardAlias("card alias");
-        cardInformation.setCardHolderName("card holder name");
-        cardInformation.setCardNumber("****************");
-        cardInformation.setExpireMonth("**");
-        cardInformation.setExpireYear("****");
+        cardInformation.setCardAlias("myAlias");
+        cardInformation.setCardHolderName("John Doe");
+        cardInformation.setCardNumber("5528790000000008");
+        cardInformation.setExpireMonth("12");
+        cardInformation.setExpireYear("2030");
 
         CreateCardRequest request = new CreateCardRequest();
         request.setLocale(Locale.TR.getValue());
@@ -33,35 +29,37 @@ public class CardStorageSample extends Sample {
 
         Card card = Card.create(request, options);
 
-        assertNotNull(card.getConversationId());
-        assertNotNull(card.getLocale());
-        assertEquals(Locale.TR.getValue(), card.getLocale());
-
         System.out.println(card);
+
+        assertNotNull(card.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), card.getStatus());
+        assertEquals(Locale.TR.getValue(), card.getLocale());
+        assertEquals("123456789", card.getConversationId());
     }
 
     @Test
     public void should_create_card() {
         CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardAlias("card alias");
-        cardInformation.setCardHolderName("card holder name");
-        cardInformation.setCardNumber("****************");
-        cardInformation.setExpireMonth("**");
-        cardInformation.setExpireYear("****");
+        cardInformation.setCardAlias("myAlias");
+        cardInformation.setCardHolderName("John Doe");
+        cardInformation.setCardNumber("5528790000000008");
+        cardInformation.setExpireMonth("12");
+        cardInformation.setExpireYear("2030");
 
         CreateCardRequest request = new CreateCardRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCardUserKey("card user key");
+        request.setCardUserKey("myCardUserKey");
         request.setCard(cardInformation);
 
         Card card = Card.create(request, options);
 
         System.out.println(card);
 
-        assertNotNull(card.getConversationId());
-        assertNotNull(card.getLocale());
+        assertNotNull(card.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertEquals(Locale.TR.getValue(), card.getLocale());
+        assertEquals("123456789", card.getConversationId());
     }
 
     @Test
@@ -69,16 +67,17 @@ public class CardStorageSample extends Sample {
         DeleteCardRequest request = new DeleteCardRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCardToken("card token");
-        request.setCardUserKey("card user key");
+        request.setCardToken("myCardToken");
+        request.setCardUserKey("myCardUserKey");
 
         Card card = Card.delete(request, options);
 
         System.out.println(card);
 
-        assertNotNull(card.getConversationId());
-        assertNotNull(card.getLocale());
+        assertNotNull(card.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertEquals(Locale.TR.getValue(), card.getLocale());
+        assertEquals("123456789", card.getConversationId());
     }
 
     @Test
@@ -86,15 +85,15 @@ public class CardStorageSample extends Sample {
         RetrieveCardListRequest request = new RetrieveCardListRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCardUserKey("card user key");
+        request.setCardUserKey("myCardUserKey");
 
         CardList cardList = CardList.retrieve(request, options);
 
         System.out.println(cardList);
 
-        assertNotNull(cardList.getConversationId());
-        assertNotNull(cardList.getLocale());
+        assertNotNull(cardList.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), cardList.getStatus());
         assertEquals(Locale.TR.getValue(), cardList.getLocale());
+        assertEquals("123456789", cardList.getConversationId());
     }
-
 }

@@ -33,7 +33,7 @@ public class BKMSample extends Sample {
         System.out.println(bkmInitialize);
 
         assertNotNull(bkmInitialize.getSystemTime());
-        assertEquals("success", bkmInitialize.getStatus());
+        assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
         assertEquals("123456", bkmInitialize.getConversationId());
 
@@ -45,11 +45,16 @@ public class BKMSample extends Sample {
         RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("10bfd53e-56a9-447a-84a2-9a7d33fff224");
+        request.setToken("mockToken1453382198111");
 
         BKMAuth bkmAuth = BKMAuth.retrieve(request, options);
 
         System.out.println(bkmAuth);
+
+        assertNotNull(bkmAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), bkmAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), bkmAuth.getLocale());
+        assertEquals("123456", bkmAuth.getConversationId());
     }
 
     private Buyer newBuyer() {
