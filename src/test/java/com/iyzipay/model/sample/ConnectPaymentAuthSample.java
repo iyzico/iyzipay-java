@@ -3,7 +3,7 @@ package com.iyzipay.model.sample;
 import com.iyzipay.model.ConnectPaymentAuth;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
-import com.iyzipay.request.CreateConnectPaymentAuthRequest;
+import com.iyzipay.request.CreateConnectPaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ public class ConnectPaymentAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card() {
-        CreateConnectPaymentAuthRequest request = new CreateConnectPaymentAuthRequest();
+        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -46,7 +46,7 @@ public class ConnectPaymentAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card_token() {
-        CreateConnectPaymentAuthRequest request = new CreateConnectPaymentAuthRequest();
+        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
