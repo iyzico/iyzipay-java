@@ -3,7 +3,7 @@ package com.iyzipay;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 
-public class HashGenerator {
+public final class HashGenerator {
 
     private HashGenerator() {
     }

@@ -21,7 +21,8 @@ public class IyzipayResource {
     private long systemTime;
     private String conversationId;
 
-    public IyzipayResource(){}
+    public IyzipayResource() {
+    }
 
     protected static HttpHeaders getHttpHeaders(Request request, Options options) {
         String randomString = System.currentTimeMillis() + RandomStringUtils.randomAlphanumeric(RANDOM_STRING_SIZE);

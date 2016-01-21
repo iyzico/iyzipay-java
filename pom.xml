@@ -2,36 +2,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.iyzipay</groupId>
     <artifactId>iyzipay-java</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
     <name>iyzipay-java</name>
     <description>iyzipay api java client</description>
+
     <licenses>
         <license>
             <name>MIT</name>
             <url>http://choosealicense.com/licenses/mit/</url>
         </license>
     </licenses>
+
     <scm>
         <connection>scm:git:https://github.com/iyzico/iyzipay-java.git</connection>
         <developerConnection>scm:git:https://github.com/iyzico/iyzipay-java.git</developerConnection>
         <url>https://bitbucket.org/iyzico/iyzipay-java</url>
         <tag>HEAD</tag>
     </scm>
+
     <properties>
         <java-compileSource.version>1.6</java-compileSource.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-        <iyzipay-bom.version>1.0.14</iyzipay-bom.version>
         <jackson.version>2.5.3</jackson.version>
         <spring.version>4.2.4.RELEASE</spring.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <commons-codec.version>1.10</commons-codec.version>
         <junit-version>4.12</junit-version>
     </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -65,6 +68,7 @@
             </plugin>
         </plugins>
     </build>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>

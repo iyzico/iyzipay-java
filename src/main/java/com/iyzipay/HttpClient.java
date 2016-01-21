@@ -12,7 +12,7 @@ public class HttpClient extends RestTemplate {
     private HttpClient() {
     }
 
-    public static HttpClient create(){
+    public static HttpClient create() {
         return new HttpClient();
     }
 
@@ -60,5 +60,4 @@ public class HttpClient extends RestTemplate {
     public <T> ResponseEntity<T> delete(String url, HttpHeaders headers, Class<T> responseType, Object... urlVariables) {
         return exchange(url, HttpMethod.DELETE, headers, null, responseType, urlVariables);
     }
-
 }
