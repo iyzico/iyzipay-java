@@ -5,10 +5,91 @@ import com.iyzipay.ToStringRequestBuilder;
 
 public class CreateSubMerchantRequest extends Request {
 
+    private String name;
+    private String email;
+    private String gsmNumber;
+    private String address;
+    private String iban;
+    private String taxOffice;
+    private String contactName;
+    private String contactSurname;
+    private String legalCompanyTitle;
     private String subMerchantExternalId;
     private String identityNumber;
     private String taxNumber;
     private String subMerchantType;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGsmNumber() {
+        return gsmNumber;
+    }
+
+    public void setGsmNumber(String gsmNumber) {
+        this.gsmNumber = gsmNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getTaxOffice() {
+        return taxOffice;
+    }
+
+    public void setTaxOffice(String taxOffice) {
+        this.taxOffice = taxOffice;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public String getContactSurname() {
+        return contactSurname;
+    }
+
+    public void setContactSurname(String contactSurname) {
+        this.contactSurname = contactSurname;
+    }
+
+    public String getLegalCompanyTitle() {
+        return legalCompanyTitle;
+    }
+
+    public void setLegalCompanyTitle(String legalCompanyTitle) {
+        this.legalCompanyTitle = legalCompanyTitle;
+    }
 
     public String getSubMerchantExternalId() {
         return subMerchantExternalId;
@@ -46,6 +127,15 @@ public class CreateSubMerchantRequest extends Request {
     public String toString() {
         return new ToStringRequestBuilder(this)
                 .appendSuper(super.toString())
+                .append("name", name)
+                .append("email", email)
+                .append("gsmNumber", gsmNumber)
+                .append("address", address)
+                .append("iban", iban)
+                .append("taxOffice", taxOffice)
+                .append("contactName", contactName)
+                .append("contactSurname", contactSurname)
+                .append("legalCompanyTitle", legalCompanyTitle)
                 .append("subMerchantExternalId", subMerchantExternalId)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)
