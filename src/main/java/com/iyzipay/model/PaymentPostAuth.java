@@ -3,7 +3,6 @@ package com.iyzipay.model;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreatePaymentAuthRequest;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

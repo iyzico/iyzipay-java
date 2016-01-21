@@ -6,7 +6,7 @@ import com.iyzipay.request.RetrieveCheckoutFormAuthRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class CheckoutFormAuth extends PaymentAuth {
+public class CheckoutFormAuth extends Payment {
 
     private String token;
     private String callbackUrl;

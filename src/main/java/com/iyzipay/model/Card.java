@@ -5,7 +5,6 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
-import com.iyzipay.request.RetrieveCardListRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

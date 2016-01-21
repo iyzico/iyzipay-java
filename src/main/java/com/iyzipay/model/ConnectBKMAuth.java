@@ -6,7 +6,7 @@ import com.iyzipay.request.RetrieveBKMAuthRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class ConnectBKMAuth extends ConnectPaymentAuth {
+public class ConnectBKMAuth extends ConnectPayment {
 
     private String token;
     private String callbackUrl;
