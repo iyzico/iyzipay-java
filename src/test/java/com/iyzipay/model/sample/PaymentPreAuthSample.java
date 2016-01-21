@@ -1,7 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreatePaymentPreAuthRequest;
+import com.iyzipay.request.CreatePaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ public class PaymentPreAuthSample extends Sample {
 
     @Test
     public void should_create_market_place_non_threeds_physical_and_virtual_product_payment() {
-        CreatePaymentPreAuthRequest request = new CreatePaymentPreAuthRequest();
+        CreatePaymentRequest request = new CreatePaymentRequest();
 
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -113,7 +113,7 @@ public class PaymentPreAuthSample extends Sample {
 
     @Test
     public void should_create_physical_and_virtual_listing_or_subscription_payment() {
-        CreatePaymentPreAuthRequest request = new CreatePaymentPreAuthRequest();
+        CreatePaymentRequest request = new CreatePaymentRequest();
 
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
