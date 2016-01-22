@@ -1,6 +1,8 @@
 package com.iyzipay.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class BankTransfer {
 
@@ -58,5 +60,10 @@ public class BankTransfer {
 
     public void setMarketplaceSubMerchantType(String marketplaceSubMerchantType) {
         this.marketplaceSubMerchantType = marketplaceSubMerchantType;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }

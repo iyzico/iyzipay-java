@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.InstallmentInfo;
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.RetrieveInstallmentInfoRequest;
 import org.junit.Test;
 
@@ -24,8 +25,9 @@ public class InstallmentSample extends Sample {
 
         System.out.println(installmentInfo);
 
-        assertNotNull(installmentInfo.getConversationId());
-        assertNotNull(installmentInfo.getLocale());
+        assertNotNull(installmentInfo.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), installmentInfo.getStatus());
         assertEquals(Locale.TR.getValue(), installmentInfo.getLocale());
+        assertEquals("123456789", installmentInfo.getConversationId());
     }
 }

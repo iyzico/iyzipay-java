@@ -3,6 +3,7 @@ package com.iyzipay.model.sample;
 import com.iyzipay.model.BouncedBankTransferList;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PayoutCompletedTransactionList;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.RetrieveTransactionsRequest;
 import org.junit.Test;
 
@@ -16,15 +17,16 @@ public class RetrieveTransactionsSample extends Sample {
         RetrieveTransactionsRequest request = new RetrieveTransactionsRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setDate("2015-06-02 19:13:00");
+        request.setDate("2016-01-22 19:13:00");
 
         PayoutCompletedTransactionList payoutCompletedTransactionList = PayoutCompletedTransactionList.retrieve(request, options);
 
         System.out.println(payoutCompletedTransactionList);
 
-        assertNotNull(payoutCompletedTransactionList.getConversationId());
-        assertNotNull(payoutCompletedTransactionList.getLocale());
+        assertNotNull(payoutCompletedTransactionList.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payoutCompletedTransactionList.getStatus());
         assertEquals(Locale.TR.getValue(), payoutCompletedTransactionList.getLocale());
+        assertEquals("123456789", payoutCompletedTransactionList.getConversationId());
     }
 
     @Test
@@ -38,8 +40,9 @@ public class RetrieveTransactionsSample extends Sample {
 
         System.out.println(bouncedBankTransferList);
 
-        assertNotNull(bouncedBankTransferList.getConversationId());
-        assertNotNull(bouncedBankTransferList.getLocale());
+        assertNotNull(bouncedBankTransferList.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), bouncedBankTransferList.getStatus());
         assertEquals(Locale.TR.getValue(), bouncedBankTransferList.getLocale());
+        assertEquals("123456789", bouncedBankTransferList.getConversationId());
     }
 }

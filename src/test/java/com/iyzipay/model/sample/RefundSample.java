@@ -3,6 +3,7 @@ package com.iyzipay.model.sample;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Refund;
 import com.iyzipay.model.RefundChargedFromMerchant;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
 
@@ -18,17 +19,18 @@ public class RefundSample extends Sample {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("12345");
-        request.setPrice(new BigDecimal("1"));
+        request.setPaymentTransactionId("41");
+        request.setPrice(new BigDecimal("0.1"));
         request.setIp("127.0.0.1");
 
         Refund refund = Refund.create(request, options);
 
         System.out.println(refund);
 
-        assertNotNull(refund.getConversationId());
-        assertNotNull(refund.getLocale());
+        assertNotNull(refund.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertEquals("123456789", refund.getConversationId());
     }
 
     @Test
@@ -36,16 +38,17 @@ public class RefundSample extends Sample {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("12345");
-        request.setPrice(new BigDecimal("1"));
+        request.setPaymentTransactionId("41");
+        request.setPrice(new BigDecimal("0.05"));
         request.setIp("127.0.0.1");
 
         RefundChargedFromMerchant refundChargedFromMerchant = RefundChargedFromMerchant.create(request, options);
 
         System.out.println(refundChargedFromMerchant);
 
-        assertNotNull(refundChargedFromMerchant.getConversationId());
-        assertNotNull(refundChargedFromMerchant.getLocale());
+        assertNotNull(refundChargedFromMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), refundChargedFromMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), refundChargedFromMerchant.getLocale());
+        assertEquals("123456789", refundChargedFromMerchant.getConversationId());
     }
 }

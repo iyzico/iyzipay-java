@@ -30,10 +30,10 @@ public class ThreeDSSample extends Sample {
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
-        paymentCard.setCardNumber("****************");
-        paymentCard.setExpireMonth("**");
-        paymentCard.setExpireYear("****");
-        paymentCard.setCvc("***");
+        paymentCard.setCardNumber("5528790000000008");
+        paymentCard.setExpireMonth("12");
+        paymentCard.setExpireYear("2030");
+        paymentCard.setCvc("123");
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
@@ -77,7 +77,7 @@ public class ThreeDSSample extends Sample {
         basketItem1.setCategory2("Aksesuar");
         basketItem1.setItemType(BasketItemType.PHYSICAL.name());
         basketItem1.setPrice(new BigDecimal("0.3"));
-        basketItem1.setSubMerchantKey("sub merchant key");
+        basketItem1.setSubMerchantKey("subMerchantKey");
         basketItem1.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(basketItem1);
 
@@ -88,7 +88,7 @@ public class ThreeDSSample extends Sample {
         basketItem2.setCategory2("Online Oyun Kodları");
         basketItem2.setItemType(BasketItemType.VIRTUAL.name());
         basketItem2.setPrice(new BigDecimal("0.5"));
-        basketItem2.setSubMerchantKey("sub merchant key");
+        basketItem2.setSubMerchantKey("subMerchantKey");
         basketItem2.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(basketItem2);
 
@@ -99,7 +99,7 @@ public class ThreeDSSample extends Sample {
         basketItem3.setCategory2("Usb / Cable");
         basketItem3.setItemType(BasketItemType.PHYSICAL.name());
         basketItem3.setPrice(new BigDecimal("0.2"));
-        basketItem3.setSubMerchantKey("sub merchant key");
+        basketItem3.setSubMerchantKey("subMerchantKey");
         basketItem3.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(basketItem3);
         request.setBasketItems(basketItems);
@@ -108,9 +108,10 @@ public class ThreeDSSample extends Sample {
 
         System.out.println(threeDSInitialize);
 
-        assertNotNull(threeDSInitialize.getConversationId());
-        assertNotNull(threeDSInitialize.getLocale());
+        assertNotNull(threeDSInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threeDSInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
+        assertEquals("123456789", threeDSInitialize.getConversationId());
     }
 
     @Test

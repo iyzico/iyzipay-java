@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentPostAuth;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
 import org.junit.Test;
 
@@ -15,15 +16,16 @@ public class PostAuthSample extends Sample {
         CreatePaymentPostAuthRequest request = new CreatePaymentPostAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentId("12345");
+        request.setPaymentId("29");
         request.setIp("127.0.0.1");
 
         PaymentPostAuth paymentPostAuth = PaymentPostAuth.create(request, options);
 
         System.out.println(paymentPostAuth);
 
-        assertNotNull(paymentPostAuth.getConversationId());
-        assertNotNull(paymentPostAuth.getLocale());
+        assertNotNull(paymentPostAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), paymentPostAuth.getStatus());
         assertEquals(Locale.TR.getValue(), paymentPostAuth.getLocale());
+        assertEquals("123456789", paymentPostAuth.getConversationId());
     }
 }

@@ -17,7 +17,7 @@ public class ConnectRefundSample extends Sample {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("123456");
+        request.setPaymentTransactionId("29");
         request.setPrice(new BigDecimal("1.0"));
         request.setIp("127.0.0.1");
 

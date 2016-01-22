@@ -1,6 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.model.SubMerchant;
 import com.iyzipay.model.SubMerchantType;
 import com.iyzipay.request.CreateSubMerchantRequest;
@@ -18,7 +19,7 @@ public class SubMerchantSample extends Sample {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantExternalId("B49227");
+        request.setSubMerchantExternalId("B49224");
         request.setSubMerchantType(SubMerchantType.PERSONAL.name());
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setContactName("Sabri Onur");
@@ -27,15 +28,16 @@ public class SubMerchantSample extends Sample {
         request.setGsmNumber("+905350000000");
         request.setName("Sabri Onur'un mağazası");
         request.setIban("TR180006200119000006672315");
-        request.setIdentityNumber("232");
+        request.setIdentityNumber("1234567890");
 
         SubMerchant subMerchant = SubMerchant.create(request, options);
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -43,7 +45,7 @@ public class SubMerchantSample extends Sample {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantExternalId("S49221");
+        request.setSubMerchantExternalId("S49222");
         request.setSubMerchantType(SubMerchantType.PRIVATE_COMPANY.name());
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setTaxOffice("Kadıköy V.D.");
@@ -56,9 +58,12 @@ public class SubMerchantSample extends Sample {
 
         SubMerchant subMerchant = SubMerchant.create(request, options);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        System.out.println(subMerchant);
+
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -66,7 +71,7 @@ public class SubMerchantSample extends Sample {
         CreateSubMerchantRequest request = new CreateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantExternalId("AS49222");
+        request.setSubMerchantExternalId("AS49224");
         request.setSubMerchantType(SubMerchantType.LIMITED_OR_JOINT_STOCK_COMPANY.name());
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setTaxOffice("Kadıköy V.D.");
@@ -81,9 +86,10 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -91,7 +97,7 @@ public class SubMerchantSample extends Sample {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("sub merchant key");
+        request.setSubMerchantKey("y3XZJBW9Sx2h2UZXgL6VMJbPCZY=");
         request.setIban("TR630006200027700006678204");
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setContactName("Hakan");
@@ -105,9 +111,10 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -129,9 +136,10 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -139,7 +147,7 @@ public class SubMerchantSample extends Sample {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("sub merchant key");
+        request.setSubMerchantKey("B7PfwgaGY/pdNVZBRrfArqxHjUQ=");
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setTaxOffice("Kadıköy V.D.");
         request.setTaxNumber("9261877");
@@ -153,9 +161,10 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
     @Test
@@ -163,15 +172,16 @@ public class SubMerchantSample extends Sample {
         RetrieveSubMerchantRequest request = new RetrieveSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantExternalId("B49227");
+        request.setSubMerchantExternalId("AS49224");
 
         SubMerchant subMerchant = SubMerchant.retrieve(request, options);
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getConversationId());
-        assertNotNull(subMerchant.getLocale());
+        assertNotNull(subMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
     }
 
 }

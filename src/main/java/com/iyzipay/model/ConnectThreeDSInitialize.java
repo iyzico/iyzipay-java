@@ -1,5 +1,6 @@
 package com.iyzipay.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
@@ -8,6 +9,7 @@ import com.iyzipay.request.CreateConnectThreeDSInitializeRequest;
 
 public class ConnectThreeDSInitialize extends IyzipayResource {
 
+    @JsonProperty("threeDSHtmlContent")
     private String htmlContent;
 
     public static ConnectThreeDSInitialize create(CreateConnectThreeDSInitializeRequest request, Options options) {

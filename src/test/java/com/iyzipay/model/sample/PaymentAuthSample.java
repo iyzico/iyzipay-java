@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class PaymentAuthSample extends Sample {
 
     @Test
@@ -23,7 +26,7 @@ public class PaymentAuthSample extends Sample {
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
 
         PaymentCard paymentCard = new PaymentCard();
-        paymentCard.setCardHolderName("Lorem Ipsum");
+        paymentCard.setCardHolderName("John Doe");
         paymentCard.setCardNumber("5528790000000008");
         paymentCard.setRegisterCard(0);
         paymentCard.setExpireMonth("11");
@@ -71,7 +74,7 @@ public class PaymentAuthSample extends Sample {
         basketItem1.setCategory2("Aksesuar");
         basketItem1.setItemType(BasketItemType.PHYSICAL.name());
         basketItem1.setPrice(new BigDecimal("0.3"));
-        basketItem1.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem1.setSubMerchantKey("subMerchantKey");
         basketItem1.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(basketItem1);
 
@@ -82,7 +85,7 @@ public class PaymentAuthSample extends Sample {
         basketItem2.setCategory2("Online Oyun Kodları");
         basketItem2.setItemType(BasketItemType.VIRTUAL.name());
         basketItem2.setPrice(new BigDecimal("0.5"));
-        basketItem2.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem2.setSubMerchantKey("subMerchantKey");
         basketItem2.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(basketItem2);
 
@@ -93,7 +96,7 @@ public class PaymentAuthSample extends Sample {
         basketItem3.setCategory2("Usb / Cable");
         basketItem3.setItemType(BasketItemType.PHYSICAL.name());
         basketItem3.setPrice(new BigDecimal("0.2"));
-        basketItem3.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem3.setSubMerchantKey("subMerchantKey");
         basketItem3.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(basketItem3);
         request.setBasketItems(basketItems);
@@ -101,6 +104,11 @@ public class PaymentAuthSample extends Sample {
         PaymentAuth paymentAuth = PaymentAuth.create(request, options);
 
         System.out.println(paymentAuth);
+
+        assertNotNull(paymentAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
+        assertEquals("123456789", paymentAuth.getConversationId());
     }
 
     @Test
@@ -116,7 +124,7 @@ public class PaymentAuthSample extends Sample {
         request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
 
         PaymentCard paymentCard = new PaymentCard();
-        paymentCard.setCardHolderName("Lorem Ipsum");
+        paymentCard.setCardHolderName("John Doe");
         paymentCard.setCardNumber("5528790000000008");
         paymentCard.setExpireMonth("11");
         paymentCard.setExpireYear("2017");
@@ -188,5 +196,10 @@ public class PaymentAuthSample extends Sample {
         PaymentAuth paymentAuth = PaymentAuth.create(request, options);
 
         System.out.println(paymentAuth);
+
+        assertNotNull(paymentAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
+        assertEquals("123456789", paymentAuth.getConversationId());
     }
 }

@@ -43,7 +43,7 @@ public class CheckoutFormSample extends Sample {
     public void should_retrieve_checkout_form_auth() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
         request.setConversationId("123456789");
-        request.setToken("700e1665-5647-43fe-93ec-de1e9c03ecbb");
+        request.setToken("myToken");
 
         CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
 
@@ -101,7 +101,7 @@ public class CheckoutFormSample extends Sample {
         basketItem1.setCategory2("Aksesuar");
         basketItem1.setItemType(BasketItemType.PHYSICAL.name());
         basketItem1.setPrice(new BigDecimal("0.3"));
-        basketItem1.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem1.setSubMerchantKey("subMerchantKey");
         basketItem1.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(basketItem1);
 
@@ -112,7 +112,7 @@ public class CheckoutFormSample extends Sample {
         basketItem2.setCategory2("Online Oyun Kodları");
         basketItem2.setItemType(BasketItemType.VIRTUAL.name());
         basketItem2.setPrice(new BigDecimal("0.5"));
-        basketItem2.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem2.setSubMerchantKey("subMerchantKey");
         basketItem2.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(basketItem2);
 
@@ -123,7 +123,7 @@ public class CheckoutFormSample extends Sample {
         basketItem3.setCategory2("Usb / Cable");
         basketItem3.setItemType(BasketItemType.PHYSICAL.name());
         basketItem3.setPrice(new BigDecimal("0.2"));
-        basketItem3.setSubMerchantKey("ha3us4v5mk2652kkjk5728cc4407an");
+        basketItem3.setSubMerchantKey("subMerchantKey");
         basketItem3.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(basketItem3);
         return basketItems;

@@ -126,6 +126,7 @@ public class UpdateSubMerchantRequest extends Request {
                 .append("taxOffice", taxOffice)
                 .append("contactName", contactName)
                 .append("contactSurname", contactSurname)
+                .append("legalCompanyTitle", legalCompanyTitle)
                 .append("subMerchantKey", subMerchantKey)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)

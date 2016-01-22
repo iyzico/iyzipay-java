@@ -3,6 +3,7 @@ package com.iyzipay.model.sample;
 import com.iyzipay.model.CrossBookingFromSubMerchant;
 import com.iyzipay.model.CrossBookingToSubMerchant;
 import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCrossBookingRequest;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class CrossBookingSample extends Sample {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("sub merchant key");
+        request.setSubMerchantKey("subMerchantKey");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
 
@@ -26,9 +27,10 @@ public class CrossBookingSample extends Sample {
 
         System.out.println(crossBookingToSubMerchant);
 
-        assertNotNull(crossBookingToSubMerchant.getConversationId());
-        assertNotNull(crossBookingToSubMerchant.getLocale());
+        assertNotNull(crossBookingToSubMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), crossBookingToSubMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), crossBookingToSubMerchant.getLocale());
+        assertEquals("123456789", crossBookingToSubMerchant.getConversationId());
     }
 
     @Test
@@ -36,7 +38,7 @@ public class CrossBookingSample extends Sample {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("sub merchant key");
+        request.setSubMerchantKey("subMerchantKey");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
 
@@ -44,8 +46,9 @@ public class CrossBookingSample extends Sample {
 
         System.out.println(crossBookingFromSubMerchant);
 
-        assertNotNull(crossBookingFromSubMerchant.getConversationId());
-        assertNotNull(crossBookingFromSubMerchant.getLocale());
+        assertNotNull(crossBookingFromSubMerchant.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), crossBookingFromSubMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), crossBookingFromSubMerchant.getLocale());
+        assertEquals("123456789", crossBookingFromSubMerchant.getConversationId());
     }
 }
