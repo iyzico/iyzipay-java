@@ -77,6 +77,7 @@ public static void main(String[] args) {
    basketItem1.setSubMerchantKey("subMerchantKey");
    basketItem1.setSubMerchantPrice(new BigDecimal("0.27"));
    basketItems.add(basketItem1);
+   request.setBasketItems(basketItems);
 
    PaymentAuth paymentAuth = PaymentAuth.create(request, options);
 }
