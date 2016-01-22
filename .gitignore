@@ -70,3 +70,5 @@ $RECYCLE.BIN/
 # SVN generated files
 .svn
 log.txt
+
+*.DS_Store
