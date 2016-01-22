@@ -81,3 +81,4 @@ public static void main(String[] args) {
    PaymentAuth paymentAuth = PaymentAuth.create(request, options);
 }
 ```
+See other samples under src/test/java/com/iyzipay/model/sample package.
