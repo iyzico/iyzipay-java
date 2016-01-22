@@ -22,17 +22,17 @@ public class Card extends IyzipayResource {
 
     public static Card create(CreateCardRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
-                        getHttpHeaders(request, options),
-                        request,
-                        Card.class)
+                getHttpHeaders(request, options),
+                request,
+                Card.class)
                 .getBody();
     }
 
     public static Card delete(DeleteCardRequest request, Options options) {
         return HttpClient.create().delete(options.getBaseUrl() + "/cardstorage/card",
-                        getHttpHeaders(request, options),
-                        request,
-                        Card.class)
+                getHttpHeaders(request, options),
+                request,
+                Card.class)
                 .getBody();
     }
 
