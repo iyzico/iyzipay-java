@@ -6,10 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.iyzipay</groupId>
     <artifactId>iyzipay-java</artifactId>
-    <packaging>jar</packaging>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>iyzipay-java</name>
     <description>iyzipay api java client</description>
+    <url>https://iyzico.com</url>
 
     <licenses>
         <license>
@@ -17,6 +18,21 @@
             <url>http://choosealicense.com/licenses/mit/</url>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <name>Yalcin Yenigun</name>
+            <email>yalcin.yenigun@iyzico.com</email>
+            <organization>Iyzico</organization>
+            <organizationUrl>https://iyzico.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Sabri Onur Tuzun</name>
+            <email>onur.tuzun@iyzico.com</email>
+            <organization>Iyzico</organization>
+            <organizationUrl>https://iyzico.com</organizationUrl>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:https://github.com/iyzico/iyzipay-java.git</connection>
@@ -53,21 +69,6 @@
                     <verbose>true</verbose>
                     <fork>true</fork>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar</goal>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
