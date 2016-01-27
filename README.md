@@ -6,6 +6,17 @@ You can sign up for an iyzico account at https://iyzico.com
 
 Java 1.6 or newer
 
+# Installation
+
+For now you'll need to manually install the following JARs:
+
+* The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
+* Spring web 4.1.2 from http://mvnrepository.com/artifact/org.springframework/spring-web/4.1.2.RELEASE
+* Jackson databind 2.5.3 from http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.5.3
+* Jackson core 2.5.3 from http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.5.3
+* Commons codec 1.10 from http://mvnrepository.com/artifact/commons-codec/commons-codec/1.10
+* Commons lang 3.4 from http://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.4
+
 # Usage
 
 ```java
