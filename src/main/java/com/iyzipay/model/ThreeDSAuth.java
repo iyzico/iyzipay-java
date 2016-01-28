@@ -10,7 +10,6 @@ public class ThreeDSAuth extends Payment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/auth3ds/ecom",
                 getHttpHeaders(request, options),
                 request,
-                ThreeDSAuth.class)
-                .getBody();
+                ThreeDSAuth.class);
     }
 }

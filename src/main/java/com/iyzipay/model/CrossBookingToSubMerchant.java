@@ -11,7 +11,6 @@ public class CrossBookingToSubMerchant extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/crossbooking/send",
                 getHttpHeaders(request, options),
                 request,
-                CrossBookingToSubMerchant.class)
-                .getBody();
+                CrossBookingToSubMerchant.class);
     }
 }

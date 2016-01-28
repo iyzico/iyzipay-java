@@ -10,7 +10,6 @@ public class PaymentPreAuth extends Payment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/preauth/ecom",
                 getHttpHeaders(request, options),
                 request,
-                PaymentPreAuth.class)
-                .getBody();
+                PaymentPreAuth.class);
     }
 }

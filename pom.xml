@@ -45,12 +45,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-compileSource.version>1.6</java-compileSource.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-        <maven-source-plugin.version>2.4</maven-source-plugin.version>
-        <jackson.version>2.5.3</jackson.version>
-        <spring.version>4.2.4.RELEASE</spring.version>
         <commons-lang3.version>3.4</commons-lang3.version>
-        <commons-codec.version>1.10</commons-codec.version>
         <junit-version>4.12</junit-version>
+        <httpclient.version>4.5.1</httpclient.version>
+        <gson.version>2.5</gson.version>
     </properties>
 
     <build>
@@ -75,34 +73,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>${commons-codec.version}</version>
-            <scope>provided</scope>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

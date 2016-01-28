@@ -10,7 +10,6 @@ public class ConnectPaymentPreAuth extends ConnectPayment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/preauth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectPaymentPreAuth.class)
-                .getBody();
+                ConnectPaymentPreAuth.class);
     }
 }

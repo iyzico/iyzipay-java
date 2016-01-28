@@ -15,8 +15,7 @@ public class PayoutCompletedTransactionList extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/reporting/settlement/payoutcompleted",
                 getHttpHeaders(request, options),
                 request,
-                PayoutCompletedTransactionList.class)
-                .getBody();
+                PayoutCompletedTransactionList.class);
     }
 
     public List<PayoutCompletedTransaction> getPayoutCompletedTransactions() {

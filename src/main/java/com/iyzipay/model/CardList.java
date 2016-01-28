@@ -16,8 +16,7 @@ public class CardList extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/cards",
                 getHttpHeaders(request, options),
                 request,
-                CardList.class)
-                .getBody();
+                CardList.class);
     }
 
     public String getCardUserKey() {

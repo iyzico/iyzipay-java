@@ -16,8 +16,7 @@ public class CheckoutFormInitialize extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/ecom",
                 getHttpHeaders(request, options),
                 request,
-                CheckoutFormInitialize.class)
-                .getBody();
+                CheckoutFormInitialize.class);
     }
 
     public String getToken() {

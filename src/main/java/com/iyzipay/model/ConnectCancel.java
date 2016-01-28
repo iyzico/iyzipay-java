@@ -17,8 +17,7 @@ public class ConnectCancel extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/cancel",
                 getHttpHeaders(request, options),
                 request,
-                ConnectCancel.class)
-                .getBody();
+                ConnectCancel.class);
     }
 
     public String getPaymentId() {

@@ -11,11 +11,14 @@ Java 1.6 or newer
 For now you'll need to manually install the following JARs:
 
 * The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
-* Spring web 4.1.2 from http://mvnrepository.com/artifact/org.springframework/spring-web/4.1.2.RELEASE
-* Jackson databind 2.5.3 from http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.5.3
-* Jackson core 2.5.3 from http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.5.3
+* Apache http client 4.5.1 from http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.1
+* Gson 2.5 from http://mvnrepository.com/artifact/com.google.code.gson/gson/2.5
 * Commons codec 1.10 from http://mvnrepository.com/artifact/commons-codec/commons-codec/1.10
 * Commons lang 3.4 from http://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.4
+
+If you want to run samples you'll need to manually install Junit JAR:
+
+* JUnit 4.12 from http://mvnrepository.com/artifact/junit/junit/4.12
 
 # Usage
 
