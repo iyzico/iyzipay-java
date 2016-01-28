@@ -13,6 +13,7 @@ For now you'll need to manually install the following JARs:
 * The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
 * Apache http client 4.5.1 from http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.1
 * Gson 2.5 from http://mvnrepository.com/artifact/com.google.code.gson/gson/2.5
+* Commons codec 1.9 from http://mvnrepository.com/artifact/commons-codec/commons-codec/1.9
 * Commons lang 3.4 from http://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.4
 
 If you want to run samples you'll need to manually install Junit JAR:
