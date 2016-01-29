@@ -107,5 +107,5 @@ You must have Maven installed. To run the samples:
 
 You can run particular sample by passing `-D test=Class#method`. For example:
 
-    mvn test -D test=PaymentAuthSample baseUrl=https://stg.iyzipay.com -apiKey=yourApiKey -secretKey=yourSecretKey
-    mvn test -D test=PaymentAuthSample#should_create_payment_with_virtual_product_for_market_place baseUrl=https://stg.iyzipay.com -apiKey=yourApiKey -secretKey=yourSecretKey
+    mvn test -D test=PaymentAuthSample baseUrl=https://stg.iyzipay.com apiKey=yourApiKey secretKey=yourSecretKey
+    mvn test -D test=PaymentAuthSample#should_create_payment_with_virtual_product_for_market_place baseUrl=https://stg.iyzipay.com apiKey=yourApiKey secretKey=yourSecretKey
