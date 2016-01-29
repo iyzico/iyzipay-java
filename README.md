@@ -101,11 +101,7 @@ See other samples under src/test/java/com/iyzipay/model/sample package.
 Testing
 =======
 
-You must have Maven installed. To run the samples:
-
-    mvn test
-
-You can run particular sample by passing `-D test=Class#method`. For example:
+You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
 
     mvn test -Dtest=PaymentAuthSample -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     mvn test -Dtest=PaymentAuthSample#should_create_payment_with_virtual_product_for_market_place -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
