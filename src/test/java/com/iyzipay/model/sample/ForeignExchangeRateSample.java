@@ -22,7 +22,7 @@ public class ForeignExchangeRateSample extends Sample {
         request.setDestinationCurrencyCode("IRR");
         request.setLocale(Locale.TR.getValue());
 
-        ForeignExchangeRate foreignExchangeRate = ForeignExchangeRate.convert(request, options);
+        ForeignExchangeRate foreignExchangeRate = ForeignExchangeRate.retrieve(request, options);
 
         System.out.println(foreignExchangeRate);
 

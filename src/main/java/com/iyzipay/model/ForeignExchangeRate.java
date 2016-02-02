@@ -11,7 +11,7 @@ public class ForeignExchangeRate extends IyzipayResource {
 
     private BigDecimal convertedAmount;
 
-    public static ForeignExchangeRate convert(ConvertForeignExchangeRateRequest request, Options options) {
+    public static ForeignExchangeRate retrieve(ConvertForeignExchangeRateRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/foreign-exchange-rate/convert",
                 getHttpHeaders(request, options),
                 request,
