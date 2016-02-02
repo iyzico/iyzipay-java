@@ -14,8 +14,7 @@ public class BKMInitialize extends IyzipayResource {
         BKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/initialize/ecom",
                 getHttpHeaders(request, options),
                 request,
-                BKMInitialize.class)
-                .getBody();
+                BKMInitialize.class);
         if (response != null) {
             response.setHtmlContent(DigestHelper.decodeString(response.getHtmlContent()));
         }

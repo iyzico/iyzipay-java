@@ -14,8 +14,7 @@ public class BKMAuth extends Payment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
-                BKMAuth.class)
-                .getBody();
+                BKMAuth.class);
     }
 
     public String getToken() {

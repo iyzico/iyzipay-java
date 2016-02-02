@@ -6,6 +6,20 @@ You can sign up for an iyzico account at https://iyzico.com
 
 Java 1.6 or newer
 
+# Installation
+
+For now you'll need to manually install the following JARs:
+
+* The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
+* Apache http client 4.5.1 from http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.1
+* Gson 2.5 from http://mvnrepository.com/artifact/com.google.code.gson/gson/2.5
+* Commons codec 1.9 from http://mvnrepository.com/artifact/commons-codec/commons-codec/1.9
+* Commons lang 3.4 from http://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.4
+
+If you want to run samples you'll need to manually install Junit JAR:
+
+* JUnit 4.12 from http://mvnrepository.com/artifact/junit/junit/4.12
+
 # Usage
 
 ```java
@@ -83,3 +97,11 @@ public static void main(String[] args) {
 }
 ```
 See other samples under src/test/java/com/iyzipay/model/sample package.
+
+Testing
+=======
+
+You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
+
+    mvn test -Dtest=PaymentAuthSample -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=PaymentAuthSample#should_create_payment_with_virtual_product_for_market_place -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey

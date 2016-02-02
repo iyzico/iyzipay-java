@@ -16,8 +16,7 @@ public class PaymentPostAuth extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/postauth",
                 getHttpHeaders(request, options),
                 request,
-                PaymentPostAuth.class)
-                .getBody();
+                PaymentPostAuth.class);
     }
 
     public String getPaymentId() {

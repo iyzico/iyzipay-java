@@ -18,8 +18,7 @@ public class BinNumber extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/bin/check",
                 getHttpHeaders(request, options),
                 request,
-                BinNumber.class)
-                .getBody();
+                BinNumber.class);
     }
 
     public String getBinNumber() {

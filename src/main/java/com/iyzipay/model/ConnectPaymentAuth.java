@@ -10,7 +10,6 @@ public class ConnectPaymentAuth extends ConnectPayment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/auth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectPaymentAuth.class)
-                .getBody();
+                ConnectPaymentAuth.class);
     }
 }

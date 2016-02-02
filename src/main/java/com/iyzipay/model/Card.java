@@ -24,16 +24,14 @@ public class Card extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
-                Card.class)
-                .getBody();
+                Card.class);
     }
 
     public static Card delete(DeleteCardRequest request, Options options) {
         return HttpClient.create().delete(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
-                Card.class)
-                .getBody();
+                Card.class);
     }
 
     public String getExternalId() {

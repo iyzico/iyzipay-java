@@ -14,8 +14,7 @@ public class CheckoutFormAuth extends Payment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
-                CheckoutFormAuth.class)
-                .getBody();
+                CheckoutFormAuth.class);
     }
 
     public String getToken() {

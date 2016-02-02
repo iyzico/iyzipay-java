@@ -1,13 +1,24 @@
 package com.iyzipay;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.ResponseErrorHandler;
-import org.springframework.web.client.RestTemplate;
+import com.google.gson.Gson;
+import com.iyzipay.exception.HttpClientException;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.*;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
-public class HttpClient extends RestTemplate {
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+public class HttpClient {
+
+    public static final String DEFAULT_CHARSET = "UTF-8";
 
     private HttpClient() {
     }
@@ -16,48 +27,81 @@ public class HttpClient extends RestTemplate {
         return new HttpClient();
     }
 
-    public HttpClient(ResponseErrorHandler errorHandler) {
-        setErrorHandler(errorHandler);
+    public <T> T get(String url, Class<T> responseType) {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(url);
+        CloseableHttpResponse response = null;
+        try {
+            response = httpClient.execute(httpGet);
+            HttpEntity httpEntity = response.getEntity();
+            T result = new Gson().fromJson(EntityUtils.toString(httpEntity, DEFAULT_CHARSET), responseType);
+            EntityUtils.consume(httpEntity);
+            return result;
+        } catch (IOException e) {
+            throw new HttpClientException(e.getMessage(), e);
+        } finally {
+            try {
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                //ignore
+            }
+        }
     }
 
-    public <T> ResponseEntity<T> exchange(String url, HttpMethod httpMethod, HttpHeaders headers, Object request, Class<T> responseType, Object... urlVariables) {
-        HttpEntity<?> requestEntity = new HttpEntity<Object>(request, headers);
-        return exchange(url, httpMethod, requestEntity, responseType, urlVariables);
+    public <T> T post(String url, List<Header> headers, Object request, Class<T> responseType) {
+        HttpPost httpPost = new HttpPost(url);
+        for (Header header : headers) {
+            httpPost.addHeader(header);
+        }
+        return this.exchange(httpPost, request, responseType);
     }
 
-    public <T> ResponseEntity<T> get(String url, Class<T> responseType, Object... urlVariables) {
-        return get(url, null, responseType, urlVariables);
+    public <T> T put(String url, List<Header> headers, Object request, Class<T> responseType) {
+        HttpPut httpPut = new HttpPut(url);
+        for (Header header : headers) {
+            httpPut.addHeader(header);
+        }
+        return this.exchange(httpPut, request, responseType);
     }
 
-    public <T> ResponseEntity<T> get(String url, HttpHeaders headers, Class<T> responseType, Object... urlVariables) {
-        return exchange(url, HttpMethod.GET, headers, null, responseType, urlVariables);
+    public <T> T delete(String url, List<Header> headers, Object request, Class<T> responseType) {
+        HttpDelete httpDelete = new HttpDelete(url);
+        for (Header header : headers) {
+            httpDelete.addHeader(header);
+        }
+        return this.exchange(httpDelete, request, responseType);
     }
 
-    public <T> ResponseEntity<T> post(String url, Object request, Class<T> responseType, Object... urlVariables) {
-        return post(url, null, request, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> post(String url, HttpHeaders headers, Object request, Class<T> responseType, Object... urlVariables) {
-        return exchange(url, HttpMethod.POST, headers, request, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> put(String url, Object request, Class<T> responseType, Object... urlVariables) {
-        return put(url, null, request, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> put(String url, HttpHeaders headers, Object request, Class<T> responseType, Object... urlVariables) {
-        return exchange(url, HttpMethod.PUT, headers, request, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> delete(String url, Class<T> responseType, Object... urlVariables) {
-        return delete(url, null, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> delete(String url, HttpHeaders headers, Object request, Class<T> responseType, Object... urlVariables) {
-        return exchange(url, HttpMethod.DELETE, headers, request, responseType, urlVariables);
-    }
-
-    public <T> ResponseEntity<T> delete(String url, HttpHeaders headers, Class<T> responseType, Object... urlVariables) {
-        return exchange(url, HttpMethod.DELETE, headers, null, responseType, urlVariables);
+    private <T> T exchange(HttpEntityEnclosingRequestBase httpMethod, Object request, Class<T> responseType) {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        Gson gson = new Gson();
+        CloseableHttpResponse response = null;
+        String body = gson.toJson(request);
+        try {
+            StringEntity requestEntity = new StringEntity(body, ContentType.APPLICATION_JSON);
+            requestEntity.setContentEncoding(DEFAULT_CHARSET);
+            httpMethod.setEntity(requestEntity);
+            response = httpClient.execute(httpMethod);
+            HttpEntity responseEntity = response.getEntity();
+            T result = gson.fromJson(EntityUtils.toString(responseEntity, DEFAULT_CHARSET), responseType);
+            EntityUtils.consume(responseEntity);
+            return result;
+        } catch (UnsupportedEncodingException e) {
+            throw new HttpClientException(e.getMessage(), e);
+        } catch (ClientProtocolException e) {
+            throw new HttpClientException(e.getMessage(), e);
+        } catch (IOException e) {
+            throw new HttpClientException(e.getMessage(), e);
+        } finally {
+            try {
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                //ignore
+            }
+        }
     }
 }

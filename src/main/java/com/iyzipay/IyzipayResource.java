@@ -3,7 +3,11 @@ package com.iyzipay;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.http.HttpHeaders;
+import org.apache.http.Header;
+import org.apache.http.message.BasicHeader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class IyzipayResource {
 
@@ -24,11 +28,13 @@ public class IyzipayResource {
     public IyzipayResource() {
     }
 
-    protected static HttpHeaders getHttpHeaders(Request request, Options options) {
+    protected static List<Header> getHttpHeaders(Request request, Options options) {
         String randomString = System.currentTimeMillis() + RandomStringUtils.randomAlphanumeric(RANDOM_STRING_SIZE);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(RANDOM_HEADER_NAME, randomString);
-        httpHeaders.add(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
+        List<Header> httpHeaders = new ArrayList<Header>();
+        Header randomHeader = new BasicHeader(RANDOM_HEADER_NAME, randomString);
+        Header authorizationHeader = new BasicHeader(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
+        httpHeaders.add(randomHeader);
+        httpHeaders.add(authorizationHeader);
         return httpHeaders;
     }
 

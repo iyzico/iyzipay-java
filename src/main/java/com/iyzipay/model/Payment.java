@@ -1,6 +1,6 @@
 package com.iyzipay.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.iyzipay.IyzipayResource;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -26,7 +26,7 @@ public class Payment extends IyzipayResource {
     private String cardUserKey;
     private String binNumber;
     private String basketId;
-    @JsonProperty("itemTransactions")
+    @SerializedName("itemTransactions")
     private List<PaymentItem> paymentItems;
 
     public BigDecimal getPrice() {

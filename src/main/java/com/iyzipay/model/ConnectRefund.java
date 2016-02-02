@@ -18,8 +18,7 @@ public class ConnectRefund extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/refund",
                 getHttpHeaders(request, options),
                 request,
-                ConnectRefund.class)
-                .getBody();
+                ConnectRefund.class);
     }
 
     public String getPaymentId() {

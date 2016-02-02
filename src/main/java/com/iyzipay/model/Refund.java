@@ -17,8 +17,7 @@ public class Refund extends IyzipayResource {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund",
                 getHttpHeaders(request, options),
                 request,
-                Refund.class)
-                .getBody();
+                Refund.class);
     }
 
     public String getPaymentId() {

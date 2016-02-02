@@ -1,6 +1,6 @@
 package com.iyzipay.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -11,7 +11,7 @@ public class BankTransfer {
     private String contactName;
     private String contactSurname;
     private String legalCompanyTitle;
-    @JsonProperty("marketplaceSubmerchantType")
+    @SerializedName("marketplaceSubmerchantType")
     private String marketplaceSubMerchantType;
 
     public String getSubMerchantKey() {

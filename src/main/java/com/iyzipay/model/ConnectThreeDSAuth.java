@@ -10,7 +10,6 @@ public class ConnectThreeDSAuth extends ConnectPayment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/auth3ds",
                 getHttpHeaders(request, options),
                 request,
-                ConnectThreeDSAuth.class)
-                .getBody();
+                ConnectThreeDSAuth.class);
     }
 }

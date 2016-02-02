@@ -35,7 +35,7 @@ public class BKMSample extends Sample {
         assertNotNull(bkmInitialize.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
-        assertEquals("123456", bkmInitialize.getConversationId());
+        assertEquals("123456789", bkmInitialize.getConversationId());
 
         assertNotNull(bkmInitialize.getHtmlContent());
     }
