@@ -12,8 +12,7 @@ public class PeccoAuth extends Payment {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/pecco/auth",
                 getHttpHeaders(request, options),
                 request,
-                PeccoAuth.class)
-                .getBody();
+                PeccoAuth.class);
     }
 
     public String getToken() {

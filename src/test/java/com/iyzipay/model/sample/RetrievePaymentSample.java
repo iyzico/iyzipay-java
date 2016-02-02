@@ -1,10 +1,10 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.Request;
 import com.iyzipay.model.Locale;
-import com.iyzipay.model.PaymentRetrieval;
+import com.iyzipay.model.Payment;
 import com.iyzipay.model.Status;
-import com.iyzipay.request.RetrievePaymentRequest;
+import com.iyzipay.request.RetrievePaymentByConvIdRequest;
+import com.iyzipay.request.RetrievePaymentByIdRequest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,28 +14,27 @@ public class RetrievePaymentSample extends Sample {
 
     @Test
     public void should_retrieve_payment_by_payment_id() {
-        RetrievePaymentRequest request = new RetrievePaymentRequest();
+        RetrievePaymentByIdRequest request = new RetrievePaymentByIdRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentId("10");
 
-        PaymentRetrieval paymentRetrieval = PaymentRetrieval.retrieveByPaymentId(request, options);
+        Payment payment = Payment.retrieve(request, options);
 
-        System.out.println(paymentRetrieval);
+        System.out.println(payment);
 
-
-        assertNotNull(paymentRetrieval.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentRetrieval.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentRetrieval.getLocale());
+        assertNotNull(payment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertEquals(Locale.TR.getValue(), payment.getLocale());
     }
 
     @Test
     public void should_retrieve_payment_by_conversation_id() {
-        RetrievePaymentRequest request = new RetrievePaymentRequest();
+        RetrievePaymentByConvIdRequest request = new RetrievePaymentByConvIdRequest();
         request.setLocale(Locale.TR.getValue());
         request.setPaymentConversationId("123456789");
 
-        PaymentRetrieval paymentRetrieval = PaymentRetrieval.retrieveByConversationId(request, options);
+        Payment paymentRetrieval = Payment.retrieve(request, options);
 
         System.out.println(paymentRetrieval);
 

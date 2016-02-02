@@ -3,18 +3,9 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class RetrievePaymentRequest extends Request {
+public class RetrievePaymentByConvIdRequest extends Request {
 
-    private String paymentId;
     private String paymentConversationId;
-
-    public String getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
-    }
 
     public String getPaymentConversationId() {
         return paymentConversationId;
@@ -28,7 +19,6 @@ public class RetrievePaymentRequest extends Request {
     public String toString() {
         return new ToStringRequestBuilder(this)
                 .appendSuper(super.toString())
-                .append("paymentId", paymentId)
                 .append("paymentConversationId", paymentConversationId)
                 .toString();
     }

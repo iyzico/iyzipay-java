@@ -17,8 +17,7 @@ public class PeccoInitialize extends IyzipayResource {
         PeccoInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/pecco/initialize",
                 getHttpHeaders(request, options),
                 request,
-                PeccoInitialize.class)
-                .getBody();
+                PeccoInitialize.class);
         if (response != null) {
             response.setHtmlContent(DigestHelper.decodeString(response.getHtmlContent()));
         }

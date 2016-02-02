@@ -8,7 +8,6 @@ public class CheckoutFormAuth extends Payment {
 
     private String token;
     private String callbackUrl;
-    private String paymentStatus;
 
     public static CheckoutFormAuth retrieve(RetrieveCheckoutFormAuthRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
@@ -31,13 +30,5 @@ public class CheckoutFormAuth extends Payment {
 
     public void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
     }
 }
