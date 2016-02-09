@@ -48,6 +48,7 @@ logs/
 # Maven generated files
 *.releaseBackup
 release.properties
+pom.xml.versionsBackup
 target/
 
 # OS generated files

@@ -6,16 +6,21 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.iyzipay</groupId>
     <artifactId>iyzipay-java</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>iyzipay-java</name>
     <description>iyzipay api java client</description>
     <url>https://iyzico.com</url>
 
+    <organization>
+        <name>iyzico</name>
+        <url>https://iyzico.com</url>
+    </organization>
+
     <licenses>
         <license>
-            <name>MIT</name>
-            <url>http://choosealicense.com/licenses/mit/</url>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
         </license>
     </licenses>
 
@@ -23,13 +28,13 @@
         <developer>
             <name>Yalcin Yenigun</name>
             <email>yalcin.yenigun@iyzico.com</email>
-            <organization>Iyzico</organization>
+            <organization>iyzico</organization>
             <organizationUrl>https://iyzico.com</organizationUrl>
         </developer>
         <developer>
             <name>Sabri Onur Tuzun</name>
             <email>onur.tuzun@iyzico.com</email>
-            <organization>Iyzico</organization>
+            <organization>iyzico</organization>
             <organizationUrl>https://iyzico.com</organizationUrl>
         </developer>
     </developers>
@@ -38,13 +43,15 @@
         <connection>scm:git:https://github.com/iyzico/iyzipay-java.git</connection>
         <developerConnection>scm:git:https://github.com/iyzico/iyzipay-java.git</developerConnection>
         <url>https://github.com/iyzico/iyzipay-java</url>
-        <tag>HEAD</tag>
     </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-compileSource.version>1.6</java-compileSource.version>
-        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.5</maven-compiler-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <junit-version>4.12</junit-version>
         <httpclient.version>4.5.1</httpclient.version>
@@ -68,8 +75,81 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>deployment</id>
+            <activation>
+                <property>
+                    <name>dp</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <version>${nexus-staging-maven-plugin.version}</version>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <serverId>sonatype-nexus-staging</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
