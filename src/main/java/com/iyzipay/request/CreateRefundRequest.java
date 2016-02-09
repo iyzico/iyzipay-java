@@ -44,5 +44,4 @@ public class CreateRefundRequest extends Request {
                 .append("ip", ip)
                 .toString();
     }
-
 }

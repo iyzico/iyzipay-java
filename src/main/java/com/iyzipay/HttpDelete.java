@@ -5,6 +5,7 @@ import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import java.net.URI;
 
 public class HttpDelete extends HttpEntityEnclosingRequestBase {
+
     public static final String METHOD_NAME = "DELETE";
 
     public String getMethod() {
@@ -16,4 +17,3 @@ public class HttpDelete extends HttpEntityEnclosingRequestBase {
         setURI(URI.create(uri));
     }
 }
-

@@ -22,5 +22,4 @@ public class CreatePeccoAuthRequest extends Request {
                 .append("token", token)
                 .toString();
     }
-
 }

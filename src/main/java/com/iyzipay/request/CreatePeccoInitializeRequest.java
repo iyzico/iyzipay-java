@@ -118,5 +118,4 @@ public class CreatePeccoInitializeRequest extends Request {
                 .append("paidPrice", paidPrice)
                 .toString();
     }
-
 }
