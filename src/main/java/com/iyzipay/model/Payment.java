@@ -1,11 +1,7 @@
 package com.iyzipay.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
-import com.iyzipay.Options;
-import com.iyzipay.request.RetrievePaymentByConvIdRequest;
-import com.iyzipay.request.RetrievePaymentByIdRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -33,20 +29,6 @@ public class Payment extends IyzipayResource {
     private String basketId;
     @SerializedName("itemTransactions")
     private List<PaymentItem> paymentItems;
-
-    public static Payment retrieve(RetrievePaymentByConvIdRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/retrieve-by-conversation-id",
-                getHttpHeaders(request, options),
-                request,
-                Payment.class);
-    }
-
-    public static Payment retrieve(RetrievePaymentByIdRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/retrieve",
-                getHttpHeaders(request, options),
-                request,
-                Payment.class);
-    }
 
     public BigDecimal getPrice() {
         return price;
