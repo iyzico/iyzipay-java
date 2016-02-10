@@ -8,7 +8,29 @@ Java 1.6 or newer
 
 # Installation
 
-For now you'll need to manually install the following JARs:
+### Maven users
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+  <groupId>com.iyzipay</groupId>
+  <artifactId>iyzipay-java</artifactId>
+  <version>1.0.3</version>
+</dependency>
+```
+
+### Gradle users
+
+Add this dependency to your project's build file:
+
+```groovy
+compile "com.iyzipay:iyzipay-java:1.0.3"
+```
+
+### Others
+
+You'll need to manually install the following JARs:
 
 * The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
 * Apache http client 4.5.1 from http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.1
