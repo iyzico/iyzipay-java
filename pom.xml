@@ -102,15 +102,33 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
-            <id>deployment</id>
+            <id>sign</id>
             <activation>
                 <property>
-                    <name>dp</name>
+                    <name>sg</name>
                 </property>
             </activation>
             <build>
@@ -128,24 +146,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <version>${nexus-staging-maven-plugin.version}</version>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>default-deploy</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <serverId>sonatype-nexus-staging</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
