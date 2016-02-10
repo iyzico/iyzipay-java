@@ -1,8 +1,8 @@
 package com.iyzipay.model;
 
 public enum Status {
-
-    SUCCESS("success"), FAILURE("failure");
+    SUCCESS("success"),
+    FAILURE("failure");
 
     private final String value;
 

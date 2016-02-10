@@ -111,5 +111,4 @@ public class CreateConnectPaymentRequest extends Request {
                 .append("connectorName", connectorName)
                 .toString();
     }
-
 }

@@ -8,7 +8,6 @@ public class BKMAuth extends Payment {
 
     private String token;
     private String callbackUrl;
-    private String paymentStatus;
 
     public static BKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/auth/ecom/detail",
@@ -31,13 +30,5 @@ public class BKMAuth extends Payment {
 
     public void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
     }
 }
