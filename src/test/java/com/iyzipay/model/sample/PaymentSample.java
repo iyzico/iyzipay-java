@@ -12,15 +12,16 @@ public class PaymentSample extends Sample {
     @Test
     public void should_retrieve_payment() {
         RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
-        retrievePaymentRequest.setPaymentId("81284");
-        retrievePaymentRequest.setConversationId("123456");
+        retrievePaymentRequest.setLocale(Locale.TR.getValue());
+        retrievePaymentRequest.setConversationId("123456879");
+        retrievePaymentRequest.setPaymentId("1");
         retrievePaymentRequest.setPaymentConversationId("123456789");
+
         Payment payment = Payment.retrieve(retrievePaymentRequest, options);
 
         System.out.println(payment.toString());
 
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertEquals("123456", payment.getConversationId());
+        assertEquals("123456879", payment.getConversationId());
     }
-
 }
