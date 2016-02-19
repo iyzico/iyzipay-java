@@ -72,8 +72,8 @@ public static void main(String[] args) {
 
    Buyer buyer = new Buyer();
    buyer.setId("BY789");
-   buyer.setName("Sabri Onur");
-   buyer.setSurname("Tüzün");
+   buyer.setName("John");
+   buyer.setSurname("Doe");
    buyer.setGsmNumber("+905350000000");
    buyer.setEmail("email@email.com");
    buyer.setIdentityNumber("74300864791");

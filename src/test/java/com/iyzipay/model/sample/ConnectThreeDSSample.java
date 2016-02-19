@@ -23,11 +23,11 @@ public class ConnectThreeDSSample extends Sample {
         request.setBuyerEmail("email@email.com");
         request.setBuyerId("B2323");
         request.setBuyerIp("127.0.0.1");
-        request.setConnectorName("ISBANK");
+        request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1.0"));
-        request.setPrice(new BigDecimal("1.0"));
-        request.setCallbackUrl("https://www.merchant.com/callbackUrl");
+        request.setPaidPrice(new BigDecimal("1"));
+        request.setPrice(new BigDecimal("1"));
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -57,9 +57,9 @@ public class ConnectThreeDSSample extends Sample {
         request.setBuyerIp("127.0.0.1");
         request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1.0"));
-        request.setPrice(new BigDecimal("1.0"));
-        request.setCallbackUrl("https://www.merchant.com/callbackUrl");
+        request.setPaidPrice(new BigDecimal("1"));
+        request.setPrice(new BigDecimal("1"));
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardToken("card token");

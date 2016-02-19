@@ -19,7 +19,7 @@ public class RefundSample extends Sample {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("50");
+        request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("0.1"));
         request.setIp("127.0.0.1");
 
@@ -38,8 +38,8 @@ public class RefundSample extends Sample {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("41");
-        request.setPrice(new BigDecimal("0.05"));
+        request.setPaymentTransactionId("1");
+        request.setPrice(new BigDecimal("0.1"));
         request.setIp("127.0.0.1");
 
         RefundChargedFromMerchant refundChargedFromMerchant = RefundChargedFromMerchant.create(request, options);

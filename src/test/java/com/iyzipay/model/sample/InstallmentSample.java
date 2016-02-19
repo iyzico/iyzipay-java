@@ -18,7 +18,7 @@ public class InstallmentSample extends Sample {
         RetrieveInstallmentInfoRequest request = new RetrieveInstallmentInfoRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setBinNumber("554960");
+        request.setBinNumber("454671");
         request.setPrice(new BigDecimal("1"));
 
         InstallmentInfo installmentInfo = InstallmentInfo.retrieve(request, options);

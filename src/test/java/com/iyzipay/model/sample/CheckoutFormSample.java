@@ -19,15 +19,79 @@ public class CheckoutFormSample extends Sample {
         CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPrice(new BigDecimal("1.0"));
+        request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
-        request.setBuyer(newBuyer());
-        request.setShippingAddress(newShippingAddress());
-        request.setBillingAddress(newBillingAddress());
-        request.setBasketItems(newBasketItems());
         request.setCallbackUrl("https://www.merchant.com/callback");
+
+        Buyer buyer = new Buyer();
+        buyer.setId("BY789");
+        buyer.setName("John");
+        buyer.setSurname("Doe");
+        buyer.setGsmNumber("+905350000000");
+        buyer.setEmail("email@email.com");
+        buyer.setIdentityNumber("74300864791");
+        buyer.setLastLoginDate("2015-10-05 12:43:35");
+        buyer.setRegistrationDate("2013-04-21 15:12:09");
+        buyer.setRegistrationAddress("Address");
+        buyer.setIp("85.34.78.112");
+        buyer.setCity("Istanbul");
+        buyer.setCountry("Turkey");
+        buyer.setZipCode("34732");
+        request.setBuyer(buyer);
+
+        Address shippingAddress = new Address();
+        shippingAddress.setContactName("Jane Doe");
+        shippingAddress.setCity("Istanbul");
+        shippingAddress.setCountry("Turkey");
+        shippingAddress.setAddress("Address");
+        shippingAddress.setZipCode("34742");
+        request.setShippingAddress(shippingAddress);
+
+        Address billingAddress = new Address();
+        billingAddress.setContactName("Jane Doe");
+        billingAddress.setCity("Istanbul");
+        billingAddress.setCountry("Turkey");
+        billingAddress.setAddress("Address");
+        billingAddress.setZipCode("34742");
+        request.setBillingAddress(billingAddress);
+
+        List<BasketItem> basketItems = new ArrayList<BasketItem>();
+
+        BasketItem firstBasketItem = new BasketItem();
+        firstBasketItem.setId("BI101");
+        firstBasketItem.setName("Binocular");
+        firstBasketItem.setCategory1("Collectibles");
+        firstBasketItem.setCategory2("Accessories");
+        firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
+        firstBasketItem.setPrice(new BigDecimal("0.3"));
+        firstBasketItem.setSubMerchantKey("sub merchant key");
+        firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
+        basketItems.add(firstBasketItem);
+
+        BasketItem secondBasketItem = new BasketItem();
+        secondBasketItem.setId("BI102");
+        secondBasketItem.setName("Game code");
+        secondBasketItem.setCategory1("Game");
+        secondBasketItem.setCategory2("Online Game Items");
+        secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
+        secondBasketItem.setPrice(new BigDecimal("0.5"));
+        secondBasketItem.setSubMerchantKey("sub merchant key");
+        secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
+        basketItems.add(secondBasketItem);
+
+        BasketItem thirdBasketItem = new BasketItem();
+        thirdBasketItem.setId("BI103");
+        thirdBasketItem.setName("Usb");
+        thirdBasketItem.setCategory1("Electronics");
+        thirdBasketItem.setCategory2("Usb / Cable");
+        thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
+        thirdBasketItem.setPrice(new BigDecimal("0.2"));
+        thirdBasketItem.setSubMerchantKey("sub merchant key");
+        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
+        basketItems.add(thirdBasketItem);
+        request.setBasketItems(basketItems);
 
         CheckoutFormInitialize checkoutFormInitialize = CheckoutFormInitialize.create(request, options);
 
@@ -43,7 +107,7 @@ public class CheckoutFormSample extends Sample {
     public void should_retrieve_checkout_form_auth() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
         request.setConversationId("123456789");
-        request.setToken("myToken");
+        request.setToken("token");
 
         CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
 
@@ -52,80 +116,5 @@ public class CheckoutFormSample extends Sample {
         assertNotNull(checkoutFormAuth.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
         assertEquals("123456789", checkoutFormAuth.getConversationId());
-    }
-
-    private Buyer newBuyer() {
-        Buyer buyer = new Buyer();
-        buyer.setId("BY789");
-        buyer.setName("Sabri Onur");
-        buyer.setSurname("Tüzün");
-        buyer.setGsmNumber("+905350000000");
-        buyer.setEmail("email@email.com");
-        buyer.setIdentityNumber("74300864791");
-        buyer.setLastLoginDate("2015-10-05 12:43:35");
-        buyer.setRegistrationDate("2013-04-21 15:12:09");
-        buyer.setRegistrationAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy");
-        buyer.setIp("85.34.78.112");
-        buyer.setCity("Istanbul");
-        buyer.setCountry("Turkiye");
-        buyer.setZipCode("34732");
-        return buyer;
-    }
-
-    private Address newShippingAddress() {
-        Address shippingAddress = new Address();
-        shippingAddress.setContactName("Hakan Erdoğan");
-        shippingAddress.setCity("Istanbul");
-        shippingAddress.setCountry("Turkiye");
-        shippingAddress.setAddress("19 Mayıs Mah. İnönü Cad. No:45 Kozyatağı");
-        shippingAddress.setZipCode("34742");
-        return shippingAddress;
-    }
-
-    private Address newBillingAddress() {
-        Address billingAddress = new Address();
-        billingAddress.setContactName("Hakan Erdoğan");
-        billingAddress.setCity("İstanbul");
-        billingAddress.setCountry("Türkiye");
-        billingAddress.setAddress("19 Mayıs Mah. İnönü Cad. No:45 Kozyatağı");
-        billingAddress.setZipCode("34742");
-        return billingAddress;
-    }
-
-    private List<BasketItem> newBasketItems() {
-        List<BasketItem> basketItems = new ArrayList<BasketItem>();
-        BasketItem basketItem1 = new BasketItem();
-        basketItem1.setId("BI101");
-        basketItem1.setName("ABC Marka Kolye");
-        basketItem1.setCategory1("Giyim");
-        basketItem1.setCategory2("Aksesuar");
-        basketItem1.setItemType(BasketItemType.PHYSICAL.name());
-        basketItem1.setPrice(new BigDecimal("0.3"));
-        basketItem1.setSubMerchantKey("subMerchantKey");
-        basketItem1.setSubMerchantPrice(new BigDecimal("0.27"));
-        basketItems.add(basketItem1);
-
-        BasketItem basketItem2 = new BasketItem();
-        basketItem2.setId("BI102");
-        basketItem2.setName("XYZ Oyun Kodu");
-        basketItem2.setCategory1("Oyun");
-        basketItem2.setCategory2("Online Oyun Kodları");
-        basketItem2.setItemType(BasketItemType.VIRTUAL.name());
-        basketItem2.setPrice(new BigDecimal("0.5"));
-        basketItem2.setSubMerchantKey("subMerchantKey");
-        basketItem2.setSubMerchantPrice(new BigDecimal("0.42"));
-        basketItems.add(basketItem2);
-
-        BasketItem basketItem3 = new BasketItem();
-        basketItem3.setId("BI103");
-        basketItem3.setName("EDC Marka Usb");
-        basketItem3.setCategory1("Elektronik");
-        basketItem3.setCategory2("Usb / Cable");
-        basketItem3.setItemType(BasketItemType.PHYSICAL.name());
-        basketItem3.setPrice(new BigDecimal("0.2"));
-        basketItem3.setSubMerchantKey("subMerchantKey");
-        basketItem3.setSubMerchantPrice(new BigDecimal("0.18"));
-        basketItems.add(basketItem3);
-        return basketItems;
     }
 }

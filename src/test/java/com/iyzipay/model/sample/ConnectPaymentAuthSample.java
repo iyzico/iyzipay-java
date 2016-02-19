@@ -21,17 +21,17 @@ public class ConnectPaymentAuthSample extends Sample {
         request.setBuyerEmail("email@email.com");
         request.setBuyerId("B2323");
         request.setBuyerIp("127.0.0.1");
-        request.setConnectorName("ISBANK");
+        request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1.0"));
-        request.setPrice(new BigDecimal("1.0"));
+        request.setPaidPrice(new BigDecimal("1"));
+        request.setPrice(new BigDecimal("1"));
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
         paymentCard.setCardNumber("5528790000000008");
         paymentCard.setExpireMonth("12");
         paymentCard.setExpireYear("2030");
-        paymentCard.setCvc("212");
+        paymentCard.setCvc("123");
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
@@ -52,14 +52,14 @@ public class ConnectPaymentAuthSample extends Sample {
         request.setBuyerEmail("email@email.com");
         request.setBuyerId("B2323");
         request.setBuyerIp("127.0.0.1");
-        request.setConnectorName("ISBANK");
+        request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1.0"));
-        request.setPrice(new BigDecimal("1.0"));
+        request.setPaidPrice(new BigDecimal("1"));
+        request.setPrice(new BigDecimal("1"));
 
         PaymentCard paymentCard = new PaymentCard();
-        paymentCard.setCardToken("cardToken");
-        paymentCard.setCardUserKey("cardUserKey");
+        paymentCard.setCardToken("card token");
+        paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
         ConnectPaymentAuth connectPaymentAuth = ConnectPaymentAuth.create(request, options);

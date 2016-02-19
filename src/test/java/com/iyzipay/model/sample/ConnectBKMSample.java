@@ -20,15 +20,15 @@ public class ConnectBKMSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setCallbackUrl("https://www.merchant.com/callbackUrl");
-        //prepare buyer
+        request.setCallbackUrl("https://www.merchant.com/callback");
+
+        // prepare buyer
         request.setBuyerId("100");
         request.setBuyerEmail("email@email.com");
         request.setBuyerIp("192.168.123.102");
 
-        //default pos
-        request.setConnectorName("ISBANK");
-
+        // default pos
+        request.setConnectorName("connector name");
         request.setInstallmentDetails(prepareInstallmentDetails());
 
         ConnectBKMInitialize connectBKMInitialize = ConnectBKMInitialize.create(request, options);
@@ -44,10 +44,9 @@ public class ConnectBKMSample extends Sample {
     @Test
     public void should_retrieve_bkm_auth() {
         RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
-
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("mockToken1453392332672");
+        request.setToken("token");
 
         ConnectBKMAuth connectBKMAuth = ConnectBKMAuth.retrieve(request, options);
 
@@ -59,21 +58,18 @@ public class ConnectBKMSample extends Sample {
         assertEquals("123456789", connectBKMAuth.getConversationId());
     }
 
-    List<BKMInstallment> prepareInstallmentDetails() {
+    private List<BKMInstallment> prepareInstallmentDetails() {
         List<BKMInstallment> installmentDetails = new ArrayList<BKMInstallment>();
-
         installmentDetails.add(isbankInstallmentDetails());
         installmentDetails.add(finansbankInstallmentDetails());
         installmentDetails.add(akbankInstallmentDetails());
         installmentDetails.add(ykbInstallmentDetails());
         installmentDetails.add(denizbankInstallmentDetails());
         installmentDetails.add(halkbankInstallmentDetails());
-
         return installmentDetails;
     }
 
-    //is bankasi installment details
-    BKMInstallment isbankInstallmentDetails() {
+    private BKMInstallment isbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(64L);
 
@@ -106,12 +102,10 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
 
-    //finansbank installment details
-    BKMInstallment finansbankInstallmentDetails() {
+    private BKMInstallment finansbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(111L);
 
@@ -144,12 +138,10 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
 
-    //akbank installment details
-    BKMInstallment akbankInstallmentDetails() {
+    private BKMInstallment akbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(46L);
 
@@ -182,12 +174,10 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
 
-    //yapikredi installment details
-    BKMInstallment ykbInstallmentDetails() {
+    private BKMInstallment ykbInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(67L);
 
@@ -220,12 +210,10 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
 
-    //denizbank installment details
-    BKMInstallment denizbankInstallmentDetails() {
+    private BKMInstallment denizbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(134L);
 
@@ -258,12 +246,10 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
 
-    //halkbank installment details
-    BKMInstallment halkbankInstallmentDetails() {
+    private BKMInstallment halkbankInstallmentDetails() {
         BKMInstallment installmentDetail = new BKMInstallment();
         installmentDetail.setBankId(12L);
 
@@ -296,8 +282,6 @@ public class ConnectBKMSample extends Sample {
         installmentPrices.add(nineInstallments);
 
         installmentDetail.setInstallmentPrices(installmentPrices);
-
         return installmentDetail;
     }
-
 }

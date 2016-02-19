@@ -17,7 +17,7 @@ public class ApprovalSample extends Sample {
         CreateApprovalRequest request = new CreateApprovalRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("2");
+        request.setPaymentTransactionId("1");
 
         Approval approval = Approval.create(request, options);
 
@@ -27,8 +27,7 @@ public class ApprovalSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), approval.getStatus());
         assertEquals(Locale.TR.getValue(), approval.getLocale());
         assertEquals("123456789", approval.getConversationId());
-
-        assertEquals("2", approval.getPaymentTransactionId());
+        assertEquals("1", approval.getPaymentTransactionId());
     }
 
     @Test
@@ -36,7 +35,7 @@ public class ApprovalSample extends Sample {
         CreateApprovalRequest request = new CreateApprovalRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("2");
+        request.setPaymentTransactionId("1");
 
         Disapproval disapproval = Disapproval.create(request, options);
 
@@ -46,7 +45,6 @@ public class ApprovalSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), disapproval.getStatus());
         assertEquals(Locale.TR.getValue(), disapproval.getLocale());
         assertEquals("123456789", disapproval.getConversationId());
-
-        assertEquals("2", disapproval.getPaymentTransactionId());
+        assertEquals("1", disapproval.getPaymentTransactionId());
     }
 }

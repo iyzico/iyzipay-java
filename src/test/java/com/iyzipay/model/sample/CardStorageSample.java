@@ -13,18 +13,18 @@ public class CardStorageSample extends Sample {
 
     @Test
     public void should_create_user_and_add_card() {
-        CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardAlias("myAlias");
-        cardInformation.setCardHolderName("John Doe");
-        cardInformation.setCardNumber("5528790000000008");
-        cardInformation.setExpireMonth("12");
-        cardInformation.setExpireYear("2030");
-
         CreateCardRequest request = new CreateCardRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setEmail("email@email.com");
         request.setExternalId("external id");
+
+        CardInformation cardInformation = new CardInformation();
+        cardInformation.setCardAlias("card alias");
+        cardInformation.setCardHolderName("John Doe");
+        cardInformation.setCardNumber("5528790000000008");
+        cardInformation.setExpireMonth("12");
+        cardInformation.setExpireYear("2030");
         request.setCard(cardInformation);
 
         Card card = Card.create(request, options);
@@ -39,17 +39,17 @@ public class CardStorageSample extends Sample {
 
     @Test
     public void should_create_card() {
+        CreateCardRequest request = new CreateCardRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setCardUserKey("card user key");
+
         CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardAlias("myAlias");
+        cardInformation.setCardAlias("card alias");
         cardInformation.setCardHolderName("John Doe");
         cardInformation.setCardNumber("5528790000000008");
         cardInformation.setExpireMonth("12");
         cardInformation.setExpireYear("2030");
-
-        CreateCardRequest request = new CreateCardRequest();
-        request.setLocale(Locale.TR.getValue());
-        request.setConversationId("123456789");
-        request.setCardUserKey("myCardUserKey");
         request.setCard(cardInformation);
 
         Card card = Card.create(request, options);
@@ -67,8 +67,8 @@ public class CardStorageSample extends Sample {
         DeleteCardRequest request = new DeleteCardRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCardToken("myCardToken");
-        request.setCardUserKey("myCardUserKey");
+        request.setCardToken("card token");
+        request.setCardUserKey("card user key");
 
         Card card = Card.delete(request, options);
 
@@ -85,7 +85,7 @@ public class CardStorageSample extends Sample {
         RetrieveCardListRequest request = new RetrieveCardListRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCardUserKey("myCardUserKey");
+        request.setCardUserKey("card user key");
 
         CardList cardList = CardList.retrieve(request, options);
 

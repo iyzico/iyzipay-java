@@ -16,7 +16,7 @@ public class ConnectCancelSample extends Sample {
         CreateCancelRequest request = new CreateCancelRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentId("24");
+        request.setPaymentId("1");
         request.setIp("127.0.0.1");
 
         ConnectCancel connectCancel = ConnectCancel.create(request, options);

@@ -22,11 +22,75 @@ public class BKMSample extends Sample {
         request.setPrice(new BigDecimal("1"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
-        request.setBuyer(newBuyer());
-        request.setShippingAddress(newShippingAddress());
-        request.setBillingAddress(newBillingAddress());
-        request.setBasketItems(newBasketItems());
-        request.setCallbackUrl("https://www.merchant.com/callbackUrl");
+        request.setCallbackUrl("https://www.merchant.com/callback");
+
+        Buyer buyer = new Buyer();
+        buyer.setId("BY789");
+        buyer.setName("John");
+        buyer.setSurname("Doe");
+        buyer.setGsmNumber("+905350000000");
+        buyer.setEmail("email@email.com");
+        buyer.setIdentityNumber("74300864791");
+        buyer.setLastLoginDate("2015-10-05 12:43:35");
+        buyer.setRegistrationDate("2013-04-21 15:12:09");
+        buyer.setRegistrationAddress("Address");
+        buyer.setIp("85.34.78.112");
+        buyer.setCity("Istanbul");
+        buyer.setCountry("Turkey");
+        buyer.setZipCode("34732");
+        request.setBuyer(buyer);
+
+        Address shippingAddress = new Address();
+        shippingAddress.setContactName("Jane Doe");
+        shippingAddress.setCity("Istanbul");
+        shippingAddress.setCountry("Turkey");
+        shippingAddress.setAddress("Address");
+        shippingAddress.setZipCode("34742");
+        request.setShippingAddress(shippingAddress);
+
+        Address billingAddress = new Address();
+        billingAddress.setContactName("Jane Doe");
+        billingAddress.setCity("Istanbul");
+        billingAddress.setCountry("Turkey");
+        billingAddress.setAddress("Address");
+        billingAddress.setZipCode("34742");
+        request.setBillingAddress(billingAddress);
+
+        List<BasketItem> basketItems = new ArrayList<BasketItem>();
+
+        BasketItem firstBasketItem = new BasketItem();
+        firstBasketItem.setId("BI101");
+        firstBasketItem.setName("Binocular");
+        firstBasketItem.setCategory1("Collectibles");
+        firstBasketItem.setCategory2("Accessories");
+        firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
+        firstBasketItem.setPrice(new BigDecimal("0.3"));
+        firstBasketItem.setSubMerchantKey("sub merchant key");
+        firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
+        basketItems.add(firstBasketItem);
+
+        BasketItem secondBasketItem = new BasketItem();
+        secondBasketItem.setId("BI102");
+        secondBasketItem.setName("Game code");
+        secondBasketItem.setCategory1("Game");
+        secondBasketItem.setCategory2("Online Game Items");
+        secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
+        secondBasketItem.setPrice(new BigDecimal("0.5"));
+        secondBasketItem.setSubMerchantKey("sub merchant key");
+        secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
+        basketItems.add(secondBasketItem);
+
+        BasketItem thirdBasketItem = new BasketItem();
+        thirdBasketItem.setId("BI103");
+        thirdBasketItem.setName("Usb");
+        thirdBasketItem.setCategory1("Electronics");
+        thirdBasketItem.setCategory2("Usb / Cable");
+        thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
+        thirdBasketItem.setPrice(new BigDecimal("0.2"));
+        thirdBasketItem.setSubMerchantKey("sub merchant key");
+        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
+        basketItems.add(thirdBasketItem);
+        request.setBasketItems(basketItems);
 
         BKMInitialize bkmInitialize = BKMInitialize.create(request, options);
 
@@ -36,7 +100,6 @@ public class BKMSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
         assertEquals("123456789", bkmInitialize.getConversationId());
-
         assertNotNull(bkmInitialize.getHtmlContent());
     }
 
@@ -45,7 +108,7 @@ public class BKMSample extends Sample {
         RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("mockToken1453382198111");
+        request.setToken("token");
 
         BKMAuth bkmAuth = BKMAuth.retrieve(request, options);
 
@@ -55,82 +118,5 @@ public class BKMSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), bkmAuth.getStatus());
         assertEquals(Locale.TR.getValue(), bkmAuth.getLocale());
         assertEquals("123456", bkmAuth.getConversationId());
-    }
-
-    private Buyer newBuyer() {
-        Buyer buyer = new Buyer();
-        buyer.setId("100");
-        buyer.setName("Hakan");
-        buyer.setSurname("Erdoğan");
-        buyer.setIdentityNumber("16045258606");
-        buyer.setEmail("email@email.com");
-        buyer.setGsmNumber("05553456789");
-        buyer.setRegistrationDate("2011-02-17 12:00:00");
-        buyer.setLastLoginDate("2015-04-20 12:00:00");
-        buyer.setRegistrationAddress("Maltepe");
-        buyer.setCity("Istanbul");
-        buyer.setCountry("Turkiye");
-        buyer.setZipCode("34840");
-        buyer.setIp("192.168.123.102");
-        return buyer;
-    }
-
-    private Address newShippingAddress() {
-        Address address = new Address();
-        address.setAddress("Malte Plaza No:56");
-        address.setZipCode("34840");
-        address.setContactName("Hakan");
-        address.setCity("Istanbul");
-        address.setCountry("Turkiye");
-        return address;
-    }
-
-    private Address newBillingAddress() {
-        Address address = new Address();
-        address.setAddress("Malte Plaza No:56");
-        address.setZipCode("34840");
-        address.setContactName("Hakan");
-        address.setCity("Istanbul");
-        address.setCountry("Turkiye");
-        return address;
-    }
-
-    private List<BasketItem> newBasketItems() {
-        List<BasketItem> paymentBasketItemDtoList = new ArrayList<BasketItem>();
-
-        BasketItem firstBasketItem = new BasketItem();
-        firstBasketItem.setId("BI101");
-        firstBasketItem.setName("ABC Marka Kolye");
-        firstBasketItem.setCategory1("Giyim");
-        firstBasketItem.setCategory2("Aksesuar");
-        firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        firstBasketItem.setPrice(new BigDecimal("0.3"));
-        firstBasketItem.setSubMerchantKey("subMerchantKey");
-        firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
-
-        BasketItem secondBasketItem = new BasketItem();
-        secondBasketItem.setId("BI102");
-        secondBasketItem.setName("XYZ Oyun Kodu");
-        secondBasketItem.setCategory1("Oyun");
-        secondBasketItem.setCategory2("Online Oyun Kodlari");
-        secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
-        secondBasketItem.setPrice(new BigDecimal("0.5"));
-        secondBasketItem.setSubMerchantKey("subMerchantKey");
-        secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
-
-        BasketItem thirdBasketItem = new BasketItem();
-        thirdBasketItem.setId("BI103");
-        thirdBasketItem.setName("EDC Marka Usb");
-        thirdBasketItem.setCategory1("Elektronik");
-        thirdBasketItem.setCategory2("Usb / Cable");
-        thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        thirdBasketItem.setPrice(new BigDecimal("0.2"));
-        thirdBasketItem.setSubMerchantKey("subMerchantKey");
-        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
-
-        paymentBasketItemDtoList.add(firstBasketItem);
-        paymentBasketItemDtoList.add(secondBasketItem);
-        paymentBasketItemDtoList.add(thirdBasketItem);
-        return paymentBasketItemDtoList;
     }
 }

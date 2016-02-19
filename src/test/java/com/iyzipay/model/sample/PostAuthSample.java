@@ -16,7 +16,7 @@ public class PostAuthSample extends Sample {
         CreatePaymentPostAuthRequest request = new CreatePaymentPostAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentId("29");
+        request.setPaymentId("1");
         request.setIp("127.0.0.1");
 
         PaymentPostAuth paymentPostAuth = PaymentPostAuth.create(request, options);

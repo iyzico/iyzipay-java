@@ -19,7 +19,7 @@ public class CrossBookingSample extends Sample {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("subMerchantKey");
+        request.setSubMerchantKey("sub merchant key");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
 
@@ -38,7 +38,7 @@ public class CrossBookingSample extends Sample {
         CreateCrossBookingRequest request = new CreateCrossBookingRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("subMerchantKey");
+        request.setSubMerchantKey("sub merchant key");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
 
