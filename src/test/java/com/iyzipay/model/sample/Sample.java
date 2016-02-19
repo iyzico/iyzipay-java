@@ -14,5 +14,4 @@ public abstract class Sample {
         options.setSecretKey(System.getProperty("secretKey"));
         options.setBaseUrl(System.getProperty("baseUrl"));
     }
-
 }
