@@ -97,7 +97,7 @@ public class SubMerchantSample extends Sample {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("y3XZJBW9Sx2h2UZXgL6VMJbPCZY=");
+        request.setSubMerchantKey("sub merchant key");
         request.setIban("TR630006200027700006678204");
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setContactName("Hakan");
@@ -147,7 +147,7 @@ public class SubMerchantSample extends Sample {
         UpdateSubMerchantRequest request = new UpdateSubMerchantRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setSubMerchantKey("B7PfwgaGY/pdNVZBRrfArqxHjUQ=");
+        request.setSubMerchantKey("sub merchant key");
         request.setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         request.setTaxOffice("Kadıköy V.D.");
         request.setTaxNumber("9261877");
@@ -183,5 +183,4 @@ public class SubMerchantSample extends Sample {
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
     }
-
 }

@@ -30,4 +30,21 @@ public class InstallmentSample extends Sample {
         assertEquals(Locale.TR.getValue(), installmentInfo.getLocale());
         assertEquals("123456789", installmentInfo.getConversationId());
     }
+
+    @Test
+    public void should_retrieve_installment_info_for_all_banks() {
+        RetrieveInstallmentInfoRequest request = new RetrieveInstallmentInfoRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setPrice(new BigDecimal("1"));
+
+        InstallmentInfo installmentInfo = InstallmentInfo.retrieve(request, options);
+
+        System.out.println(installmentInfo);
+
+        assertNotNull(installmentInfo.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), installmentInfo.getStatus());
+        assertEquals(Locale.TR.getValue(), installmentInfo.getLocale());
+        assertEquals("123456789", installmentInfo.getConversationId());
+    }
 }
