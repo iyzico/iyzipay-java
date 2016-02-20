@@ -19,13 +19,13 @@ public class ThreeDSSample extends Sample {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCallbackUrl("https://www.merchant.com/callback");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -119,20 +119,20 @@ public class ThreeDSSample extends Sample {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setCallbackUrl("https://www.merchant.com/callback");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
         request.setInstallment(3);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.LISTING.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
-        paymentCard.setCardNumber("****************");
-        paymentCard.setExpireMonth("**");
-        paymentCard.setExpireYear("****");
-        paymentCard.setCvc("***");
+        paymentCard.setCardNumber("5528790000000008");
+        paymentCard.setExpireMonth("12");
+        paymentCard.setExpireYear("2030");
+        paymentCard.setCvc("123");
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
