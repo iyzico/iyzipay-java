@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class ThreeDSSample extends Sample {
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_market_place() {
+    public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place() {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -69,7 +69,6 @@ public class ThreeDSSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
@@ -115,13 +114,13 @@ public class ThreeDSSample extends Sample {
     }
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
+    public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
         CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
-        request.setInstallment(3);
+        request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.LISTING.name());
@@ -169,7 +168,6 @@ public class ThreeDSSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
