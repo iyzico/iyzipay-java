@@ -58,7 +58,6 @@ public class CheckoutFormSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
