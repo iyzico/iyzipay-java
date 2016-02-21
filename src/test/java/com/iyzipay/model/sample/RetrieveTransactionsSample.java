@@ -34,7 +34,7 @@ public class RetrieveTransactionsSample extends Sample {
         RetrieveTransactionsRequest request = new RetrieveTransactionsRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setDate("2015-06-02 19:13:00");
+        request.setDate("2016-01-22 19:13:00");
 
         BouncedBankTransferList bouncedBankTransferList = BouncedBankTransferList.retrieve(request, options);
 

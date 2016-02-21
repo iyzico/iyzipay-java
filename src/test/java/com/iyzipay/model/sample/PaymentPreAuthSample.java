@@ -67,7 +67,6 @@ public class PaymentPreAuthSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
@@ -115,7 +114,6 @@ public class PaymentPreAuthSample extends Sample {
     @Test
     public void should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
         CreatePaymentRequest request = new CreatePaymentRequest();
-
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
@@ -167,7 +165,6 @@ public class PaymentPreAuthSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");

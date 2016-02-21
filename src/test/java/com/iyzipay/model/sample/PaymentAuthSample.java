@@ -67,7 +67,6 @@ public class PaymentAuthSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
@@ -166,7 +165,6 @@ public class PaymentAuthSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
