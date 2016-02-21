@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class PaymentSample extends Sample {
+public class RetrievePaymentSample extends Sample {
 
     @Test
     public void should_retrieve_payment() {
