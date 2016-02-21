@@ -80,7 +80,7 @@ public class ConnectThreeDSSample extends Sample {
         CreateConnectThreeDSAuthRequest request = new CreateConnectThreeDSAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentId("12345");
+        request.setPaymentId("1");
 
         ConnectThreeDSAuth connectThreeDSAuth = ConnectThreeDSAuth.create(request, options);
 
