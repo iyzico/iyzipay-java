@@ -57,7 +57,6 @@ public class BKMSample extends Sample {
         request.setBillingAddress(billingAddress);
 
         List<BasketItem> basketItems = new ArrayList<BasketItem>();
-
         BasketItem firstBasketItem = new BasketItem();
         firstBasketItem.setId("BI101");
         firstBasketItem.setName("Binocular");
@@ -117,6 +116,6 @@ public class BKMSample extends Sample {
         assertNotNull(bkmAuth.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), bkmAuth.getStatus());
         assertEquals(Locale.TR.getValue(), bkmAuth.getLocale());
-        assertEquals("123456", bkmAuth.getConversationId());
+        assertEquals("123456789", bkmAuth.getConversationId());
     }
 }
