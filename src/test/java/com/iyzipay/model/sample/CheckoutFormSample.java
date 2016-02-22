@@ -105,6 +105,7 @@ public class CheckoutFormSample extends Sample {
     @Test
     public void should_retrieve_checkout_form_auth() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
+        request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
@@ -114,6 +115,7 @@ public class CheckoutFormSample extends Sample {
 
         assertNotNull(checkoutFormAuth.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutFormAuth.getLocale());
         assertEquals("123456789", checkoutFormAuth.getConversationId());
     }
 }

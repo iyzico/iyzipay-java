@@ -42,6 +42,7 @@ public class ConnectPaymentAuthSample extends Sample {
         assertNotNull(connectPaymentAuth.getConversationId());
         assertNotNull(connectPaymentAuth.getLocale());
         assertEquals(Locale.TR.getValue(), connectPaymentAuth.getLocale());
+        assertEquals("123456789", connectPaymentAuth.getConversationId());
     }
 
     @Test
@@ -69,5 +70,6 @@ public class ConnectPaymentAuthSample extends Sample {
         assertNotNull(connectPaymentAuth.getConversationId());
         assertNotNull(connectPaymentAuth.getLocale());
         assertEquals(Locale.TR.getValue(), connectPaymentAuth.getLocale());
+        assertEquals("123456789", connectPaymentAuth.getConversationId());
     }
 }

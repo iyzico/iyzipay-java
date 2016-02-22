@@ -203,6 +203,7 @@ public class ThreeDSSample extends Sample {
         assertNotNull(threeDSInitialize.getConversationId());
         assertNotNull(threeDSInitialize.getLocale());
         assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
+        assertEquals("123456789", threeDSInitialize.getConversationId());
     }
 
     @Test
@@ -220,5 +221,6 @@ public class ThreeDSSample extends Sample {
         assertNotNull(threeDSAuth.getConversationId());
         assertNotNull(threeDSAuth.getLocale());
         assertEquals(Locale.TR.getValue(), threeDSAuth.getLocale());
+        assertEquals("123456789", threeDSAuth.getConversationId());
     }
 }

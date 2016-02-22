@@ -73,6 +73,7 @@ public class ConnectThreeDSSample extends Sample {
         assertNotNull(connectThreeDSInitialize.getConversationId());
         assertNotNull(connectThreeDSInitialize.getLocale());
         assertEquals(Locale.TR.getValue(), connectThreeDSInitialize.getLocale());
+        assertEquals("123456789", connectThreeDSInitialize.getConversationId());
     }
 
     @Test
@@ -89,5 +90,6 @@ public class ConnectThreeDSSample extends Sample {
         assertNotNull(connectThreeDSAuth.getConversationId());
         assertNotNull(connectThreeDSAuth.getLocale());
         assertEquals(Locale.TR.getValue(), connectThreeDSAuth.getLocale());
+        assertEquals("123456789", connectThreeDSAuth.getConversationId());
     }
 }

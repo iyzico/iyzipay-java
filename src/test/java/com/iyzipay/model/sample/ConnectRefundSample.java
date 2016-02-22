@@ -28,5 +28,6 @@ public class ConnectRefundSample extends Sample {
         assertNotNull(connectRefund.getConversationId());
         assertNotNull(connectRefund.getLocale());
         assertEquals(Locale.TR.getValue(), connectRefund.getLocale());
+        assertEquals("123456789", connectRefund.getConversationId());
     }
 }
