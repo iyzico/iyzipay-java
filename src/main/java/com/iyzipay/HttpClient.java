@@ -27,6 +27,19 @@ public class HttpClient {
         return new HttpClient();
     }
 
+    /*
+     * Since this is an API, it would benefit a lot from concurrency, best way
+     * to do that is to use an asynchronous HTTP client instead of a native one.
+     * See this one for example: https://github.com/AsyncHttpClient/async-http-client
+     *
+     * When I used the current API, I had to wrap the calls in executors
+     * manually.
+     *
+     * For compatilibity purposes, client factory should accept a flag
+     * to opt for Future wrapepd calls. That way, people can use it with or
+     * without concurrency.
+     *
+     * */
     public <T> T get(String url, Class<T> responseType) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);

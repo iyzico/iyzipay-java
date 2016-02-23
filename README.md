@@ -53,6 +53,14 @@ public static void main(String[] args) {
    options.setSecretKey("your secret key");
    options.setBaseUrl("https://stg.iyzipay.com");
 
+[comment]: <> I would suggest using factories 
+[comment]: <> instead of setting fields directly on objects. It's a better pattern for a
+[comment]: <> variety of reasons. See https://www.ihgagent.com/documents/19042802/19042864/Effective+Java.pdf for details, it's the first item.
+
+[comment]: <> e.g.
+[comment]: <> CPRFactory f = new CPRFactory();
+[comment]: <> CreatePaymentRequest request = f.locale(Locale.TR).conversationId("123123").build()
+
    CreatePaymentRequest request = new CreatePaymentRequest();
    request.setLocale(Locale.TR.getValue());
    request.setConversationId("123456789");
