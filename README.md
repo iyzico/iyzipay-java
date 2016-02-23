@@ -1,7 +1,7 @@
 # iyzipay-java
 
 [![Build Status](https://travis-ci.org/iyzico/iyzipay-java.svg?branch=master)](https://travis-ci.org/iyzico/iyzipay-java)
-[![Latest Stable Version][maven-image]](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iyzipay-java%22)
+[![Maven Version][maven-image]](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iyzipay-java%22)
 
 You can sign up for an iyzico account at https://iyzico.com
 
