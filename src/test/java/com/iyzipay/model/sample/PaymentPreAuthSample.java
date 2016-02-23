@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreatePaymentRequest;
+import com.iyzipay.request.RetrievePaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -201,5 +202,23 @@ public class PaymentPreAuthSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
         assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
         assertEquals("123456789", paymentPreAuth.getConversationId());
+    }
+
+    @Test
+    public void should_retrieve_payment() {
+        RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
+        retrievePaymentRequest.setLocale(Locale.TR.getValue());
+        retrievePaymentRequest.setConversationId("123456879");
+        retrievePaymentRequest.setPaymentId("1");
+        retrievePaymentRequest.setPaymentConversationId("123456789");
+
+        PaymentPreAuth paymentPreAuth = PaymentPreAuth.retrieve(retrievePaymentRequest, options);
+
+        System.out.println(paymentPreAuth.toString());
+
+        assertNotNull(paymentPreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
+        assertEquals("123456879", paymentPreAuth.getConversationId());
     }
 }
