@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 
 public class ConnectPayment extends IyzipayResource {
 
+    /*
+     * Inline comments would go a along way.
+     */
     private BigDecimal price;
     private BigDecimal paidPrice;
     private Integer installment;

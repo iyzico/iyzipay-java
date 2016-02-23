@@ -24,6 +24,8 @@ public class SubMerchant extends IyzipayResource {
     private String subMerchantType;
     private String subMerchantKey;
 
+    // Instead of inline constant URLs, try static constants at class level.
+    // Better for testing too.
     public static SubMerchant create(CreateSubMerchantRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/onboarding/submerchant",
                 getHttpHeaders(request, options),

@@ -121,4 +121,9 @@ public class Card extends IyzipayResource {
     public void setCardBankName(String cardBankName) {
         this.cardBankName = cardBankName;
     }
+
+    // You should definitely override hashCode and equals, it is very annoying
+    // during testing when I compare two objects with identical fields and
+    // they don't match. See Item 9 -
+    // https://www.ihgagent.com/documents/19042802/19042864/Effective+Java.pdf
 }
