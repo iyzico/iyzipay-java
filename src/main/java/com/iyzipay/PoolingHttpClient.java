@@ -35,19 +35,18 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
  */
 public class PoolingHttpClient extends AbstractHttpClient implements HttpClient {
 
-    private final int poolSize;
+    private final CloseableHttpClient httpClient;
 
     public PoolingHttpClient(int poolSize) {
-        this.poolSize = poolSize;
+        this.httpClient = createHttpClient(poolSize);
     }
 
     public PoolingHttpClient(int poolSize, int timeout) {
         super(timeout);
-        this.poolSize = poolSize;
+        this.httpClient = createHttpClient(poolSize);
     }
 
-    @Override
-    public CloseableHttpClient getHttpClient() {
+    private CloseableHttpClient createHttpClient(int poolSize) {
         PoolingHttpClientConnectionManager poolingConnManager = new PoolingHttpClientConnectionManager();
         poolingConnManager.setMaxTotal(poolSize);
         poolingConnManager.setDefaultMaxPerRoute(poolSize);
@@ -64,5 +63,11 @@ public class PoolingHttpClient extends AbstractHttpClient implements HttpClient 
                 build();
 
         return client;
+
+    }
+
+    @Override
+    public CloseableHttpClient getHttpClient() {
+        return httpClient;
     }
 }
