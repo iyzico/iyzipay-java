@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCardRequest;
@@ -21,14 +20,14 @@ public class Card extends IyzipayResource {
     private String cardBankName;
 
     public static Card create(CreateCardRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
+        return httpClient.post(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
                 Card.class);
     }
 
     public static Card delete(DeleteCardRequest request, Options options) {
-        return HttpClient.create().delete(options.getBaseUrl() + "/cardstorage/card",
+        return httpClient.delete(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
                 Card.class);

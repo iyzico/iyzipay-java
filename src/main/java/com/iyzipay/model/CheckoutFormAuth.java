@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveCheckoutFormAuthRequest;
 
@@ -10,7 +9,7 @@ public class CheckoutFormAuth extends Payment {
     private String callbackUrl;
 
     public static CheckoutFormAuth retrieve(RetrieveCheckoutFormAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
+        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
                 CheckoutFormAuth.class);

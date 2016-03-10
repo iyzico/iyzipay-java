@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveBinNumberRequest;
@@ -15,7 +14,7 @@ public class BinNumber extends IyzipayResource {
     private Long bankCode;
 
     public static BinNumber retrieve(RetrieveBinNumberRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/bin/check",
+        return httpClient.post(options.getBaseUrl() + "/payment/bin/check",
                 getHttpHeaders(request, options),
                 request,
                 BinNumber.class);
