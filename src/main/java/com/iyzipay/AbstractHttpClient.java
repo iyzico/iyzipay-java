@@ -44,7 +44,9 @@ abstract class AbstractHttpClient implements HttpClient {
         CloseableHttpClient httpClient = getHttpClient();
 
         HttpGet httpGet = new HttpGet(url);
-        httpGet.setConfig(config);
+        if (config != null) {
+            httpGet.setConfig(config);
+        }
         CloseableHttpResponse response = null;
         try {
             response = httpClient.execute(httpGet);
@@ -101,7 +103,9 @@ abstract class AbstractHttpClient implements HttpClient {
             StringEntity requestEntity = new StringEntity(body, ContentType.APPLICATION_JSON);
             requestEntity.setContentEncoding(DEFAULT_CHARSET);
             httpMethod.setEntity(requestEntity);
-            httpMethod.setConfig(config);
+            if (config != null) {
+                httpMethod.setConfig(config);
+            }
             response = httpClient.execute(httpMethod);
             HttpEntity responseEntity = response.getEntity();
             T result = gson.fromJson(EntityUtils.toString(responseEntity, DEFAULT_CHARSET), responseType);
