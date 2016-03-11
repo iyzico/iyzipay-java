@@ -20,14 +20,14 @@ public class Card extends IyzipayResource {
     private String cardBankName;
 
     public static Card create(CreateCardRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/cardstorage/card",
+        return options.getHttpClient().post(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
                 Card.class);
     }
 
     public static Card delete(DeleteCardRequest request, Options options) {
-        return httpClient.delete(options.getBaseUrl() + "/cardstorage/card",
+        return options.getHttpClient().delete(options.getBaseUrl() + "/cardstorage/card",
                 getHttpHeaders(request, options),
                 request,
                 Card.class);

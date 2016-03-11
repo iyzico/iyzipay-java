@@ -12,7 +12,7 @@ public class ThreeDSInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static ThreeDSInitialize create(CreateThreeDSInitializeRequest request, Options options) {
-        ThreeDSInitialize response = httpClient.post(options.getBaseUrl() + "/payment/iyzipos/initialize3ds/ecom",
+        ThreeDSInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/initialize3ds/ecom",
                 getHttpHeaders(request, options),
                 request,
                 ThreeDSInitialize.class);

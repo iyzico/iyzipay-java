@@ -13,7 +13,7 @@ public class ConnectPaymentPostAuth extends IyzipayResource {
     private String connectorName;
 
     public static ConnectPaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/postauth",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/postauth",
                 getHttpHeaders(request, options),
                 request,
                 ConnectPaymentPostAuth.class);

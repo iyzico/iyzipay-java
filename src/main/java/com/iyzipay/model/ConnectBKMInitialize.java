@@ -10,7 +10,7 @@ public class ConnectBKMInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static ConnectBKMInitialize create(CreateConnectBKMInitializeRequest request, Options options) {
-        ConnectBKMInitialize response = httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
+        ConnectBKMInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
                 getHttpHeaders(request, options),
                 request,
                 ConnectBKMInitialize.class);

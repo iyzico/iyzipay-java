@@ -13,7 +13,7 @@ public class Refund extends IyzipayResource {
     private BigDecimal price;
 
     public static Refund create(CreateRefundRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/refund",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/refund",
                 getHttpHeaders(request, options),
                 request,
                 Refund.class);

@@ -12,7 +12,7 @@ public class ConnectThreeDSInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static ConnectThreeDSInitialize create(CreateConnectThreeDSInitializeRequest request, Options options) {
-        ConnectThreeDSInitialize response = httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
+        ConnectThreeDSInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
                 getHttpHeaders(request, options),
                 request,
                 ConnectThreeDSInitialize.class);

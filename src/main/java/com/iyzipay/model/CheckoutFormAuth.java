@@ -9,7 +9,7 @@ public class CheckoutFormAuth extends Payment {
     private String callbackUrl;
 
     public static CheckoutFormAuth retrieve(RetrieveCheckoutFormAuthRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
                 CheckoutFormAuth.class);

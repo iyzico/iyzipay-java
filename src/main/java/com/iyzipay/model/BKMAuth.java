@@ -9,7 +9,7 @@ public class BKMAuth extends Payment {
     private String callbackUrl;
 
     public static BKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/bkm/auth/ecom/detail",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/bkm/auth/ecom/detail",
                 getHttpHeaders(request, options),
                 request,
                 BKMAuth.class);

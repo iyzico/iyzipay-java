@@ -13,7 +13,7 @@ public class BouncedBankTransferList extends IyzipayResource {
     private List<BankTransfer> bankTransfers;
 
     public static BouncedBankTransferList retrieve(RetrieveTransactionsRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/reporting/settlement/bounced",
+        return options.getHttpClient().post(options.getBaseUrl() + "/reporting/settlement/bounced",
                 getHttpHeaders(request, options),
                 request,
                 BouncedBankTransferList.class);

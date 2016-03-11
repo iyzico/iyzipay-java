@@ -7,7 +7,7 @@ import com.iyzipay.request.CreateCrossBookingRequest;
 public class CrossBookingToSubMerchant extends IyzipayResource {
 
     public static CrossBookingToSubMerchant create(CreateCrossBookingRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/crossbooking/send",
+        return options.getHttpClient().post(options.getBaseUrl() + "/crossbooking/send",
                 getHttpHeaders(request, options),
                 request,
                 CrossBookingToSubMerchant.class);

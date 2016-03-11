@@ -12,7 +12,7 @@ public class PaymentPostAuth extends IyzipayResource {
     private BigDecimal price;
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/postauth",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/postauth",
                 getHttpHeaders(request, options),
                 request,
                 PaymentPostAuth.class);

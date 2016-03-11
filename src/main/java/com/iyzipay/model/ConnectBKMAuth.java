@@ -10,7 +10,7 @@ public class ConnectBKMAuth extends ConnectPayment {
     private String paymentStatus;
 
     public static ConnectBKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
                 getHttpHeaders(request, options),
                 request,
                 ConnectBKMAuth.class);

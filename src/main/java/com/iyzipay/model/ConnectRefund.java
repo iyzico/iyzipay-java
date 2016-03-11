@@ -14,7 +14,7 @@ public class ConnectRefund extends IyzipayResource {
     private String connectorName;
 
     public static ConnectRefund create(CreateRefundRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/refund",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/refund",
                 getHttpHeaders(request, options),
                 request,
                 ConnectRefund.class);

@@ -10,7 +10,7 @@ public class BKMInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static BKMInitialize create(CreateBKMInitializeRequest request, Options options) {
-        BKMInitialize response = httpClient.post(options.getBaseUrl() + "/payment/iyzipos/bkm/initialize/ecom",
+        BKMInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/bkm/initialize/ecom",
                 getHttpHeaders(request, options),
                 request,
                 BKMInitialize.class);

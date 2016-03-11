@@ -11,8 +11,6 @@ import java.util.List;
 
 public class IyzipayResource {
 
-    protected static HttpClient httpClient;
-
     private static final String AUTHORIZATION = "Authorization";
     private static final String RANDOM_HEADER_NAME = "x-iyzi-rnd";
     private static final String IYZIWS_HEADER_NAME = "IYZWS ";
@@ -26,10 +24,6 @@ public class IyzipayResource {
     private String locale;
     private long systemTime;
     private String conversationId;
-
-    static {
-        httpClient = new DefaultHttpClient();
-    }
 
     public IyzipayResource() {
     }
@@ -103,10 +97,6 @@ public class IyzipayResource {
 
     public void setConversationId(String conversationId) {
         this.conversationId = conversationId;
-    }
-
-    public static void setHttpClient(HttpClient httpClient) {
-        IyzipayResource.httpClient = httpClient;
     }
 
     @Override

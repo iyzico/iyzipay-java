@@ -12,7 +12,7 @@ public class Cancel extends IyzipayResource {
     private BigDecimal price;
 
     public static Cancel create(CreateCancelRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/cancel",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/cancel",
                 getHttpHeaders(request, options),
                 request,
                 Cancel.class);

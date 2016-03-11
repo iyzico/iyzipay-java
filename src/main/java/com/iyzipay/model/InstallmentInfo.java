@@ -11,7 +11,7 @@ public class InstallmentInfo extends IyzipayResource {
     private List<InstallmentDetail> installmentDetails;
 
     public static InstallmentInfo retrieve(RetrieveInstallmentInfoRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/installment",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/installment",
                 getHttpHeaders(request, options),
                 request,
                 InstallmentInfo.class);

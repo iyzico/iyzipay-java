@@ -24,21 +24,21 @@ public class SubMerchant extends IyzipayResource {
     private String subMerchantKey;
 
     public static SubMerchant create(CreateSubMerchantRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/onboarding/submerchant",
+        return options.getHttpClient().post(options.getBaseUrl() + "/onboarding/submerchant",
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);
     }
 
     public static SubMerchant update(UpdateSubMerchantRequest request, Options options) {
-        return httpClient.put(options.getBaseUrl() + "/onboarding/submerchant",
+        return options.getHttpClient().put(options.getBaseUrl() + "/onboarding/submerchant",
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);
     }
 
     public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/onboarding/submerchant/detail",
+        return options.getHttpClient().post(options.getBaseUrl() + "/onboarding/submerchant/detail",
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);

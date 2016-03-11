@@ -9,7 +9,7 @@ public class Disapproval extends IyzipayResource {
     private String paymentTransactionId;
 
     public static Disapproval create(CreateApprovalRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/item/disapprove",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/item/disapprove",
                 getHttpHeaders(request, options),
                 request,
                 Disapproval.class);

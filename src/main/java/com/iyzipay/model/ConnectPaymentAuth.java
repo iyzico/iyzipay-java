@@ -6,7 +6,7 @@ import com.iyzipay.request.CreateConnectPaymentRequest;
 public class ConnectPaymentAuth extends ConnectPayment {
 
     public static ConnectPaymentAuth create(CreateConnectPaymentRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyziconnect/auth",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/auth",
                 getHttpHeaders(request, options),
                 request,
                 ConnectPaymentAuth.class);

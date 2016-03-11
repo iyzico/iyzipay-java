@@ -13,7 +13,7 @@ public class RefundChargedFromMerchant extends IyzipayResource {
     private BigDecimal price;
 
     public static RefundChargedFromMerchant create(CreateRefundRequest request, Options options) {
-        return httpClient.post(options.getBaseUrl() + "/payment/iyzipos/refund/merchant/charge",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/refund/merchant/charge",
                 getHttpHeaders(request, options),
                 request,
                 RefundChargedFromMerchant.class);
