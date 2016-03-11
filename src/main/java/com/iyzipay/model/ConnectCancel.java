@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCancelRequest;
@@ -14,7 +13,7 @@ public class ConnectCancel extends IyzipayResource {
     private String connectorName;
 
     public static ConnectCancel create(CreateCancelRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/cancel",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/cancel",
                 getHttpHeaders(request, options),
                 request,
                 ConnectCancel.class);

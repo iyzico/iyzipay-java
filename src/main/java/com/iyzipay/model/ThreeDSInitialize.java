@@ -2,7 +2,6 @@ package com.iyzipay.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.iyzipay.DigestHelper;
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateThreeDSInitializeRequest;
@@ -13,7 +12,7 @@ public class ThreeDSInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static ThreeDSInitialize create(CreateThreeDSInitializeRequest request, Options options) {
-        ThreeDSInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/initialize3ds/ecom",
+        ThreeDSInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/initialize3ds/ecom",
                 getHttpHeaders(request, options),
                 request,
                 ThreeDSInitialize.class);

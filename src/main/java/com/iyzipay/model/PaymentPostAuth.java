@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
@@ -13,7 +12,7 @@ public class PaymentPostAuth extends IyzipayResource {
     private BigDecimal price;
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/postauth",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyzipos/postauth",
                 getHttpHeaders(request, options),
                 request,
                 PaymentPostAuth.class);

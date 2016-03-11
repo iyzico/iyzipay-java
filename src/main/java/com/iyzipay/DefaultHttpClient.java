@@ -23,20 +23,24 @@
  */
 package com.iyzipay;
 
-import java.util.List;
-import org.apache.http.Header;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 /**
  *
  * @author bamasyali
  */
-public interface HttpClient {
+public class DefaultHttpClient extends AbstractHttpClient implements HttpClient {
 
-    <T> T delete(String url, List<Header> headers, Object request, Class<T> responseType);
+    public DefaultHttpClient() {
+    }
 
-    <T> T get(String url, Class<T> responseType);
+    public DefaultHttpClient(int timeout) {
+        super(timeout);
+    }
 
-    <T> T post(String url, List<Header> headers, Object request, Class<T> responseType);
-
-    <T> T put(String url, List<Header> headers, Object request, Class<T> responseType);
+    @Override
+    public CloseableHttpClient getHttpClient() {
+        return HttpClients.createDefault();
+    }
 }
