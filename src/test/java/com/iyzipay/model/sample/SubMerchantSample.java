@@ -21,7 +21,7 @@ public class SubMerchantSample extends Sample {
         request.setConversationId("123456789");
         request.setSubMerchantExternalId("B49224");
         request.setSubMerchantType(SubMerchantType.PERSONAL.name());
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setContactName("John");
         request.setContactSurname("Doe");
         request.setEmail("email@submerchantemail.com");
@@ -47,7 +47,7 @@ public class SubMerchantSample extends Sample {
         request.setConversationId("123456789");
         request.setSubMerchantExternalId("S49222");
         request.setSubMerchantType(SubMerchantType.PRIVATE_COMPANY.name());
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setTaxOffice("Tax office");
         request.setLegalCompanyTitle("John Doe inc");
         request.setEmail("email@submerchantemail.com");
@@ -73,7 +73,7 @@ public class SubMerchantSample extends Sample {
         request.setConversationId("123456789");
         request.setSubMerchantExternalId("AS49224");
         request.setSubMerchantType(SubMerchantType.LIMITED_OR_JOINT_STOCK_COMPANY.name());
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setTaxOffice("Tax office");
         request.setTaxNumber("9261877");
         request.setLegalCompanyTitle("XYZ inc");
@@ -99,7 +99,7 @@ public class SubMerchantSample extends Sample {
         request.setConversationId("123456789");
         request.setSubMerchantKey("sub merchant key");
         request.setIban("TR630006200027700006678204");
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setContactName("Jane");
         request.setContactSurname("Doe");
         request.setEmail("email@submerchantemail.com");
@@ -123,7 +123,7 @@ public class SubMerchantSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setSubMerchantKey("sub merchant key");
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setTaxOffice("Tax office");
         request.setLegalCompanyTitle("Jane Doe inc");
         request.setEmail("email@submerchantemail.com");
@@ -148,7 +148,7 @@ public class SubMerchantSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setSubMerchantKey("sub merchant key");
-        request.setAddress("Address");
+        request.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         request.setTaxOffice("Tax office");
         request.setTaxNumber("9261877");
         request.setLegalCompanyTitle("ABC inc");
