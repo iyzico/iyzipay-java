@@ -19,7 +19,7 @@ public class ConnectRefundSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("1"));
-        request.setIp("127.0.0.1");
+        request.setIp("85.34.78.112");
 
         ConnectRefund connectRefund = ConnectRefund.create(request, options);
 

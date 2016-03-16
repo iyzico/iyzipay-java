@@ -25,7 +25,7 @@ public class ConnectBKMSample extends Sample {
         // prepare buyer
         request.setBuyerId("100");
         request.setBuyerEmail("email@email.com");
-        request.setBuyerIp("192.168.123.102");
+        request.setBuyerIp("85.34.78.112");
 
         // default pos
         request.setConnectorName("connector name");

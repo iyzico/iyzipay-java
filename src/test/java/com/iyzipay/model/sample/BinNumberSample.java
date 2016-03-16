@@ -14,9 +14,9 @@ public class BinNumberSample extends Sample {
     @Test
     public void should_retrieve_bin_number() {
         RetrieveBinNumberRequest request = new RetrieveBinNumberRequest();
-        request.setBinNumber("454671");
-        request.setConversationId("123456789");
         request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setBinNumber("454671");
 
         BinNumber binNumber = BinNumber.retrieve(request, options);
 

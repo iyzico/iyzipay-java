@@ -17,7 +17,7 @@ public class CancelSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentId("1");
-        request.setIp("127.0.0.1");
+        request.setIp("85.34.78.112");
 
         Cancel cancel = Cancel.create(request, options);
 
