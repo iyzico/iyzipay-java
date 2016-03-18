@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveCardListRequest;
@@ -13,7 +12,7 @@ public class CardList extends IyzipayResource {
     private List<Card> cardDetails;
 
     public static CardList retrieve(RetrieveCardListRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/cards",
+        return options.getHttpClient().post(options.getBaseUrl() + "/cardstorage/cards",
                 getHttpHeaders(request, options),
                 request,
                 CardList.class);

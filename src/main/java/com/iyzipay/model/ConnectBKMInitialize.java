@@ -1,7 +1,6 @@
 package com.iyzipay.model;
 
 import com.iyzipay.DigestHelper;
-import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateConnectBKMInitializeRequest;
@@ -11,7 +10,7 @@ public class ConnectBKMInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static ConnectBKMInitialize create(CreateConnectBKMInitializeRequest request, Options options) {
-        ConnectBKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
+        ConnectBKMInitialize response = options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
                 getHttpHeaders(request, options),
                 request,
                 ConnectBKMInitialize.class);

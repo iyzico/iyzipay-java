@@ -1,6 +1,5 @@
 package com.iyzipay.model;
 
-import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveBKMAuthRequest;
 
@@ -11,7 +10,7 @@ public class ConnectBKMAuth extends ConnectPayment {
     private String paymentStatus;
 
     public static ConnectBKMAuth retrieve(RetrieveBKMAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
+        return options.getHttpClient().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
                 getHttpHeaders(request, options),
                 request,
                 ConnectBKMAuth.class);
