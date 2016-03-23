@@ -24,7 +24,7 @@ public class PaymentAuthSample extends Sample {
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
-        request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setPaymentGroup(PaymentGroup.LISTING.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -215,13 +215,14 @@ public class PaymentAuthSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
+        request.setCurrency("EUR");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
-        paymentCard.setCardNumber("5528790000000008");
+        paymentCard.setCardNumber("5456165456165454");
         paymentCard.setExpireMonth("12");
-        paymentCard.setExpireYear("2030");
-        paymentCard.setCvc("123");
+        paymentCard.setExpireYear("2018");
+        paymentCard.setCvc("000");
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 

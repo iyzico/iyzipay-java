@@ -25,6 +25,7 @@ public class PaymentItem {
     private BigDecimal subMerchantPayoutRate;
     private BigDecimal subMerchantPayoutAmount;
     private BigDecimal merchantPayoutAmount;
+    private PaymentPayoutAmount paymentPayoutAmount;
 
     public String getItemId() {
         return itemId;

@@ -24,7 +24,8 @@ public class PaymentPreAuthSample extends Sample {
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
-        request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setPaymentGroup(PaymentGroup.LISTING.name());
+        request.setCurrency("EUR");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
