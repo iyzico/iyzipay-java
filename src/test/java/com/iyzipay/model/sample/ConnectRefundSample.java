@@ -1,6 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.ConnectRefund;
+import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
@@ -20,6 +21,7 @@ public class ConnectRefundSample extends Sample {
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("1"));
         request.setIp("85.34.78.112");
+        request.setCurrency(Currency.TRY.name());
 
         ConnectRefund connectRefund = ConnectRefund.create(request, options);
 

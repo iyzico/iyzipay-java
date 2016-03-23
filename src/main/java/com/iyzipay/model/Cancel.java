@@ -11,6 +11,7 @@ public class Cancel extends IyzipayResource {
 
     private String paymentId;
     private BigDecimal price;
+    private String currency;
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/cancel",
@@ -33,5 +34,13 @@ public class Cancel extends IyzipayResource {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

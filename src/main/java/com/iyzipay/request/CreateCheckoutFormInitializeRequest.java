@@ -16,6 +16,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private String basketId;
     private String paymentGroup;
     private String paymentSource;
+    private String currency;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
@@ -63,6 +64,14 @@ public class CreateCheckoutFormInitializeRequest extends Request {
 
     public void setPaymentSource(String paymentSource) {
         this.paymentSource = paymentSource;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public Buyer getBuyer() {
@@ -142,6 +151,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("basketItems", basketItems)
                 .append("callbackUrl", callbackUrl)
                 .append("paymentSource", paymentSource)
+                .append("currency", currency)
                 .append("posOrderId", posOrderId)
                 .append("paidPrice", paidPrice)
                 .append("forceThreeDS", forceThreeDS)

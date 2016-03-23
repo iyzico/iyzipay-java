@@ -24,6 +24,7 @@ public class CreatePaymentRequest extends Request {
     private Address shippingAddress;
     private Address billingAddress;
     private List<BasketItem> basketItems;
+    private String currency;
 
     public BigDecimal getPrice() {
         return price;
@@ -121,6 +122,14 @@ public class CreatePaymentRequest extends Request {
         this.basketItems = basketItems;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -137,6 +146,7 @@ public class CreatePaymentRequest extends Request {
                 .append("billingAddress", billingAddress)
                 .append("basketItems", basketItems)
                 .append("paymentSource", paymentSource)
+                .append("currency", currency)
                 .toString();
     }
 }

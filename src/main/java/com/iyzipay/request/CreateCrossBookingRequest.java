@@ -10,6 +10,7 @@ public class CreateCrossBookingRequest extends Request {
     private String subMerchantKey;
     private BigDecimal price;
     private String reason;
+    private String currency;
 
     public String getSubMerchantKey() {
         return subMerchantKey;
@@ -35,6 +36,14 @@ public class CreateCrossBookingRequest extends Request {
         this.reason = reason;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -42,6 +51,7 @@ public class CreateCrossBookingRequest extends Request {
                 .append("subMerchantKey", subMerchantKey)
                 .append("price", price)
                 .append("reason", reason)
+                .append("currency", currency)
                 .toString();
     }
 }

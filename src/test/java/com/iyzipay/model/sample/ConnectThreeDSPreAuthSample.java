@@ -25,6 +25,7 @@ public class ConnectThreeDSPreAuthSample extends Sample {
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -57,6 +58,7 @@ public class ConnectThreeDSPreAuthSample extends Sample {
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardToken("card token");

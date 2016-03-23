@@ -14,6 +14,8 @@ public class SubMerchant extends IyzipayResource {
     private String gsmNumber;
     private String address;
     private String iban;
+    private String swiftCode;
+    private String currency;
     private String taxOffice;
     private String contactName;
     private String contactSurname;
@@ -83,6 +85,22 @@ public class SubMerchant extends IyzipayResource {
 
     public void setIban(String iban) {
         this.iban = iban;
+    }
+
+    public String getSwiftCode() {
+        return swiftCode;
+    }
+
+    public void setSwiftCode(String swiftCode) {
+        this.swiftCode = swiftCode;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getTaxOffice() {

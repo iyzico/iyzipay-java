@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.CrossBookingFromSubMerchant;
-import com.iyzipay.model.CrossBookingToSubMerchant;
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.Status;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCrossBookingRequest;
 import org.junit.Test;
 
@@ -22,6 +19,7 @@ public class CrossBookingSample extends Sample {
         request.setSubMerchantKey("sub merchant key");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
+        request.setCurrency(Currency.TRY.name());
 
         CrossBookingToSubMerchant crossBookingToSubMerchant = CrossBookingToSubMerchant.create(request, options);
 
@@ -41,6 +39,7 @@ public class CrossBookingSample extends Sample {
         request.setSubMerchantKey("sub merchant key");
         request.setPrice(new BigDecimal("1"));
         request.setReason("reason text");
+        request.setCurrency(Currency.TRY.name());
 
         CrossBookingFromSubMerchant crossBookingFromSubMerchant = CrossBookingFromSubMerchant.create(request, options);
 
