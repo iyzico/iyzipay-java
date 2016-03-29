@@ -2,23 +2,21 @@ package com.iyzipay;
 
 import com.google.gson.Gson;
 import com.iyzipay.exception.HttpClientException;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.*;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.iyzipay.HttpMethod.*;
 
 public class HttpClient {
 
     public static final String DEFAULT_CHARSET = "UTF-8";
+    private static final int TIMEOUT = 30000;
 
     private HttpClient() {
     }
@@ -28,80 +26,155 @@ public class HttpClient {
     }
 
     public <T> T get(String url, Class<T> responseType) {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(url);
-        CloseableHttpResponse response = null;
-        try {
-            response = httpClient.execute(httpGet);
-            HttpEntity httpEntity = response.getEntity();
-            T result = new Gson().fromJson(EntityUtils.toString(httpEntity, DEFAULT_CHARSET), responseType);
-            EntityUtils.consume(httpEntity);
-            return result;
-        } catch (IOException e) {
-            throw new HttpClientException(e.getMessage(), e);
-        } finally {
-            try {
-                if (response != null) {
-                    response.close();
-                }
-            } catch (IOException e) {
-                //ignore
-            }
-        }
+        return exchange(url, GET, new HashMap<String, String>(), null, responseType);
+
     }
 
-    public <T> T post(String url, List<Header> headers, Object request, Class<T> responseType) {
-        HttpPost httpPost = new HttpPost(url);
-        for (Header header : headers) {
-            httpPost.addHeader(header);
-        }
-        return this.exchange(httpPost, request, responseType);
+    public <T> T post(String url, Map<String, String> headers, Object request, Class<T> responseType) {
+        return exchange(url, POST, headers, request, responseType);
     }
 
-    public <T> T put(String url, List<Header> headers, Object request, Class<T> responseType) {
-        HttpPut httpPut = new HttpPut(url);
-        for (Header header : headers) {
-            httpPut.addHeader(header);
-        }
-        return this.exchange(httpPut, request, responseType);
+
+    public <T> T put(String url, Map<String, String> headers, Object request, Class<T> responseType) {
+        return exchange(url, PUT, headers, request, responseType);
     }
 
-    public <T> T delete(String url, List<Header> headers, Object request, Class<T> responseType) {
-        HttpDelete httpDelete = new HttpDelete(url);
-        for (Header header : headers) {
-            httpDelete.addHeader(header);
-        }
-        return this.exchange(httpDelete, request, responseType);
+    public <T> T delete(String url, Map<String, String> headers, Object request, Class<T> responseType) {
+        return exchange(url, DELETE, headers, request, responseType);
     }
 
-    private <T> T exchange(HttpEntityEnclosingRequestBase httpMethod, Object request, Class<T> responseType) {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+
+    private <T> T exchange(String url, HttpMethod httpMethod, Map<String, String> headers, Object request, Class<T> responseType) {
         Gson gson = new Gson();
-        CloseableHttpResponse response = null;
         String body = gson.toJson(request);
+
         try {
-            StringEntity requestEntity = new StringEntity(body, ContentType.APPLICATION_JSON);
-            requestEntity.setContentEncoding(DEFAULT_CHARSET);
-            httpMethod.setEntity(requestEntity);
-            response = httpClient.execute(httpMethod);
-            HttpEntity responseEntity = response.getEntity();
-            T result = gson.fromJson(EntityUtils.toString(responseEntity, DEFAULT_CHARSET), responseType);
-            EntityUtils.consume(responseEntity);
-            return result;
+            String response = send(url, httpMethod, new ByteArrayInputStream(body.getBytes(DEFAULT_CHARSET)), headers);
+            return gson.fromJson(response, responseType);
         } catch (UnsupportedEncodingException e) {
             throw new HttpClientException(e.getMessage(), e);
-        } catch (ClientProtocolException e) {
-            throw new HttpClientException(e.getMessage(), e);
-        } catch (IOException e) {
+        }
+    }
+
+    /**
+     * Return HttpResponse Body of String
+     *
+     * @param url
+     * @param httpMethod
+     * @param content
+     * @param headers
+     * @return String
+     */
+    private String send(String url, HttpMethod httpMethod, InputStream content, Map<String, String> headers) {
+        URLConnection raw;
+        HttpURLConnection conn = null;
+        try {
+            raw = new URL(url).openConnection();
+            conn = HttpURLConnection.class.cast(raw);
+
+            conn.setRequestMethod(httpMethod.name());
+
+            conn.setConnectTimeout(TIMEOUT);
+            conn.setReadTimeout(TIMEOUT);
+            conn.setUseCaches(false);
+            conn.setInstanceFollowRedirects(false);
+
+            prepareHeaders(headers, conn);
+            prepareRequestBody(httpMethod, content, conn);
+
+            return new String(body(conn), Charset.forName("UTF-8"));
+        } catch (Exception e) {
             throw new HttpClientException(e.getMessage(), e);
         } finally {
+            conn.disconnect();
+        }
+    }
+
+
+    /**
+     * Add Header Parameters In HttpURLConnection
+     *
+     * @param headers
+     * @param conn
+     */
+    private void prepareHeaders(Map<String, String> headers, HttpURLConnection conn) {
+
+        for (Map.Entry<String, String> header : headers.entrySet()) {
+            conn.addRequestProperty(header.getKey(), header.getValue());
+        }
+
+        conn.addRequestProperty("Content-Type", "application/json");
+        conn.addRequestProperty("Accept", "application/json");
+    }
+
+    /**
+     * @param httpMethod
+     * @param content
+     * @param conn
+     * @throws IOException
+     */
+    private void prepareRequestBody(HttpMethod httpMethod, InputStream content, HttpURLConnection conn) throws IOException {
+        if (HttpMethod.isValidRequestFor(httpMethod)) {
+            conn.setDoOutput(true);
+            final OutputStream output = conn.getOutputStream();
             try {
-                if (response != null) {
-                    response.close();
-                }
-            } catch (IOException e) {
-                //ignore
+                this.prepareOutputStream(content, output);
+            } finally {
+                output.close();
+                content.close();
             }
         }
     }
+
+    /**
+     * Convert InputStream content to OutputStream
+     *
+     * @param content
+     * @param output
+     * @throws IOException
+     */
+    private void prepareOutputStream(InputStream content, OutputStream output) throws IOException {
+        final byte[] buffer = new byte[8192];
+        for (int bytes = content.read(buffer); bytes != -1;
+             bytes = content.read(buffer)) {
+            output.write(buffer, 0, bytes);
+        }
+    }
+
+
+    /**
+     * Convert HttpURLConnection Stream to ByteArrayOutputStream
+     *
+     * @param conn
+     * @return byte[]
+     * @throws IOException
+     */
+    private byte[] body(HttpURLConnection conn) throws IOException {
+        final InputStream input;
+        if (conn.getResponseCode() >= HttpURLConnection.HTTP_BAD_REQUEST) {
+            input = conn.getErrorStream();
+        } else {
+            input = conn.getInputStream();
+        }
+        final byte[] body;
+        if (input == null) {
+            body = new byte[0];
+        } else {
+            try {
+
+                final byte[] buffer = new byte[8192];
+                final ByteArrayOutputStream output = new ByteArrayOutputStream();
+                for (int bytes = input.read(buffer); bytes != -1;
+                     bytes = input.read(buffer)) {
+                    output.write(buffer, 0, bytes);
+                }
+                body = output.toByteArray();
+            } finally {
+                input.close();
+            }
+        }
+
+        return body;
+    }
+
 }
