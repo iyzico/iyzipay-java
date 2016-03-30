@@ -15,7 +15,10 @@ import static com.iyzipay.HttpMethod.*;
 
 public class HttpClient {
 
-    public static final String DEFAULT_CHARSET = "UTF-8";
+    private static final String DEFAULT_CHARSET = "UTF-8";
+    private static final String APPLICATION_JSON = "application/json";
+    private static final String CONTENT_TYPE = "Content-Type";
+    private static final String ACCEPT = "Accept";
     private static final int TIMEOUT = 30000;
 
     private HttpClient() {
@@ -43,11 +46,9 @@ public class HttpClient {
         return exchange(url, DELETE, headers, request, responseType);
     }
 
-
     private <T> T exchange(String url, HttpMethod httpMethod, Map<String, String> headers, Object request, Class<T> responseType) {
         Gson gson = new Gson();
         String body = gson.toJson(request);
-
         try {
             String response = send(url, httpMethod, new ByteArrayInputStream(body.getBytes(DEFAULT_CHARSET)), headers);
             return gson.fromJson(response, responseType);
@@ -98,16 +99,17 @@ public class HttpClient {
      * @param conn
      */
     private void prepareHeaders(Map<String, String> headers, HttpURLConnection conn) {
-
         for (Map.Entry<String, String> header : headers.entrySet()) {
             conn.addRequestProperty(header.getKey(), header.getValue());
         }
 
-        conn.addRequestProperty("Content-Type", "application/json");
-        conn.addRequestProperty("Accept", "application/json");
+        conn.addRequestProperty(CONTENT_TYPE, APPLICATION_JSON);
+        conn.addRequestProperty(ACCEPT, APPLICATION_JSON);
     }
 
     /**
+     * Prepare Request Body For Post POST, DELETE, PUT methods
+     *
      * @param httpMethod
      * @param content
      * @param conn
