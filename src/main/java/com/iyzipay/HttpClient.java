@@ -57,15 +57,6 @@ public class HttpClient {
         }
     }
 
-    /**
-     * Return HttpResponse Body of String
-     *
-     * @param url
-     * @param httpMethod
-     * @param content
-     * @param headers
-     * @return String
-     */
     private String send(String url, HttpMethod httpMethod, InputStream content, Map<String, String> headers) {
         URLConnection raw;
         HttpURLConnection conn = null;
@@ -87,17 +78,12 @@ public class HttpClient {
         } catch (Exception e) {
             throw new HttpClientException(e.getMessage(), e);
         } finally {
-            conn.disconnect();
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
     }
 
-
-    /**
-     * Add Header Parameters In HttpURLConnection
-     *
-     * @param headers
-     * @param conn
-     */
     private void prepareHeaders(Map<String, String> headers, HttpURLConnection conn) {
         for (Map.Entry<String, String> header : headers.entrySet()) {
             conn.addRequestProperty(header.getKey(), header.getValue());
@@ -107,14 +93,6 @@ public class HttpClient {
         conn.addRequestProperty(ACCEPT, APPLICATION_JSON);
     }
 
-    /**
-     * Prepare Request Body For Post POST, DELETE, PUT methods
-     *
-     * @param httpMethod
-     * @param content
-     * @param conn
-     * @throws IOException
-     */
     private void prepareRequestBody(HttpMethod httpMethod, InputStream content, HttpURLConnection conn) throws IOException {
         if (HttpMethod.isValidRequestFor(httpMethod)) {
             conn.setDoOutput(true);
@@ -128,13 +106,6 @@ public class HttpClient {
         }
     }
 
-    /**
-     * Convert InputStream content to OutputStream
-     *
-     * @param content
-     * @param output
-     * @throws IOException
-     */
     private void prepareOutputStream(InputStream content, OutputStream output) throws IOException {
         final byte[] buffer = new byte[8192];
         for (int bytes = content.read(buffer); bytes != -1;
@@ -143,14 +114,6 @@ public class HttpClient {
         }
     }
 
-
-    /**
-     * Convert HttpURLConnection Stream to ByteArrayOutputStream
-     *
-     * @param conn
-     * @return byte[]
-     * @throws IOException
-     */
     private byte[] body(HttpURLConnection conn) throws IOException {
         final InputStream input;
         if (conn.getResponseCode() >= HttpURLConnection.HTTP_BAD_REQUEST) {
@@ -178,5 +141,4 @@ public class HttpClient {
 
         return body;
     }
-
 }
