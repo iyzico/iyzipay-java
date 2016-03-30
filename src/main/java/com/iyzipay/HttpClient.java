@@ -19,7 +19,7 @@ public class HttpClient {
     private static final String APPLICATION_JSON = "application/json";
     private static final String CONTENT_TYPE = "Content-Type";
     private static final String ACCEPT = "Accept";
-    private static final int TIMEOUT = 120000;
+    private static final int TIMEOUT = 140000;
 
     private HttpClient() {
     }
