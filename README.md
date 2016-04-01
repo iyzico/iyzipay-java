@@ -19,7 +19,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.iyzipay</groupId>
   <artifactId>iyzipay-java</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.iyzipay:iyzipay-java:1.0.5"
+compile "com.iyzipay:iyzipay-java:1.0.6"
 ```
 
 ### Others
@@ -36,7 +36,6 @@ compile "com.iyzipay:iyzipay-java:1.0.5"
 You'll need to manually install the following JARs:
 
 * The iyzipay JAR from https://github.com/iyzico/iyzipay-java/releases/latest
-* Apache http client 4.5.1 from http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.1
 * Gson 2.5 from http://mvnrepository.com/artifact/com.google.code.gson/gson/2.5
 * Commons codec 1.9 from http://mvnrepository.com/artifact/commons-codec/commons-codec/1.9
 * Commons lang 3.4 from http://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.4
