@@ -9,6 +9,7 @@ import com.iyzipay.request.CreateConnectBKMInitializeRequest;
 public class ConnectBKMInitialize extends IyzipayResource {
 
     private String htmlContent;
+    private String token;
 
     public static ConnectBKMInitialize create(CreateConnectBKMInitializeRequest request, Options options) {
         ConnectBKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
@@ -27,5 +28,13 @@ public class ConnectBKMInitialize extends IyzipayResource {
 
     public void setHtmlContent(String htmlContent) {
         this.htmlContent = htmlContent;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

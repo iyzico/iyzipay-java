@@ -9,6 +9,7 @@ import com.iyzipay.request.CreateBKMInitializeRequest;
 public class BKMInitialize extends IyzipayResource {
 
     private String htmlContent;
+    private String token;
 
     public static BKMInitialize create(CreateBKMInitializeRequest request, Options options) {
         BKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/initialize/ecom",
@@ -27,5 +28,13 @@ public class BKMInitialize extends IyzipayResource {
 
     public void setHtmlContent(String htmlContent) {
         this.htmlContent = htmlContent;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
