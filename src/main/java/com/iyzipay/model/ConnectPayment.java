@@ -20,6 +20,7 @@ public class ConnectPayment extends IyzipayResource {
     private String cardUserKey;
     private String binNumber;
     private String paymentTransactionId;
+    private String authCode;
     private String connectorName;
 
     public BigDecimal getPrice() {
@@ -132,6 +133,14 @@ public class ConnectPayment extends IyzipayResource {
 
     public void setPaymentTransactionId(String paymentTransactionId) {
         this.paymentTransactionId = paymentTransactionId;
+    }
+
+    public String getAuthCode() {
+        return authCode;
+    }
+
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
     }
 
     public String getConnectorName() {
