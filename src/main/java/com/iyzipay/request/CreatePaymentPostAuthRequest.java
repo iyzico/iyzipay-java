@@ -3,9 +3,12 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
+import java.math.BigDecimal;
+
 public class CreatePaymentPostAuthRequest extends Request {
 
     private String paymentId;
+    private BigDecimal paidPrice;
     private String ip;
 
     public String getPaymentId() {
@@ -14,6 +17,14 @@ public class CreatePaymentPostAuthRequest extends Request {
 
     public void setPaymentId(String paymentId) {
         this.paymentId = paymentId;
+    }
+
+    public BigDecimal getPaidPrice() {
+        return paidPrice;
+    }
+
+    public void setPaidPrice(BigDecimal paidPrice) {
+        this.paidPrice = paidPrice;
     }
 
     public String getIp() {
@@ -30,6 +41,7 @@ public class CreatePaymentPostAuthRequest extends Request {
                 .appendSuper(super.toString())
                 .append("paymentId", paymentId)
                 .append("ip", ip)
+                .append("paidPrice", paidPrice)
                 .toString();
     }
 }
