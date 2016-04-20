@@ -5,18 +5,18 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 
-public class CheckoutFormInitialize extends IyzipayResource {
+public class CheckoutFormInitializePreAuth extends IyzipayResource {
 
     private String token;
     private String checkoutFormContent;
     private Long tokenExpireTime;
     private String paymentPageUrl;
 
-    public static CheckoutFormInitialize create(CreateCheckoutFormInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/auth/ecom",
+    public static CheckoutFormInitializePreAuth create(CreateCheckoutFormInitializeRequest request, Options options) {
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/preauth/ecom",
                 getHttpHeaders(request, options),
                 request,
-                CheckoutFormInitialize.class);
+                CheckoutFormInitializePreAuth.class);
     }
 
     public String getToken() {
