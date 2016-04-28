@@ -1,8 +1,8 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreateConnectBKMInitializeRequest;
-import com.iyzipay.request.RetrieveBKMAuthRequest;
+import com.iyzipay.request.CreateBasicBkmInitializeRequest;
+import com.iyzipay.request.RetrieveBkmRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ public class ConnectBKMSample extends Sample {
 
     @Test
     public void should_initialize_bkm_express() {
-        CreateConnectBKMInitializeRequest request = new CreateConnectBKMInitializeRequest();
+        CreateBasicBkmInitializeRequest request = new CreateBasicBkmInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
@@ -31,7 +31,7 @@ public class ConnectBKMSample extends Sample {
         request.setConnectorName("connector name");
         request.setInstallmentDetails(prepareInstallmentDetails());
 
-        ConnectBKMInitialize connectBKMInitialize = ConnectBKMInitialize.create(request, options);
+        BasicBkmInitialize connectBKMInitialize = BasicBkmInitialize.create(request, options);
 
         System.out.println(connectBKMInitialize);
 
@@ -43,12 +43,12 @@ public class ConnectBKMSample extends Sample {
 
     @Test
     public void should_retrieve_bkm_auth() {
-        RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
+        RetrieveBkmRequest request = new RetrieveBkmRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        ConnectBKMAuth connectBKMAuth = ConnectBKMAuth.retrieve(request, options);
+        BasicBkm connectBKMAuth = BasicBkm.retrieve(request, options);
 
         System.out.println(connectBKMAuth);
 
@@ -58,8 +58,8 @@ public class ConnectBKMSample extends Sample {
         assertEquals("123456789", connectBKMAuth.getConversationId());
     }
 
-    private List<BKMInstallment> prepareInstallmentDetails() {
-        List<BKMInstallment> installmentDetails = new ArrayList<BKMInstallment>();
+    private List<BkmInstallment> prepareInstallmentDetails() {
+        List<BkmInstallment> installmentDetails = new ArrayList<BkmInstallment>();
         installmentDetails.add(isbankInstallmentDetails());
         installmentDetails.add(finansbankInstallmentDetails());
         installmentDetails.add(akbankInstallmentDetails());
@@ -69,29 +69,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetails;
     }
 
-    private BKMInstallment isbankInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment isbankInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(64L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 
@@ -105,29 +105,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetail;
     }
 
-    private BKMInstallment finansbankInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment finansbankInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(111L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 
@@ -141,29 +141,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetail;
     }
 
-    private BKMInstallment akbankInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment akbankInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(46L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 
@@ -177,29 +177,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetail;
     }
 
-    private BKMInstallment ykbInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment ykbInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(67L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 
@@ -213,29 +213,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetail;
     }
 
-    private BKMInstallment denizbankInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment denizbankInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(134L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 
@@ -249,29 +249,29 @@ public class ConnectBKMSample extends Sample {
         return installmentDetail;
     }
 
-    private BKMInstallment halkbankInstallmentDetails() {
-        BKMInstallment installmentDetail = new BKMInstallment();
+    private BkmInstallment halkbankInstallmentDetails() {
+        BkmInstallment installmentDetail = new BkmInstallment();
         installmentDetail.setBankId(12L);
 
-        List<BKMInstallmentPrice> installmentPrices = new ArrayList<BKMInstallmentPrice>();
+        List<BkmInstallmentPrice> installmentPrices = new ArrayList<BkmInstallmentPrice>();
 
-        BKMInstallmentPrice singleInstallment = new BKMInstallmentPrice();
+        BkmInstallmentPrice singleInstallment = new BkmInstallmentPrice();
         singleInstallment.setInstallmentNumber(1);
         singleInstallment.setTotalPrice(new BigDecimal("1"));
 
-        BKMInstallmentPrice twoInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice twoInstallments = new BkmInstallmentPrice();
         twoInstallments.setInstallmentNumber(2);
         twoInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice threeInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice threeInstallments = new BkmInstallmentPrice();
         threeInstallments.setInstallmentNumber(3);
         threeInstallments.setTotalPrice(new BigDecimal("1.1"));
 
-        BKMInstallmentPrice sixInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice sixInstallments = new BkmInstallmentPrice();
         sixInstallments.setInstallmentNumber(6);
         sixInstallments.setTotalPrice(new BigDecimal("1.2"));
 
-        BKMInstallmentPrice nineInstallments = new BKMInstallmentPrice();
+        BkmInstallmentPrice nineInstallments = new BkmInstallmentPrice();
         nineInstallments.setInstallmentNumber(9);
         nineInstallments.setTotalPrice(new BigDecimal("1.4"));
 

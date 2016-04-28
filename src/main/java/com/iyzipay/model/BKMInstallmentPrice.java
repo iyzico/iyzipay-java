@@ -4,7 +4,7 @@ import com.iyzipay.ToStringRequestBuilder;
 
 import java.math.BigDecimal;
 
-public class BKMInstallmentPrice {
+public class BkmInstallmentPrice {
 
     private Integer installmentNumber;
     private BigDecimal totalPrice;

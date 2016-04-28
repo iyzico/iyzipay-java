@@ -1,7 +1,7 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.ConnectThreeDSAuth;
-import com.iyzipay.model.ConnectThreeDSInitialize;
+import com.iyzipay.model.BasicThreeDS;
+import com.iyzipay.model.BasicThreeDSInitialize;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
 import com.iyzipay.request.CreateConnectThreeDSAuthRequest;
@@ -38,7 +38,7 @@ public class ConnectThreeDSSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        ConnectThreeDSInitialize connectThreeDSInitialize = ConnectThreeDSInitialize.create(request, options);
+        BasicThreeDSInitialize connectThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
 
         System.out.println(connectThreeDSInitialize);
 
@@ -66,7 +66,7 @@ public class ConnectThreeDSSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        ConnectThreeDSInitialize connectThreeDSInitialize = ConnectThreeDSInitialize.create(request, options);
+        BasicThreeDSInitialize connectThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
 
         System.out.println(connectThreeDSInitialize);
 
@@ -83,7 +83,7 @@ public class ConnectThreeDSSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentId("1");
 
-        ConnectThreeDSAuth connectThreeDSAuth = ConnectThreeDSAuth.create(request, options);
+        BasicThreeDS connectThreeDSAuth = BasicThreeDS.create(request, options);
 
         System.out.println(connectThreeDSAuth);
 

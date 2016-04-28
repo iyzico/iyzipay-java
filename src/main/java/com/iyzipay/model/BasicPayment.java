@@ -2,14 +2,14 @@ package com.iyzipay.model;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectPaymentRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
 
-public class ConnectPaymentAuth extends ConnectPayment {
+public class BasicPayment extends BasicPaymentResource {
 
-    public static ConnectPaymentAuth create(CreateConnectPaymentRequest request, Options options) {
+    public static BasicPayment create(CreateBasicPaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/auth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectPaymentAuth.class);
+                BasicPayment.class);
     }
 }

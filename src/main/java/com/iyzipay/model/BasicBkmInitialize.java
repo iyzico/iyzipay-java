@@ -4,18 +4,18 @@ import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectBKMInitializeRequest;
+import com.iyzipay.request.CreateBasicBkmInitializeRequest;
 
-public class ConnectBKMInitialize extends IyzipayResource {
+public class BasicBkmInitialize extends IyzipayResource {
 
     private String htmlContent;
     private String token;
 
-    public static ConnectBKMInitialize create(CreateConnectBKMInitializeRequest request, Options options) {
-        ConnectBKMInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
+    public static BasicBkmInitialize create(CreateBasicBkmInitializeRequest request, Options options) {
+        BasicBkmInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/initialize",
                 getHttpHeaders(request, options),
                 request,
-                ConnectBKMInitialize.class);
+                BasicBkmInitialize.class);
         if (response != null) {
             response.setHtmlContent(DigestHelper.decodeString(response.getHtmlContent()));
         }

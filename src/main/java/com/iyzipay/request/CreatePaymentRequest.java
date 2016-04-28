@@ -18,12 +18,15 @@ public class CreatePaymentRequest extends Request {
     private String paymentChannel;
     private String basketId;
     private String paymentGroup;
-    private String paymentSource;
     private PaymentCard paymentCard;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
     private List<BasketItem> basketItems;
+    private String paymentSource;
+    private String callbackUrl;
+    private String posOrderId;
+    private String connectorName;
 
     public BigDecimal getPrice() {
         return price;
@@ -73,14 +76,6 @@ public class CreatePaymentRequest extends Request {
         this.paymentGroup = paymentGroup;
     }
 
-    public String getPaymentSource() {
-        return paymentSource;
-    }
-
-    public void setPaymentSource(String paymentSource) {
-        this.paymentSource = paymentSource;
-    }
-
     public PaymentCard getPaymentCard() {
         return paymentCard;
     }
@@ -121,6 +116,38 @@ public class CreatePaymentRequest extends Request {
         this.basketItems = basketItems;
     }
 
+    public String getPaymentSource() {
+        return paymentSource;
+    }
+
+    public void setPaymentSource(String paymentSource) {
+        this.paymentSource = paymentSource;
+    }
+
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
+    }
+
+    public String getPosOrderId() {
+        return posOrderId;
+    }
+
+    public void setPosOrderId(String posOrderId) {
+        this.posOrderId = posOrderId;
+    }
+
+    public String getConnectorName() {
+        return connectorName;
+    }
+
+    public void setConnectorName(String connectorName) {
+        this.connectorName = connectorName;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -137,6 +164,9 @@ public class CreatePaymentRequest extends Request {
                 .append("billingAddress", billingAddress)
                 .append("basketItems", basketItems)
                 .append("paymentSource", paymentSource)
+                .append("callbackUrl", callbackUrl)
+                .append("posOrderId", posOrderId)
+                .append("connectorName", connectorName)
                 .toString();
     }
 }

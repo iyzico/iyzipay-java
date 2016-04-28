@@ -1,8 +1,8 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreateBKMInitializeRequest;
-import com.iyzipay.request.RetrieveBKMAuthRequest;
+import com.iyzipay.request.CreateBkmInitializeRequest;
+import com.iyzipay.request.RetrieveBkmRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ public class BKMSample extends Sample {
 
     @Test
     public void should_initialize_bkm_express() {
-        CreateBKMInitializeRequest request = new CreateBKMInitializeRequest();
+        CreateBkmInitializeRequest request = new CreateBkmInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
@@ -91,7 +91,7 @@ public class BKMSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        BKMInitialize bkmInitialize = BKMInitialize.create(request, options);
+        BkmInitialize bkmInitialize = BkmInitialize.create(request, options);
 
         System.out.println(bkmInitialize);
 
@@ -104,18 +104,18 @@ public class BKMSample extends Sample {
 
     @Test
     public void should_retrieve_bkm_auth() {
-        RetrieveBKMAuthRequest request = new RetrieveBKMAuthRequest();
+        RetrieveBkmRequest request = new RetrieveBkmRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        BKMAuth bkmAuth = BKMAuth.retrieve(request, options);
+        Bkm bkm = Bkm.retrieve(request, options);
 
-        System.out.println(bkmAuth);
+        System.out.println(bkm);
 
-        assertNotNull(bkmAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), bkmAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), bkmAuth.getLocale());
-        assertEquals("123456789", bkmAuth.getConversationId());
+        assertNotNull(bkm.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), bkm.getStatus());
+        assertEquals(Locale.TR.getValue(), bkm.getLocale());
+        assertEquals("123456789", bkm.getConversationId());
     }
 }

@@ -96,7 +96,7 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentAuth paymentAuth = PaymentAuth.create(request, options);
+        Payment paymentAuth = Payment.create(request, options);
 
         System.out.println(paymentAuth);
 
@@ -194,7 +194,7 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentAuth paymentAuth = PaymentAuth.create(request, options);
+        Payment paymentAuth = Payment.create(request, options);
 
         System.out.println(paymentAuth);
 
@@ -286,7 +286,7 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentAuth paymentAuth = PaymentAuth.create(request, options);
+        Payment paymentAuth = Payment.create(request, options);
 
         System.out.println(paymentAuth);
 
@@ -304,7 +304,7 @@ public class PaymentAuthSample extends Sample {
         retrievePaymentRequest.setPaymentId("1");
         retrievePaymentRequest.setPaymentConversationId("123456789");
 
-        PaymentAuth paymentAuth = PaymentAuth.retrieve(retrievePaymentRequest, options);
+        Payment paymentAuth = Payment.retrieve(retrievePaymentRequest, options);
 
         System.out.println(paymentAuth.toString());
 

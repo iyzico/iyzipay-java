@@ -5,14 +5,14 @@ import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateThreeDSInitializeRequest;
+import com.iyzipay.request.CreatePaymentRequest;
 
 public class ThreeDSInitializePreAuth extends IyzipayResource {
 
     @SerializedName("threeDSHtmlContent")
     private String htmlContent;
 
-    public static ThreeDSInitializePreAuth create(CreateThreeDSInitializeRequest request, Options options) {
+    public static ThreeDSInitializePreAuth create(CreatePaymentRequest request, Options options) {
         ThreeDSInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/initialize3ds/preauth/ecom",
                 getHttpHeaders(request, options),
                 request,

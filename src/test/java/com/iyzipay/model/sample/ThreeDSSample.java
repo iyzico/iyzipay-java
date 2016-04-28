@@ -1,7 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreateThreeDSAuthRequest;
+import com.iyzipay.request.CreateThreeDSRequest;
 import com.iyzipay.request.CreateThreeDSInitializeRequest;
 import com.iyzipay.request.RetrievePaymentRequest;
 import org.junit.Test;
@@ -302,20 +302,20 @@ public class ThreeDSSample extends Sample {
 
     @Test
     public void should_auth_threeds() {
-        CreateThreeDSAuthRequest request = new CreateThreeDSAuthRequest();
+        CreateThreeDSRequest request = new CreateThreeDSRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentId("1");
         request.setConversationData("conversation data");
 
-        ThreeDSAuth threeDSAuth = ThreeDSAuth.create(request, options);
+        ThreeDS threeDS = ThreeDS.create(request, options);
 
-        System.out.println(threeDSAuth);
+        System.out.println(threeDS);
 
-        assertNotNull(threeDSAuth.getConversationId());
-        assertNotNull(threeDSAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), threeDSAuth.getLocale());
-        assertEquals("123456789", threeDSAuth.getConversationId());
+        assertNotNull(threeDS.getConversationId());
+        assertNotNull(threeDS.getLocale());
+        assertEquals(Locale.TR.getValue(), threeDS.getLocale());
+        assertEquals("123456789", threeDS.getConversationId());
     }
 
     @Test
@@ -326,13 +326,13 @@ public class ThreeDSSample extends Sample {
         retrievePaymentRequest.setPaymentId("1");
         retrievePaymentRequest.setPaymentConversationId("123456789");
 
-        ThreeDSAuth threeDSAuth = ThreeDSAuth.retrieve(retrievePaymentRequest, options);
+        ThreeDS threeDS = ThreeDS.retrieve(retrievePaymentRequest, options);
 
-        System.out.println(threeDSAuth.toString());
+        System.out.println(threeDS.toString());
 
-        assertNotNull(threeDSAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSAuth.getLocale());
-        assertEquals("123456879", threeDSAuth.getConversationId());
+        assertNotNull(threeDS.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threeDS.getStatus());
+        assertEquals(Locale.TR.getValue(), threeDS.getLocale());
+        assertEquals("123456879", threeDS.getConversationId());
     }
 }

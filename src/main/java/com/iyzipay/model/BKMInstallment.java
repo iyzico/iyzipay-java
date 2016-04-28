@@ -4,10 +4,10 @@ import com.iyzipay.ToStringRequestBuilder;
 
 import java.util.List;
 
-public class BKMInstallment {
+public class BkmInstallment {
 
     private Long bankId;
-    private List<BKMInstallmentPrice> installmentPrices;
+    private List<BkmInstallmentPrice> installmentPrices;
 
     public Long getBankId() {
         return bankId;
@@ -17,11 +17,11 @@ public class BKMInstallment {
         this.bankId = bankId;
     }
 
-    public List<BKMInstallmentPrice> getInstallmentPrices() {
+    public List<BkmInstallmentPrice> getInstallmentPrices() {
         return installmentPrices;
     }
 
-    public void setInstallmentPrices(List<BKMInstallmentPrice> installmentPrices) {
+    public void setInstallmentPrices(List<BkmInstallmentPrice> installmentPrices) {
         this.installmentPrices = installmentPrices;
     }
 

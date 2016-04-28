@@ -1,9 +1,9 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.ConnectPaymentPreAuth;
+import com.iyzipay.model.BasicPaymentPreAuth;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
-import com.iyzipay.request.CreateConnectPaymentRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ public class ConnectPaymentPreAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card() {
-        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -35,7 +35,7 @@ public class ConnectPaymentPreAuthSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        ConnectPaymentPreAuth connectPaymentPreAuth = ConnectPaymentPreAuth.create(request, options);
+        BasicPaymentPreAuth connectPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
 
         System.out.println(connectPaymentPreAuth);
 
@@ -47,7 +47,7 @@ public class ConnectPaymentPreAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card_token() {
-        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -63,7 +63,7 @@ public class ConnectPaymentPreAuthSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        ConnectPaymentPreAuth connectPaymentPreAuth = ConnectPaymentPreAuth.create(request, options);
+        BasicPaymentPreAuth connectPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
 
         System.out.println(connectPaymentPreAuth);
 

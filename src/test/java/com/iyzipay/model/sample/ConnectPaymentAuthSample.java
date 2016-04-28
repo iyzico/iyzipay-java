@@ -1,9 +1,9 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.ConnectPaymentAuth;
+import com.iyzipay.model.BasicPayment;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
-import com.iyzipay.request.CreateConnectPaymentRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ public class ConnectPaymentAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card() {
-        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -35,7 +35,7 @@ public class ConnectPaymentAuthSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        ConnectPaymentAuth connectPaymentAuth = ConnectPaymentAuth.create(request, options);
+        BasicPayment connectPaymentAuth = BasicPayment.create(request, options);
 
         System.out.println(connectPaymentAuth);
 
@@ -47,7 +47,7 @@ public class ConnectPaymentAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card_token() {
-        CreateConnectPaymentRequest request = new CreateConnectPaymentRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -63,7 +63,7 @@ public class ConnectPaymentAuthSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        ConnectPaymentAuth connectPaymentAuth = ConnectPaymentAuth.create(request, options);
+        BasicPayment connectPaymentAuth = BasicPayment.create(request, options);
 
         System.out.println(connectPaymentAuth);
 

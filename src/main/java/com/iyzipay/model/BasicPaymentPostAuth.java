@@ -4,12 +4,12 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
 
-public class ConnectPaymentPostAuth extends ConnectPayment {
+public class BasicPaymentPostAuth extends BasicPaymentResource {
 
-    public static ConnectPaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
+    public static BasicPaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/postauth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectPaymentPostAuth.class);
+                BasicPaymentPostAuth.class);
     }
 }

@@ -5,18 +5,18 @@ import com.iyzipay.DigestHelper;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectThreeDSInitializeRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
 
-public class ConnectThreeDSInitialize extends IyzipayResource {
+public class BasicThreeDSInitializePreAuth extends IyzipayResource {
 
     @SerializedName("threeDSHtmlContent")
     private String htmlContent;
 
-    public static ConnectThreeDSInitialize create(CreateConnectThreeDSInitializeRequest request, Options options) {
-        ConnectThreeDSInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
+    public static BasicThreeDSInitializePreAuth create(CreateBasicPaymentRequest request, Options options) {
+        BasicThreeDSInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds/preauth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectThreeDSInitialize.class);
+                BasicThreeDSInitializePreAuth.class);
         if (response != null) {
             response.setHtmlContent(DigestHelper.decodeString(response.getHtmlContent()));
         }

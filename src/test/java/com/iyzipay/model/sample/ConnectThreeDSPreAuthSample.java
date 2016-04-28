@@ -35,7 +35,7 @@ public class ConnectThreeDSPreAuthSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        ConnectThreeDSInitializePreAuth connectThreeDSInitializePreAuth = ConnectThreeDSInitializePreAuth.create(request, options);
+        BasicThreeDSInitializePreAuth connectThreeDSInitializePreAuth = BasicThreeDSInitializePreAuth.create(request, options);
 
         System.out.println(connectThreeDSInitializePreAuth);
 
@@ -63,7 +63,7 @@ public class ConnectThreeDSPreAuthSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        ConnectThreeDSInitializePreAuth connectThreeDSInitializePreAuth = ConnectThreeDSInitializePreAuth.create(request, options);
+        BasicThreeDSInitializePreAuth connectThreeDSInitializePreAuth = BasicThreeDSInitializePreAuth.create(request, options);
 
         System.out.println(connectThreeDSInitializePreAuth);
 
@@ -80,7 +80,7 @@ public class ConnectThreeDSPreAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentId("1");
 
-        ConnectThreeDSAuth connectThreeDSAuth = ConnectThreeDSAuth.create(request, options);
+        BasicThreeDS connectThreeDSAuth = BasicThreeDS.create(request, options);
 
         System.out.println(connectThreeDSAuth);
 

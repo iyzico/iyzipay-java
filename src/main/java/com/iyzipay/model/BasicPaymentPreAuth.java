@@ -2,14 +2,14 @@ package com.iyzipay.model;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateConnectPaymentRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
 
-public class ConnectPaymentPreAuth extends ConnectPayment {
+public class BasicPaymentPreAuth extends BasicPaymentResource {
 
-    public static ConnectPaymentPreAuth create(CreateConnectPaymentRequest request, Options options) {
+    public static BasicPaymentPreAuth create(CreateBasicPaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/preauth",
                 getHttpHeaders(request, options),
                 request,
-                ConnectPaymentPreAuth.class);
+                BasicPaymentPreAuth.class);
     }
 }

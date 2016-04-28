@@ -2,7 +2,6 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
-import com.iyzipay.request.RetrieveCheckoutFormAuthRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;

@@ -4,7 +4,7 @@ import com.iyzipay.IyzipayResource;
 
 import java.math.BigDecimal;
 
-public class ConnectPayment extends IyzipayResource {
+public class BasicPaymentResource extends IyzipayResource {
 
     private BigDecimal price;
     private BigDecimal paidPrice;

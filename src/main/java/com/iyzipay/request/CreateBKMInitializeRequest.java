@@ -9,7 +9,7 @@ import com.iyzipay.model.Buyer;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class CreateBKMInitializeRequest extends Request {
+public class CreateBkmInitializeRequest extends Request {
 
     private BigDecimal price;
     private String basketId;

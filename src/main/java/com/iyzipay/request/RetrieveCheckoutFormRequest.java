@@ -3,7 +3,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class RetrieveBKMAuthRequest extends Request {
+public class RetrieveCheckoutFormRequest extends Request {
 
     private String token;
 
