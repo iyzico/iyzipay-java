@@ -98,7 +98,7 @@ public class HttpClient {
             conn.setDoOutput(true);
             final OutputStream output = conn.getOutputStream();
             try {
-                this.prepareOutputStream(content, output);
+                prepareOutputStream(content, output);
             } finally {
                 output.close();
                 content.close();
