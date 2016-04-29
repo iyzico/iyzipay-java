@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PaymentAuthSample extends Sample {
+public class PaymentSample extends Sample {
 
     @Test
     public void should_create_payment_with_physical_and_virtual_item_for_standard_merchant() {
@@ -96,14 +96,14 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        Payment paymentAuth = Payment.create(request, options);
+        Payment payment = Payment.create(request, options);
 
-        System.out.println(paymentAuth);
+        System.out.println(payment);
 
-        assertNotNull(paymentAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
-        assertEquals("123456789", paymentAuth.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertEquals(Locale.TR.getValue(), payment.getLocale());
+        assertEquals("123456789", payment.getConversationId());
     }
 
     @Test
@@ -194,14 +194,14 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        Payment paymentAuth = Payment.create(request, options);
+        Payment payment = Payment.create(request, options);
 
-        System.out.println(paymentAuth);
+        System.out.println(payment);
 
-        assertNotNull(paymentAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
-        assertEquals("123456789", paymentAuth.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertEquals(Locale.TR.getValue(), payment.getLocale());
+        assertEquals("123456789", payment.getConversationId());
     }
 
     @Test
@@ -286,14 +286,14 @@ public class PaymentAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        Payment paymentAuth = Payment.create(request, options);
+        Payment payment = Payment.create(request, options);
 
-        System.out.println(paymentAuth);
+        System.out.println(payment);
 
-        assertNotNull(paymentAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
-        assertEquals("123456789", paymentAuth.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertEquals(Locale.TR.getValue(), payment.getLocale());
+        assertEquals("123456789", payment.getConversationId());
     }
 
     @Test
@@ -304,13 +304,13 @@ public class PaymentAuthSample extends Sample {
         retrievePaymentRequest.setPaymentId("1");
         retrievePaymentRequest.setPaymentConversationId("123456789");
 
-        Payment paymentAuth = Payment.retrieve(retrievePaymentRequest, options);
+        Payment payment = Payment.retrieve(retrievePaymentRequest, options);
 
-        System.out.println(paymentAuth.toString());
+        System.out.println(payment.toString());
 
-        assertNotNull(paymentAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentAuth.getLocale());
-        assertEquals("123456879", paymentAuth.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertEquals(Locale.TR.getValue(), payment.getLocale());
+        assertEquals("123456879", payment.getConversationId());
     }
 }

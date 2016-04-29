@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConnectBKMSample extends Sample {
+public class BasicBkmSample extends Sample {
 
     @Test
     public void should_initialize_bkm_express() {
@@ -31,14 +31,14 @@ public class ConnectBKMSample extends Sample {
         request.setConnectorName("connector name");
         request.setInstallmentDetails(prepareInstallmentDetails());
 
-        BasicBkmInitialize connectBKMInitialize = BasicBkmInitialize.create(request, options);
+        BasicBkmInitialize basicBkmInitialize = BasicBkmInitialize.create(request, options);
 
-        System.out.println(connectBKMInitialize);
+        System.out.println(basicBkmInitialize);
 
-        assertNotNull(connectBKMInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), connectBKMInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), connectBKMInitialize.getLocale());
-        assertEquals("123456789", connectBKMInitialize.getConversationId());
+        assertNotNull(basicBkmInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), basicBkmInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), basicBkmInitialize.getLocale());
+        assertEquals("123456789", basicBkmInitialize.getConversationId());
     }
 
     @Test
@@ -48,14 +48,14 @@ public class ConnectBKMSample extends Sample {
         request.setConversationId("123456789");
         request.setToken("token");
 
-        BasicBkm connectBKMAuth = BasicBkm.retrieve(request, options);
+        BasicBkm basicBkm = BasicBkm.retrieve(request, options);
 
-        System.out.println(connectBKMAuth);
+        System.out.println(basicBkm);
 
-        assertNotNull(connectBKMAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), connectBKMAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), connectBKMAuth.getLocale());
-        assertEquals("123456789", connectBKMAuth.getConversationId());
+        assertNotNull(basicBkm.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), basicBkm.getStatus());
+        assertEquals(Locale.TR.getValue(), basicBkm.getLocale());
+        assertEquals("123456789", basicBkm.getConversationId());
     }
 
     private List<BkmInstallment> prepareInstallmentDetails() {

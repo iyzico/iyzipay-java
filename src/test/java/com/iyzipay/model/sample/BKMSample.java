@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class BKMSample extends Sample {
+public class BkmSample extends Sample {
 
     @Test
     public void should_initialize_bkm_express() {

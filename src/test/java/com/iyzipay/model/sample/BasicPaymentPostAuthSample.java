@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConnectPostAuthSample extends Sample {
+public class BasicPaymentPostAuthSample extends Sample {
 
     @Test
     public void should_post_auth() {
@@ -22,13 +22,13 @@ public class ConnectPostAuthSample extends Sample {
         request.setPaidPrice(new BigDecimal("0.3"));
         request.setIp("85.34.78.112");
 
-        BasicPaymentPostAuth paymentPostAuth = BasicPaymentPostAuth.create(request, options);
+        BasicPaymentPostAuth basicPaymentPostAuth = BasicPaymentPostAuth.create(request, options);
 
-        System.out.println(paymentPostAuth);
+        System.out.println(basicPaymentPostAuth);
 
-        assertNotNull(paymentPostAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPostAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPostAuth.getLocale());
-        assertEquals("123456789", paymentPostAuth.getConversationId());
+        assertNotNull(basicPaymentPostAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), basicPaymentPostAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), basicPaymentPostAuth.getLocale());
+        assertEquals("123456789", basicPaymentPostAuth.getConversationId());
     }
 }

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConnectPaymentAuthSample extends Sample {
+public class BasicPaymentSample extends Sample {
 
     @Test
     public void should_pay_with_card() {
@@ -35,14 +35,14 @@ public class ConnectPaymentAuthSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        BasicPayment connectPaymentAuth = BasicPayment.create(request, options);
+        BasicPayment basicPayment = BasicPayment.create(request, options);
 
-        System.out.println(connectPaymentAuth);
+        System.out.println(basicPayment);
 
-        assertNotNull(connectPaymentAuth.getConversationId());
-        assertNotNull(connectPaymentAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), connectPaymentAuth.getLocale());
-        assertEquals("123456789", connectPaymentAuth.getConversationId());
+        assertNotNull(basicPayment.getConversationId());
+        assertNotNull(basicPayment.getLocale());
+        assertEquals(Locale.TR.getValue(), basicPayment.getLocale());
+        assertEquals("123456789", basicPayment.getConversationId());
     }
 
     @Test
@@ -63,13 +63,13 @@ public class ConnectPaymentAuthSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        BasicPayment connectPaymentAuth = BasicPayment.create(request, options);
+        BasicPayment basicPayment = BasicPayment.create(request, options);
 
-        System.out.println(connectPaymentAuth);
+        System.out.println(basicPayment);
 
-        assertNotNull(connectPaymentAuth.getConversationId());
-        assertNotNull(connectPaymentAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), connectPaymentAuth.getLocale());
-        assertEquals("123456789", connectPaymentAuth.getConversationId());
+        assertNotNull(basicPayment.getConversationId());
+        assertNotNull(basicPayment.getLocale());
+        assertEquals(Locale.TR.getValue(), basicPayment.getLocale());
+        assertEquals("123456789", basicPayment.getConversationId());
     }
 }

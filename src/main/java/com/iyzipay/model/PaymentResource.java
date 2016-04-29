@@ -29,6 +29,7 @@ public class PaymentResource extends IyzipayResource {
     private String basketId;
     @SerializedName("itemTransactions")
     private List<PaymentItem> paymentItems;
+    private String connectorName;
 
     public BigDecimal getPrice() {
         return price;
@@ -172,6 +173,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setPaymentItems(List<PaymentItem> paymentItems) {
         this.paymentItems = paymentItems;
+    }
+
+    public String getConnectorName() {
+        return connectorName;
+    }
+
+    public void setConnectorName(String connectorName) {
+        this.connectorName = connectorName;
     }
 
     @Override

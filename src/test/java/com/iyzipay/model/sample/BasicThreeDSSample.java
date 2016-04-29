@@ -4,8 +4,8 @@ import com.iyzipay.model.BasicThreeDS;
 import com.iyzipay.model.BasicThreeDSInitialize;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
-import com.iyzipay.request.CreateConnectThreeDSAuthRequest;
-import com.iyzipay.request.CreateConnectThreeDSInitializeRequest;
+import com.iyzipay.request.CreateBasicPaymentRequest;
+import com.iyzipay.request.CreateThreeDSRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -13,11 +13,11 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConnectThreeDSSample extends Sample {
+public class BasicThreeDSSample extends Sample {
 
     @Test
     public void should_initialize_threeds_with_card() {
-        CreateConnectThreeDSInitializeRequest request = new CreateConnectThreeDSInitializeRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -38,18 +38,18 @@ public class ConnectThreeDSSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        BasicThreeDSInitialize connectThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
+        BasicThreeDSInitialize basicThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
 
-        System.out.println(connectThreeDSInitialize);
+        System.out.println(basicThreeDSInitialize);
 
-        assertNotNull(connectThreeDSInitialize.getConversationId());
-        assertNotNull(connectThreeDSInitialize.getLocale());
-        assertEquals(Locale.TR.getValue(), connectThreeDSInitialize.getLocale());
+        assertNotNull(basicThreeDSInitialize.getConversationId());
+        assertNotNull(basicThreeDSInitialize.getLocale());
+        assertEquals(Locale.TR.getValue(), basicThreeDSInitialize.getLocale());
     }
 
     @Test
     public void should_initialize_threeds_with_card_token() {
-        CreateConnectThreeDSInitializeRequest request = new CreateConnectThreeDSInitializeRequest();
+        CreateBasicPaymentRequest request = new CreateBasicPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setBuyerEmail("email@email.com");
@@ -66,30 +66,30 @@ public class ConnectThreeDSSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        BasicThreeDSInitialize connectThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
+        BasicThreeDSInitialize basicThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
 
-        System.out.println(connectThreeDSInitialize);
+        System.out.println(basicThreeDSInitialize);
 
-        assertNotNull(connectThreeDSInitialize.getConversationId());
-        assertNotNull(connectThreeDSInitialize.getLocale());
-        assertEquals(Locale.TR.getValue(), connectThreeDSInitialize.getLocale());
-        assertEquals("123456789", connectThreeDSInitialize.getConversationId());
+        assertNotNull(basicThreeDSInitialize.getConversationId());
+        assertNotNull(basicThreeDSInitialize.getLocale());
+        assertEquals(Locale.TR.getValue(), basicThreeDSInitialize.getLocale());
+        assertEquals("123456789", basicThreeDSInitialize.getConversationId());
     }
 
     @Test
     public void should_auth_threeds() {
-        CreateConnectThreeDSAuthRequest request = new CreateConnectThreeDSAuthRequest();
+        CreateThreeDSRequest request = new CreateThreeDSRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentId("1");
 
-        BasicThreeDS connectThreeDSAuth = BasicThreeDS.create(request, options);
+        BasicThreeDS basicThreeDS = BasicThreeDS.create(request, options);
 
-        System.out.println(connectThreeDSAuth);
+        System.out.println(basicThreeDS);
 
-        assertNotNull(connectThreeDSAuth.getConversationId());
-        assertNotNull(connectThreeDSAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), connectThreeDSAuth.getLocale());
-        assertEquals("123456789", connectThreeDSAuth.getConversationId());
+        assertNotNull(basicThreeDS.getConversationId());
+        assertNotNull(basicThreeDS.getLocale());
+        assertEquals(Locale.TR.getValue(), basicThreeDS.getLocale());
+        assertEquals("123456789", basicThreeDS.getConversationId());
     }
 }

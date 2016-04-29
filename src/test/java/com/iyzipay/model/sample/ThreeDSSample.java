@@ -1,8 +1,8 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
+import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateThreeDSRequest;
-import com.iyzipay.request.CreateThreeDSInitializeRequest;
 import com.iyzipay.request.RetrievePaymentRequest;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class ThreeDSSample extends Sample {
 
     @Test
     public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant() {
-        CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
+        CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
@@ -110,7 +110,7 @@ public class ThreeDSSample extends Sample {
 
     @Test
     public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place() {
-        CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
+        CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
@@ -209,7 +209,7 @@ public class ThreeDSSample extends Sample {
 
     @Test
     public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
-        CreateThreeDSInitializeRequest request = new CreateThreeDSInitializeRequest();
+        CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));

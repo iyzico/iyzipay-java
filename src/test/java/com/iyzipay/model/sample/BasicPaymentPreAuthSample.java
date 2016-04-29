@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConnectPaymentPreAuthSample extends Sample {
+public class BasicPaymentPreAuthSample extends Sample {
 
     @Test
     public void should_pay_with_card() {
@@ -35,14 +35,14 @@ public class ConnectPaymentPreAuthSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        BasicPaymentPreAuth connectPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
+        BasicPaymentPreAuth basicPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
 
-        System.out.println(connectPaymentPreAuth);
+        System.out.println(basicPaymentPreAuth);
 
-        assertNotNull(connectPaymentPreAuth.getConversationId());
-        assertNotNull(connectPaymentPreAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), connectPaymentPreAuth.getLocale());
-        assertEquals("123456789", connectPaymentPreAuth.getConversationId());
+        assertNotNull(basicPaymentPreAuth.getConversationId());
+        assertNotNull(basicPaymentPreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), basicPaymentPreAuth.getLocale());
+        assertEquals("123456789", basicPaymentPreAuth.getConversationId());
     }
 
     @Test
@@ -63,13 +63,13 @@ public class ConnectPaymentPreAuthSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        BasicPaymentPreAuth connectPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
+        BasicPaymentPreAuth basicPaymentPreAuth = BasicPaymentPreAuth.create(request, options);
 
-        System.out.println(connectPaymentPreAuth);
+        System.out.println(basicPaymentPreAuth);
 
-        assertNotNull(connectPaymentPreAuth.getConversationId());
-        assertNotNull(connectPaymentPreAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), connectPaymentPreAuth.getLocale());
-        assertEquals("123456789", connectPaymentPreAuth.getConversationId());
+        assertNotNull(basicPaymentPreAuth.getConversationId());
+        assertNotNull(basicPaymentPreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), basicPaymentPreAuth.getLocale());
+        assertEquals("123456789", basicPaymentPreAuth.getConversationId());
     }
 }

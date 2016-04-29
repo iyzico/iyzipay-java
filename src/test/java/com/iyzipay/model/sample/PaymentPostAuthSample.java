@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PostAuthSample extends Sample {
+public class PaymentPostAuthSample extends Sample {
 
     @Test
     public void should_post_auth() {
