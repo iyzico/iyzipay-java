@@ -7,16 +7,16 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateBasicPaymentRequest;
 
-public class BasicThreeDSInitialize extends IyzipayResource {
+public class BasicThreedsInitialize extends IyzipayResource {
 
     @SerializedName("threeDSHtmlContent")
     private String htmlContent;
 
-    public static BasicThreeDSInitialize create(CreateBasicPaymentRequest request, Options options) {
-        BasicThreeDSInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
+    public static BasicThreedsInitialize create(CreateBasicPaymentRequest request, Options options) {
+        BasicThreedsInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds",
                 getHttpHeaders(request, options),
                 request,
-                BasicThreeDSInitialize.class);
+                BasicThreedsInitialize.class);
         if (response != null) {
             response.setHtmlContent(DigestHelper.decodeString(response.getHtmlContent()));
         }

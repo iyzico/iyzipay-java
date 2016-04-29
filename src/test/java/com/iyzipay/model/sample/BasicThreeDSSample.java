@@ -1,11 +1,11 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.BasicThreeDS;
-import com.iyzipay.model.BasicThreeDSInitialize;
+import com.iyzipay.model.BasicThreedsPayment;
+import com.iyzipay.model.BasicThreedsInitialize;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
 import com.iyzipay.request.CreateBasicPaymentRequest;
-import com.iyzipay.request.CreateThreeDSRequest;
+import com.iyzipay.request.CreateThreedsPaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class BasicThreeDSSample extends Sample {
+public class BasicThreedsSample extends Sample {
 
     @Test
     public void should_initialize_threeds_with_card() {
@@ -38,7 +38,7 @@ public class BasicThreeDSSample extends Sample {
         paymentCard.setRegisterCard(0);
         request.setPaymentCard(paymentCard);
 
-        BasicThreeDSInitialize basicThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
+        BasicThreedsInitialize basicThreeDSInitialize = BasicThreedsInitialize.create(request, options);
 
         System.out.println(basicThreeDSInitialize);
 
@@ -66,7 +66,7 @@ public class BasicThreeDSSample extends Sample {
         paymentCard.setCardUserKey("card user key");
         request.setPaymentCard(paymentCard);
 
-        BasicThreeDSInitialize basicThreeDSInitialize = BasicThreeDSInitialize.create(request, options);
+        BasicThreedsInitialize basicThreeDSInitialize = BasicThreedsInitialize.create(request, options);
 
         System.out.println(basicThreeDSInitialize);
 
@@ -78,12 +78,12 @@ public class BasicThreeDSSample extends Sample {
 
     @Test
     public void should_auth_threeds() {
-        CreateThreeDSRequest request = new CreateThreeDSRequest();
+        CreateThreedsPaymentRequest request = new CreateThreedsPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentId("1");
 
-        BasicThreeDS basicThreeDS = BasicThreeDS.create(request, options);
+        BasicThreedsPayment basicThreeDS = BasicThreedsPayment.create(request, options);
 
         System.out.println(basicThreeDS);
 

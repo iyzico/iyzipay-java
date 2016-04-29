@@ -3,7 +3,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class CreateThreeDSRequest extends Request {
+public class CreateThreedsPaymentRequest extends Request {
 
     private String paymentId;
     private String conversationData;
