@@ -103,7 +103,7 @@ public class CheckoutFormSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_checkout_form_auth() {
+    public void should_retrieve_checkout_form() {
         RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

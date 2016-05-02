@@ -101,4 +101,21 @@ public class CheckoutFormPreAuthSample extends Sample {
         assertEquals(Locale.TR.getValue(), checkoutFormInitializePreAuth.getLocale());
         assertEquals("123456789", checkoutFormInitializePreAuth.getConversationId());
     }
+
+    @Test
+    public void should_retrieve_checkout_form() {
+        RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setToken("token");
+
+        CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
+
+        System.out.println(checkoutFormAuth);
+
+        assertNotNull(checkoutFormAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutFormAuth.getLocale());
+        assertEquals("123456789", checkoutFormAuth.getConversationId());
+    }
 }
