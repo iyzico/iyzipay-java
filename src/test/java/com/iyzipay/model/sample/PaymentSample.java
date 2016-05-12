@@ -328,6 +328,7 @@ public class PaymentSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
 
+        //IyziGate parameters
         request.setConnectorName("isbank");
         request.setPosOrderId("1");
 
@@ -423,6 +424,7 @@ public class PaymentSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
 
+        //IyziGate parameters
         request.setConnectorName("isbank");
         request.setPosOrderId("1");
 
@@ -524,6 +526,7 @@ public class PaymentSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
 
+        //IyziGate parameters
         request.setConnectorName("isbank");
         request.setPosOrderId("1");
 
