@@ -164,9 +164,9 @@ public class CreatePaymentRequest extends Request {
                 .append("billingAddress", billingAddress)
                 .append("basketItems", basketItems)
                 .append("paymentSource", paymentSource)
-                .append("callbackUrl", callbackUrl)
                 .append("posOrderId", posOrderId)
                 .append("connectorName", connectorName)
+                .append("callbackUrl", callbackUrl)
                 .toString();
     }
 }
