@@ -317,7 +317,7 @@ public class PaymentPreAuthSample extends Sample {
     //IyziGate Services:
 
     @Test
-    public void should_create_IyziGate_payment_with_physical_and_virtual_item_for_standard_merchant() {
+    public void should_create_IyziGate_payment_with_physical_and_virtual_item() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
