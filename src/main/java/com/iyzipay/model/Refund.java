@@ -15,7 +15,7 @@ public class Refund extends IyzipayResource {
     private String connectorName;
 
     public static Refund create(CreateRefundRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
                 getHttpHeaders(request, options),
                 request,
                 Refund.class);

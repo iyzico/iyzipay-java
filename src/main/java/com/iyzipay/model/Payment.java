@@ -8,7 +8,7 @@ import com.iyzipay.request.RetrievePaymentRequest;
 public class Payment extends PaymentResource {
 
     public static Payment create(CreatePaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/auth/ecom",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/auth",
                 getHttpHeaders(request, options),
                 request,
                 Payment.class);
