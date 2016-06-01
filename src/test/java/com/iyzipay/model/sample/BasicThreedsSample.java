@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.BasicThreedsPayment;
-import com.iyzipay.model.BasicThreedsInitialize;
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.PaymentCard;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateBasicPaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
 import org.junit.Test;

@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
+import com.iyzipay.request.RetrieveCheckoutFormRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -103,12 +104,12 @@ public class CheckoutFormPreAuthSample extends Sample {
 
     @Test
     public void should_retrieve_checkout_form() {
-        RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
+        RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
+        CheckoutForm checkoutFormAuth = CheckoutForm.retrieve(request, options);
 
         System.out.println(checkoutFormAuth);
 
