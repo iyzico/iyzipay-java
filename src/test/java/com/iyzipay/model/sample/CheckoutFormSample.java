@@ -23,6 +23,7 @@ public class CheckoutFormSample extends Sample {
         request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
         Buyer buyer = new Buyer();
