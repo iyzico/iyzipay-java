@@ -7,7 +7,7 @@ import com.iyzipay.request.CreateThreedsPaymentRequest;
 public class BasicThreedsPayment extends BasicPaymentResource {
 
     public static BasicThreedsPayment create(CreateThreedsPaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/auth3ds",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/auth/basic",
                 getHttpHeaders(request, options),
                 request,
                 BasicThreedsPayment.class);

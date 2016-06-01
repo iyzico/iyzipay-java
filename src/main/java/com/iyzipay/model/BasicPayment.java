@@ -7,7 +7,7 @@ import com.iyzipay.request.CreateBasicPaymentRequest;
 public class BasicPayment extends BasicPaymentResource {
 
     public static BasicPayment create(CreateBasicPaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/auth",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/auth/basic",
                 getHttpHeaders(request, options),
                 request,
                 BasicPayment.class);

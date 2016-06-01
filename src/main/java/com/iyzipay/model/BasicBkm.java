@@ -11,7 +11,7 @@ public class BasicBkm extends BasicPaymentResource {
     private String paymentStatus;
 
     public static BasicBkm retrieve(RetrieveBkmRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/bkm/auth/detail",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/auth/detail/basic",
                 getHttpHeaders(request, options),
                 request,
                 BasicBkm.class);

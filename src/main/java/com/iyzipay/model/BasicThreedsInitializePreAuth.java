@@ -13,7 +13,7 @@ public class BasicThreedsInitializePreAuth extends IyzipayResource {
     private String htmlContent;
 
     public static BasicThreedsInitializePreAuth create(CreateBasicPaymentRequest request, Options options) {
-        BasicThreedsInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyziconnect/initialize3ds/preauth",
+        BasicThreedsInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/initialize/preauth/basic",
                 getHttpHeaders(request, options),
                 request,
                 BasicThreedsInitializePreAuth.class);

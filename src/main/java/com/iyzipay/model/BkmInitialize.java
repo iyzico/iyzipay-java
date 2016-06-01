@@ -12,7 +12,7 @@ public class BkmInitialize extends IyzipayResource {
     private String token;
 
     public static BkmInitialize create(CreateBkmInitializeRequest request, Options options) {
-        BkmInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/bkm/initialize/ecom",
+        BkmInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/initialize",
                 getHttpHeaders(request, options),
                 request,
                 BkmInitialize.class);

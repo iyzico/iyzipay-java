@@ -8,7 +8,7 @@ import com.iyzipay.request.RetrievePaymentRequest;
 public class ThreedsPayment extends PaymentResource {
 
     public static ThreedsPayment create(CreateThreedsPaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/auth3ds/ecom",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/auth",
                 getHttpHeaders(request, options),
                 request,
                 ThreedsPayment.class);
