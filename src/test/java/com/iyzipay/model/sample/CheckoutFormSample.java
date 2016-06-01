@@ -22,7 +22,8 @@ public class CheckoutFormSample extends Sample {
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
-        request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
+        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
         Buyer buyer = new Buyer();
@@ -65,8 +66,6 @@ public class CheckoutFormSample extends Sample {
         firstBasketItem.setCategory2("Accessories");
         firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
         firstBasketItem.setPrice(new BigDecimal("0.3"));
-        firstBasketItem.setSubMerchantKey("sub merchant key");
-        firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(firstBasketItem);
 
         BasketItem secondBasketItem = new BasketItem();
@@ -76,8 +75,6 @@ public class CheckoutFormSample extends Sample {
         secondBasketItem.setCategory2("Online Game Items");
         secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
         secondBasketItem.setPrice(new BigDecimal("0.5"));
-        secondBasketItem.setSubMerchantKey("sub merchant key");
-        secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(secondBasketItem);
 
         BasketItem thirdBasketItem = new BasketItem();
@@ -87,8 +84,6 @@ public class CheckoutFormSample extends Sample {
         thirdBasketItem.setCategory2("Usb / Cable");
         thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
         thirdBasketItem.setPrice(new BigDecimal("0.2"));
-        thirdBasketItem.setSubMerchantKey("sub merchant key");
-        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
