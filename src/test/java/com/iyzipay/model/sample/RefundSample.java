@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.Refund;
-import com.iyzipay.model.RefundChargedFromMerchant;
-import com.iyzipay.model.Status;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
 
@@ -22,6 +19,7 @@ public class RefundSample extends Sample {
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("0.1"));
         request.setIp("85.34.78.112");
+        request.setCurrency(Currency.TRY.name());
 
         Refund refund = Refund.create(request, options);
 
@@ -41,6 +39,7 @@ public class RefundSample extends Sample {
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("0.1"));
         request.setIp("85.34.78.112");
+        request.setCurrency(Currency.TRY.name());
 
         RefundChargedFromMerchant refundChargedFromMerchant = RefundChargedFromMerchant.create(request, options);
 

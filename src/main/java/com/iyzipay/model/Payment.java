@@ -13,6 +13,7 @@ public class Payment extends IyzipayResource {
     private BigDecimal price;
     private BigDecimal paidPrice;
     private Integer installment;
+    private String currency;
     private String paymentId;
     private String paymentStatus;
     private Integer fraudStatus;
@@ -52,6 +53,14 @@ public class Payment extends IyzipayResource {
 
     public void setInstallment(Integer installment) {
         this.installment = installment;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getPaymentId() {

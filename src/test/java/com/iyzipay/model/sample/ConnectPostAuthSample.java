@@ -1,6 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.ConnectPaymentPostAuth;
+import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
@@ -21,6 +22,7 @@ public class ConnectPostAuthSample extends Sample {
         request.setPaymentId("1");
         request.setPaidPrice(new BigDecimal("0.3"));
         request.setIp("85.34.78.112");
+        request.setCurrency(Currency.TRY.name());
 
         ConnectPaymentPostAuth paymentPostAuth = ConnectPaymentPostAuth.create(request, options);
 

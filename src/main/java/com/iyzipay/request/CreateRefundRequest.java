@@ -10,6 +10,7 @@ public class CreateRefundRequest extends Request {
     private String paymentTransactionId;
     private BigDecimal price;
     private String ip;
+    private String currency;
 
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -35,6 +36,14 @@ public class CreateRefundRequest extends Request {
         this.ip = ip;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -42,6 +51,7 @@ public class CreateRefundRequest extends Request {
                 .append("paymentTransactionId", paymentTransactionId)
                 .append("price", price)
                 .append("ip", ip)
+                .append("currency", currency)
                 .toString();
     }
 }

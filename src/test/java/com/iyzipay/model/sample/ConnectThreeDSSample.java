@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.ConnectThreeDSAuth;
-import com.iyzipay.model.ConnectThreeDSInitialize;
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.PaymentCard;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateConnectThreeDSAuthRequest;
 import com.iyzipay.request.CreateConnectThreeDSInitializeRequest;
 import org.junit.Test;
@@ -28,6 +25,7 @@ public class ConnectThreeDSSample extends Sample {
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -60,6 +58,7 @@ public class ConnectThreeDSSample extends Sample {
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardToken("card token");

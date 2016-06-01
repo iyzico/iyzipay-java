@@ -51,7 +51,7 @@ public static void main(String[] args) {
    Options options = new Options();
    options.setApiKey("your api key");
    options.setSecretKey("your secret key");
-   options.setBaseUrl("https://stg.iyzipay.com");
+   options.setBaseUrl("https://sandbox-api.iyzipay.com");
 
    CreatePaymentRequest request = new CreatePaymentRequest();
    request.setLocale(Locale.TR.getValue());
@@ -149,5 +149,5 @@ Testing
 
 You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
 
-    mvn test -Dtest=PaymentAuthSample -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
-    mvn test -Dtest=PaymentAuthSample#should_create_payment_with_physical_and_virtual_item_for_market_place -DbaseUrl=https://stg.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=PaymentAuthSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=PaymentAuthSample#should_create_payment_with_physical_and_virtual_item_for_market_place -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey

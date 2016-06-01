@@ -11,6 +11,7 @@ public class ConnectCancel extends IyzipayResource {
 
     private String paymentId;
     private BigDecimal price;
+    private String currency;
     private String connectorName;
 
     public static ConnectCancel create(CreateCancelRequest request, Options options) {
@@ -34,6 +35,14 @@ public class ConnectCancel extends IyzipayResource {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getConnectorName() {
