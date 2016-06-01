@@ -11,6 +11,7 @@ public class PayoutCompletedTransaction {
     private BigDecimal payoutAmount;
     private String payoutType;
     private String subMerchantKey;
+    private String currency;
 
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -42,6 +43,14 @@ public class PayoutCompletedTransaction {
 
     public void setSubMerchantKey(String subMerchantKey) {
         this.subMerchantKey = subMerchantKey;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     @Override

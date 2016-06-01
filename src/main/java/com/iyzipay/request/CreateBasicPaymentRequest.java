@@ -18,6 +18,7 @@ public class CreateBasicPaymentRequest extends Request {
     private String buyerIp;
     private String posOrderId;
     private PaymentCard paymentCard;
+    private String currency;
     private String connectorName;
     private String callbackUrl;
 
@@ -89,6 +90,14 @@ public class CreateBasicPaymentRequest extends Request {
         this.paymentCard = paymentCard;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     public String getConnectorName() {
         return connectorName;
     }
@@ -117,6 +126,7 @@ public class CreateBasicPaymentRequest extends Request {
                 .append("buyerIp", buyerIp)
                 .append("posOrderId", posOrderId)
                 .append("paymentCard", paymentCard)
+                .append("currency", currency)
                 .append("connectorName", connectorName)
                 .append("callbackUrl", callbackUrl)
                 .toString();

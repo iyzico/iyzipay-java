@@ -9,6 +9,7 @@ public class BasicPaymentResource extends IyzipayResource {
     private BigDecimal price;
     private BigDecimal paidPrice;
     private Integer installment;
+    private String currency;
     private String paymentId;
     private BigDecimal merchantCommissionRate;
     private BigDecimal merchantCommissionRateAmount;
@@ -45,6 +46,14 @@ public class BasicPaymentResource extends IyzipayResource {
 
     public void setInstallment(Integer installment) {
         this.installment = installment;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getPaymentId() {

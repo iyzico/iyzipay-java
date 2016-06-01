@@ -12,6 +12,7 @@ public class Refund extends IyzipayResource {
     private String paymentId;
     private String paymentTransactionId;
     private BigDecimal price;
+    private String currency;
     private String connectorName;
 
     public static Refund create(CreateRefundRequest request, Options options) {
@@ -43,6 +44,14 @@ public class Refund extends IyzipayResource {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getConnectorName() {

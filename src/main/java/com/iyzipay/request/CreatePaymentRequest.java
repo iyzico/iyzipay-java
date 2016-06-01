@@ -27,6 +27,7 @@ public class CreatePaymentRequest extends Request {
     private String callbackUrl;
     private String posOrderId;
     private String connectorName;
+    private String currency;
 
     public BigDecimal getPrice() {
         return price;
@@ -148,6 +149,14 @@ public class CreatePaymentRequest extends Request {
         this.connectorName = connectorName;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -164,6 +173,7 @@ public class CreatePaymentRequest extends Request {
                 .append("billingAddress", billingAddress)
                 .append("basketItems", basketItems)
                 .append("paymentSource", paymentSource)
+                .append("currency", currency)
                 .append("posOrderId", posOrderId)
                 .append("connectorName", connectorName)
                 .append("callbackUrl", callbackUrl)

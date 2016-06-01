@@ -27,6 +27,7 @@ public class ThreedsPreAuthSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -120,6 +121,7 @@ public class ThreedsPreAuthSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -219,6 +221,7 @@ public class ThreedsPreAuthSample extends Sample {
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.LISTING.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");

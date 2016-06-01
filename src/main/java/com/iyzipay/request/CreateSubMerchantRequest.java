@@ -18,6 +18,8 @@ public class CreateSubMerchantRequest extends Request {
     private String identityNumber;
     private String taxNumber;
     private String subMerchantType;
+    private String currency;
+    private String swiftCode;
 
     public String getName() {
         return name;
@@ -123,6 +125,22 @@ public class CreateSubMerchantRequest extends Request {
         this.subMerchantType = subMerchantType;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getSwiftCode() {
+        return swiftCode;
+    }
+
+    public void setSwiftCode(String swiftCode) {
+        this.swiftCode = swiftCode;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -136,6 +154,8 @@ public class CreateSubMerchantRequest extends Request {
                 .append("contactName", contactName)
                 .append("contactSurname", contactSurname)
                 .append("legalCompanyTitle", legalCompanyTitle)
+                .append("swiftCode", swiftCode)
+                .append("currency", currency)
                 .append("subMerchantExternalId", subMerchantExternalId)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)

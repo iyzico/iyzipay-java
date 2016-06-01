@@ -25,6 +25,7 @@ public class PaymentSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -117,6 +118,7 @@ public class PaymentSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -215,6 +217,7 @@ public class PaymentSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");

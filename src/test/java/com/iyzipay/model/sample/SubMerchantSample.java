@@ -1,9 +1,6 @@
 package com.iyzipay.model.sample;
 
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.Status;
-import com.iyzipay.model.SubMerchant;
-import com.iyzipay.model.SubMerchantType;
+import com.iyzipay.model.*;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
@@ -29,6 +26,7 @@ public class SubMerchantSample extends Sample {
         request.setName("John's market");
         request.setIban("TR180006200119000006672315");
         request.setIdentityNumber("1234567890");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.create(request, options);
 
@@ -55,6 +53,7 @@ public class SubMerchantSample extends Sample {
         request.setName("John's market");
         request.setIban("TR180006200119000006672315");
         request.setIdentityNumber("31300864726");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.create(request, options);
 
@@ -81,6 +80,7 @@ public class SubMerchantSample extends Sample {
         request.setGsmNumber("+905350000000");
         request.setName("John's market");
         request.setIban("TR180006200119000006672315");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.create(request, options);
 
@@ -106,6 +106,7 @@ public class SubMerchantSample extends Sample {
         request.setGsmNumber("+905350000000");
         request.setName("Jane's market");
         request.setIdentityNumber("31300864726");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.update(request, options);
 
@@ -131,6 +132,7 @@ public class SubMerchantSample extends Sample {
         request.setName("Jane's market");
         request.setIban("TR180006200119000006672315");
         request.setIdentityNumber("31300864726");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.update(request, options);
 
@@ -156,6 +158,7 @@ public class SubMerchantSample extends Sample {
         request.setGsmNumber("+905350000000");
         request.setName("Jane's market");
         request.setIban("TR180006200119000006672315");
+        request.setCurrency(Currency.TRY.name());
 
         SubMerchant subMerchant = SubMerchant.update(request, options);
 

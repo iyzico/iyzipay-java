@@ -10,6 +10,7 @@ public class CreatePaymentPostAuthRequest extends Request {
     private String paymentId;
     private String ip;
     private BigDecimal paidPrice;
+    private String currency;
 
     public String getPaymentId() {
         return paymentId;
@@ -35,6 +36,14 @@ public class CreatePaymentPostAuthRequest extends Request {
         this.paidPrice = paidPrice;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -42,6 +51,7 @@ public class CreatePaymentPostAuthRequest extends Request {
                 .append("paymentId", paymentId)
                 .append("ip", ip)
                 .append("paidPrice", paidPrice)
+                .append("currency", currency)
                 .toString();
     }
 }

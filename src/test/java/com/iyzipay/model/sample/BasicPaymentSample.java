@@ -1,5 +1,6 @@
 package com.iyzipay.model.sample;
 
+import com.iyzipay.model.Currency;
 import com.iyzipay.model.BasicPayment;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
@@ -25,6 +26,7 @@ public class BasicPaymentSample extends Sample {
         request.setInstallment(1);
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -57,6 +59,7 @@ public class BasicPaymentSample extends Sample {
         request.setInstallment(1);
         request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
+        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardToken("card token");
