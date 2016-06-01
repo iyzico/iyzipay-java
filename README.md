@@ -62,6 +62,7 @@ public static void main(String[] args) {
    request.setBasketId("B67832");
    request.setPaymentChannel(PaymentChannel.WEB.name());
    request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+   request.setCurrency(Currency.TRY.name());
    
    PaymentCard paymentCard = new PaymentCard();
    paymentCard.setCardHolderName("John Doe");
