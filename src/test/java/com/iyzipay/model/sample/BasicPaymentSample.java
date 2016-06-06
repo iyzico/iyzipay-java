@@ -24,8 +24,8 @@ public class BasicPaymentSample extends Sample {
         request.setBuyerIp("85.34.78.112");
         request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
+        request.setPaidPrice(new BigDecimal("1"));
         request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
@@ -57,8 +57,8 @@ public class BasicPaymentSample extends Sample {
         request.setBuyerIp("85.34.78.112");
         request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
+        request.setPaidPrice(new BigDecimal("1"));
         request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();

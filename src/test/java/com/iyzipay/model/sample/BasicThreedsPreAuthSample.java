@@ -55,10 +55,10 @@ public class BasicThreedsPreAuthSample extends Sample {
         request.setBuyerIp("85.34.78.112");
         request.setConnectorName("connector name");
         request.setInstallment(1);
-        request.setPaidPrice(new BigDecimal("1"));
         request.setPrice(new BigDecimal("1"));
-        request.setCallbackUrl("https://www.merchant.com/callback");
+        request.setPaidPrice(new BigDecimal("1"));
         request.setCurrency(Currency.TRY.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardToken("card token");

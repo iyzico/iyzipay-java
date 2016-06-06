@@ -22,12 +22,12 @@ public class ThreedsPreAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
+        request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -115,13 +115,12 @@ public class ThreedsPreAuthSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.1"));
+        request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -216,12 +215,12 @@ public class ThreedsPreAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
+        request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.LISTING.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setCurrency(Currency.TRY.name());
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -310,6 +309,7 @@ public class ThreedsPreAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
+        request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
@@ -407,6 +407,7 @@ public class ThreedsPreAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.1"));
+        request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());

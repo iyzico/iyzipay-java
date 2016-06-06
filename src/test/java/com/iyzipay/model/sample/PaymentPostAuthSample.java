@@ -21,8 +21,9 @@ public class PaymentPostAuthSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentId("1");
         request.setPaidPrice(new BigDecimal("0.6"));
-        request.setIp("85.34.78.112");
         request.setCurrency(Currency.TRY.name());
+
+        request.setIp("85.34.78.112");
 
         PaymentPostAuth paymentPostAuth = PaymentPostAuth.create(request, options);
 
