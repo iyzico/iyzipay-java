@@ -25,6 +25,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private Integer forceThreeDS;
     private String cardUserKey;
     private String posOrderId;
+    private List<Integer> enabledInstallments;
 
     public BigDecimal getPrice() {
         return price;
@@ -138,6 +139,14 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.posOrderId = posOrderId;
     }
 
+    public List<Integer> getEnabledInstallments() {
+        return enabledInstallments;
+    }
+
+    public void setEnabledInstallments(List<Integer> enabledInstallments) {
+        this.enabledInstallments = enabledInstallments;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -156,6 +165,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("paidPrice", paidPrice)
                 .append("forceThreeDS", forceThreeDS)
                 .append("cardUserKey", cardUserKey)
+                .append("enabledInstallments", enabledInstallments)
                 .toString();
     }
 }
