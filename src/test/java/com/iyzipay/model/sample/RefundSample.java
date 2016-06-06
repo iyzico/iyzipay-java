@@ -18,8 +18,8 @@ public class RefundSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("0.1"));
-        request.setIp("85.34.78.112");
         request.setCurrency(Currency.TRY.name());
+        request.setIp("85.34.78.112");
 
         Refund refund = Refund.create(request, options);
 
@@ -38,8 +38,8 @@ public class RefundSample extends Sample {
         request.setConversationId("123456789");
         request.setPaymentTransactionId("1");
         request.setPrice(new BigDecimal("0.1"));
-        request.setIp("85.34.78.112");
         request.setCurrency(Currency.TRY.name());
+        request.setIp("85.34.78.112");
 
         RefundChargedFromMerchant refundChargedFromMerchant = RefundChargedFromMerchant.create(request, options);
 

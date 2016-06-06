@@ -1,8 +1,8 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
-import com.iyzipay.request.RetrieveCheckoutFormRequest;
+import com.iyzipay.request.CreateBkmInitializeRequest;
+import com.iyzipay.request.RetrieveBkmRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -12,15 +12,14 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class CheckoutFormPreAuthSample extends Sample {
+public class BkmSample extends Sample {
 
     @Test
-    public void should_initialize_checkout_form() {
-        CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
+    public void should_initialize_bkm_express() {
+        CreateBkmInitializeRequest request = new CreateBkmInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
@@ -92,30 +91,31 @@ public class CheckoutFormPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        CheckoutFormInitializePreAuth checkoutFormInitializePreAuth = CheckoutFormInitializePreAuth.create(request, options);
+        BkmInitialize bkmInitialize = BkmInitialize.create(request, options);
 
-        System.out.println(checkoutFormInitializePreAuth);
+        System.out.println(bkmInitialize);
 
-        assertNotNull(checkoutFormInitializePreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), checkoutFormInitializePreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), checkoutFormInitializePreAuth.getLocale());
-        assertEquals("123456789", checkoutFormInitializePreAuth.getConversationId());
+        assertNotNull(bkmInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
+        assertEquals("123456789", bkmInitialize.getConversationId());
+        assertNotNull(bkmInitialize.getHtmlContent());
     }
 
     @Test
-    public void should_retrieve_checkout_form() {
-        RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
+    public void should_retrieve_bkm_auth() {
+        RetrieveBkmRequest request = new RetrieveBkmRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        CheckoutForm checkoutFormAuth = CheckoutForm.retrieve(request, options);
+        Bkm bkm = Bkm.retrieve(request, options);
 
-        System.out.println(checkoutFormAuth);
+        System.out.println(bkm);
 
-        assertNotNull(checkoutFormAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), checkoutFormAuth.getLocale());
-        assertEquals("123456789", checkoutFormAuth.getConversationId());
+        assertNotNull(bkm.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), bkm.getStatus());
+        assertEquals(Locale.TR.getValue(), bkm.getLocale());
+        assertEquals("123456789", bkm.getConversationId());
     }
 }

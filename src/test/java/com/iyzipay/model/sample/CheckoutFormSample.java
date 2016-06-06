@@ -2,7 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
-import com.iyzipay.request.RetrieveCheckoutFormAuthRequest;
+import com.iyzipay.request.RetrieveCheckoutFormRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -104,19 +104,19 @@ public class CheckoutFormSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_checkout_form() {
-        RetrieveCheckoutFormAuthRequest request = new RetrieveCheckoutFormAuthRequest();
+    public void should_retrieve_checkout_form_auth() {
+        RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        CheckoutFormAuth checkoutFormAuth = CheckoutFormAuth.retrieve(request, options);
+        CheckoutForm checkoutForm = CheckoutForm.retrieve(request, options);
 
-        System.out.println(checkoutFormAuth);
+        System.out.println(checkoutForm);
 
-        assertNotNull(checkoutFormAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), checkoutFormAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), checkoutFormAuth.getLocale());
-        assertEquals("123456789", checkoutFormAuth.getConversationId());
+        assertNotNull(checkoutForm.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutForm.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutForm.getLocale());
+        assertEquals("123456789", checkoutForm.getConversationId());
     }
 }

@@ -5,29 +5,21 @@ import com.iyzipay.ToStringRequestBuilder;
 import com.iyzipay.model.Address;
 import com.iyzipay.model.BasketItem;
 import com.iyzipay.model.Buyer;
-import com.iyzipay.model.PaymentCard;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class CreatePaymentRequest extends Request {
+public class CreateBkmInitializeRequest extends Request {
 
     private BigDecimal price;
-    private BigDecimal paidPrice;
-    private Integer installment;
-    private String paymentChannel;
     private String basketId;
     private String paymentGroup;
-    private PaymentCard paymentCard;
+    private String paymentSource;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
     private List<BasketItem> basketItems;
-    private String paymentSource;
     private String callbackUrl;
-    private String posOrderId;
-    private String connectorName;
-    private String currency;
 
     public BigDecimal getPrice() {
         return price;
@@ -35,30 +27,6 @@ public class CreatePaymentRequest extends Request {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public BigDecimal getPaidPrice() {
-        return paidPrice;
-    }
-
-    public void setPaidPrice(BigDecimal paidPrice) {
-        this.paidPrice = paidPrice;
-    }
-
-    public Integer getInstallment() {
-        return installment;
-    }
-
-    public void setInstallment(Integer installment) {
-        this.installment = installment;
-    }
-
-    public String getPaymentChannel() {
-        return paymentChannel;
-    }
-
-    public void setPaymentChannel(String paymentChannel) {
-        this.paymentChannel = paymentChannel;
     }
 
     public String getBasketId() {
@@ -77,12 +45,12 @@ public class CreatePaymentRequest extends Request {
         this.paymentGroup = paymentGroup;
     }
 
-    public PaymentCard getPaymentCard() {
-        return paymentCard;
+    public String getPaymentSource() {
+        return paymentSource;
     }
 
-    public void setPaymentCard(PaymentCard paymentCard) {
-        this.paymentCard = paymentCard;
+    public void setPaymentSource(String paymentSource) {
+        this.paymentSource = paymentSource;
     }
 
     public Buyer getBuyer() {
@@ -117,14 +85,6 @@ public class CreatePaymentRequest extends Request {
         this.basketItems = basketItems;
     }
 
-    public String getPaymentSource() {
-        return paymentSource;
-    }
-
-    public void setPaymentSource(String paymentSource) {
-        this.paymentSource = paymentSource;
-    }
-
     public String getCallbackUrl() {
         return callbackUrl;
     }
@@ -133,50 +93,19 @@ public class CreatePaymentRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
-    public String getPosOrderId() {
-        return posOrderId;
-    }
-
-    public void setPosOrderId(String posOrderId) {
-        this.posOrderId = posOrderId;
-    }
-
-    public String getConnectorName() {
-        return connectorName;
-    }
-
-    public void setConnectorName(String connectorName) {
-        this.connectorName = connectorName;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
                 .appendSuper(super.toString())
                 .append("price", price)
-                .append("paidPrice", paidPrice)
-                .append("installment", installment)
-                .append("paymentChannel", paymentChannel)
                 .append("basketId", basketId)
                 .append("paymentGroup", paymentGroup)
-                .append("paymentCard", paymentCard)
                 .append("buyer", buyer)
                 .append("shippingAddress", shippingAddress)
                 .append("billingAddress", billingAddress)
                 .append("basketItems", basketItems)
-                .append("paymentSource", paymentSource)
-                .append("currency", currency)
-                .append("posOrderId", posOrderId)
-                .append("connectorName", connectorName)
                 .append("callbackUrl", callbackUrl)
+                .append("paymentSource", paymentSource)
                 .toString();
     }
 }
