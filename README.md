@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.iyzipay:iyzipay-java:1.1.19"
+compile "com.iyzipay:iyzipay-java:2.0.21"
 ```
 
 ### Others
