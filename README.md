@@ -19,7 +19,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.iyzipay</groupId>
   <artifactId>iyzipay-java</artifactId>
-  <version>1.1.19</version>
+  <version>2.0.21</version>
 </dependency>
 ```
 
@@ -58,6 +58,7 @@ public static void main(String[] args) {
    request.setConversationId("123456789");
    request.setPrice(new BigDecimal("1"));
    request.setPaidPrice(new BigDecimal("1.1"));
+   request.setCurrency(Currency.TRY.name());
    request.setInstallment(1);
    request.setBasketId("B67832");
    request.setPaymentChannel(PaymentChannel.WEB.name());
@@ -139,7 +140,7 @@ public static void main(String[] args) {
    basketItems.add(thirdBasketItem);
    request.setBasketItems(basketItems);
    
-   PaymentAuth paymentAuth = PaymentAuth.create(request, options);
+   Payment payment = Payment.create(request, options);
 }
 ```
 See other samples under src/test/java/com/iyzipay/model/sample package.
