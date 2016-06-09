@@ -26,6 +26,14 @@ public class CheckoutFormSample extends Sample {
         request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
+        List<Integer> enabledInstallments = new ArrayList<Integer>();
+        enabledInstallments.add(2);
+        enabledInstallments.add(3);
+        enabledInstallments.add(6);
+        enabledInstallments.add(9);
+
+        request.setEnabledInstallments(enabledInstallments);
+
         Buyer buyer = new Buyer();
         buyer.setId("BY789");
         buyer.setName("John");
