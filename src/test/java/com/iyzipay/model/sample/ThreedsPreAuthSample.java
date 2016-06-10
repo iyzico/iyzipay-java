@@ -99,14 +99,14 @@ public class ThreedsPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitializePreAuth threeDSInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(threeDSInitializePreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(threeDSInitializePreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitializePreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitializePreAuth.getLocale());
-        assertEquals("123456789", threeDSInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
@@ -198,14 +198,14 @@ public class ThreedsPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitializePreAuth threeDSInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(threeDSInitializePreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(threeDSInitializePreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitializePreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitializePreAuth.getLocale());
-        assertEquals("123456789", threeDSInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
@@ -292,14 +292,14 @@ public class ThreedsPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitializePreAuth threeDSInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(threeDSInitializePreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(threeDSInitializePreAuth.getConversationId());
-        assertNotNull(threeDSInitializePreAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), threeDSInitializePreAuth.getLocale());
-        assertEquals("123456789", threeDSInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
@@ -390,14 +390,14 @@ public class ThreedsPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitializePreAuth threeDSInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(threeDSInitializePreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(threeDSInitializePreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitializePreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitializePreAuth.getLocale());
-        assertEquals("123456789", threeDSInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
@@ -488,14 +488,14 @@ public class ThreedsPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitializePreAuth threeDSInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(threeDSInitializePreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(threeDSInitializePreAuth.getConversationId());
-        assertNotNull(threeDSInitializePreAuth.getLocale());
-        assertEquals(Locale.TR.getValue(), threeDSInitializePreAuth.getLocale());
-        assertEquals("123456789", threeDSInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test

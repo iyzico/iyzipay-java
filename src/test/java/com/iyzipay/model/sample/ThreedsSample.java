@@ -99,14 +99,14 @@ public class ThreedsSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitialize threeDSInitialize = ThreedsInitialize.create(request, options);
+        ThreedsInitialize threedsInitialize = ThreedsInitialize.create(request, options);
 
-        System.out.println(threeDSInitialize);
+        System.out.println(threedsInitialize);
 
-        assertNotNull(threeDSInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
-        assertEquals("123456789", threeDSInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertEquals("123456789", threedsInitialize.getConversationId());
     }
 
     @Test
@@ -199,14 +199,14 @@ public class ThreedsSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitialize threeDSInitialize = ThreedsInitialize.create(request, options);
+        ThreedsInitialize threedsInitialize = ThreedsInitialize.create(request, options);
 
-        System.out.println(threeDSInitialize);
+        System.out.println(threedsInitialize);
 
-        assertNotNull(threeDSInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
-        assertEquals("123456789", threeDSInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertEquals("123456789", threedsInitialize.getConversationId());
     }
 
     @Test
@@ -293,14 +293,14 @@ public class ThreedsSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitialize threeDSInitialize = ThreedsInitialize.create(request, options);
+        ThreedsInitialize threedsInitialize = ThreedsInitialize.create(request, options);
 
-        System.out.println(threeDSInitialize);
+        System.out.println(threedsInitialize);
 
-        assertNotNull(threeDSInitialize.getConversationId());
-        assertNotNull(threeDSInitialize.getLocale());
-        assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
-        assertEquals("123456789", threeDSInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertEquals("123456789", threedsInitialize.getConversationId());
     }
 
     @Test
@@ -391,14 +391,14 @@ public class ThreedsSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        ThreedsInitialize threeDSInitialize = ThreedsInitialize.create(request, options);
+        ThreedsInitialize threedsInitialize = ThreedsInitialize.create(request, options);
 
-        System.out.println(threeDSInitialize);
+        System.out.println(threedsInitialize);
 
-        assertNotNull(threeDSInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threeDSInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), threeDSInitialize.getLocale());
-        assertEquals("123456789", threeDSInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertEquals("123456789", threedsInitialize.getConversationId());
     }
 
     @Test
