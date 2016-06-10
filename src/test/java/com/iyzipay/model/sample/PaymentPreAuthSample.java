@@ -334,7 +334,6 @@ public class PaymentPreAuthSample extends Sample {
 
         //IyziGate parameters
         request.setConnectorName("isbank");
-        request.setPosOrderId("1");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -431,7 +430,6 @@ public class PaymentPreAuthSample extends Sample {
 
         //IyziGate parameters
         request.setConnectorName("isbank");
-        request.setPosOrderId("1");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
