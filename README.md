@@ -164,7 +164,7 @@ HSBC Bank A.Ş.             | Credit            |  4059170000000003
 Türkiye İş Bankası A.Ş.    | Debit             |  5892830000000000
 Türkiye İş Bankası A.Ş.    | Debit             |  6390040000000001
 Yapı ve Kredi Bankası A.Ş. | Credit            |  5451030000000000
-Multi Currency Test        | -                 |  5412750000000000
+Multi Currency Test        | -                 |  5412750000000001
 
 
 
