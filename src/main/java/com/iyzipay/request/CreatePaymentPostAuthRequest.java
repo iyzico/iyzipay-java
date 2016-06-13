@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 public class CreatePaymentPostAuthRequest extends Request {
 
     private String paymentId;
-    private BigDecimal paidPrice;
     private String ip;
+    private BigDecimal paidPrice;
     private String currency;
 
     public String getPaymentId() {
@@ -20,20 +20,20 @@ public class CreatePaymentPostAuthRequest extends Request {
         this.paymentId = paymentId;
     }
 
-    public BigDecimal getPaidPrice() {
-        return paidPrice;
-    }
-
-    public void setPaidPrice(BigDecimal paidPrice) {
-        this.paidPrice = paidPrice;
-    }
-
     public String getIp() {
         return ip;
     }
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public BigDecimal getPaidPrice() {
+        return paidPrice;
+    }
+
+    public void setPaidPrice(BigDecimal paidPrice) {
+        this.paidPrice = paidPrice;
     }
 
     public String getCurrency() {

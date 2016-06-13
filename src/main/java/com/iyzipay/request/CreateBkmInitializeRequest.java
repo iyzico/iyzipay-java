@@ -9,23 +9,17 @@ import com.iyzipay.model.Buyer;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class CreateCheckoutFormInitializeRequest extends Request {
+public class CreateBkmInitializeRequest extends Request {
 
     private BigDecimal price;
-    private BigDecimal paidPrice;
     private String basketId;
     private String paymentGroup;
     private String paymentSource;
-    private String currency;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
     private List<BasketItem> basketItems;
     private String callbackUrl;
-    private Integer forceThreeDS;
-    private String cardUserKey;
-    private String posOrderId;
-    private List<Integer> enabledInstallments;
 
     public BigDecimal getPrice() {
         return price;
@@ -33,14 +27,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public BigDecimal getPaidPrice() {
-        return paidPrice;
-    }
-
-    public void setPaidPrice(BigDecimal paidPrice) {
-        this.paidPrice = paidPrice;
     }
 
     public String getBasketId() {
@@ -65,14 +51,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
 
     public void setPaymentSource(String paymentSource) {
         this.paymentSource = paymentSource;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
     }
 
     public Buyer getBuyer() {
@@ -115,38 +93,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
-    public Integer getForceThreeDS() {
-        return forceThreeDS;
-    }
-
-    public void setForceThreeDS(Integer forceThreeDS) {
-        this.forceThreeDS = forceThreeDS;
-    }
-
-    public String getCardUserKey() {
-        return cardUserKey;
-    }
-
-    public void setCardUserKey(String cardUserKey) {
-        this.cardUserKey = cardUserKey;
-    }
-
-    public String getPosOrderId() {
-        return posOrderId;
-    }
-
-    public void setPosOrderId(String posOrderId) {
-        this.posOrderId = posOrderId;
-    }
-
-    public List<Integer> getEnabledInstallments() {
-        return enabledInstallments;
-    }
-
-    public void setEnabledInstallments(List<Integer> enabledInstallments) {
-        this.enabledInstallments = enabledInstallments;
-    }
-
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -160,12 +106,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("basketItems", basketItems)
                 .append("callbackUrl", callbackUrl)
                 .append("paymentSource", paymentSource)
-                .append("currency", currency)
-                .append("posOrderId", posOrderId)
-                .append("paidPrice", paidPrice)
-                .append("forceThreeDS", forceThreeDS)
-                .append("cardUserKey", cardUserKey)
-                .append("enabledInstallments", enabledInstallments)
                 .toString();
     }
 }

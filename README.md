@@ -19,7 +19,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.iyzipay</groupId>
   <artifactId>iyzipay-java</artifactId>
-  <version>1.1.19</version>
+  <version>2.0.22</version>
 </dependency>
 ```
 
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.iyzipay:iyzipay-java:1.1.19"
+compile "com.iyzipay:iyzipay-java:2.0.22"
 ```
 
 ### Others
@@ -58,6 +58,7 @@ public static void main(String[] args) {
    request.setConversationId("123456789");
    request.setPrice(new BigDecimal("1"));
    request.setPaidPrice(new BigDecimal("1.1"));
+   request.setCurrency(Currency.TRY.name());
    request.setInstallment(1);
    request.setBasketId("B67832");
    request.setPaymentChannel(PaymentChannel.WEB.name());
@@ -139,7 +140,7 @@ public static void main(String[] args) {
    basketItems.add(thirdBasketItem);
    request.setBasketItems(basketItems);
    
-   PaymentAuth paymentAuth = PaymentAuth.create(request, options);
+   Payment payment = Payment.create(request, options);
 }
 ```
 See other samples under src/test/java/com/iyzipay/model/sample package.
@@ -172,5 +173,5 @@ Testing
 
 You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
 
-    mvn test -Dtest=PaymentAuthSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
-    mvn test -Dtest=PaymentAuthSample#should_create_payment_with_physical_and_virtual_item_for_market_place -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=PaymentSample#should_create_payment_with_physical_and_virtual_item_for_market_place -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey

@@ -2,6 +2,7 @@ package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreatePaymentRequest;
+import com.iyzipay.request.CreateThreedsPaymentRequest;
 import com.iyzipay.request.RetrievePaymentRequest;
 import org.junit.Test;
 
@@ -12,10 +13,10 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PaymentPreAuthSample extends Sample {
+public class ThreedsPreAuthSample extends Sample {
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_standard_merchant() {
+    public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -26,6 +27,7 @@ public class PaymentPreAuthSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -97,28 +99,28 @@ public class PaymentPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(paymentPreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456789", paymentPreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_market_place() {
+    public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.1"));
         request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -196,18 +198,18 @@ public class PaymentPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(paymentPreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456789", paymentPreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
-    public void should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
+    public void should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -217,7 +219,8 @@ public class PaymentPreAuthSample extends Sample {
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
-        request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
+        request.setPaymentGroup(PaymentGroup.LISTING.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName("John Doe");
@@ -289,38 +292,18 @@ public class PaymentPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(paymentPreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456789", paymentPreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
-    public void should_retrieve_payment() {
-        RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
-        retrievePaymentRequest.setLocale(Locale.TR.getValue());
-        retrievePaymentRequest.setConversationId("123456879");
-        retrievePaymentRequest.setPaymentId("1");
-        retrievePaymentRequest.setPaymentConversationId("123456789");
-
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.retrieve(retrievePaymentRequest, options);
-
-        System.out.println(paymentPreAuth.toString());
-
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456879", paymentPreAuth.getConversationId());
-    }
-
-    //IyziGate Services:
-
-    @Test
-    public void should_create_IyziGate_payment_with_physical_and_virtual_item() {
+    public void should_initialize_IyziGate_threeds_payment_with_physical_and_virtual_item() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -331,6 +314,7 @@ public class PaymentPreAuthSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         //IyziGate parameters
         request.setConnectorName("isbank");
@@ -405,18 +389,18 @@ public class PaymentPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(paymentPreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456789", paymentPreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
     }
 
     @Test
-    public void should_create_IyziGate_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
+    public void should_initialize_IyziGate_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -426,7 +410,8 @@ public class PaymentPreAuthSample extends Sample {
         request.setInstallment(1);
         request.setBasketId("B67832");
         request.setPaymentChannel(PaymentChannel.WEB.name());
-        request.setPaymentGroup(PaymentGroup.SUBSCRIPTION.name());
+        request.setPaymentGroup(PaymentGroup.LISTING.name());
+        request.setCallbackUrl("https://www.merchant.com/callback");
 
         //IyziGate parameters
         request.setConnectorName("isbank");
@@ -501,13 +486,49 @@ public class PaymentPreAuthSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PaymentPreAuth paymentPreAuth = PaymentPreAuth.create(request, options);
+        ThreedsInitializePreAuth threedsInitializePreAuth = ThreedsInitializePreAuth.create(request, options);
 
-        System.out.println(paymentPreAuth);
+        System.out.println(threedsInitializePreAuth);
 
-        assertNotNull(paymentPreAuth.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), paymentPreAuth.getStatus());
-        assertEquals(Locale.TR.getValue(), paymentPreAuth.getLocale());
-        assertEquals("123456789", paymentPreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getConversationId());
+        assertNotNull(threedsInitializePreAuth.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsInitializePreAuth.getLocale());
+        assertEquals("123456789", threedsInitializePreAuth.getConversationId());
+    }
+
+    @Test
+    public void should_auth_threeds() {
+        CreateThreedsPaymentRequest request = new CreateThreedsPaymentRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setPaymentId("1");
+        request.setConversationData("conversation data");
+
+        ThreedsPayment threedsPayment = ThreedsPayment.create(request, options);
+
+        System.out.println(threedsPayment);
+
+        assertNotNull(threedsPayment.getConversationId());
+        assertNotNull(threedsPayment.getLocale());
+        assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertEquals("123456789", threedsPayment.getConversationId());
+    }
+
+    @Test
+    public void should_retrieve_payment() {
+        RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
+        retrievePaymentRequest.setLocale(Locale.TR.getValue());
+        retrievePaymentRequest.setConversationId("123456879");
+        retrievePaymentRequest.setPaymentId("1");
+        retrievePaymentRequest.setPaymentConversationId("123456789");
+
+        ThreedsPayment threedsPayment = ThreedsPayment.retrieve(retrievePaymentRequest, options);
+
+        System.out.println(threedsPayment.toString());
+
+        assertNotNull(threedsPayment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertEquals("123456879", threedsPayment.getConversationId());
     }
 }
