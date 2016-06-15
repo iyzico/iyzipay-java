@@ -14,7 +14,7 @@ public class PeccoInitialize extends IyzipayResource {
     private Long tokenExpireTime;
 
     public static PeccoInitialize create(CreatePeccoInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/pecco/initialize",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/pecco/initialize",
                 getHttpHeaders(request, options),
                 request,
                 PeccoInitialize.class);
