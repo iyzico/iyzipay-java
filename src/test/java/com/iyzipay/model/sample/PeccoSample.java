@@ -1,7 +1,7 @@
 package com.iyzipay.model.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreatePeccoAuthRequest;
+import com.iyzipay.request.CreatePeccoPaymentRequest;
 import com.iyzipay.request.CreatePeccoInitializeRequest;
 import org.junit.Test;
 
@@ -106,17 +106,17 @@ public class PeccoSample extends Sample {
 
     @Test
     public void should_auth_pecco_payment() {
-        CreatePeccoAuthRequest request = new CreatePeccoAuthRequest();
+        CreatePeccoPaymentRequest request = new CreatePeccoPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        Pecco pecco = Pecco.create(request, options);
-        System.out.println(pecco);
+        PeccoPayment peccoPayment = PeccoPayment.create(request, options);
+        System.out.println(peccoPayment);
 
-        assertNotNull(pecco.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), pecco.getStatus());
-        assertEquals(Locale.TR.getValue(), pecco.getLocale());
-        assertEquals("123456789", pecco.getConversationId());
+        assertNotNull(peccoPayment.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), peccoPayment.getStatus());
+        assertEquals(Locale.TR.getValue(), peccoPayment.getLocale());
+        assertEquals("123456789", peccoPayment.getConversationId());
     }
 }

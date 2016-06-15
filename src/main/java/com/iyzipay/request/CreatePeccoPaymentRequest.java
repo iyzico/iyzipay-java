@@ -3,7 +3,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class CreatePeccoAuthRequest extends Request {
+public class CreatePeccoPaymentRequest extends Request {
 
     private String token;
 

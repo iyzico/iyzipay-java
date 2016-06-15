@@ -2,17 +2,17 @@ package com.iyzipay.model;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreatePeccoAuthRequest;
+import com.iyzipay.request.CreatePeccoPaymentRequest;
 
-public class Pecco extends PaymentResource {
+public class PeccoPayment extends PaymentResource {
 
     private String token;
 
-    public static Pecco create(CreatePeccoAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/pecco/auth",
+    public static PeccoPayment create(CreatePeccoPaymentRequest request, Options options) {
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/pecco/auth",
                 getHttpHeaders(request, options),
                 request,
-                Pecco.class);
+                PeccoPayment.class);
     }
 
     public String getToken() {
