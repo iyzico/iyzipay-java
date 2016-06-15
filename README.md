@@ -150,7 +150,7 @@ Bank                       |  Card Type        |  Card Number
 -------------              | -------------     |  ----------
 Akbank T.A.Ş.              | Debit             |  5890040000000016
 Akbank T.A.Ş.              | Credit            |  5526080000000006
-Asya Katılım Bankası A.Ş.  | Debit             |  4073810000000010
+Asya Katılım Bankası A.Ş.  | Debit             |  4073810000000006
 Asya Katılım Bankası A.Ş.  | Credit            |  5331490000000002
 Finansbank A.Ş.            | Debit             |  4987490000000002
 Finansbank A.Ş.            | Credit            |  5311570000000005
