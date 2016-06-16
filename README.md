@@ -167,8 +167,6 @@ Yapı ve Kredi Bankası A.Ş. | Credit            |  5451030000000000
 Shetab Card (Iran)         | Credit            |  6221060000000004
 Multi Currency Test        | -                 |  5412750000000001
 
-
-
 Testing
 =======
 
