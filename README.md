@@ -184,7 +184,7 @@ Test cards to get specific error codes:
 
 Card Number       | Description
 -----------       | -----------
-5406670000000009  | Approved, but cannot be cancelled, refund or post auth
+5406670000000009  | Success but cannot be cancelled, refund or post auth
 4111111111111129  | Not sufficient funds
 4129111111111111  | Do not honour
 4128111111111112  | Invalid transaction
