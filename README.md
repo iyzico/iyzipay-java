@@ -180,7 +180,7 @@ Card Number      | Country
 5412750000000001 | Non-Turkish  
 6221060000000004 | Iran  
 
-Test cards to test specific error codes:
+Test cards to get specific error codes:
 
 Card Number       | Description
 -----------       | -----------
