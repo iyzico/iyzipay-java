@@ -166,12 +166,12 @@ Card Number      | Bank                       | Card Type
 5528790000000008 | Halkbank                   | Master Card (Credit)  
 4059030000000009 | HSBC Bank                  | Visa (Debit)  
 5504720000000003 | HSBC Bank                  | Master Card (Credit)  
+5892830000000000 | Türkiye İş Bankası         | Master Card (Debit)  
+4543590000000006 | Türkiye İş Bankası         | Visa (Credit)  
 4910050000000006 | Vakıfbank                  | Visa (Debit)  
 4157920000000002 | Vakıfbank                  | Visa (Credit)  
 5168880000000002 | Yapı ve Kredi Bankası      | Master Card (Debit)  
 5451030000000000 | Yapı ve Kredi Bankası      | Master Card (Credit)  
-5892830000000000 | Türkiye İş Bankası         | Master Card (Debit)  
-4543590000000006 | Türkiye İş Bankası         | Visa (Credit)  
 
 Cross border test cards:
 
