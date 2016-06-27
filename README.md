@@ -145,45 +145,58 @@ public static void main(String[] args) {
 ```
 See other samples under src/test/java/com/iyzipay/model/sample package.
 
-### Mock tests cards
-Bank                       | Card Type             |  Card Number       | Status
--------------              | -------------         |  -----------       | ---------
-Akbank                     | Master Card (Debit)   |  5890040000000016  | Approved
-Akbank                     | Master Card (Credit)  |  5526080000000006  | Approved
-Asya Katılım Bankası       | Visa (Debit)          |  4073810000000006  | Approved
-Asya Katılım Bankası       | Master Card (Credit)  |  5331490000000002  | Approved
-Denizbank                  | Visa (Debit)          |  4766620000000001  | Approved
-Denizbank                  | Visa (Credit)         |  4603450000000000  | Approved
-Finansbank                 | Visa (Debit)          |  4987490000000002  | Approved
-Finansbank                 | Master Card (Credit)  |  5311570000000005  | Approved
-Garanti Bankası            | Master Card (Debit)   |  5170410000000004  | Approved
-Garanti Bankası            | Master Card (Credit)  |  5400360000000003  | Approved
-Garanti Bankası            | American Express      |  374427000000003   | Approved
-Halkbank                   | Visa (Debit)          |  4475050000000003  | Approved
-Halkbank                   | Master Card (Credit)  |  5528790000000008  | Approved
-HSBC Bank                  | Visa (Debit)          |  4059030000000009  | Approved
-HSBC Bank                  | Master Card (Credit)  |  5504720000000003  | Approved
-Vakıfbank                  | Visa (Debit)          |  4910050000000006  | Approved
-Vakıfbank                  | Visa (Credit)         |  4157920000000002  | Approved
-Yapı ve Kredi Bankası      | Master Card (Debit)   |  5168880000000002  | Approved
-Yapı ve Kredi Bankası      | Master Card (Credit)  |  5451030000000000  | Approved
-Parsian Bank (Shetab)      | Master Card (Credit)  |  6221060000000004  | Approved
-Cross Border Test          | Master Card (Debit)   |  5412750000000001  | Approved
-Türkiye İş Bankası         | Master Card (Debit)   |  5892830000000000  | Approved
-Türkiye İş Bankası         | Visa (Credit)         |  4543590000000006  | Approved
-Türkiye İş Bankası         | Master Card (Credit)  |  5406670000000009  | Approved, but cannot be cancelled, refund or post auth
-                           |                       |  4111111111111129  | Declined, not sufficient funds
-                           |                       |  4129111111111111  | Declined, do not honour
-                           |                       |  4128111111111112  | Declined, invalid transaction
-                           |                       |  4127111111111113  | Declined, lost card
-                           |                       |  4126111111111114  | Declined, stolen card
-                           |                       |  4125111111111115  | Declined, expired card
-                           |                       |  4124111111111116  | Declined, invalid cvc2
-                           |                       |  4123111111111117  | Declined, not permitted to card holder
-                           |                       |  4122111111111118  | Declined, not permitted to terminal
-                           |                       |  4121111111111119  | Declined, fraud suspect
-                           |                       |  4120111111111110  | Declined, pickup card
-                           |                       |  4130111111111118  | Declined, general error
+# Mock test cards
+
+Test cards that can be used to simulate successful payment:
+
+Card Number      | Bank                       | Card Type
+-----------      | ----                       | ---------
+5890040000000016 | Akbank                     | Master Card (Debit)  
+5526080000000006 | Akbank                     | Master Card (Credit)  
+4073810000000006 | Asya Katılım Bankası       | Visa (Debit)  
+5331490000000002 | Asya Katılım Bankası       | Master Card (Credit)  
+4766620000000001 | Denizbank                  | Visa (Debit)  
+4603450000000000 | Denizbank                  | Visa (Credit)  
+4987490000000002 | Finansbank                 | Visa (Debit)  
+5311570000000005 | Finansbank                 | Master Card (Credit)  
+5170410000000004 | Garanti Bankası            | Master Card (Debit)  
+5400360000000003 | Garanti Bankası            | Master Card (Credit)  
+374427000000003  | Garanti Bankası            | American Express  
+4475050000000003 | Halkbank                   | Visa (Debit)  
+5528790000000008 | Halkbank                   | Master Card (Credit)  
+4059030000000009 | HSBC Bank                  | Visa (Debit)  
+5504720000000003 | HSBC Bank                  | Master Card (Credit)  
+4910050000000006 | Vakıfbank                  | Visa (Debit)  
+4157920000000002 | Vakıfbank                  | Visa (Credit)  
+5168880000000002 | Yapı ve Kredi Bankası      | Master Card (Debit)  
+5451030000000000 | Yapı ve Kredi Bankası      | Master Card (Credit)  
+5892830000000000 | Türkiye İş Bankası         | Master Card (Debit)  
+4543590000000006 | Türkiye İş Bankası         | Visa (Credit)  
+
+Cross border test cards:
+
+Card Number      | Country
+-----------      | -------
+5412750000000001 | Non-Turkish  
+6221060000000004 | Iran  
+
+Test cards to test specific error codes:
+
+Card Number       | Description
+-----------       | -----------
+5406670000000009  | Approved, but cannot be cancelled, refund or post auth
+4111111111111129  | Declined, not sufficient funds
+4129111111111111  | Declined, do not honour
+4128111111111112  | Declined, invalid transaction
+4127111111111113  | Declined, lost card
+4126111111111114  | Declined, stolen card
+4125111111111115  | Declined, expired card
+4124111111111116  | Declined, invalid cvc2
+4123111111111117  | Declined, not permitted to card holder
+4122111111111118  | Declined, not permitted to terminal
+4121111111111119  | Declined, fraud suspect
+4120111111111110  | Declined, pickup card
+4130111111111118  | Declined, general error
 
 Testing
 =======
