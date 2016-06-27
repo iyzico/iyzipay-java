@@ -165,7 +165,7 @@ HSBC Bank                  | Debit             |  4059030000000009  | Visa      
 HSBC Bank                  | Credit            |  5504720000000003  | Master Card        | Success
 Vakıfbank                  | Debit             |  4910050000000006  | Visa               | Success
 Vakıfbank                  | Credit            |  4157920000000002  | Visa               | Success
-Yapı ve Kredi Bankası      | Debit             |  6390040000000001  | Master Card        | Success
+Yapı ve Kredi Bankası      | Debit             |  5168880000000002  | Master Card        | Success
 Yapı ve Kredi Bankası      | Credit            |  5451030000000000  | Master Card        | Success
 Parsian Bank (Shetab)      | Credit            |  6221060000000004  | Master Card        | Success
 Cross Border Test          | Debit             |  5412750000000001  | Master Card        | Success
