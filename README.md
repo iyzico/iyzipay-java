@@ -148,42 +148,42 @@ See other samples under src/test/java/com/iyzipay/model/sample package.
 ### Mock tests cards
 Bank                       | Card Type         |  Card Number       | Card Association   | Status
 -------------              | -------------     |  -----------       | ----------------   | -----------
-Akbank                     | Debit             |  5890040000000016  | Master Card        | Success
-Akbank                     | Credit            |  5526080000000006  | Master Card        | Success
-Asya Katılım Bankası       | Debit             |  4073810000000006  | Visa               | Success
-Asya Katılım Bankası       | Credit            |  5331490000000002  | Master Card        | Success
-Denizbank                  | Debit             |  4766620000000001  | Visa               | Success
-Denizbank                  | Credit            |  4603450000000000  | Visa               | Success
-Finansbank                 | Debit             |  4987490000000002  | Visa               | Success
-Finansbank                 | Credit            |  5311570000000005  | Master Card        | Success
-Garanti Bankası            | Debit             |  5170410000000004  | Master Card        | Success
-Garanti Bankası            | Credit            |  5400360000000003  | Master Card        | Success
-Garanti Bankası            | Credit            |  374427000000003   | American Express   | Success
-Halkbank                   | Debit             |  4475050000000003  | Visa               | Success
-Halkbank                   | Credit            |  5528790000000008  | Master Card        | Success
-HSBC Bank                  | Debit             |  4059030000000009  | Visa               | Success
-HSBC Bank                  | Credit            |  5504720000000003  | Master Card        | Success
-Vakıfbank                  | Debit             |  4910050000000006  | Visa               | Success
-Vakıfbank                  | Credit            |  4157920000000002  | Visa               | Success
-Yapı ve Kredi Bankası      | Debit             |  5168880000000002  | Master Card        | Success
-Yapı ve Kredi Bankası      | Credit            |  5451030000000000  | Master Card        | Success
-Parsian Bank (Shetab)      | Credit            |  6221060000000004  | Master Card        | Success
-Cross Border Test          | Debit             |  5412750000000001  | Master Card        | Success
-Türkiye İş Bankası         | Debit             |  5892830000000000  | Master Card        | Success
-Türkiye İş Bankası         | Credit            |  4543590000000006  | Visa               | Success
-Türkiye İş Bankası         | Credit            |  5406670000000009  | Master Card        | Success, but cannot be cancelled, refund or post auth
--                          | -                 |  4111111111111129  |                    | Failure, not sufficient funds
--                          | -                 |  4129111111111111  |                    | Failure, do not honour
--                          | -                 |  4128111111111112  |                    | Failure, invalid transaction
--                          | -                 |  4127111111111113  |                    | Failure, lost card
--                          | -                 |  4126111111111114  |                    | Failure, stolen card
--                          | -                 |  4125111111111115  |                    | Failure, expired card
--                          | -                 |  4124111111111116  |                    | Failure, invalid cvc2
--                          | -                 |  4123111111111117  |                    | Failure, not permitted to card holder
--                          | -                 |  4122111111111118  |                    | Failure, not permitted to terminal
--                          | -                 |  4121111111111119  |                    | Failure, fraud suspect
--                          | -                 |  4120111111111110  |                    | Failure, pickup card
--                          | -                 |  4130111111111118  |                    | Failure, general error
+Akbank                     | Debit             |  5890040000000016  | Master Card        | Approved
+Akbank                     | Credit            |  5526080000000006  | Master Card        | Approved
+Asya Katılım Bankası       | Debit             |  4073810000000006  | Visa               | Approved
+Asya Katılım Bankası       | Credit            |  5331490000000002  | Master Card        | Approved
+Denizbank                  | Debit             |  4766620000000001  | Visa               | Approved
+Denizbank                  | Credit            |  4603450000000000  | Visa               | Approved
+Finansbank                 | Debit             |  4987490000000002  | Visa               | Approved
+Finansbank                 | Credit            |  5311570000000005  | Master Card        | Approved
+Garanti Bankası            | Debit             |  5170410000000004  | Master Card        | Approved
+Garanti Bankası            | Credit            |  5400360000000003  | Master Card        | Approved
+Garanti Bankası            | Credit            |  374427000000003   | American Express   | Approved
+Halkbank                   | Debit             |  4475050000000003  | Visa               | Approved
+Halkbank                   | Credit            |  5528790000000008  | Master Card        | Approved
+HSBC Bank                  | Debit             |  4059030000000009  | Visa               | Approved
+HSBC Bank                  | Credit            |  5504720000000003  | Master Card        | Approved
+Vakıfbank                  | Debit             |  4910050000000006  | Visa               | Approved
+Vakıfbank                  | Credit            |  4157920000000002  | Visa               | Approved
+Yapı ve Kredi Bankası      | Debit             |  5168880000000002  | Master Card        | Approved
+Yapı ve Kredi Bankası      | Credit            |  5451030000000000  | Master Card        | Approved
+Parsian Bank (Shetab)      | Credit            |  6221060000000004  | Master Card        | Approved
+Cross Border Test          | Debit             |  5412750000000001  | Master Card        | Approved
+Türkiye İş Bankası         | Debit             |  5892830000000000  | Master Card        | Approved
+Türkiye İş Bankası         | Credit            |  4543590000000006  | Visa               | Approved
+Türkiye İş Bankası         | Credit            |  5406670000000009  | Master Card        | Approved, but cannot be cancelled, refund or post auth
+-                          | -                 |  4111111111111129  |                    | Declined, not sufficient funds
+-                          | -                 |  4129111111111111  |                    | Declined, do not honour
+-                          | -                 |  4128111111111112  |                    | Declined, invalid transaction
+-                          | -                 |  4127111111111113  |                    | Declined, lost card
+-                          | -                 |  4126111111111114  |                    | Declined, stolen card
+-                          | -                 |  4125111111111115  |                    | Declined, expired card
+-                          | -                 |  4124111111111116  |                    | Declined, invalid cvc2
+-                          | -                 |  4123111111111117  |                    | Declined, not permitted to card holder
+-                          | -                 |  4122111111111118  |                    | Declined, not permitted to terminal
+-                          | -                 |  4121111111111119  |                    | Declined, fraud suspect
+-                          | -                 |  4120111111111110  |                    | Declined, pickup card
+-                          | -                 |  4130111111111118  |                    | Declined, general error
 
 Testing
 =======
