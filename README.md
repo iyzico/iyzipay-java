@@ -185,18 +185,18 @@ Test cards to get specific error codes:
 Card Number       | Description
 -----------       | -----------
 5406670000000009  | Approved, but cannot be cancelled, refund or post auth
-4111111111111129  | Declined, not sufficient funds
-4129111111111111  | Declined, do not honour
-4128111111111112  | Declined, invalid transaction
-4127111111111113  | Declined, lost card
-4126111111111114  | Declined, stolen card
-4125111111111115  | Declined, expired card
-4124111111111116  | Declined, invalid cvc2
-4123111111111117  | Declined, not permitted to card holder
-4122111111111118  | Declined, not permitted to terminal
-4121111111111119  | Declined, fraud suspect
-4120111111111110  | Declined, pickup card
-4130111111111118  | Declined, general error
+4111111111111129  | Not sufficient funds
+4129111111111111  | Do not honour
+4128111111111112  | Invalid transaction
+4127111111111113  | Lost card
+4126111111111114  | Stolen card
+4125111111111115  | Expired card
+4124111111111116  | Invalid cvc2
+4123111111111117  | Not permitted to card holder
+4122111111111118  | Not permitted to terminal
+4121111111111119  | Fraud suspect
+4120111111111110  | Pickup card
+4130111111111118  | General error
 
 Testing
 =======
