@@ -147,7 +147,7 @@ See other samples under src/test/java/com/iyzipay/model/sample package.
 
 ### Mock test cards
 
-Test cards that can be used to simulate successful payment:
+Test cards that can be used to simulate a successful payment:
 
 Card Number      | Bank                       | Card Type
 -----------      | ----                       | ---------
