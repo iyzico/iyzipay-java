@@ -1,8 +1,8 @@
-package com.iyzipay.model.sample;
+package com.iyzipay.sample;
 
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreatePeccoPaymentRequest;
-import com.iyzipay.request.CreatePeccoInitializeRequest;
+import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
+import com.iyzipay.request.RetrieveCheckoutFormRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -12,19 +12,27 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PeccoSample extends Sample {
+public class CheckoutFormSample extends Sample {
 
     @Test
-    public void should_initialize_pecco() {
-        CreatePeccoInitializeRequest request = new CreatePeccoInitializeRequest();
+    public void should_initialize_checkout_form() {
+        CreateCheckoutFormInitializeRequest request = new CreateCheckoutFormInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPrice(new BigDecimal("100"));
-        request.setPaidPrice(new BigDecimal("1000"));
+        request.setPrice(new BigDecimal("1"));
+        request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setCurrency(Currency.IRR.name());
+
+        List<Integer> enabledInstallments = new ArrayList<Integer>();
+        enabledInstallments.add(2);
+        enabledInstallments.add(3);
+        enabledInstallments.add(6);
+        enabledInstallments.add(9);
+
+        request.setEnabledInstallments(enabledInstallments);
 
         Buyer buyer = new Buyer();
         buyer.setId("BY789");
@@ -65,7 +73,7 @@ public class PeccoSample extends Sample {
         firstBasketItem.setCategory1("Collectibles");
         firstBasketItem.setCategory2("Accessories");
         firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        firstBasketItem.setPrice(new BigDecimal("30"));
+        firstBasketItem.setPrice(new BigDecimal("0.3"));
         firstBasketItem.setSubMerchantKey("sub merchant key");
         firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(firstBasketItem);
@@ -76,7 +84,7 @@ public class PeccoSample extends Sample {
         secondBasketItem.setCategory1("Game");
         secondBasketItem.setCategory2("Online Game Items");
         secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
-        secondBasketItem.setPrice(new BigDecimal("50"));
+        secondBasketItem.setPrice(new BigDecimal("0.5"));
         secondBasketItem.setSubMerchantKey("sub merchant key");
         secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(secondBasketItem);
@@ -87,36 +95,36 @@ public class PeccoSample extends Sample {
         thirdBasketItem.setCategory1("Electronics");
         thirdBasketItem.setCategory2("Usb / Cable");
         thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        thirdBasketItem.setPrice(new BigDecimal("20"));
+        thirdBasketItem.setPrice(new BigDecimal("0.2"));
         thirdBasketItem.setSubMerchantKey("sub merchant key");
         thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        PeccoInitialize peccoInitialize = PeccoInitialize.create(request, options);
+        CheckoutFormInitialize checkoutFormInitialize = CheckoutFormInitialize.create(request, options);
 
-        System.out.println(peccoInitialize);
+        System.out.println(checkoutFormInitialize);
 
-        assertNotNull(peccoInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), peccoInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), peccoInitialize.getLocale());
-        assertEquals("123456789", peccoInitialize.getConversationId());
-        assertNotNull(peccoInitialize.getHtmlContent());
+        assertNotNull(checkoutFormInitialize.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
+        assertEquals("123456789", checkoutFormInitialize.getConversationId());
     }
 
     @Test
-    public void should_auth_pecco_payment() {
-        CreatePeccoPaymentRequest request = new CreatePeccoPaymentRequest();
+    public void should_retrieve_checkout_form_auth() {
+        RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setToken("token");
 
-        PeccoPayment peccoPayment = PeccoPayment.create(request, options);
-        System.out.println(peccoPayment);
+        CheckoutForm checkoutForm = CheckoutForm.retrieve(request, options);
 
-        assertNotNull(peccoPayment.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), peccoPayment.getStatus());
-        assertEquals(Locale.TR.getValue(), peccoPayment.getLocale());
-        assertEquals("123456789", peccoPayment.getConversationId());
+        System.out.println(checkoutForm);
+
+        assertNotNull(checkoutForm.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutForm.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutForm.getLocale());
+        assertEquals("123456789", checkoutForm.getConversationId());
     }
 }

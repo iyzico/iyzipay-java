@@ -1,7 +1,7 @@
-package com.iyzipay.model.sample;
+package com.iyzipay.sample;
 
-import com.iyzipay.model.Currency;
 import com.iyzipay.model.BasicPayment;
+import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.PaymentCard;
 import com.iyzipay.request.CreateBasicPaymentRequest;

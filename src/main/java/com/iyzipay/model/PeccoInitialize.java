@@ -3,7 +3,6 @@ package com.iyzipay.model;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 import com.iyzipay.request.CreatePeccoInitializeRequest;
 
 public class PeccoInitialize extends IyzipayResource {

@@ -1,4 +1,4 @@
-package com.iyzipay.model.sample;
+package com.iyzipay.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class CheckoutFormSample extends Sample {
+public class CheckoutFormPreAuthSample extends Sample {
 
     @Test
     public void should_initialize_checkout_form() {
@@ -23,7 +23,6 @@ public class CheckoutFormSample extends Sample {
         request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
-        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
         List<Integer> enabledInstallments = new ArrayList<Integer>();
@@ -101,18 +100,18 @@ public class CheckoutFormSample extends Sample {
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
-        CheckoutFormInitialize checkoutFormInitialize = CheckoutFormInitialize.create(request, options);
+        CheckoutFormInitializePreAuth checkoutFormInitializePreAuth = CheckoutFormInitializePreAuth.create(request, options);
 
-        System.out.println(checkoutFormInitialize);
+        System.out.println(checkoutFormInitializePreAuth);
 
-        assertNotNull(checkoutFormInitialize.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
-        assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
-        assertEquals("123456789", checkoutFormInitialize.getConversationId());
+        assertNotNull(checkoutFormInitializePreAuth.getSystemTime());
+        assertEquals(Status.SUCCESS.getValue(), checkoutFormInitializePreAuth.getStatus());
+        assertEquals(Locale.TR.getValue(), checkoutFormInitializePreAuth.getLocale());
+        assertEquals("123456789", checkoutFormInitializePreAuth.getConversationId());
     }
 
     @Test
-    public void should_retrieve_checkout_form_auth() {
+    public void should_retrieve_checkout_form() {
         RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

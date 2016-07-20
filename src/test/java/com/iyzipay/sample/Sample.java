@@ -1,4 +1,4 @@
-package com.iyzipay.model.sample;
+package com.iyzipay.sample;
 
 import com.iyzipay.Options;
 import org.junit.Before;
