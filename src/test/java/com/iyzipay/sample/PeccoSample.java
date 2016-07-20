@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class PeccoSample extends Sample {
 
     @Test
-    public void should_initialize_pecco() {
+    public void should_initialize_pecco_payment() {
         CreatePeccoInitializeRequest request = new CreatePeccoInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -105,7 +105,7 @@ public class PeccoSample extends Sample {
     }
 
     @Test
-    public void should_auth_pecco_payment() {
+    public void should_create_pecco_payment() {
         CreatePeccoPaymentRequest request = new CreatePeccoPaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

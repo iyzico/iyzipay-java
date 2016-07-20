@@ -23,6 +23,7 @@ public class CheckoutFormPreAuthSample extends Sample {
         request.setPaidPrice(new BigDecimal("1.2"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
+        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
         List<Integer> enabledInstallments = new ArrayList<Integer>();
@@ -111,7 +112,7 @@ public class CheckoutFormPreAuthSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_checkout_form() {
+    public void should_retrieve_checkout_form_payment() {
         RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
