@@ -31,7 +31,6 @@ public class CheckoutFormSample extends Sample {
         enabledInstallments.add(3);
         enabledInstallments.add(6);
         enabledInstallments.add(9);
-
         request.setEnabledInstallments(enabledInstallments);
 
         Buyer buyer = new Buyer();
@@ -112,7 +111,7 @@ public class CheckoutFormSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_checkout_form_payment() {
+    public void should_retrieve_checkout_form_result() {
         RetrieveCheckoutFormRequest request = new RetrieveCheckoutFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

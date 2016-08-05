@@ -3,7 +3,6 @@ package com.iyzipay.sample;
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
-import com.iyzipay.request.RetrievePaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -125,23 +124,5 @@ public class ThreedsSample extends Sample {
         assertNotNull(threedsPayment.getLocale());
         assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
         assertEquals("123456789", threedsPayment.getConversationId());
-    }
-
-    @Test
-    public void should_retrieve_payment() {
-        RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
-        retrievePaymentRequest.setLocale(Locale.TR.getValue());
-        retrievePaymentRequest.setConversationId("123456879");
-        retrievePaymentRequest.setPaymentId("1");
-        retrievePaymentRequest.setPaymentConversationId("123456789");
-
-        ThreedsPayment threedsPayment = ThreedsPayment.retrieve(retrievePaymentRequest, options);
-
-        System.out.println(threedsPayment.toString());
-
-        assertNotNull(threedsPayment.getSystemTime());
-        assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
-        assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
-        assertEquals("123456879", threedsPayment.getConversationId());
     }
 }

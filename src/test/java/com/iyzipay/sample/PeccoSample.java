@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class PeccoSample extends Sample {
 
     @Test
-    public void should_initialize_pecco_payment() {
+    public void should_initialize_pecco() {
         CreatePeccoInitializeRequest request = new CreatePeccoInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

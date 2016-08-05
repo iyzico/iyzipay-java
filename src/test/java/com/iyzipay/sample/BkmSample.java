@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class BkmSample extends Sample {
 
     @Test
-    public void should_initialize_bkm_express_payment() {
+    public void should_initialize_bkm() {
         CreateBkmInitializeRequest request = new CreateBkmInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
@@ -103,7 +103,7 @@ public class BkmSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_bkm_express_payment() {
+    public void should_retrieve_bkm_result() {
         RetrieveBkmRequest request = new RetrieveBkmRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

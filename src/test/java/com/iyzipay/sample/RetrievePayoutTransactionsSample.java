@@ -10,7 +10,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class RetrieveTransactionsSample extends Sample {
+public class RetrievePayoutTransactionsSample extends Sample {
 
     @Test
     public void should_retrieve_payout_completed_transactions() {
