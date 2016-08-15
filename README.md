@@ -137,7 +137,7 @@ public static void main(String[] args) {
    Payment payment = Payment.create(request, options);
 }
 ```
-See other samples under src/test/java/com/iyzipay/model/sample package.
+See other samples under src/test/java/com/iyzipay/sample package.
 
 ### Mock test cards
 
