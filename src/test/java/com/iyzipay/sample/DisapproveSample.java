@@ -6,8 +6,7 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateApprovalRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class DisapproveSample extends Sample {
 
@@ -22,10 +21,13 @@ public class DisapproveSample extends Sample {
 
         System.out.println(disapproval);
 
-        assertNotNull(disapproval.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), disapproval.getStatus());
         assertEquals(Locale.TR.getValue(), disapproval.getLocale());
         assertEquals("123456789", disapproval.getConversationId());
+        assertNotNull(disapproval.getSystemTime());
+        assertNull(disapproval.getErrorCode());
+        assertNull(disapproval.getErrorMessage());
+        assertNull(disapproval.getErrorGroup());
         assertEquals("1", disapproval.getPaymentTransactionId());
     }
 }

@@ -9,8 +9,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class RefundSample extends Sample {
 
@@ -20,7 +19,7 @@ public class RefundSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPaymentTransactionId("1");
-        request.setPrice(new BigDecimal("0.1"));
+        request.setPrice(new BigDecimal("0.5"));
         request.setCurrency(Currency.TRY.name());
         request.setIp("85.34.78.112");
 
@@ -28,9 +27,15 @@ public class RefundSample extends Sample {
 
         System.out.println(refund);
 
-        assertNotNull(refund.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertEquals("123456789", refund.getConversationId());
+        assertNotNull(refund.getSystemTime());
+        assertNull(refund.getErrorCode());
+        assertNull(refund.getErrorMessage());
+        assertNull(refund.getErrorGroup());
+        assertNotNull(refund.getPaymentId());
+        assertEquals("1", refund.getPaymentTransactionId());
+        assertNotNull(refund.getPrice());
     }
 }

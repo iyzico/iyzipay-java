@@ -6,8 +6,7 @@ import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class SubMerchantSample extends Sample {
 
@@ -32,10 +31,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -59,10 +61,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -86,10 +91,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -112,10 +120,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -138,10 +149,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -164,10 +178,13 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 
     @Test
@@ -181,9 +198,12 @@ public class SubMerchantSample extends Sample {
 
         System.out.println(subMerchant);
 
-        assertNotNull(subMerchant.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
         assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
         assertEquals("123456789", subMerchant.getConversationId());
+        assertNotNull(subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
     }
 }

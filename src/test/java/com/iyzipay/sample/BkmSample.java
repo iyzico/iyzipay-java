@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class BkmSample extends Sample {
 
@@ -95,10 +94,13 @@ public class BkmSample extends Sample {
 
         System.out.println(bkmInitialize);
 
-        assertNotNull(bkmInitialize.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
         assertEquals("123456789", bkmInitialize.getConversationId());
+        assertNotNull(bkmInitialize.getSystemTime());
+        assertNull(bkmInitialize.getErrorCode());
+        assertNull(bkmInitialize.getErrorMessage());
+        assertNull(bkmInitialize.getErrorGroup());
         assertNotNull(bkmInitialize.getHtmlContent());
     }
 
@@ -113,9 +115,12 @@ public class BkmSample extends Sample {
 
         System.out.println(bkm);
 
-        assertNotNull(bkm.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), bkm.getStatus());
         assertEquals(Locale.TR.getValue(), bkm.getLocale());
         assertEquals("123456789", bkm.getConversationId());
+        assertNotNull(bkm.getSystemTime());
+        assertNull(bkm.getErrorCode());
+        assertNull(bkm.getErrorMessage());
+        assertNull(bkm.getErrorGroup());
     }
 }

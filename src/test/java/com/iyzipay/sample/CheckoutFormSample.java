@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class CheckoutFormSample extends Sample {
 
@@ -104,10 +103,13 @@ public class CheckoutFormSample extends Sample {
 
         System.out.println(checkoutFormInitialize);
 
-        assertNotNull(checkoutFormInitialize.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
         assertEquals("123456789", checkoutFormInitialize.getConversationId());
+        assertNotNull(checkoutFormInitialize.getSystemTime());
+        assertNull(checkoutFormInitialize.getErrorCode());
+        assertNull(checkoutFormInitialize.getErrorMessage());
+        assertNull(checkoutFormInitialize.getErrorGroup());
     }
 
     @Test
@@ -121,9 +123,12 @@ public class CheckoutFormSample extends Sample {
 
         System.out.println(checkoutForm);
 
-        assertNotNull(checkoutForm.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), checkoutForm.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutForm.getLocale());
         assertEquals("123456789", checkoutForm.getConversationId());
+        assertNotNull(checkoutForm.getSystemTime());
+        assertNull(checkoutForm.getErrorCode());
+        assertNull(checkoutForm.getErrorMessage());
+        assertNull(checkoutForm.getErrorGroup());
     }
 }

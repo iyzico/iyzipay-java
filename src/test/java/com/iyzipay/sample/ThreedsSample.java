@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class ThreedsSample extends Sample {
 
@@ -102,10 +101,13 @@ public class ThreedsSample extends Sample {
 
         System.out.println(threedsInitialize);
 
-        assertNotNull(threedsInitialize.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals("123456789", threedsInitialize.getConversationId());
+        assertNotNull(threedsInitialize.getSystemTime());
+        assertNull(threedsInitialize.getErrorCode());
+        assertNull(threedsInitialize.getErrorMessage());
+        assertNull(threedsInitialize.getErrorGroup());
     }
 
     @Test
@@ -120,9 +122,12 @@ public class ThreedsSample extends Sample {
 
         System.out.println(threedsPayment);
 
-        assertNotNull(threedsPayment.getConversationId());
-        assertNotNull(threedsPayment.getLocale());
+        assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
         assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
         assertEquals("123456789", threedsPayment.getConversationId());
+        assertNotNull(threedsPayment.getSystemTime());
+        assertNull(threedsPayment.getErrorCode());
+        assertNull(threedsPayment.getErrorMessage());
+        assertNull(threedsPayment.getErrorGroup());
     }
 }

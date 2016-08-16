@@ -7,8 +7,7 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.RetrieveTransactionsRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class RetrievePayoutTransactionsSample extends Sample {
 
@@ -23,10 +22,13 @@ public class RetrievePayoutTransactionsSample extends Sample {
 
         System.out.println(payoutCompletedTransactionList);
 
-        assertNotNull(payoutCompletedTransactionList.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), payoutCompletedTransactionList.getStatus());
         assertEquals(Locale.TR.getValue(), payoutCompletedTransactionList.getLocale());
         assertEquals("123456789", payoutCompletedTransactionList.getConversationId());
+        assertNotNull(payoutCompletedTransactionList.getSystemTime());
+        assertNull(payoutCompletedTransactionList.getErrorCode());
+        assertNull(payoutCompletedTransactionList.getErrorMessage());
+        assertNull(payoutCompletedTransactionList.getErrorGroup());
     }
 
     @Test
@@ -40,9 +42,12 @@ public class RetrievePayoutTransactionsSample extends Sample {
 
         System.out.println(bouncedBankTransferList);
 
-        assertNotNull(bouncedBankTransferList.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), bouncedBankTransferList.getStatus());
         assertEquals(Locale.TR.getValue(), bouncedBankTransferList.getLocale());
         assertEquals("123456789", bouncedBankTransferList.getConversationId());
+        assertNotNull(bouncedBankTransferList.getSystemTime());
+        assertNull(bouncedBankTransferList.getErrorCode());
+        assertNull(bouncedBankTransferList.getErrorMessage());
+        assertNull(bouncedBankTransferList.getErrorGroup());
     }
 }

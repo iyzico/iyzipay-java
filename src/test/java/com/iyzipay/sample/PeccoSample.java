@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class PeccoSample extends Sample {
 
@@ -97,10 +96,13 @@ public class PeccoSample extends Sample {
 
         System.out.println(peccoInitialize);
 
-        assertNotNull(peccoInitialize.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), peccoInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), peccoInitialize.getLocale());
         assertEquals("123456789", peccoInitialize.getConversationId());
+        assertNotNull(peccoInitialize.getSystemTime());
+        assertNull(peccoInitialize.getErrorCode());
+        assertNull(peccoInitialize.getErrorMessage());
+        assertNull(peccoInitialize.getErrorGroup());
         assertNotNull(peccoInitialize.getHtmlContent());
     }
 
@@ -114,9 +116,12 @@ public class PeccoSample extends Sample {
         PeccoPayment peccoPayment = PeccoPayment.create(request, options);
         System.out.println(peccoPayment);
 
-        assertNotNull(peccoPayment.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), peccoPayment.getStatus());
         assertEquals(Locale.TR.getValue(), peccoPayment.getLocale());
         assertEquals("123456789", peccoPayment.getConversationId());
+        assertNotNull(peccoPayment.getSystemTime());
+        assertNull(peccoPayment.getErrorCode());
+        assertNull(peccoPayment.getErrorMessage());
+        assertNull(peccoPayment.getErrorGroup());
     }
 }

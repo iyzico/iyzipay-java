@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class PaymentSample extends Sample {
 
@@ -101,10 +100,13 @@ public class PaymentSample extends Sample {
 
         System.out.println(payment);
 
-        assertNotNull(payment.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertNull(payment.getErrorCode());
+        assertNull(payment.getErrorMessage());
+        assertNull(payment.getErrorGroup());
     }
 
     @Test
@@ -200,10 +202,13 @@ public class PaymentSample extends Sample {
 
         System.out.println(payment);
 
-        assertNotNull(payment.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertNull(payment.getErrorCode());
+        assertNull(payment.getErrorMessage());
+        assertNull(payment.getErrorGroup());
     }
 
     @Test
@@ -289,17 +294,20 @@ public class PaymentSample extends Sample {
 
         System.out.println(payment);
 
-        assertNotNull(payment.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertNull(payment.getErrorCode());
+        assertNull(payment.getErrorMessage());
+        assertNull(payment.getErrorGroup());
     }
 
     @Test
     public void should_retrieve_payment() {
         RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
         retrievePaymentRequest.setLocale(Locale.TR.getValue());
-        retrievePaymentRequest.setConversationId("123456879");
+        retrievePaymentRequest.setConversationId("123456789");
         retrievePaymentRequest.setPaymentId("1");
         retrievePaymentRequest.setPaymentConversationId("123456789");
 
@@ -307,9 +315,12 @@ public class PaymentSample extends Sample {
 
         System.out.println(payment.toString());
 
-        assertNotNull(payment.getSystemTime());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertEquals("123456879", payment.getConversationId());
+        assertEquals("123456789", payment.getConversationId());
+        assertNotNull(payment.getSystemTime());
+        assertNull(payment.getErrorCode());
+        assertNull(payment.getErrorMessage());
+        assertNull(payment.getErrorGroup());
     }
 }

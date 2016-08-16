@@ -27,7 +27,7 @@ public class BinNumberSample extends Sample {
         assertNotNull(binNumber.getSystemTime());
         assertNull(binNumber.getErrorCode());
         assertNull(binNumber.getErrorMessage());
-        assertNull(binNumber.getErrorMessage());
+        assertNull(binNumber.getErrorGroup());
         assertEquals("554960", binNumber.getBinNumber());
         assertEquals("CREDIT_CARD", binNumber.getCardType());
         assertEquals("MASTER_CARD", binNumber.getCardAssociation());
