@@ -63,8 +63,6 @@ public class BkmSample extends Sample {
         firstBasketItem.setCategory2("Accessories");
         firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
         firstBasketItem.setPrice(new BigDecimal("0.3"));
-        firstBasketItem.setSubMerchantKey("sub merchant key");
-        firstBasketItem.setSubMerchantPrice(new BigDecimal("0.27"));
         basketItems.add(firstBasketItem);
 
         BasketItem secondBasketItem = new BasketItem();
@@ -74,8 +72,6 @@ public class BkmSample extends Sample {
         secondBasketItem.setCategory2("Online Game Items");
         secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
         secondBasketItem.setPrice(new BigDecimal("0.5"));
-        secondBasketItem.setSubMerchantKey("sub merchant key");
-        secondBasketItem.setSubMerchantPrice(new BigDecimal("0.42"));
         basketItems.add(secondBasketItem);
 
         BasketItem thirdBasketItem = new BasketItem();
@@ -85,8 +81,6 @@ public class BkmSample extends Sample {
         thirdBasketItem.setCategory2("Usb / Cable");
         thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
         thirdBasketItem.setPrice(new BigDecimal("0.2"));
-        thirdBasketItem.setSubMerchantKey("sub merchant key");
-        thirdBasketItem.setSubMerchantPrice(new BigDecimal("0.18"));
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
