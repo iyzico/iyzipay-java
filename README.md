@@ -197,8 +197,7 @@ Card Number       | Description
 4141111111111115  | Success but mdStatus is 4
 4151111111111112  | 3dsecure initialize failed
 
-Testing
-=======
+# Testing
 
 You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
 
