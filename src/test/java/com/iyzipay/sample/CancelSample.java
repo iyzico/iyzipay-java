@@ -29,7 +29,5 @@ public class CancelSample extends Sample {
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());
-        assertEquals("1", cancel.getPaymentId());
-        assertNotNull(cancel.getPrice());
     }
 }

@@ -34,8 +34,5 @@ public class RefundSample extends Sample {
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());
-        assertNotNull(refund.getPaymentId());
-        assertEquals("1", refund.getPaymentTransactionId());
-        assertNotNull(refund.getPrice());
     }
 }

@@ -28,6 +28,5 @@ public class ApproveSample extends Sample {
         assertNull(approval.getErrorCode());
         assertNull(approval.getErrorMessage());
         assertNull(approval.getErrorGroup());
-        assertEquals("1", approval.getPaymentTransactionId());
     }
 }

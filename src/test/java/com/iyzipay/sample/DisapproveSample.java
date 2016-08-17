@@ -28,6 +28,5 @@ public class DisapproveSample extends Sample {
         assertNull(disapproval.getErrorCode());
         assertNull(disapproval.getErrorMessage());
         assertNull(disapproval.getErrorGroup());
-        assertEquals("1", disapproval.getPaymentTransactionId());
     }
 }
