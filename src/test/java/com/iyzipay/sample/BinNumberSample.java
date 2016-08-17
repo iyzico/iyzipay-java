@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class BinNumberSample extends Sample {
 
     @Test
-    public void should_retrieve_bin_number() {
+    public void should_retrieve_bin() {
         RetrieveBinNumberRequest request = new RetrieveBinNumberRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");

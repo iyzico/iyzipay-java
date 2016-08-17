@@ -110,7 +110,7 @@ public class PaymentSample extends Sample {
     }
 
     @Test
-    public void should_create_payment_for_market_place() {
+    public void should_create_marketplace_payment() {
         CreatePaymentRequest request = new CreatePaymentRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
