@@ -18,8 +18,8 @@ public class PeccoSample extends Sample {
         CreatePeccoInitializeRequest request = new CreatePeccoInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPrice(new BigDecimal("100"));
-        request.setPaidPrice(new BigDecimal("1000"));
+        request.setPrice(new BigDecimal("100000"));
+        request.setPaidPrice(new BigDecimal("120000"));
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
@@ -64,7 +64,7 @@ public class PeccoSample extends Sample {
         firstBasketItem.setCategory1("Collectibles");
         firstBasketItem.setCategory2("Accessories");
         firstBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        firstBasketItem.setPrice(new BigDecimal("30"));
+        firstBasketItem.setPrice(new BigDecimal("30000"));
         basketItems.add(firstBasketItem);
 
         BasketItem secondBasketItem = new BasketItem();
@@ -73,7 +73,7 @@ public class PeccoSample extends Sample {
         secondBasketItem.setCategory1("Game");
         secondBasketItem.setCategory2("Online Game Items");
         secondBasketItem.setItemType(BasketItemType.VIRTUAL.name());
-        secondBasketItem.setPrice(new BigDecimal("50"));
+        secondBasketItem.setPrice(new BigDecimal("50000"));
         basketItems.add(secondBasketItem);
 
         BasketItem thirdBasketItem = new BasketItem();
@@ -82,7 +82,7 @@ public class PeccoSample extends Sample {
         thirdBasketItem.setCategory1("Electronics");
         thirdBasketItem.setCategory2("Usb / Cable");
         thirdBasketItem.setItemType(BasketItemType.PHYSICAL.name());
-        thirdBasketItem.setPrice(new BigDecimal("20"));
+        thirdBasketItem.setPrice(new BigDecimal("20000"));
         basketItems.add(thirdBasketItem);
         request.setBasketItems(basketItems);
 
@@ -108,6 +108,7 @@ public class PeccoSample extends Sample {
         request.setToken("token");
 
         PeccoPayment peccoPayment = PeccoPayment.create(request, options);
+
         System.out.println(peccoPayment);
 
         assertEquals(Status.SUCCESS.getValue(), peccoPayment.getStatus());

@@ -304,7 +304,7 @@ public class PaymentSample extends Sample {
     }
 
     @Test
-    public void should_retrieve_payment() {
+    public void should_retrieve_payment_result() {
         RetrievePaymentRequest retrievePaymentRequest = new RetrievePaymentRequest();
         retrievePaymentRequest.setLocale(Locale.TR.getValue());
         retrievePaymentRequest.setConversationId("123456789");
