@@ -19,7 +19,7 @@ public class PaymentSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.1"));
+        request.setPaidPrice(new BigDecimal("1.2"));
         request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
@@ -115,7 +115,7 @@ public class PaymentSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.1"));
+        request.setPaidPrice(new BigDecimal("1.2"));
         request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");
@@ -217,7 +217,7 @@ public class PaymentSample extends Sample {
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
-        request.setPaidPrice(new BigDecimal("1.1"));
+        request.setPaidPrice(new BigDecimal("1.2"));
         request.setCurrency(Currency.TRY.name());
         request.setInstallment(1);
         request.setBasketId("B67832");

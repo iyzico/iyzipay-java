@@ -20,9 +20,9 @@ public class CheckoutFormSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.2"));
+        request.setCurrency(Currency.TRY.name());
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
-        request.setCurrency(Currency.TRY.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
 
         List<Integer> enabledInstallments = new ArrayList<Integer>();

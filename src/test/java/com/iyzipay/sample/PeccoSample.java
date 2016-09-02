@@ -20,10 +20,10 @@ public class PeccoSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("100000"));
         request.setPaidPrice(new BigDecimal("120000"));
+        request.setCurrency(Currency.IRR.name());
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setCurrency(Currency.IRR.name());
 
         Buyer buyer = new Buyer();
         buyer.setId("BY789");
