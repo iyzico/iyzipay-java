@@ -6,10 +6,11 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-before_install:
-  - chmod +x mvnw
+install:
+  - mvn install -DskipTests
 
-install: mvn install -DskipTests
+script:
+  - mvn test
 
 notifications:
   email:
