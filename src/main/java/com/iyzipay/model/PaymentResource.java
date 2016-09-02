@@ -31,6 +31,7 @@ public class PaymentResource extends IyzipayResource {
     @SerializedName("itemTransactions")
     private List<PaymentItem> paymentItems;
     private String connectorName;
+    private String authCode;
 
     public BigDecimal getPrice() {
         return price;
@@ -190,6 +191,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setConnectorName(String connectorName) {
         this.connectorName = connectorName;
+    }
+
+    public String getAuthCode() {
+        return authCode;
+    }
+
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
     }
 
     @Override
