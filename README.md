@@ -197,7 +197,12 @@ Card Number       | Description
 
 # Testing
 
-You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
+You must have Maven installed. You can run particular sample by passing `-Dtest=Class#method`. For example:
 
     mvn test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     mvn test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+
+Or you can also run:
+
+    ./mvnw test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    ./mvnw test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
