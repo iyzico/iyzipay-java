@@ -44,6 +44,12 @@ If you want to run samples you'll need to manually install Junit JAR:
 
 * JUnit 4.12 from http://mvnrepository.com/artifact/junit/junit/4.12
 
+### Build
+
+If you don't have maven installed in your local environment, you can use maven wrapper script:
+
+    ./mvnw clean install
+
 # Usage
 
 ```java
@@ -56,7 +62,7 @@ CreatePaymentRequest request = new CreatePaymentRequest();
 request.setLocale(Locale.TR.getValue());
 request.setConversationId("123456789");
 request.setPrice(new BigDecimal("1"));
-request.setPaidPrice(new BigDecimal("1.1"));
+request.setPaidPrice(new BigDecimal("1.2"));
 request.setCurrency(Currency.TRY.name());
 request.setInstallment(1);
 request.setBasketId("B67832");
@@ -197,7 +203,12 @@ Card Number       | Description
 
 # Testing
 
-You must have Maven installed. You can run particular sample by passing `-D test=Class#method`. For example:
+You must have Maven installed. You can run particular sample by passing `-Dtest=Class#method`. For example:
 
     mvn test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     mvn test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+
+Or you can also run:
+
+    ./mvnw test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    ./mvnw test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
