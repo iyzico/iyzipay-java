@@ -44,6 +44,12 @@ If you want to run samples you'll need to manually install Junit JAR:
 
 * JUnit 4.12 from http://mvnrepository.com/artifact/junit/junit/4.12
 
+### Build
+
+If you don't have maven installed in your local environment, you can build with Maven Wrapper:
+
+    ./mvnw clean install
+
 # Usage
 
 ```java
