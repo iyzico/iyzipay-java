@@ -104,6 +104,8 @@ public class CheckoutFormSample extends Sample {
         assertNull(checkoutFormInitialize.getErrorCode());
         assertNull(checkoutFormInitialize.getErrorMessage());
         assertNull(checkoutFormInitialize.getErrorGroup());
+        assertNotNull(checkoutFormInitialize.getCheckoutFormContent());
+        assertNotNull(checkoutFormInitialize.getPaymentPageUrl());
     }
 
     @Test

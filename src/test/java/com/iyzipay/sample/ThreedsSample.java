@@ -108,6 +108,7 @@ public class ThreedsSample extends Sample {
         assertNull(threedsInitialize.getErrorCode());
         assertNull(threedsInitialize.getErrorMessage());
         assertNull(threedsInitialize.getErrorGroup());
+        assertNotNull(threedsInitialize.getHtmlContent());
     }
 
     @Test
