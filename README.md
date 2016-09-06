@@ -46,7 +46,7 @@ If you want to run samples you'll need to manually install Junit JAR:
 
 ### Build
 
-If you don't have maven installed in your local environment, you can use maven wrapper script:
+If you don't have Maven installed in your local environment, you can use Maven Wrapper script:
 
     ./mvnw clean install
 
@@ -208,7 +208,7 @@ If you have Maven installed, you can run particular sample by passing `-Dtest=Cl
     mvn test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     mvn test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
 
-If you don't have maven installed, you can also run:
+If you don't have Maven installed, you can also run:
 
     ./mvnw test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     ./mvnw test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
