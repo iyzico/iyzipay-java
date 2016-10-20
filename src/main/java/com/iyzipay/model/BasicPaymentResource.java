@@ -23,6 +23,7 @@ public class BasicPaymentResource extends IyzipayResource {
     private String paymentTransactionId;
     private String authCode;
     private String connectorName;
+    private String phase;
 
     public BigDecimal getPrice() {
         return price;
@@ -158,5 +159,13 @@ public class BasicPaymentResource extends IyzipayResource {
 
     public void setConnectorName(String connectorName) {
         this.connectorName = connectorName;
+    }
+
+    public String getPhase() {
+        return phase;
+    }
+
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 }

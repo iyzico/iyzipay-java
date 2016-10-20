@@ -32,6 +32,7 @@ public class PaymentResource extends IyzipayResource {
     private List<PaymentItem> paymentItems;
     private String connectorName;
     private String authCode;
+    private String phase;
 
     public BigDecimal getPrice() {
         return price;
@@ -199,6 +200,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
+    }
+
+    public String getPhase() {
+        return phase;
+    }
+
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 
     @Override
