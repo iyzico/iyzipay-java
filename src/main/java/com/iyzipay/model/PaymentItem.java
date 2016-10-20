@@ -25,7 +25,7 @@ public class PaymentItem {
     private BigDecimal subMerchantPayoutRate;
     private BigDecimal subMerchantPayoutAmount;
     private BigDecimal merchantPayoutAmount;
-    private PaymentPayoutAmount paymentPayoutAmount;
+    private ConvertedPayout convertedPayout;
 
     public String getItemId() {
         return itemId;
@@ -169,6 +169,14 @@ public class PaymentItem {
 
     public void setMerchantPayoutAmount(BigDecimal merchantPayoutAmount) {
         this.merchantPayoutAmount = merchantPayoutAmount;
+    }
+
+    public ConvertedPayout getConvertedPayout() {
+        return convertedPayout;
+    }
+
+    public void setConvertedPayout(ConvertedPayout convertedPayout) {
+        this.convertedPayout = convertedPayout;
     }
 
     @Override
