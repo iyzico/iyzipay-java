@@ -12,9 +12,11 @@ public class Refund extends IyzipayResource {
     private String paymentId;
     private String paymentTransactionId;
     private BigDecimal price;
+    private String currency;
+    private String connectorName;
 
     public static Refund create(CreateRefundRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund",
+        return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
                 getHttpHeaders(request, options),
                 request,
                 Refund.class);
@@ -42,5 +44,21 @@ public class Refund extends IyzipayResource {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getConnectorName() {
+        return connectorName;
+    }
+
+    public void setConnectorName(String connectorName) {
+        this.connectorName = connectorName;
     }
 }

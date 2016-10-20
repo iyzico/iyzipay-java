@@ -32,7 +32,6 @@ build/
 *.class
 *.log
 *.patch
-*.jar
 *.war
 *.ear
 *.ser
