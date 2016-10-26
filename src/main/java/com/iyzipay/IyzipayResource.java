@@ -1,6 +1,7 @@
 package com.iyzipay;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -11,7 +12,10 @@ public class IyzipayResource {
 
     private static final String AUTHORIZATION = "Authorization";
     private static final String RANDOM_HEADER_NAME = "x-iyzi-rnd";
+    private static final String CLIENT_VERSION_HEADER_NAME = "x-iyzi-client-version";
     private static final String IYZIWS_HEADER_NAME = "IYZWS ";
+    private static final String CLIENT_VERSION = IyzipayResource.class.getPackage().getImplementationVersion();
+    private static final String CLIENT_TITLE = IyzipayResource.class.getPackage().getImplementationTitle();
     private static final String COLON = ":";
     private static final int RANDOM_STRING_SIZE = 8;
 
@@ -30,6 +34,9 @@ public class IyzipayResource {
         Map<String, String> headers = new HashMap<String, String>();
         String randomString = System.currentTimeMillis() + RandomStringUtils.randomAlphanumeric(RANDOM_STRING_SIZE);
         headers.put(RANDOM_HEADER_NAME, randomString);
+        if (StringUtils.isNoneBlank(CLIENT_VERSION, CLIENT_TITLE)) {
+            headers.put(CLIENT_VERSION_HEADER_NAME, CLIENT_TITLE + "-" + CLIENT_VERSION);
+        }
         headers.put(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
         return headers;
     }
