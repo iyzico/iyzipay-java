@@ -32,12 +32,14 @@ public class IyzipayResource {
 
     protected static Map<String, String> getHttpHeaders(Request request, Options options) {
         Map<String, String> headers = new HashMap<String, String>();
+
         String randomString = System.currentTimeMillis() + RandomStringUtils.randomAlphanumeric(RANDOM_STRING_SIZE);
         headers.put(RANDOM_HEADER_NAME, randomString);
+        headers.put(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
+
         if (StringUtils.isNoneBlank(CLIENT_VERSION, CLIENT_TITLE)) {
             headers.put(CLIENT_VERSION_HEADER_NAME, CLIENT_TITLE + "-" + CLIENT_VERSION);
         }
-        headers.put(AUTHORIZATION, prepareAuthorizationString(request, randomString, options));
         return headers;
     }
 
