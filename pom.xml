@@ -63,7 +63,6 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <junit-version>4.12</junit-version>
         <gson.version>2.5</gson.version>
-        <commons-codec.version>1.9</commons-codec.version>
     </properties>
 
     <build>
@@ -185,11 +184,6 @@
     </distributionManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>${commons-codec.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

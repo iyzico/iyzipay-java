@@ -2,9 +2,9 @@ package com.iyzipay;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.DatatypeConverter;
 
 public final class HashGenerator {
 
@@ -24,7 +24,7 @@ public final class HashGenerator {
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(HashGenerator.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return Base64.getEncoder().encodeToString(result);
+        return DatatypeConverter.printBase64Binary(result);
     }
 
 }
