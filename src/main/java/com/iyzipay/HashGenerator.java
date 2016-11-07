@@ -10,13 +10,18 @@ public final class HashGenerator {
     private HashGenerator() {
     }
 
-    public static String generateHash(String apiKey, String secretKey, String randomString, Object request) throws HttpClientException, NoSuchAlgorithmException {
+    public static String generateHash(String apiKey, String secretKey, String randomString, Object request) {
         String input = apiKey + randomString + secretKey + request;
         StringBuilder sb = new StringBuilder();
-        MessageDigest crypt = MessageDigest.getInstance("SHA1");
-        byte[] result = crypt.digest(input.getBytes());
-        for (int i = 0; i < result.length; i++) {
-            sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+        byte[] result = null;
+        try {
+            MessageDigest crypt = MessageDigest.getInstance("SHA1");
+            result = crypt.digest(input.getBytes());
+            for (int i = 0; i < result.length; i++) {
+                sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            throw new HttpClientException(e.getMessage(), e);
         }
         return DatatypeConverter.printBase64Binary(result);
     }
