@@ -22,5 +22,4 @@ public class PeccoPayment extends PaymentResource {
     public void setToken(String token) {
         this.token = token;
     }
-
 }
