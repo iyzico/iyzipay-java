@@ -1,6 +1,6 @@
 package com.iyzipay;
 
-import org.apache.commons.codec.binary.Base64;
+import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.lang3.StringUtils;
 
 public final class DigestHelper {
@@ -9,6 +9,6 @@ public final class DigestHelper {
     }
 
     public static String decodeString(String content) {
-        return (StringUtils.isNotBlank(content)) ? new String(Base64.decodeBase64(content)) : null;
+        return (StringUtils.isNotBlank(content)) ? new String(DatatypeConverter.parseBase64Binary(content)) : null;
     }
 }

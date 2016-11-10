@@ -14,6 +14,9 @@ Session.vim
 .idea
 *plugin.xml
 
+# NetBeans generated files
+nb-configuration.xml
+
 # Eclipse generated files
 *.pydevproject
 .project
