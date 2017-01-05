@@ -20,4 +20,11 @@ public class ToStringRequestStyleTest {
         new ToStringRequestStyle().append(sb, "conversationId", value, true);
         assertEquals("", sb.toString());
     }
+
+    @Test
+    public void should_append_when_value_is_empty() {
+        StringBuffer sb = new StringBuffer();
+        new ToStringRequestStyle().append(sb, "conversationId", "", true);
+        assertEquals("conversationId=,", sb.toString());
+    }
 }
