@@ -20,6 +20,7 @@ public class CreateBkmInitializeRequest extends Request {
     private Address billingAddress;
     private List<BasketItem> basketItems;
     private String callbackUrl;
+    private List<Integer> enabledInstallments;
 
     public BigDecimal getPrice() {
         return price;
@@ -93,6 +94,14 @@ public class CreateBkmInitializeRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
+    public List<Integer> getEnabledInstallments() {
+        return enabledInstallments;
+    }
+
+    public void setEnabledInstallments(List<Integer> enabledInstallments) {
+        this.enabledInstallments = enabledInstallments;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -106,6 +115,7 @@ public class CreateBkmInitializeRequest extends Request {
                 .append("basketItems", basketItems)
                 .append("callbackUrl", callbackUrl)
                 .append("paymentSource", paymentSource)
+                .append("enabledInstallments", enabledInstallments)
                 .toString();
     }
 }
