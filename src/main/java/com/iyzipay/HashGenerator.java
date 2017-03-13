@@ -12,7 +12,6 @@ public final class HashGenerator {
     }
 
     public static String generateHash(String apiKey, String secretKey, String randomString, Object request) {
-        StringBuilder hash = new StringBuilder();
         byte[] result = null;
         try {
             MessageDigest crypt = MessageDigest.getInstance("SHA1");
