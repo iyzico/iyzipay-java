@@ -11,7 +11,6 @@ import java.util.List;
 public class ApmResource extends IyzipayResource {
 
     private String redirectUrl;
-
     private BigDecimal price;
     private BigDecimal paidPrice;
     private String paymentId;
