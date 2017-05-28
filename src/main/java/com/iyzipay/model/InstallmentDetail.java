@@ -17,6 +17,7 @@ public class InstallmentDetail {
     private Long bankCode;
     private String bankName;
     private Integer forceCvc;
+    private Integer commercial;
     private List<InstallmentPrice> installmentPrices;
 
     public String getBinNumber() {
@@ -89,6 +90,14 @@ public class InstallmentDetail {
 
     public void setForceCvc(Integer forceCvc) {
         this.forceCvc = forceCvc;
+    }
+
+    public Integer getCommercial() {
+        return commercial;
+    }
+
+    public void setCommercial(Integer commercial) {
+        this.commercial = commercial;
     }
 
     public List<InstallmentPrice> getInstallmentPrices() {
