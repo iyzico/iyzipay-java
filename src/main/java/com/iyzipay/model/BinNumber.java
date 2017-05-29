@@ -13,6 +13,7 @@ public class BinNumber extends IyzipayResource {
     private String cardFamily;
     private String bankName;
     private Long bankCode;
+    private Integer commercial;
 
     public static BinNumber retrieve(RetrieveBinNumberRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/bin/check",
@@ -67,5 +68,13 @@ public class BinNumber extends IyzipayResource {
 
     public void setBankCode(Long bankCode) {
         this.bankCode = bankCode;
+    }
+
+    public Integer getCommercial() {
+        return commercial;
+    }
+
+    public void setCommercial(Integer commercial) {
+        this.commercial = commercial;
     }
 }

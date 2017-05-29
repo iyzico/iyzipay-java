@@ -14,6 +14,7 @@ public class Refund extends IyzipayResource {
     private BigDecimal price;
     private String currency;
     private String connectorName;
+    private String authCode;
 
     public static Refund create(CreateRefundRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
@@ -60,5 +61,13 @@ public class Refund extends IyzipayResource {
 
     public void setConnectorName(String connectorName) {
         this.connectorName = connectorName;
+    }
+
+    public String getAuthCode() {
+        return authCode;
+    }
+
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
     }
 }

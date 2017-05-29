@@ -13,6 +13,7 @@ public class Cancel extends IyzipayResource {
     private BigDecimal price;
     private String currency;
     private String connectorName;
+    private String authCode;
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/cancel",
@@ -51,5 +52,13 @@ public class Cancel extends IyzipayResource {
 
     public void setConnectorName(String connectorName) {
         this.connectorName = connectorName;
+    }
+
+    public String getAuthCode() {
+        return authCode;
+    }
+
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
     }
 }

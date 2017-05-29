@@ -33,6 +33,7 @@ public class PaymentResource extends IyzipayResource {
     private String connectorName;
     private String authCode;
     private String phase;
+    private String lastFourDigits;
 
     public BigDecimal getPrice() {
         return price;
@@ -208,6 +209,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setPhase(String phase) {
         this.phase = phase;
+    }
+
+    public String getLastFourDigits() {
+        return lastFourDigits;
+    }
+
+    public void setLastFourDigits(String lastFourDigits) {
+        this.lastFourDigits = lastFourDigits;
     }
 
     @Override
