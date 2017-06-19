@@ -148,28 +148,28 @@ Test cards that can be used to simulate a *successful* payment:
 
 Card Number      | Bank                       | Card Type
 -----------      | ----                       | ---------
-5890040000000016 | Akbank                     | Master Card (Debit)  
-5526080000000006 | Akbank                     | Master Card (Credit)  
-4766620000000001 | Denizbank                  | Visa (Debit)  
-4603450000000000 | Denizbank                  | Visa (Credit)  
+5890040000000016 | Akbank                     | Master Card (Debit)
+5526080000000006 | Akbank                     | Master Card (Credit)
+4766620000000001 | Denizbank                  | Visa (Debit)
+4603450000000000 | Denizbank                  | Visa (Credit)
 4729150000000005 | Denizbank Bonus            | Visa (Credit)
 4987490000000002 | Finansbank                 | Visa (Debit)
-5311570000000005 | Finansbank                 | Master Card (Credit)  
-9792020000000001 | Finansbank                 | Troy (Debit)  
-9792030000000000 | Finansbank                 | Troy (Credit)  
-5170410000000004 | Garanti Bankası            | Master Card (Debit)  
-5400360000000003 | Garanti Bankası            | Master Card (Credit)  
-374427000000003  | Garanti Bankası            | American Express  
-4475050000000003 | Halkbank                   | Visa (Debit)  
-5528790000000008 | Halkbank                   | Master Card (Credit)  
-4059030000000009 | HSBC Bank                  | Visa (Debit)  
-5504720000000003 | HSBC Bank                  | Master Card (Credit)  
-5892830000000000 | Türkiye İş Bankası         | Master Card (Debit)  
-4543590000000006 | Türkiye İş Bankası         | Visa (Credit)  
-4910050000000006 | Vakıfbank                  | Visa (Debit)  
-4157920000000002 | Vakıfbank                  | Visa (Credit)  
-5168880000000002 | Yapı ve Kredi Bankası      | Master Card (Debit)  
-5451030000000000 | Yapı ve Kredi Bankası      | Master Card (Credit)  
+5311570000000005 | Finansbank                 | Master Card (Credit)
+9792020000000001 | Finansbank                 | Troy (Debit)
+9792030000000000 | Finansbank                 | Troy (Credit)
+5170410000000004 | Garanti Bankası            | Master Card (Debit)
+5400360000000003 | Garanti Bankası            | Master Card (Credit)
+374427000000003  | Garanti Bankası            | American Express
+4475050000000003 | Halkbank                   | Visa (Debit)
+5528790000000008 | Halkbank                   | Master Card (Credit)
+4059030000000009 | HSBC Bank                  | Visa (Debit)
+5504720000000003 | HSBC Bank                  | Master Card (Credit)
+5892830000000000 | Türkiye İş Bankası         | Master Card (Debit)
+4543590000000006 | Türkiye İş Bankası         | Visa (Credit)
+4910050000000006 | Vakıfbank                  | Visa (Debit)
+4157920000000002 | Vakıfbank                  | Visa (Credit)
+5168880000000002 | Yapı ve Kredi Bankası      | Master Card (Debit)
+5451030000000000 | Yapı ve Kredi Bankası      | Master Card (Credit)
 
 *Cross border* test cards:
 
@@ -211,3 +211,25 @@ If you don't have Maven installed, you can also run:
 
     ./mvnw test -Dtest=PaymentSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
     ./mvnw test -Dtest=PaymentSample#should_create_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+
+### Mock APM Accounts
+
+Mock APM Accounts that can be used to simulate a payment with alternative payment method:
+
+Account Holder Name     | Description
+-------------------     | -----------
+success                 | Succeeded payment after succeeded initialize
+fail-after-init         | Failed payment after succeeded initialize
+error                   | Failed initialize
+
+# Testing
+
+If you have Maven installed, you can run particular sample by passing `-Dtest=Class#method`. For example:
+
+    mvn test -Dtest=ApmSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    mvn test -Dtest=ApmSample#should_initialize_apm_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+
+If you don't have Maven installed, you can also run:
+
+    ./mvnw test -Dtest=ApmSample -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
+    ./mvnw test -Dtest=ApmSample#should_initialize_apm_payment -DbaseUrl=https://sandbox-api.iyzipay.com -DapiKey=yourApiKey -DsecretKey=yourSecretKey
