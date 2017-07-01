@@ -37,12 +37,6 @@
             <organization>iyzico</organization>
             <organizationUrl>https://iyzico.com</organizationUrl>
         </developer>
-        <developer>
-            <name>Ümit Ünal</name>
-            <email>umit.unal@iyzico.com</email>
-            <organization>iyzico</organization>
-            <organizationUrl>https://iyzico.com</organizationUrl>
-        </developer>
     </developers>
 
     <scm>
