@@ -17,7 +17,6 @@ public class CreateApmInitializeRequest extends Request {
     private String paymentGroup;
     private String paymentSource;
     private String currency;
-    private String basketId;
     private String merchantOrderId;
     private String countryCode;
     private String accountHolderName;
@@ -25,6 +24,7 @@ public class CreateApmInitializeRequest extends Request {
     private String merchantErrorUrl;
     private String merchantNotificationUrl;
     private String apmType;
+    private String basketId;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
@@ -134,6 +134,14 @@ public class CreateApmInitializeRequest extends Request {
         this.apmType = apmType;
     }
 
+    public String getBasketId() {
+        return basketId;
+    }
+
+    public void setBasketId(String basketId) {
+        this.basketId = basketId;
+    }
+
     public Buyer getBuyer() {
         return buyer;
     }
@@ -164,14 +172,6 @@ public class CreateApmInitializeRequest extends Request {
 
     public void setBasketItems(List<BasketItem> basketItems) {
         this.basketItems = basketItems;
-    }
-
-    public String getBasketId() {
-        return basketId;
-    }
-
-    public void setBasketId(String basketId) {
-        this.basketId = basketId;
     }
 
     @Override

@@ -14,12 +14,12 @@ public class CreateSubMerchantRequest extends Request {
     private String contactName;
     private String contactSurname;
     private String legalCompanyTitle;
-    private String subMerchantExternalId;
+    private String swiftCode;
+    private String currency;
     private String identityNumber;
     private String taxNumber;
+    private String subMerchantExternalId;
     private String subMerchantType;
-    private String currency;
-    private String swiftCode;
 
     public String getName() {
         return name;
@@ -93,12 +93,20 @@ public class CreateSubMerchantRequest extends Request {
         this.legalCompanyTitle = legalCompanyTitle;
     }
 
-    public String getSubMerchantExternalId() {
-        return subMerchantExternalId;
+    public String getSwiftCode() {
+        return swiftCode;
     }
 
-    public void setSubMerchantExternalId(String subMerchantExternalId) {
-        this.subMerchantExternalId = subMerchantExternalId;
+    public void setSwiftCode(String swiftCode) {
+        this.swiftCode = swiftCode;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getIdentityNumber() {
@@ -117,28 +125,20 @@ public class CreateSubMerchantRequest extends Request {
         this.taxNumber = taxNumber;
     }
 
+    public String getSubMerchantExternalId() {
+        return subMerchantExternalId;
+    }
+
+    public void setSubMerchantExternalId(String subMerchantExternalId) {
+        this.subMerchantExternalId = subMerchantExternalId;
+    }
+
     public String getSubMerchantType() {
         return subMerchantType;
     }
 
     public void setSubMerchantType(String subMerchantType) {
         this.subMerchantType = subMerchantType;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getSwiftCode() {
-        return swiftCode;
-    }
-
-    public void setSwiftCode(String swiftCode) {
-        this.swiftCode = swiftCode;
     }
 
     @Override
