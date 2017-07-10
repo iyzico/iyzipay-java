@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.iyzipay</groupId>
     <artifactId>iyzipay-java</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>2.0.43</version>
     <packaging>jar</packaging>
     <name>iyzipay-java</name>
     <description>iyzipay api java client</description>
@@ -34,12 +34,6 @@
         <developer>
             <name>Sabri Onur Tüzün</name>
             <email>onur.tuzun@iyzico.com</email>
-            <organization>iyzico</organization>
-            <organizationUrl>https://iyzico.com</organizationUrl>
-        </developer>
-        <developer>
-            <name>Ümit Ünal</name>
-            <email>umit.unal@iyzico.com</email>
             <organization>iyzico</organization>
             <organizationUrl>https://iyzico.com</organizationUrl>
         </developer>
