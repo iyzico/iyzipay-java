@@ -26,7 +26,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private String cardUserKey;
     private String posOrderId;
     private List<Integer> enabledInstallments;
-    private boolean paymentWithNewCardEnabled = true;
+    private Boolean paymentWithNewCardEnabled;
 
     public BigDecimal getPrice() {
         return price;
@@ -148,11 +148,11 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.enabledInstallments = enabledInstallments;
     }
 
-    public boolean isPaymentWithNewCardEnabled() {
+    public Boolean getPaymentWithNewCardEnabled() {
         return paymentWithNewCardEnabled;
     }
 
-    public void setPaymentWithNewCardEnabled(boolean paymentWithNewCardEnabled) {
+    public void setPaymentWithNewCardEnabled(Boolean paymentWithNewCardEnabled) {
         this.paymentWithNewCardEnabled = paymentWithNewCardEnabled;
     }
 
