@@ -1,5 +1,6 @@
 package com.iyzipay.request;
 
+import com.iyzipay.Constants;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 import com.iyzipay.model.Address;
@@ -24,10 +25,14 @@ public class CreatePaymentRequest extends Request {
     private Address billingAddress;
     private List<BasketItem> basketItems;
     private String paymentSource;
-    private String callbackUrl;
+    private String currency;
     private String posOrderId;
     private String connectorName;
-    private String currency;
+    private String callbackUrl;
+
+    public CreatePaymentRequest() {
+        setInstallment(Constants.SINGLE_INSTALLMENT);
+    }
 
     public BigDecimal getPrice() {
         return price;
@@ -125,12 +130,12 @@ public class CreatePaymentRequest extends Request {
         this.paymentSource = paymentSource;
     }
 
-    public String getCallbackUrl() {
-        return callbackUrl;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setCallbackUrl(String callbackUrl) {
-        this.callbackUrl = callbackUrl;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getPosOrderId() {
@@ -149,12 +154,12 @@ public class CreatePaymentRequest extends Request {
         this.connectorName = connectorName;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getCallbackUrl() {
+        return callbackUrl;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
     }
 
     @Override

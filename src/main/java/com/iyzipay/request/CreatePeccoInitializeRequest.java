@@ -13,10 +13,10 @@ public class CreatePeccoInitializeRequest extends Request {
 
     private BigDecimal price;
     private BigDecimal paidPrice;
-    private String currency;
     private String basketId;
     private String paymentGroup;
     private String paymentSource;
+    private String currency;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
@@ -37,14 +37,6 @@ public class CreatePeccoInitializeRequest extends Request {
 
     public void setPaidPrice(BigDecimal paidPrice) {
         this.paidPrice = paidPrice;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
     }
 
     public String getBasketId() {
@@ -69,6 +61,14 @@ public class CreatePeccoInitializeRequest extends Request {
 
     public void setPaymentSource(String paymentSource) {
         this.paymentSource = paymentSource;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public Buyer getBuyer() {

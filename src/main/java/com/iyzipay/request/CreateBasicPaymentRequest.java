@@ -1,5 +1,6 @@
 package com.iyzipay.request;
 
+import com.iyzipay.Constants;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 import com.iyzipay.model.PaymentCard;
@@ -7,8 +8,6 @@ import com.iyzipay.model.PaymentCard;
 import java.math.BigDecimal;
 
 public class CreateBasicPaymentRequest extends Request {
-
-    public static final int SINGLE_INSTALLMENT = 1;
 
     private BigDecimal price;
     private BigDecimal paidPrice;
@@ -23,7 +22,7 @@ public class CreateBasicPaymentRequest extends Request {
     private String callbackUrl;
 
     public CreateBasicPaymentRequest() {
-        setInstallment(SINGLE_INSTALLMENT);
+        setInstallment(Constants.SINGLE_INSTALLMENT);
     }
 
     public BigDecimal getPrice() {
