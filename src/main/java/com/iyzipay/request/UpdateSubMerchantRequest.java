@@ -14,11 +14,11 @@ public class UpdateSubMerchantRequest extends Request {
     private String contactName;
     private String contactSurname;
     private String legalCompanyTitle;
-    private String subMerchantKey;
+    private String swiftCode;
+    private String currency;
     private String identityNumber;
     private String taxNumber;
-    private String currency;
-    private String swiftCode;
+    private String subMerchantKey;
 
     public String getName() {
         return name;
@@ -92,12 +92,20 @@ public class UpdateSubMerchantRequest extends Request {
         this.legalCompanyTitle = legalCompanyTitle;
     }
 
-    public String getSubMerchantKey() {
-        return subMerchantKey;
+    public String getSwiftCode() {
+        return swiftCode;
     }
 
-    public void setSubMerchantKey(String subMerchantKey) {
-        this.subMerchantKey = subMerchantKey;
+    public void setSwiftCode(String swiftCode) {
+        this.swiftCode = swiftCode;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getIdentityNumber() {
@@ -116,20 +124,12 @@ public class UpdateSubMerchantRequest extends Request {
         this.taxNumber = taxNumber;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getSubMerchantKey() {
+        return subMerchantKey;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getSwiftCode() {
-        return swiftCode;
-    }
-
-    public void setSwiftCode(String swiftCode) {
-        this.swiftCode = swiftCode;
+    public void setSubMerchantKey(String subMerchantKey) {
+        this.subMerchantKey = subMerchantKey;
     }
 
     @Override

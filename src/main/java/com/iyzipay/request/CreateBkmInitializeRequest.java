@@ -14,12 +14,13 @@ public class CreateBkmInitializeRequest extends Request {
     private BigDecimal price;
     private String basketId;
     private String paymentGroup;
-    private String paymentSource;
     private Buyer buyer;
     private Address shippingAddress;
     private Address billingAddress;
     private List<BasketItem> basketItems;
     private String callbackUrl;
+    private String paymentSource;
+    private String currency;
     private List<Integer> enabledInstallments;
 
     public BigDecimal getPrice() {
@@ -44,14 +45,6 @@ public class CreateBkmInitializeRequest extends Request {
 
     public void setPaymentGroup(String paymentGroup) {
         this.paymentGroup = paymentGroup;
-    }
-
-    public String getPaymentSource() {
-        return paymentSource;
-    }
-
-    public void setPaymentSource(String paymentSource) {
-        this.paymentSource = paymentSource;
     }
 
     public Buyer getBuyer() {
@@ -94,6 +87,22 @@ public class CreateBkmInitializeRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
+    public String getPaymentSource() {
+        return paymentSource;
+    }
+
+    public void setPaymentSource(String paymentSource) {
+        this.paymentSource = paymentSource;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     public List<Integer> getEnabledInstallments() {
         return enabledInstallments;
     }
@@ -115,6 +124,7 @@ public class CreateBkmInitializeRequest extends Request {
                 .append("basketItems", basketItems)
                 .append("callbackUrl", callbackUrl)
                 .append("paymentSource", paymentSource)
+                .append("currency", currency)
                 .append("enabledInstallments", enabledInstallments)
                 .toString();
     }
