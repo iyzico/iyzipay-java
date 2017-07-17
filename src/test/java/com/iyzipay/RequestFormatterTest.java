@@ -1,7 +1,5 @@
 package com.iyzipay;
 
-import com.iyzipay.RequestFormatter;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -12,7 +10,7 @@ public class RequestFormatterTest {
 
     @Test
     public void should_format_price_given_string_value() {
-        Assert.assertEquals("0.0", RequestFormatter.formatPrice(new BigDecimal("0")));
+        assertEquals("0.0", RequestFormatter.formatPrice(new BigDecimal("0")));
         assertEquals("0.0", RequestFormatter.formatPrice(new BigDecimal("00000")));
         assertEquals("0.0", RequestFormatter.formatPrice(new BigDecimal("0.0")));
         assertEquals("0.0", RequestFormatter.formatPrice(new BigDecimal("00000.0000")));
