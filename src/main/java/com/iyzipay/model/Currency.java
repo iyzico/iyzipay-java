@@ -5,5 +5,8 @@ public enum Currency {
     EUR,
     USD,
     GBP,
-    IRR
+    IRR,
+    NOK,
+    RUB,
+    CHF
 }
