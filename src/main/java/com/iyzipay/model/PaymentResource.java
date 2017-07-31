@@ -34,6 +34,7 @@ public class PaymentResource extends IyzipayResource {
     private String authCode;
     private String phase;
     private String lastFourDigits;
+    private String posOrderId;
 
     public BigDecimal getPrice() {
         return price;
@@ -217,6 +218,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setLastFourDigits(String lastFourDigits) {
         this.lastFourDigits = lastFourDigits;
+    }
+
+    public String getPosOrderId() {
+        return posOrderId;
+    }
+
+    public void setPosOrderId(String posOrderId) {
+        this.posOrderId = posOrderId;
     }
 
     @Override
