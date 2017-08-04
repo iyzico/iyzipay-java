@@ -199,6 +199,7 @@ Card Number       | Description
 4131111111111117  | Success but mdStatus is 0
 4141111111111115  | Success but mdStatus is 4
 4151111111111112  | 3dsecure initialize failed
+4151111111111393  | Restricted for e-commerce
 
 # Testing
 
