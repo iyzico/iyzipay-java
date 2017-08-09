@@ -194,7 +194,6 @@ Card Number       | Description
 4123111111111117  | Not permitted to card holder
 4122111111111118  | Not permitted to terminal
 4121111111111119  | Fraud suspect
-4120111111111110  | Pickup card
 4130111111111118  | General error
 4131111111111117  | Success but mdStatus is 0
 4141111111111115  | Success but mdStatus is 4
