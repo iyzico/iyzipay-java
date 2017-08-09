@@ -34,7 +34,7 @@ public class CancelTest extends BaseTest {
         assertEquals(paymentId, cancel.getPaymentId());
         assertEquals(new BigDecimal("1.10000000"), cancel.getPrice());
         assertEquals(Currency.TRY.name(), cancel.getCurrency());
-        assertEquals("mock00001iyziauthcd", cancel.getAuthCode());
+        assertNotNull(cancel.getAuthCode());
         assertNotNull(cancel.getSystemTime());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
