@@ -29,6 +29,8 @@ public class CardManagementPageSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), cardManagementPageInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), cardManagementPageInitialize.getLocale());
         assertEquals("123456789", cardManagementPageInitialize.getConversationId());
+        assertNotNull(cardManagementPageInitialize.getToken());
+        assertNotNull(cardManagementPageInitialize.getCardPageUrl());
         assertNotNull(cardManagementPageInitialize.getSystemTime());
         assertNull(cardManagementPageInitialize.getErrorCode());
         assertNull(cardManagementPageInitialize.getErrorMessage());
