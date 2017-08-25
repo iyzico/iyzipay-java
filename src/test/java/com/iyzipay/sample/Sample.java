@@ -10,8 +10,8 @@ public abstract class Sample {
     @Before
     public void setUp() {
         options = new Options();
-        options.setApiKey("mrI3mIMuNwGiIxanQslyJBRYa8nYrCU5");
-        options.setSecretKey("9lkVluNHBABPw0LIvyn50oYZcrSJ8oNo");
-        options.setBaseUrl("http://localhost:8080");
+        options.setApiKey(System.getProperty("apiKey"));
+        options.setSecretKey(System.getProperty("secretKey"));
+        options.setBaseUrl(System.getProperty("baseUrl"));
     }
 }
