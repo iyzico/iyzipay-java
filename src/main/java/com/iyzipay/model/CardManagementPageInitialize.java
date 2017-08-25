@@ -4,8 +4,6 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class CardManagementPageInitialize extends IyzipayResource {
 
@@ -14,7 +12,7 @@ public class CardManagementPageInitialize extends IyzipayResource {
     private String cardPageUrl;
 
     public static CardManagementPageInitialize create(CreateCardManagementPageInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/api/v1/forms",
+        return HttpClient.create().post(options.getBaseUrl() + "/v1/card-management/forms",
                 getHttpHeaders(request, options),
                 request,
                 CardManagementPageInitialize.class);
