@@ -1,16 +1,47 @@
 package com.iyzipay.model;
 
 import com.iyzipay.HttpClient;
+import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.request.InitializeCardManagementPageRequest;
+import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class CardManagementPageInitialize extends CardManagementPageResource {
+public class CardManagementPageInitialize extends IyzipayResource {
 
-    public static CardManagementPageInitialize create(InitializeCardManagementPageRequest request, Options options) {
+    private String externalId;
+    private String token;
+    private String cardPageUrl;
+
+    public static CardManagementPageInitialize create(CreateCardManagementPageInitializeRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/api/v1/forms",
                 getHttpHeaders(request, options),
                 request,
                 CardManagementPageInitialize.class);
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getCardPageUrl() {
+        return cardPageUrl;
+    }
+
+    public void setCardPageUrl(String cardPageUrl) {
+        this.cardPageUrl = cardPageUrl;
     }
 
 }

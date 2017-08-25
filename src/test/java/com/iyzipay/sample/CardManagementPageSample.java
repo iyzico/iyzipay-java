@@ -3,7 +3,7 @@ package com.iyzipay.sample;
 import com.iyzipay.model.CardManagementPageInitialize;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
-import com.iyzipay.request.InitializeCardManagementPageRequest;
+import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,7 +12,7 @@ public class CardManagementPageSample extends Sample {
 
     @Test
     public void should_initialize_card_management_page() {
-        InitializeCardManagementPageRequest request = new InitializeCardManagementPageRequest();
+        CreateCardManagementPageInitializeRequest request = new CreateCardManagementPageInitializeRequest();
         request.setCallbackUrl("https://merchant-callback.com");
         request.setEmail("merchant@email.com");
         request.setExternalId("123456789");

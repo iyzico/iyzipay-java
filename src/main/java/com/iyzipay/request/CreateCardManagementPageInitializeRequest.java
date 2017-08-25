@@ -4,7 +4,7 @@ package com.iyzipay.request;
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
 
-public class InitializeCardManagementPageRequest extends Request {
+public class CreateCardManagementPageInitializeRequest extends Request {
 
     private Boolean addNewCardEnabled;
     private Boolean validateNewCard;
