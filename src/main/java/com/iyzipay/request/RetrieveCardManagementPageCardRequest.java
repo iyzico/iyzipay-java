@@ -19,6 +19,7 @@ public class RetrieveCardManagementPageCardRequest extends Request {
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
+                .appendSuper(super.toString())
                 .append("token", pageToken).toString();
     }
 }
