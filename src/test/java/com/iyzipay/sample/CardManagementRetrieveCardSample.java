@@ -16,22 +16,10 @@ public class CardManagementRetrieveCardSample extends Sample {
 
     @Test
     public void should_retrieve_card_management_page_cards() {
-        CreateCardManagementPageInitializeRequest request = new CreateCardManagementPageInitializeRequest();
-        request.setCallbackUrl("https://merchant-callback.com");
-        request.setEmail("merchant@email.com");
-        request.setExternalId("123456789");
-        request.setConversationId("123456789");
-        request.setAddNewCardEnabled(Boolean.TRUE);
-        request.setValidateNewCard(Boolean.FALSE);
-        request.setCardUserKey("card user key");
-        request.setLocale(Locale.TR.getValue());
-
-        CardManagementPageInitialize cardManagementPageInitialize = CardManagementPageInitialize.create(request, options);
-
         RetrieveCardManagementPageCardRequest retrieveCardManagementPageCardRequest = new RetrieveCardManagementPageCardRequest();
-        retrieveCardManagementPageCardRequest.setPageToken(cardManagementPageInitialize.getToken());
-        retrieveCardManagementPageCardRequest.setLocale(cardManagementPageInitialize.getLocale());
-        retrieveCardManagementPageCardRequest.setConversationId(cardManagementPageInitialize.getConversationId());
+        retrieveCardManagementPageCardRequest.setPageToken("page token");
+        retrieveCardManagementPageCardRequest.setLocale(Locale.TR.getValue());
+        retrieveCardManagementPageCardRequest.setConversationId("123456");
 
         CardManagementPageCard cardManagementPageCard = CardManagementPageCard.retrieve(retrieveCardManagementPageCardRequest, options);
 
