@@ -13,7 +13,7 @@ public class CardManagementPageCard extends IyzipayResource {
     private List<Card> cardDetails;
 
     public static CardManagementPageCard retrieve(RetrieveCardManagementPageCardRequest request, Options options) {
-        return HttpClient.create().get(options.getBaseUrl() + "/v1/card-management/pages/" + request.getPageToken() + "/cards",
+        return HttpClient.create().get(prepareRetrieveCardManagementPageCardRequest(request, options),
                 getHttpHeaders(request, options),
                 request,
                 CardManagementPageCard.class);
@@ -33,5 +33,15 @@ public class CardManagementPageCard extends IyzipayResource {
 
     public void setCardDetails(List<Card> cardDetails) {
         this.cardDetails = cardDetails;
+    }
+
+    private static String prepareRetrieveCardManagementPageCardRequest(RetrieveCardManagementPageCardRequest request, Options options){
+        StringBuilder sb = new StringBuilder();
+        sb.append(options.getBaseUrl());
+        sb.append("/v1/card-management/pages/").append(request.getPageToken());
+        sb.append("/cards?locale=").append(request.getLocale());
+        sb.append("&conversationId=").append(request.getConversationId());
+
+        return sb.toString();
     }
 }
