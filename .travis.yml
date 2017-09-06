@@ -13,4 +13,3 @@ script:
   - mvn test -Dft
 
 sudo: true
-group: deprecated
