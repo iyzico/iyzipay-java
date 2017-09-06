@@ -1,5 +1,7 @@
 language: java
 
+dist: trusty
+
 jdk:
   - openjdk6
   - openjdk7
@@ -10,6 +12,8 @@ install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 script:
+  - java -version
+  - echo $JAVA_HOME
   - mvn test -Dft
 
 sudo: false
