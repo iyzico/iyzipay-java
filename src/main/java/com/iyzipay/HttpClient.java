@@ -34,6 +34,10 @@ public class HttpClient {
         return exchange(url, GET, new HashMap<String, String>(), null, responseType);
     }
 
+    public <T> T get(String url, Map<String, String> headers, Object request, Class<T> responseType) {
+        return exchange(url, GET, headers, request, responseType);
+    }
+
     public <T> T post(String url, Map<String, String> headers, Object request, Class<T> responseType) {
         return exchange(url, POST, headers, request, responseType);
     }
