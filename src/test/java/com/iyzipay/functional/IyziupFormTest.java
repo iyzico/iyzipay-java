@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class IyziupFormTest extends BaseTest {
+public class IyziupFormTest extends IyziupBaseTest {
 
     @Test
     public void should_initialize_iyziup_form_for_standard_merchant() {
