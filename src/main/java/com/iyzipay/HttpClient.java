@@ -3,6 +3,7 @@ package com.iyzipay;
 import com.google.gson.Gson;
 import com.iyzipay.exception.HttpClientException;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -20,6 +21,7 @@ public class HttpClient {
     private static final String CONTENT_TYPE = "Content-Type";
     private static final String ACCEPT = "Accept";
     private static final int TIMEOUT = 140000;
+    private static final IyzipaySSLSocketFactory socketFactory = IyzipaySSLSocketFactory.getInstance();
 
     private HttpClient() {
     }
@@ -30,13 +32,15 @@ public class HttpClient {
 
     public <T> T get(String url, Class<T> responseType) {
         return exchange(url, GET, new HashMap<String, String>(), null, responseType);
+    }
 
+    public <T> T get(String url, Map<String, String> headers, Object request, Class<T> responseType) {
+        return exchange(url, GET, headers, request, responseType);
     }
 
     public <T> T post(String url, Map<String, String> headers, Object request, Class<T> responseType) {
         return exchange(url, POST, headers, request, responseType);
     }
-
 
     public <T> T put(String url, Map<String, String> headers, Object request, Class<T> responseType) {
         return exchange(url, PUT, headers, request, responseType);
@@ -59,11 +63,12 @@ public class HttpClient {
 
     private String send(String url, HttpMethod httpMethod, InputStream content, Map<String, String> headers) {
         URLConnection raw;
-        HttpURLConnection conn = null;
+        HttpsURLConnection conn = null;
         try {
             raw = new URL(url).openConnection();
-            conn = HttpURLConnection.class.cast(raw);
+            conn = HttpsURLConnection.class.cast(raw);
 
+            conn.setSSLSocketFactory(socketFactory);
             conn.setRequestMethod(httpMethod.name());
 
             conn.setConnectTimeout(TIMEOUT);
