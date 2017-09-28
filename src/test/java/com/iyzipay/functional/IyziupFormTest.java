@@ -19,10 +19,11 @@ public class IyziupFormTest extends IyziupBaseTest {
 
     @Test
     public void should_initialize_iyziup_form_for_standard_merchant() {
-        List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).build());
+        List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).itemDecription("item description").build());
         CreateIyziupFormInitializeRequest request = CreateIyziupFormInitializeRequestBuilder.create()
                 .price(new BigDecimal("0.3"))
                 .paidPrice(new BigDecimal("0.4"))
+                .shippingPrice(new BigDecimal("0.1") )
                 .callbackUrl("https://www.merchant.com/callback")
                 .termsUrl("https://www.merchant.com/termsUrl")
                 .preSalesContractUrl("https://www.merchant.com/preSalesContractUrl")
@@ -43,10 +44,11 @@ public class IyziupFormTest extends IyziupBaseTest {
 
     @Test
     public void should_retrieve_checkout_form_result() {
-        List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).build());
+        List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).itemDecription("item description").build());
         CreateIyziupFormInitializeRequest request = CreateIyziupFormInitializeRequestBuilder.create()
                 .price(new BigDecimal("0.3"))
                 .paidPrice(new BigDecimal("0.4"))
+                .shippingPrice(new BigDecimal("0.1") )
                 .callbackUrl("https://www.merchant.com/callback")
                 .termsUrl("https://www.merchant.com/termsUrl")
                 .preSalesContractUrl("https://www.merchant.com/preSalesContractUrl")

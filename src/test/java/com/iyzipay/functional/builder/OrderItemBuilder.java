@@ -15,6 +15,7 @@ public final class OrderItemBuilder {
     private String category2 = "Accessories";
     private String itemType = OrderItemType.PHYSICAL.name();
     private String itemUrl = "www.merchant.biz/itemUrl";
+    private String itemDescription = "Item Description";
     private BigDecimal price;
 
     private OrderItemBuilder() {
@@ -59,6 +60,11 @@ public final class OrderItemBuilder {
         return this;
     }
 
+    public OrderItemBuilder itemDecription(String itemDescription) {
+        this.itemDescription = itemDescription;
+        return this;
+    }
+
     public OrderItem build() {
         OrderItem orderItem = new OrderItem();
         orderItem.setId(id);
@@ -68,14 +74,15 @@ public final class OrderItemBuilder {
         orderItem.setCategory2(category2);
         orderItem.setItemType(itemType);
         orderItem.setItemUrl(itemUrl);
+        orderItem.setItemDescription(itemDescription);
         return orderItem;
     }
 
     public List<OrderItem> buildDefaultOrderItems() {
         List<OrderItem> orderItems = new ArrayList<OrderItem>();
-        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.3")).category2(null).build());
-        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.5")).build());
-        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.2")).build());
+        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.3")).itemDecription("item description").category2(null).build());
+        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.5")).itemDecription("item description").build());
+        orderItems.add(OrderItemBuilder.create().price(new BigDecimal("0.2")).itemDecription("item description").build());
         return orderItems;
     }
 }

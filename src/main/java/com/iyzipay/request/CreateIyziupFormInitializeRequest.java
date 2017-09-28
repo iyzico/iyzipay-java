@@ -18,6 +18,7 @@ public class CreateIyziupFormInitializeRequest extends Request {
     private String currency;
     private BigDecimal price;
     private BigDecimal paidPrice;
+    private BigDecimal shippingPrice;
     private String callbackUrl;
     private String termsUrl;
     private String preSalesContractUrl;
@@ -95,6 +96,14 @@ public class CreateIyziupFormInitializeRequest extends Request {
         this.paidPrice = paidPrice;
     }
 
+    public BigDecimal getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public void setShippingPrice(BigDecimal shippingPrice) {
+        this.shippingPrice = shippingPrice;
+    }
+
     public String getCallbackUrl() {
         return callbackUrl;
     }
@@ -140,12 +149,11 @@ public class CreateIyziupFormInitializeRequest extends Request {
                 .append("currency", currency)
                 .append("price", price)
                 .append("paidPrice", paidPrice)
+                .append("shippingPrice", shippingPrice)
                 .append("callbackUrl", callbackUrl)
                 .append("termsUrl", termsUrl)
                 .append("preSalesContractUrl", preSalesContractUrl)
                 .append("orderItems", orderItems)
                 .toString();
     }
-
-
 }

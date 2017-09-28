@@ -21,6 +21,7 @@ public class IyziupFormSample extends Sample {
         request.setConversationId("123456789");
         request.setPrice(new BigDecimal("1"));
         request.setPaidPrice(new BigDecimal("1.2"));
+        request.setShippingPrice(new BigDecimal("0.2"));
         request.setCurrency(Currency.TRY.name());
         request.setMerchantOrderId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
@@ -45,6 +46,7 @@ public class IyziupFormSample extends Sample {
         firstOrderItem.setCategory1("Collectibles");
         firstOrderItem.setCategory2("Accessories");
         firstOrderItem.setItemUrl("www.merchant.biz/item1");
+        firstOrderItem.setItemDescription("item1 description");
         firstOrderItem.setItemType(OrderItemType.PHYSICAL.name());
         firstOrderItem.setPrice(new BigDecimal("0.3"));
         orderItems.add(firstOrderItem);
@@ -55,6 +57,7 @@ public class IyziupFormSample extends Sample {
         secondOrderItem.setCategory1("Game");
         secondOrderItem.setCategory2("Online Game Items");
         secondOrderItem.setItemUrl("www.merchant.biz/item2");
+        secondOrderItem.setItemDescription("item2 description");
         secondOrderItem.setItemType(OrderItemType.VIRTUAL.name());
         secondOrderItem.setPrice(new BigDecimal("0.5"));
         orderItems.add(secondOrderItem);
@@ -65,6 +68,7 @@ public class IyziupFormSample extends Sample {
         thirdOrderItem.setCategory1("Electronics");
         thirdOrderItem.setCategory2("Usb / Cable");
         thirdOrderItem.setItemUrl("www.merchant.biz/item3");
+        thirdOrderItem.setItemDescription("item3 description");
         thirdOrderItem.setItemType(OrderItemType.PHYSICAL.name());
         thirdOrderItem.setPrice(new BigDecimal("0.2"));
         orderItems.add(thirdOrderItem);
@@ -89,7 +93,7 @@ public class IyziupFormSample extends Sample {
         RetrieveIyziupFormRequest request = new RetrieveIyziupFormRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setToken("token");
+        request.setToken("18125922-f220-4b7a-b3cd-4ae68f82fd4c");
 
         IyziupForm iyziupForm = IyziupForm.retrieve(request, options);
 

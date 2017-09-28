@@ -13,6 +13,7 @@ public class OrderItem {
     private String category2;
     private String itemType;
     private String itemUrl;
+    private String itemDescription;
 
     public String getId() {
         return id;
@@ -70,6 +71,14 @@ public class OrderItem {
         this.itemUrl = itemUrl;
     }
 
+    public String getItemDescription() {
+        return itemDescription;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -80,6 +89,7 @@ public class OrderItem {
                 .append("category2", category2)
                 .append("itemType", itemType)
                 .append("itemUrl", itemUrl)
+                .append("itemDescription", itemDescription)
                 .toString();
     }
 }

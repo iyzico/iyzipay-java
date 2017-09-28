@@ -21,6 +21,7 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
     private String enabledCardFamily;
     private BigDecimal price;
     private BigDecimal paidPrice;
+    private BigDecimal shippingPrice;
     private String callbackUrl;
     private String termsUrl;
     private String preSalesContractUrl;
@@ -78,6 +79,11 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
         return this;
     }
 
+    public CreateIyziupFormInitializeRequestBuilder shippingPrice(BigDecimal shippingPrice) {
+        this.shippingPrice = shippingPrice;
+        return this;
+    }
+
     public CreateIyziupFormInitializeRequestBuilder callbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
         return this;
@@ -111,6 +117,7 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
         createCheckoutFormInitializeRequest.setCurrency(currency);
         createCheckoutFormInitializeRequest.setPrice(price);
         createCheckoutFormInitializeRequest.setPaidPrice(paidPrice);
+        createCheckoutFormInitializeRequest.setShippingPrice(shippingPrice);
         createCheckoutFormInitializeRequest.setCallbackUrl(callbackUrl);
         createCheckoutFormInitializeRequest.setTermsUrl(termsUrl);
         createCheckoutFormInitializeRequest.setPreSalesContractUrl(preSalesContractUrl);
