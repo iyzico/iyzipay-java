@@ -19,6 +19,9 @@ public class Card extends IyzipayResource {
     private String cardFamily;
     private Long cardBankCode;
     private String cardBankName;
+    private String cardHolderName;
+    private String expireMonth;
+    private String expireYear;
 
     public static Card create(CreateCardRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
@@ -120,5 +123,29 @@ public class Card extends IyzipayResource {
 
     public void setCardBankName(String cardBankName) {
         this.cardBankName = cardBankName;
+    }
+
+    public String getCardHolderName() {
+        return cardHolderName;
+    }
+
+    public void setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
+    }
+
+    public String getExpireMonth() {
+        return expireMonth;
+    }
+
+    public void setExpireMonth(String expireMonth) {
+        this.expireMonth = expireMonth;
+    }
+
+    public String getExpireYear() {
+        return expireYear;
+    }
+
+    public void setExpireYear(String expireYear) {
+        this.expireYear = expireYear;
     }
 }
