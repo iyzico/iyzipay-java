@@ -2,6 +2,8 @@ package com.iyzipay.model;
 
 import com.iyzipay.ToStringRequestBuilder;
 
+import java.util.Map;
+
 public class PaymentCard {
 
     private String cardHolderName;
@@ -13,6 +15,7 @@ public class PaymentCard {
     private String cardAlias;
     private String cardToken;
     private String cardUserKey;
+    private Map<String, String> metadata;
 
     public String getCardHolderName() {
         return cardHolderName;
@@ -86,6 +89,14 @@ public class PaymentCard {
         this.cardUserKey = cardUserKey;
     }
 
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -98,6 +109,7 @@ public class PaymentCard {
                 .append("cardAlias", cardAlias)
                 .append("cardToken", cardToken)
                 .append("cardUserKey", cardUserKey)
+                .append("metadata", metadata)
                 .toString();
     }
 }
