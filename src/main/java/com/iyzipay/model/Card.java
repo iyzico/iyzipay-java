@@ -14,6 +14,7 @@ public class Card extends IyzipayResource {
     private String cardToken;
     private String cardAlias;
     private String binNumber;
+    private String lastFourDigits;
     private String cardType;
     private String cardAssociation;
     private String cardFamily;
@@ -83,6 +84,14 @@ public class Card extends IyzipayResource {
 
     public void setBinNumber(String binNumber) {
         this.binNumber = binNumber;
+    }
+
+    public String getLastFourDigits() {
+        return lastFourDigits;
+    }
+
+    public void setLastFourDigits(String lastFourDigits) {
+        this.lastFourDigits = lastFourDigits;
     }
 
     public String getCardType() {
