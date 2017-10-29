@@ -6,6 +6,8 @@ import com.iyzipay.Options;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
 
+import java.util.Map;
+
 public class Card extends IyzipayResource {
 
     private String externalId;
@@ -23,6 +25,7 @@ public class Card extends IyzipayResource {
     private String cardHolderName;
     private String expireMonth;
     private String expireYear;
+    private Map<String, String> metadata;
 
     public static Card create(CreateCardRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
@@ -156,5 +159,13 @@ public class Card extends IyzipayResource {
 
     public void setExpireYear(String expireYear) {
         this.expireYear = expireYear;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }
