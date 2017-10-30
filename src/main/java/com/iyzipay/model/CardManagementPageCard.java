@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CardManagementPageCard extends IyzipayResource {
 
+    private String externalId;
     private String cardUserKey;
     private List<Card> cardDetails;
 
@@ -17,6 +18,14 @@ public class CardManagementPageCard extends IyzipayResource {
                 getHttpHeaders(request, options),
                 request,
                 CardManagementPageCard.class);
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
     public String getCardUserKey() {
