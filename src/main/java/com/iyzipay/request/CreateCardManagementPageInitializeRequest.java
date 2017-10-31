@@ -12,6 +12,7 @@ public class CreateCardManagementPageInitializeRequest extends Request {
     private String email;
     private String cardUserKey;
     private String callbackUrl;
+    private Boolean debitCardAllowed;
 
     public Boolean getAddNewCardEnabled() {
         return addNewCardEnabled;
@@ -61,6 +62,14 @@ public class CreateCardManagementPageInitializeRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
+    public Boolean getDebitCardAllowed() {
+        return debitCardAllowed;
+    }
+
+    public void setDebitCardAllowed(Boolean debitCardAllowed) {
+        this.debitCardAllowed = debitCardAllowed;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -71,6 +80,7 @@ public class CreateCardManagementPageInitializeRequest extends Request {
                 .append("email", email)
                 .append("cardUserKey", cardUserKey)
                 .append("callbackUrl", callbackUrl)
+                .append("debitCardAllowed", debitCardAllowed)
                 .toString();
     }
 }
