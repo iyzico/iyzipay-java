@@ -21,6 +21,7 @@ public class CardManagementPageSample extends Sample {
         request.setValidateNewCard(Boolean.FALSE);
         request.setDebitCardAllowed(Boolean.FALSE);
         request.setCardUserKey("card user key");
+        request.setDebitCardAllowed(Boolean.TRUE);
         request.setLocale(Locale.TR.getValue());
 
         CardManagementPageInitialize cardManagementPageInitialize = CardManagementPageInitialize.create(request, options);
