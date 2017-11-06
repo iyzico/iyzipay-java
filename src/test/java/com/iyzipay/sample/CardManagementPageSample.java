@@ -19,7 +19,9 @@ public class CardManagementPageSample extends Sample {
         request.setConversationId("123456789");
         request.setAddNewCardEnabled(Boolean.TRUE);
         request.setValidateNewCard(Boolean.FALSE);
+        request.setDebitCardAllowed(Boolean.FALSE);
         request.setCardUserKey("card user key");
+        request.setDebitCardAllowed(Boolean.TRUE);
         request.setLocale(Locale.TR.getValue());
 
         CardManagementPageInitialize cardManagementPageInitialize = CardManagementPageInitialize.create(request, options);
