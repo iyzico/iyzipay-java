@@ -2,6 +2,7 @@ package com.iyzipay.functional.builder.request;
 
 import com.iyzipay.functional.util.RandomGenerator;
 import com.iyzipay.model.Currency;
+import com.iyzipay.model.InitialConsumer;
 import com.iyzipay.model.OrderItem;
 import com.iyzipay.model.PaymentGroup;
 import com.iyzipay.request.CreateIyziupFormInitializeRequest;
@@ -26,6 +27,7 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
     private String termsUrl;
     private String preSalesContractUrl;
     private List<OrderItem> orderItems;
+    private InitialConsumer initialConsumer;
 
     private CreateIyziupFormInitializeRequestBuilder() {
     }
@@ -104,6 +106,11 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
         return this;
     }
 
+    public CreateIyziupFormInitializeRequestBuilder initialConsumer(InitialConsumer initialConsumer) {
+        this.initialConsumer = initialConsumer;
+        return this;
+    }
+
     public CreateIyziupFormInitializeRequest build() {
         CreateIyziupFormInitializeRequest createCheckoutFormInitializeRequest = new CreateIyziupFormInitializeRequest();
         createCheckoutFormInitializeRequest.setLocale(locale);
@@ -122,6 +129,7 @@ public final class CreateIyziupFormInitializeRequestBuilder extends BaseRequestB
         createCheckoutFormInitializeRequest.setTermsUrl(termsUrl);
         createCheckoutFormInitializeRequest.setPreSalesContractUrl(preSalesContractUrl);
         createCheckoutFormInitializeRequest.setOrderItems(orderItems);
+        createCheckoutFormInitializeRequest.setInitialConsumer(initialConsumer);
         return createCheckoutFormInitializeRequest;
     }
 }
