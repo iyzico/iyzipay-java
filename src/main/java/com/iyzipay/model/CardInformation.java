@@ -2,6 +2,8 @@ package com.iyzipay.model;
 
 import com.iyzipay.ToStringRequestBuilder;
 
+import java.util.Map;
+
 public class CardInformation {
 
     private String cardAlias;
@@ -9,6 +11,7 @@ public class CardInformation {
     private String expireYear;
     private String expireMonth;
     private String cardHolderName;
+    private Map<String,String> metadata;
 
     public String getCardAlias() {
         return cardAlias;
@@ -50,6 +53,14 @@ public class CardInformation {
         this.cardHolderName = cardHolderName;
     }
 
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -58,6 +69,7 @@ public class CardInformation {
                 .append("expireYear", expireYear)
                 .append("expireMonth", expireMonth)
                 .append("cardHolderName", cardHolderName)
+                .append("metadata", metadata)
                 .toString();
     }
 }

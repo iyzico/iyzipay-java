@@ -9,6 +9,9 @@ import com.iyzipay.request.DeleteCardRequest;
 import com.iyzipay.request.RetrieveCardListRequest;
 import org.junit.Test;
 
+import java.util.Collections;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 
 public class CardStorageTest extends BaseTest {
@@ -39,6 +42,42 @@ public class CardStorageTest extends BaseTest {
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
+        assertEquals("Halk Bankası", card.getCardBankName());
+        assertTrue(card.getCardBankCode().equals(12L));
+    }
+
+    @Test
+    public void should_create_user_and_add_card_when_metadata_exist() {
+        String externalUserId = RandomGenerator.randomId();
+        Map<String, String> metadata = Collections.singletonMap("CUT_OFF_DAY","15");
+
+        CardInformation cardInformation = CardInformationBuilder.create()
+                .metadata(metadata)
+                .build();
+
+        CreateCardRequest createCardRequest = CreateCardRequestBuilder.create()
+                .card(cardInformation)
+                .externalId(externalUserId)
+                .email("email@email.com")
+                .build();
+
+        System.out.println(createCardRequest);
+
+        Card card = Card.create(createCardRequest, options);
+
+        System.out.println(card);
+
+        assertEquals(Locale.TR.getValue(), card.getLocale());
+        assertEquals(Status.SUCCESS.getValue(), card.getStatus());
+        assertNotNull(card.getSystemTime());
+        assertEquals("123456789", card.getConversationId());
+        assertEquals("email@email.com", card.getEmail());
+        assertEquals("552879", card.getBinNumber());
+        assertEquals("card alias", card.getCardAlias());
+        assertEquals("CREDIT_CARD", card.getCardType());
+        assertEquals("MASTER_CARD", card.getCardAssociation());
+        assertEquals("Paraf", card.getCardFamily());
+        assertEquals(card.getMetadata().get("CUT_OFF_DAY"), "15");
         assertEquals("Halk Bankası", card.getCardBankName());
         assertTrue(card.getCardBankCode().equals(12L));
     }
