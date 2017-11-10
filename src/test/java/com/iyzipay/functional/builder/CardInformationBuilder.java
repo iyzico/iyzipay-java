@@ -2,6 +2,8 @@ package com.iyzipay.functional.builder;
 
 import com.iyzipay.model.CardInformation;
 
+import java.util.Map;
+
 public final class CardInformationBuilder {
 
     private String cardAlias = "card alias";
@@ -9,6 +11,7 @@ public final class CardInformationBuilder {
     private String expireYear = "2030";
     private String expireMonth = "12";
     private String cardHolderName = "John Doe";
+    private Map<String, String> metadata;
 
     private CardInformationBuilder() {
     }
@@ -42,6 +45,11 @@ public final class CardInformationBuilder {
         return this;
     }
 
+    public CardInformationBuilder metadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
     public CardInformation build() {
         CardInformation cardInformation = new CardInformation();
         cardInformation.setCardAlias(cardAlias);
@@ -49,6 +57,7 @@ public final class CardInformationBuilder {
         cardInformation.setExpireYear(expireYear);
         cardInformation.setExpireMonth(expireMonth);
         cardInformation.setCardHolderName(cardHolderName);
+        cardInformation.setMetadata(metadata);
         return cardInformation;
     }
 }

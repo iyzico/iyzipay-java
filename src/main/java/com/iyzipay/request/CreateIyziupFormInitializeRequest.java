@@ -2,6 +2,7 @@ package com.iyzipay.request;
 
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
+import com.iyzipay.model.InitialConsumer;
 import com.iyzipay.model.OrderItem;
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ public class CreateIyziupFormInitializeRequest extends Request {
     private String termsUrl;
     private String preSalesContractUrl;
     private List<OrderItem> orderItems;
+    private InitialConsumer initialConsumer;
 
     public String getMerchantOrderId() {
         return merchantOrderId;
@@ -136,6 +138,14 @@ public class CreateIyziupFormInitializeRequest extends Request {
         this.orderItems = orderItems;
     }
 
+    public InitialConsumer getInitialConsumer() {
+        return initialConsumer;
+    }
+
+    public void setInitialConsumer(InitialConsumer initialConsumer) {
+        this.initialConsumer = initialConsumer;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -154,6 +164,7 @@ public class CreateIyziupFormInitializeRequest extends Request {
                 .append("termsUrl", termsUrl)
                 .append("preSalesContractUrl", preSalesContractUrl)
                 .append("orderItems", orderItems)
+                .append("initialConsumer", initialConsumer)
                 .toString();
     }
 }
