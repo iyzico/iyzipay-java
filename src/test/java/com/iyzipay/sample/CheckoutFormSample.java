@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -24,7 +26,10 @@ public class CheckoutFormSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setDebitCardAllowed(Boolean.TRUE);
+
+        Map<String, String> metadata = new HashMap<String, String>();
+        metadata.put(PaymentCheckoutFormMetadataKey.DEBIT_CARD_ALLOWED.name(), Boolean.FALSE.toString());
+        request.setMetadata(metadata);
 
         List<Integer> enabledInstallments = new ArrayList<Integer>();
         enabledInstallments.add(2);
