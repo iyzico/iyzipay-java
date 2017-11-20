@@ -8,7 +8,6 @@ import com.iyzipay.model.Buyer;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 public class CreateCheckoutFormInitializeRequest extends Request {
 
@@ -28,7 +27,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private String posOrderId;
     private List<Integer> enabledInstallments;
     private Boolean paymentWithNewCardEnabled;
-    private Map<String, String> metadata;
+    private Boolean debitCardAllowed;
 
     public BigDecimal getPrice() {
         return price;
@@ -158,12 +157,12 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.paymentWithNewCardEnabled = paymentWithNewCardEnabled;
     }
 
-    public Map<String, String> getMetadata() {
-        return metadata;
+    public Boolean getDebitCardAllowed() {
+        return debitCardAllowed;
     }
 
-    public void setMetadata(Map<String, String> metadata) {
-        this.metadata = metadata;
+    public void setDebitCardAllowed(Boolean debitCardAllowed) {
+        this.debitCardAllowed = debitCardAllowed;
     }
 
     @Override
@@ -186,7 +185,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("cardUserKey", cardUserKey)
                 .append("enabledInstallments", enabledInstallments)
                 .append("paymentWithNewCardEnabled", paymentWithNewCardEnabled)
-                .append("metadata", metadata)
+                .append("debitCardAllowed", debitCardAllowed)
                 .toString();
     }
 }
