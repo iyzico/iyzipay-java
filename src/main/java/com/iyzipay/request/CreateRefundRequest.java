@@ -2,6 +2,7 @@ package com.iyzipay.request;
 
 import com.iyzipay.Request;
 import com.iyzipay.ToStringRequestBuilder;
+import com.iyzipay.model.RefundReason;
 
 import java.math.BigDecimal;
 
@@ -11,6 +12,8 @@ public class CreateRefundRequest extends Request {
     private BigDecimal price;
     private String ip;
     private String currency;
+    private RefundReason reason;
+    private String description;
 
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -44,6 +47,22 @@ public class CreateRefundRequest extends Request {
         this.currency = currency;
     }
 
+    public RefundReason getReason() {
+        return reason;
+    }
+
+    public void setReason(RefundReason reason) {
+        this.reason = reason;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -52,6 +71,8 @@ public class CreateRefundRequest extends Request {
                 .append("price", price)
                 .append("ip", ip)
                 .append("currency", currency)
+                .append("reason", reason)
+                .append("description", description)
                 .toString();
     }
 }
