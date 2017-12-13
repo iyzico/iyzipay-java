@@ -34,16 +34,41 @@ public class RefundSample extends Sample {
     }
 
     @Test
+    public void should_refund_payment_with_reason() {
+        CreateRefundRequest request = new CreateRefundRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setPaymentTransactionId("13");
+        request.setPrice(new BigDecimal("0.2"));
+        request.setCurrency(Currency.TRY.name());
+        request.setIp("85.34.78.112");
+        request.setReason(RefundReason.DOUBLE_PAYMENT);
+        request.setDescription("customer requested for default sample");
+
+        Refund refund = Refund.create(request, options);
+
+        System.out.println(refund);
+
+        assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
+        assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertEquals("123456789", refund.getConversationId());
+        assertNotNull(refund.getSystemTime());
+        assertNull(refund.getErrorCode());
+        assertNull(refund.getErrorMessage());
+        assertNull(refund.getErrorGroup());
+    }
+
+    @Test
     public void should_refund_fraudulent_payment() {
         CreateRefundRequest request = new CreateRefundRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId("123456789");
-        request.setPaymentTransactionId("5");
+        request.setPaymentTransactionId("2");
         request.setPrice(new BigDecimal("0.2"));
         request.setCurrency(Currency.TRY.name());
         request.setIp("85.34.78.112");
         request.setReason(RefundReason.FRAUD);
-        request.setDescription("Stolen Card");
+        request.setDescription("stolen card request with 11000 try payment for default sample");
 
         Refund refund = Refund.create(request, options);
 
