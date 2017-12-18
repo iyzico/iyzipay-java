@@ -40,4 +40,34 @@ public class CancelTest extends BaseTest {
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());
     }
+
+    @Test
+    public void should_cancel_fraudulent_payment() {
+        CreatePaymentRequest paymentRequest = CreatePaymentRequestBuilder.create()
+                .standardListingPayment()
+                .build();
+
+        String paymentId = Payment.create(paymentRequest, options).getPaymentId();
+
+        CreateCancelRequest cancelRequest = CreateCancelRequestBuilder.create()
+                .paymentId(paymentId)
+                .build();
+        cancelRequest.setReason(RefundReason.FRAUD);
+        cancelRequest.setDescription("stolen card request with 11000 try payment for default sample");
+
+        Cancel cancel = Cancel.create(cancelRequest, options);
+
+        System.out.println(cancel);
+
+        assertEquals(Locale.TR.getValue(), cancel.getLocale());
+        assertEquals(Status.SUCCESS.getValue(), cancel.getStatus());
+        assertEquals(paymentId, cancel.getPaymentId());
+        assertEquals(new BigDecimal("1.10000000"), cancel.getPrice());
+        assertEquals(Currency.TRY.name(), cancel.getCurrency());
+        assertNotNull(cancel.getAuthCode());
+        assertNotNull(cancel.getSystemTime());
+        assertNull(cancel.getErrorCode());
+        assertNull(cancel.getErrorMessage());
+        assertNull(cancel.getErrorGroup());
+    }
 }
