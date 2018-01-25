@@ -16,7 +16,7 @@ public final class HashGenerator {
         try {
             MessageDigest crypt = MessageDigest.getInstance("SHA1");
             String input = apiKey + randomString + secretKey + request;
-            result = crypt.digest(input.getBytes());
+            result = crypt.digest(input.getBytes("UTF-8"));
         } catch (NoSuchAlgorithmException e) {
             throw new HttpClientException("Hash cannot be generated", e);
         }
