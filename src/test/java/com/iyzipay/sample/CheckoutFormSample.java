@@ -24,7 +24,7 @@ public class CheckoutFormSample extends Sample {
         request.setBasketId("B67832");
         request.setPaymentGroup(PaymentGroup.PRODUCT.name());
         request.setCallbackUrl("https://www.merchant.com/callback");
-        request.setDebitCardAllowed(Boolean.TRUE);
+        request.setDebitCardAllowed(true);
 
         List<Integer> enabledInstallments = new ArrayList<Integer>();
         enabledInstallments.add(2);
