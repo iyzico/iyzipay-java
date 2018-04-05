@@ -1,11 +1,15 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HttpClient;
+import com.iyzipay.IyzipayResource;
+import com.iyzipay.Options;
+import com.iyzipay.request.UpdatePaymentItemRequest;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.math.BigDecimal;
 
-public class PaymentItem {
+public class PaymentItem extends IyzipayResource {
 
     private String itemId;
     private String paymentTransactionId;
@@ -26,6 +30,13 @@ public class PaymentItem {
     private BigDecimal subMerchantPayoutAmount;
     private BigDecimal merchantPayoutAmount;
     private ConvertedPayout convertedPayout;
+
+    public static PaymentItem update(UpdatePaymentItemRequest request, Options options) {
+        return HttpClient.create().put(options.getBaseUrl() + "/payment/item",
+                getHttpHeaders(request, options),
+                request,
+                PaymentItem.class);
+    }
 
     public String getItemId() {
         return itemId;
