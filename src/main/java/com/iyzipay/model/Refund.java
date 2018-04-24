@@ -15,6 +15,7 @@ public class Refund extends IyzipayResource {
     private String currency;
     private String connectorName;
     private String authCode;
+    private String hostReference;
 
     public static Refund create(CreateRefundRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
@@ -69,5 +70,13 @@ public class Refund extends IyzipayResource {
 
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
+    }
+
+    public String getHostReference() {
+        return hostReference;
+    }
+
+    public void setHostReference(String hostReference) {
+        this.hostReference = hostReference;
     }
 }

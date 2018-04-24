@@ -1,9 +1,7 @@
 package com.iyzipay.functional;
 
-import com.iyzipay.functional.builder.request.CreateCancelRequestBuilder;
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
 import com.iyzipay.model.*;
-import com.iyzipay.request.CreateCancelRequest;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
@@ -41,6 +39,7 @@ public class RefundTest extends BaseTest {
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
         assertEquals(new BigDecimal("0.2"), refund.getPrice());
         assertNotNull(refund.getSystemTime());
+        assertNotNull(refund.getHostReference());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());
@@ -75,6 +74,7 @@ public class RefundTest extends BaseTest {
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
         assertEquals(new BigDecimal("0.2"), refund.getPrice());
         assertNotNull(refund.getSystemTime());
+        assertNotNull(refund.getHostReference());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());

@@ -12,6 +12,7 @@ public class RefundChargedFromMerchant extends IyzipayResource {
     private String paymentId;
     private String paymentTransactionId;
     private BigDecimal price;
+    private String hostReference;
 
     public static RefundChargedFromMerchant create(CreateRefundRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund/merchant/charge",
@@ -42,5 +43,13 @@ public class RefundChargedFromMerchant extends IyzipayResource {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getHostReference() {
+        return hostReference;
+    }
+
+    public void setHostReference(String hostReference) {
+        this.hostReference = hostReference;
     }
 }

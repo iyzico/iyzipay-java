@@ -14,6 +14,7 @@ public class Cancel extends IyzipayResource {
     private String currency;
     private String connectorName;
     private String authCode;
+    private String hostReference;
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/cancel",
@@ -60,5 +61,13 @@ public class Cancel extends IyzipayResource {
 
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
+    }
+
+    public String getHostReference() {
+        return hostReference;
+    }
+
+    public void setHostReference(String hostReference) {
+        this.hostReference = hostReference;
     }
 }
