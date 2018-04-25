@@ -38,6 +38,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getErrorGroup());
         assertNotNull(payment.getPaymentId());
         assertNotNull(payment.getBasketId());
+        assertNotNull(payment.getHostReference());
         assertEquals(payment.getPrice(), (BigDecimal.ONE));
         assertEquals(payment.getPaidPrice(), new BigDecimal("1.1"));
         assertEquals(payment.getIyziCommissionRateAmount(), new BigDecimal("0.02887500"));
@@ -70,6 +71,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getErrorGroup());
         assertNotNull(payment.getPaymentId());
         assertNotNull(payment.getBasketId());
+        assertNotNull(payment.getHostReference());
         assertEquals(BigDecimal.ONE, payment.getPrice());
         assertEquals(new BigDecimal("1.1"), payment.getPaidPrice());
         assertEquals(new BigDecimal("0.02887500"), payment.getIyziCommissionRateAmount());
@@ -115,6 +117,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getErrorGroup());
         assertNotNull(payment.getPaymentId());
         assertNotNull(payment.getBasketId());
+        assertNotNull(payment.getHostReference());
         assertEquals(BigDecimal.ONE, payment.getPrice());
         assertEquals(new BigDecimal("1.1"), payment.getPaidPrice());
         assertEquals(new BigDecimal("0.02887500"), payment.getIyziCommissionRateAmount());
@@ -148,6 +151,7 @@ public class PaymentTest extends BaseTest {
         assertEquals(createdPayment.getPaymentId(), payment.getPaymentId());
         assertEquals("0008", createdPayment.getLastFourDigits());
         assertNotNull(payment.getSystemTime());
+        assertNotNull(payment.getHostReference());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());

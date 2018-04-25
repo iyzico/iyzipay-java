@@ -36,6 +36,7 @@ public class CancelTest extends BaseTest {
         assertEquals(Currency.TRY.name(), cancel.getCurrency());
         assertNotNull(cancel.getAuthCode());
         assertNotNull(cancel.getSystemTime());
+        assertNotNull(cancel.getHostReference());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());
@@ -66,6 +67,7 @@ public class CancelTest extends BaseTest {
         assertEquals(Currency.TRY.name(), cancel.getCurrency());
         assertNotNull(cancel.getAuthCode());
         assertNotNull(cancel.getSystemTime());
+        assertNotNull(cancel.getHostReference());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());

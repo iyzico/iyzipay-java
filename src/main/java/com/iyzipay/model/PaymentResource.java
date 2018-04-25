@@ -35,6 +35,7 @@ public class PaymentResource extends IyzipayResource {
     private String phase;
     private String lastFourDigits;
     private String posOrderId;
+    private String hostReference;
 
     public BigDecimal getPrice() {
         return price;
@@ -226,6 +227,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setPosOrderId(String posOrderId) {
         this.posOrderId = posOrderId;
+    }
+
+    public String getHostReference() {
+        return hostReference;
+    }
+
+    public void setHostReference(String hostReference) {
+        this.hostReference = hostReference;
     }
 
     @Override
