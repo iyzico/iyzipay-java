@@ -177,7 +177,6 @@ Card Number      | Country
 -----------      | -------
 4054180000000007 | Non-Turkish (Debit)
 5400010000000004 | Non-Turkish (Credit)
-6221060000000004 | Iran
 
 Test cards to get specific *error* codes:
 
