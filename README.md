@@ -7,7 +7,7 @@ You can sign up for an iyzico account at https://iyzico.com
 
 # Requirements
 
-Java 1.6 or newer
+Java 1.7 or newer
 
 # Installation
 
