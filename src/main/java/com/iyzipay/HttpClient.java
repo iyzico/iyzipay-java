@@ -54,7 +54,8 @@ public class HttpClient {
         Gson gson = new Gson();
         String body = gson.toJson(request);
         try {
-            String response = send(url, httpMethod, new ByteArrayInputStream(body.getBytes(DEFAULT_CHARSET)), headers);
+            InputStream content = request == null ? null : new ByteArrayInputStream(body.getBytes(DEFAULT_CHARSET));
+            String response = send(url, httpMethod, content, headers);
             return gson.fromJson(response, responseType);
         } catch (UnsupportedEncodingException e) {
             throw new HttpClientException(e.getMessage(), e);
@@ -77,7 +78,9 @@ public class HttpClient {
             conn.setInstanceFollowRedirects(false);
 
             prepareHeaders(headers, conn);
-            prepareRequestBody(httpMethod, content, conn);
+            if (content != null) {
+                prepareRequestBody(httpMethod, content, conn);
+            }
 
             return new String(body(conn), Charset.forName("UTF-8"));
         } catch (Exception e) {
