@@ -26,6 +26,7 @@ public class SubscriptionSearch extends IyzipayResource {
                 .build();
 
         return HttpClient.create().get(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionSearch.class);

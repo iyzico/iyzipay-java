@@ -11,6 +11,7 @@ public class CheckoutForm extends PaymentResource {
 
     public static CheckoutForm retrieve(RetrieveCheckoutFormRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 CheckoutForm.class);

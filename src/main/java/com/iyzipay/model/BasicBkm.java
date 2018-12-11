@@ -12,6 +12,7 @@ public class BasicBkm extends BasicPaymentResource {
 
     public static BasicBkm retrieve(RetrieveBkmRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/auth/detail/basic",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 BasicBkm.class);

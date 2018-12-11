@@ -28,6 +28,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant create(CreateSubMerchantRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/onboarding/submerchant",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);
@@ -35,6 +36,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant update(UpdateSubMerchantRequest request, Options options) {
         return HttpClient.create().put(options.getBaseUrl() + "/onboarding/submerchant",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);
@@ -42,6 +44,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/onboarding/submerchant/detail",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 SubMerchant.class);

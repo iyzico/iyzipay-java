@@ -8,6 +8,7 @@ public class IyziupFormInitialize extends IyziupFormInitializeResource {
 
     public static IyziupFormInitialize create(CreateIyziupFormInitializeRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/v1/iyziup/form/initialize",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 IyziupFormInitialize.class);

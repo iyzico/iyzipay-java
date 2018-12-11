@@ -17,6 +17,7 @@ public class UcsInitResource extends IyzipayResource {
     public static UcsInitResource create(InitUcsRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/ucs/init";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 UcsInitResource.class);

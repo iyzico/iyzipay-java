@@ -11,6 +11,7 @@ public class Disapproval extends IyzipayResource {
 
     public static Disapproval create(CreateApprovalRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/item/disapprove",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Disapproval.class);
