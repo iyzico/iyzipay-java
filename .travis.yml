@@ -13,3 +13,4 @@ script:
 
 sudo: true
 group: deprecated
+dist: trusty
