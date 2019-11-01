@@ -29,6 +29,7 @@ public class CreatePaymentRequest extends Request {
     private String posOrderId;
     private String connectorName;
     private String callbackUrl;
+    private String gsmNumber;
 
     public CreatePaymentRequest() {
         setInstallment(Constants.SINGLE_INSTALLMENT);
@@ -162,6 +163,14 @@ public class CreatePaymentRequest extends Request {
         this.callbackUrl = callbackUrl;
     }
 
+    public String getGsmNumber() {
+        return gsmNumber;
+    }
+
+    public void setGsmNumber(String gsmNumber) {
+        this.gsmNumber = gsmNumber;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -182,6 +191,7 @@ public class CreatePaymentRequest extends Request {
                 .append("posOrderId", posOrderId)
                 .append("connectorName", connectorName)
                 .append("callbackUrl", callbackUrl)
+                .append("gsmNumber", gsmNumber)
                 .toString();
     }
 }
