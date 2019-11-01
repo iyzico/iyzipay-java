@@ -13,6 +13,9 @@ public final class PaymentCardBuilder {
     private String cardAlias;
     private String cardToken;
     private String cardUserKey;
+    private String consumerToken;
+    private boolean registerConsumerCard;
+    private String ucsToken;
 
     private PaymentCardBuilder() {
     }
@@ -66,6 +69,21 @@ public final class PaymentCardBuilder {
         return this;
     }
 
+    public PaymentCardBuilder consumerToken(String consumerToken) {
+        this.consumerToken = consumerToken;
+        return this;
+    }
+
+    public PaymentCardBuilder registerConsumerCard(Boolean registerConsumerCard) {
+        this.registerConsumerCard = registerConsumerCard;
+        return this;
+    }
+
+    public PaymentCardBuilder ucsToken(String ucsToken) {
+        this.ucsToken = ucsToken;
+        return this;
+    }
+
     public PaymentCard build() {
         PaymentCard paymentCard = new PaymentCard();
         paymentCard.setCardHolderName(cardHolderName);
@@ -77,6 +95,9 @@ public final class PaymentCardBuilder {
         paymentCard.setCardAlias(cardAlias);
         paymentCard.setCardToken(cardToken);
         paymentCard.setCardUserKey(cardUserKey);
+        paymentCard.setConsumerToken(consumerToken);
+        paymentCard.setRegisterConsumerCard(registerConsumerCard);
+        paymentCard.setUcsToken(ucsToken);
         return paymentCard;
     }
 
