@@ -156,7 +156,6 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(IyziLinkStatus.ACTIVE, response.getData().getIyziLinkStatus());
         assertNotNull(response.getData().getImageUrl());
         assertEquals(Boolean.FALSE, response.getData().getAddressIgnorable());
-        assertEquals(new Integer(1), response.getData().getSoldLimit());
     }
 
     @Test

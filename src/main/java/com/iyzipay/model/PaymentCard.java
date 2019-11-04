@@ -16,6 +16,9 @@ public class PaymentCard {
     private String cardToken;
     private String cardUserKey;
     private Map<String, String> metadata;
+    private String consumerToken;
+    private boolean registerConsumerCard;
+    private String ucsToken;
 
     public String getCardHolderName() {
         return cardHolderName;
@@ -97,6 +100,30 @@ public class PaymentCard {
         this.metadata = metadata;
     }
 
+    public String getConsumerToken() {
+        return consumerToken;
+    }
+
+    public void setConsumerToken(String consumerToken) {
+        this.consumerToken = consumerToken;
+    }
+
+    public boolean isRegisterConsumerCard() {
+        return registerConsumerCard;
+    }
+
+    public void setRegisterConsumerCard(boolean registerConsumerCard) {
+        this.registerConsumerCard = registerConsumerCard;
+    }
+
+    public String getUcsToken() {
+        return ucsToken;
+    }
+
+    public void setUcsToken(String ucsToken) {
+        this.ucsToken = ucsToken;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -110,6 +137,9 @@ public class PaymentCard {
                 .append("cardToken", cardToken)
                 .append("cardUserKey", cardUserKey)
                 .append("metadata", metadata)
+                .append("consumerToken", consumerToken)
+                .append("registerConsumerCard", registerConsumerCard)
+                .append("ucsToken", ucsToken)
                 .toString();
     }
 }

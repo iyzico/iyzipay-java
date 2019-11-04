@@ -28,6 +28,7 @@ public final class CreatePaymentRequestBuilder extends BaseRequestBuilder {
     private String callbackUrl;
     private String posOrderId;
     private String connectorName;
+    private String gsmNumber;
 
     private CreatePaymentRequestBuilder() {
     }
@@ -126,6 +127,11 @@ public final class CreatePaymentRequestBuilder extends BaseRequestBuilder {
         return this;
     }
 
+    public CreatePaymentRequestBuilder gsmNumber(String gsmNumber) {
+        this.gsmNumber = gsmNumber;
+        return this;
+    }
+
     public CreatePaymentRequest build() {
         CreatePaymentRequest createPaymentRequest = new CreatePaymentRequest();
         createPaymentRequest.setLocale(locale);
@@ -146,6 +152,7 @@ public final class CreatePaymentRequestBuilder extends BaseRequestBuilder {
         createPaymentRequest.setPosOrderId(posOrderId);
         createPaymentRequest.setConnectorName(connectorName);
         createPaymentRequest.setCurrency(currency);
+        createPaymentRequest.setGsmNumber(gsmNumber);
         return createPaymentRequest;
     }
 
