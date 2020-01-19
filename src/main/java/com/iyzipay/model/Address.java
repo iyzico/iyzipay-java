@@ -7,6 +7,7 @@ public class Address {
     private String address;
     private String zipCode;
     private String contactName;
+    private String district;
     private String city;
     private String country;
 
@@ -32,6 +33,14 @@ public class Address {
 
     public void setContactName(String contactName) {
         this.contactName = contactName;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getCity() {
