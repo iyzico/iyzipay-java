@@ -7,7 +7,7 @@ import java.util.Date;
 public class SubscriptionCustomerResponseResource {
 
     private String referenceCode;
-    private Date createdDate;
+    private String createdDate;
     private String status;
     private String name;
     private String surname;
@@ -25,11 +25,11 @@ public class SubscriptionCustomerResponseResource {
         this.referenceCode = referenceCode;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 

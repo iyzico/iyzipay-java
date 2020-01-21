@@ -2,11 +2,12 @@ package com.iyzipay.model.subscription;
 
 import com.iyzipay.model.Status;
 import com.iyzipay.request.subscription.CreateSubscriptionProductRequest;
-import com.iyzipay.request.subscription.UpdateSubscriptionPricingPlanRequest;
+import com.iyzipay.request.subscription.SubscriptionUpdateProductRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class SubscriptionProductTest extends Sample {
 
@@ -14,7 +15,7 @@ public class SubscriptionProductTest extends Sample {
     public void should_create() {
         //given
         CreateSubscriptionProductRequest createSubscriptionProductRequest = new CreateSubscriptionProductRequest();
-        createSubscriptionProductRequest.setName("customer-Caner-2");
+        createSubscriptionProductRequest.setName("customer-Caner-3");
         createSubscriptionProductRequest.setDescription("product");
         createSubscriptionProductRequest.setLocale("tr");
         createSubscriptionProductRequest.setConversationId("12345678");
@@ -24,21 +25,30 @@ public class SubscriptionProductTest extends Sample {
 
         //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertEquals(response.getSubscriptionProductResource().getName(), createSubscriptionProductRequest.getName());
         assertEquals(response.getSubscriptionProductResource().getDescription(), "product");
+        assertNotNull(response.getSubscriptionProductResource().getReferenceCode());
+        assertNotNull(response.getSubscriptionProductResource().getPricingPlanList());
+        assertNotNull(response.getSubscriptionProductResource().getCreatedDate());
+        assertNotNull(response.getSubscriptionProductResource().getName());
     }
-//
-//    @Test
-//    public void should_update() {
-//        //given
-//        UpdateSubscriptionPricingPlanRequest subscriptionPricingPlanRequest = new UpdateSubscriptionPricingPlanRequest();
-//        subscriptionPricingPlanRequest.setName();
-//
-//        //when
-//        SubscriptionProduct response = SubscriptionProduct.update("c777b5b0-bc79-4f3f-ac1f-71c064990939", subscriptionPricingPlanRequest, options);
-//        //then
-//
-//    }
+
+    @Test
+    public void should_update() {
+        //given
+        SubscriptionUpdateProductRequest updateProductRequest = new SubscriptionUpdateProductRequest();
+        updateProductRequest.setName("Caner-Product");
+        updateProductRequest.setDescription("product");
+
+        //when
+        SubscriptionProduct response = SubscriptionProduct.update("c777b5b0-bc79-4f3f-ac1f-71c064990939", updateProductRequest, options);
+        //then
+        assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+        assertNotNull(response.getSubscriptionProductResource().getName());
+        assertNotNull(response.getSubscriptionProductResource().getDescription());
+        assertNotNull(response.getSubscriptionProductResource().getCreatedDate());
+        assertNotNull(response.getSubscriptionProductResource().getPricingPlanList());
+        assertNotNull(response.getSubscriptionProductResource().getReferenceCode());
+    }
 
     @Test
     public void should_retrieve() {

@@ -2,14 +2,12 @@ package com.iyzipay.model.subscription.resource;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
 import java.util.List;
 
 public class SubscriptionProductResource {
 
     private String referenceCode;
-    @SerializedName("created_ate")
-    private Date createdDate;
+    private String createdDate;
     private String name;
     private String description;
     private String status;
@@ -24,11 +22,11 @@ public class SubscriptionProductResource {
         this.referenceCode = referenceCode;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 

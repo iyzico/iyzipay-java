@@ -6,7 +6,7 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.model.subscription.resource.SubscriptionProductResource;
 import com.iyzipay.request.subscription.CreateSubscriptionProductRequest;
-import com.iyzipay.request.subscription.UpdateSubscriptionPricingPlanRequest;
+import com.iyzipay.request.subscription.SubscriptionUpdateProductRequest;
 
 public class SubscriptionProduct extends IyzipayResource {
 
@@ -29,7 +29,7 @@ public class SubscriptionProduct extends IyzipayResource {
                 SubscriptionProduct.class);
     }
 
-    public static SubscriptionProduct update(String subscriptionProductReferenceCode, UpdateSubscriptionPricingPlanRequest request, Options options) {
+    public static SubscriptionProduct update(String subscriptionProductReferenceCode, SubscriptionUpdateProductRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
         return HttpClient.create().post(uri,
                 getHttpHeadersV2(uri, request, options),
