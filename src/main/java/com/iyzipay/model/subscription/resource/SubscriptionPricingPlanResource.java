@@ -1,12 +1,11 @@
 package com.iyzipay.model.subscription.resource;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class SubscriptionPricingPlanResource {
 
     private String referenceCode;
-    private Date createdDate;
+    private String createdDate;
     private String name;
     private BigDecimal price;
     private String paymentInterval;
@@ -26,11 +25,11 @@ public class SubscriptionPricingPlanResource {
         this.referenceCode = referenceCode;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 

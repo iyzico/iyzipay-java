@@ -8,6 +8,7 @@ import java.util.List;
 public class SubscriptionProductResource {
 
     private String referenceCode;
+    @SerializedName("created_ate")
     private Date createdDate;
     private String name;
     private String description;

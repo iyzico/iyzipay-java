@@ -13,8 +13,8 @@ public abstract class Sample {
 //        options.setApiKey(System.getProperty("apiKey"));
 //        options.setSecretKey(System.getProperty("secretKey"));
 //        options.setBaseUrl(System.getProperty("baseUrl"));
-        options.setApiKey("mrI3mIMuNwGiIxanQslyJBRYa8nYrCU5");
-        options.setSecretKey("9lkVluNHBABPw0LIvyn50oYZcrSJ8oNo");
+        options.setApiKey("sandbox-SfCcI5omjZjxDxcX0FKNt9sOwwZ2rilc");
+        options.setSecretKey("sandbox-lf2Wb2WVZvdBf2TW0252qBdpVHzaF8Xc");
         options.setBaseUrl("https://sandbox-api.iyzipay.com");
     }
 }
