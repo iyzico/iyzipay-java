@@ -1,6 +1,8 @@
-package com.iyzipay.model.subscription;
+package com.iyzipay.sample.subscription;
 
+import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.subscription.SubscriptionProduct;
 import com.iyzipay.request.subscription.CreateSubscriptionProductRequest;
 import com.iyzipay.request.subscription.SubscriptionUpdateProductRequest;
 import com.iyzipay.sample.Sample;
@@ -9,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class SubscriptionProductTest extends Sample {
+public class SubscriptionProductSample extends Sample {
 
     @Test
     public void should_create() {
@@ -17,7 +19,7 @@ public class SubscriptionProductTest extends Sample {
         CreateSubscriptionProductRequest createSubscriptionProductRequest = new CreateSubscriptionProductRequest();
         createSubscriptionProductRequest.setName("customer-Caner-3");
         createSubscriptionProductRequest.setDescription("product");
-        createSubscriptionProductRequest.setLocale("tr");
+        createSubscriptionProductRequest.setLocale(Locale.TR.name());
         createSubscriptionProductRequest.setConversationId("12345678");
 
         //when
@@ -38,6 +40,8 @@ public class SubscriptionProductTest extends Sample {
         SubscriptionUpdateProductRequest updateProductRequest = new SubscriptionUpdateProductRequest();
         updateProductRequest.setName("Caner-Product");
         updateProductRequest.setDescription("product");
+        updateProductRequest.setLocale(Locale.TR.name());
+        updateProductRequest.setConversationId("12346543");
 
         //when
         SubscriptionProduct response = SubscriptionProduct.update("c777b5b0-bc79-4f3f-ac1f-71c064990939", updateProductRequest, options);

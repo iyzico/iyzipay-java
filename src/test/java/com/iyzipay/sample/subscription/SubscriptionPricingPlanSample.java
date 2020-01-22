@@ -1,6 +1,11 @@
-package com.iyzipay.model.subscription;
+package com.iyzipay.sample.subscription;
 
+import com.iyzipay.model.Currency;
+import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.subscription.SubscriptionPricingPlan;
+import com.iyzipay.model.subscription.enumtype.SubscriptionInterval;
+import com.iyzipay.model.subscription.enumtype.SubscriptionPaymentType;
 import com.iyzipay.request.subscription.CreateSubscriptionPricingPlanRequest;
 import com.iyzipay.request.subscription.UpdateSubscriptionPricingPlanRequest;
 import com.iyzipay.sample.Sample;
@@ -11,21 +16,21 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class SubscriptionPricingPlanTest extends Sample {
+public class SubscriptionPricingPlanSample extends Sample {
 
     @Test
     public void should_create() {
         //given
         CreateSubscriptionPricingPlanRequest createSubscriptionPricingPlanRequest = new CreateSubscriptionPricingPlanRequest();
-        createSubscriptionPricingPlanRequest.setPlanPaymentType("RECURRING");
-        createSubscriptionPricingPlanRequest.setName("caner-pricing-plan");
+        createSubscriptionPricingPlanRequest.setPlanPaymentType(SubscriptionPaymentType.RECURRING.name());
+        createSubscriptionPricingPlanRequest.setName("caner-pricing-plan-2");
         createSubscriptionPricingPlanRequest.setPrice(BigDecimal.TEN);
-        createSubscriptionPricingPlanRequest.setCurrencyCode("TRY");
-        createSubscriptionPricingPlanRequest.setPaymentInterval("WEEKLY");
+        createSubscriptionPricingPlanRequest.setCurrencyCode(Currency.TRY.name());
+        createSubscriptionPricingPlanRequest.setPaymentInterval(SubscriptionInterval.WEEKLY.name());
         createSubscriptionPricingPlanRequest.setPaymentIntervalCount(1);
         createSubscriptionPricingPlanRequest.setTrialPeriodDays(10);
         createSubscriptionPricingPlanRequest.setRecurrenceCount(9);
-        createSubscriptionPricingPlanRequest.setLocale("TR");
+        createSubscriptionPricingPlanRequest.setLocale(Locale.TR.name());
         createSubscriptionPricingPlanRequest.setConversationId("12345678");
 
         //when
@@ -52,7 +57,7 @@ public class SubscriptionPricingPlanTest extends Sample {
         UpdateSubscriptionPricingPlanRequest updateSubscriptionPricingPlanRequest = new UpdateSubscriptionPricingPlanRequest();
         updateSubscriptionPricingPlanRequest.setName("caner-pricing-plan");
         updateSubscriptionPricingPlanRequest.setTrialPeriodDays(13);
-        updateSubscriptionPricingPlanRequest.setLocale("TR");
+        updateSubscriptionPricingPlanRequest.setLocale(Locale.TR.name());
         updateSubscriptionPricingPlanRequest.setConversationId("12345678");
 
         //when

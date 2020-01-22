@@ -13,7 +13,7 @@ public class SubscriptionCustomerList extends IyzipayResource {
     @SerializedName("data")
     private SubscriptionCustomerListResource subscriptionCustomerListResource;
 
-    public static SubscriptionCustomerList retrieve(PagingRequest request, Options options){
+    public static SubscriptionCustomerList retrieve(PagingRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/customers/" + new PageRequestQueryParamBuilder()
                 .page(request.getPage())
                 .count(request.getCount())
@@ -22,5 +22,13 @@ public class SubscriptionCustomerList extends IyzipayResource {
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionCustomerList.class);
+    }
+
+    public SubscriptionCustomerListResource getSubscriptionCustomerListResource() {
+        return subscriptionCustomerListResource;
+    }
+
+    public void setSubscriptionCustomerListResource(SubscriptionCustomerListResource subscriptionCustomerListResource) {
+        this.subscriptionCustomerListResource = subscriptionCustomerListResource;
     }
 }

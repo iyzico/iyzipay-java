@@ -7,8 +7,6 @@ public class SubscriptionCardResource {
     private String expireYear;
     private String expireMonth;
     private String cvc;
-    private String cardToken;
-    private String cardUserKey;
 
     public String getCardHolderName() {
         return cardHolderName;
@@ -48,21 +46,5 @@ public class SubscriptionCardResource {
 
     public void setCvc(String cvc) {
         this.cvc = cvc;
-    }
-
-    public String getCardToken() {
-        return cardToken;
-    }
-
-    public void setCardToken(String cardToken) {
-        this.cardToken = cardToken;
-    }
-
-    public String getCardUserKey() {
-        return cardUserKey;
-    }
-
-    public void setCardUserKey(String cardUserKey) {
-        this.cardUserKey = cardUserKey;
     }
 }

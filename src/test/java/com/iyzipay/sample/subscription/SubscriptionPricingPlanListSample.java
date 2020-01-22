@@ -1,14 +1,16 @@
-package com.iyzipay.model.subscription;
+package com.iyzipay.sample.subscription;
 
 import com.iyzipay.PagingRequest;
+import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.subscription.SubscriptionPricingPlanList;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
-public class SubscriptionPricingPlanListTest extends Sample {
+public class SubscriptionPricingPlanListSample extends Sample {
 
     @Test
     public void should_retrieve() {
@@ -16,7 +18,7 @@ public class SubscriptionPricingPlanListTest extends Sample {
         PagingRequest pagingRequest = new PagingRequest();
         pagingRequest.setPage(1);
         pagingRequest.setCount(10);
-        pagingRequest.setLocale("Tr");
+        pagingRequest.setLocale(Locale.TR.name());
         pagingRequest.setConversationId("123456");
 
         //when

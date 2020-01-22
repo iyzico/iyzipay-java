@@ -36,4 +36,12 @@ public class SubscriptionCustomer extends IyzipayResource {
                 null,
                 SubscriptionCustomer.class);
     }
+
+    public SubscriptionCustomerResponseResource getSubscriptionCustomerResponseResource() {
+        return subscriptionCustomerResponseResource;
+    }
+
+    public void setSubscriptionCustomerResponseResource(SubscriptionCustomerResponseResource subscriptionCustomerResponseResource) {
+        this.subscriptionCustomerResponseResource = subscriptionCustomerResponseResource;
+    }
 }

@@ -7,7 +7,7 @@ import com.iyzipay.request.subscription.SubscriptionOrderOperationRequest;
 
 public class SubscriptionPayment extends IyzipayResource {
 
-    public static SubscriptionPayment create(SubscriptionOrderOperationRequest request, Options options) {
+    public static SubscriptionPayment retry(SubscriptionOrderOperationRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/operation/retry";
         return HttpClient.create().post(uri,
                 getHttpHeadersV2(uri, request, options),

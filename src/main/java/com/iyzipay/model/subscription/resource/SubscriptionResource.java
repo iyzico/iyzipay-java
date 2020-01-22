@@ -2,7 +2,6 @@ package com.iyzipay.model.subscription.resource;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
 import java.util.List;
 
 public class SubscriptionResource {
@@ -18,12 +17,12 @@ public class SubscriptionResource {
     private Long paymentId;
     private String subscriptionStatus;
     private Integer trialDays;
-    private Date trialStartDate;
-    private Date trialEndDate;
-    private Date canceledAt;
-    private Date createdDate;
-    private Date startDate;
-    private Date endDate;
+    private String trialStartDate;
+    private String trialEndDate;
+    private String canceledAt;
+    private String createdDate;
+    private String startDate;
+    private String endDate;
     @SerializedName(value = "orders")
     private List<SubscriptionOrderResource> subscriptionOrders;
 
@@ -115,51 +114,51 @@ public class SubscriptionResource {
         this.trialDays = trialDays;
     }
 
-    public Date getTrialStartDate() {
+    public String getTrialStartDate() {
         return trialStartDate;
     }
 
-    public void setTrialStartDate(Date trialStartDate) {
+    public void setTrialStartDate(String trialStartDate) {
         this.trialStartDate = trialStartDate;
     }
 
-    public Date getTrialEndDate() {
+    public String getTrialEndDate() {
         return trialEndDate;
     }
 
-    public void setTrialEndDate(Date trialEndDate) {
+    public void setTrialEndDate(String trialEndDate) {
         this.trialEndDate = trialEndDate;
     }
 
-    public Date getCanceledAt() {
+    public String getCanceledAt() {
         return canceledAt;
     }
 
-    public void setCanceledAt(Date canceledAt) {
+    public void setCanceledAt(String canceledAt) {
         this.canceledAt = canceledAt;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

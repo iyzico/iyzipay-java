@@ -1,12 +1,13 @@
-package com.iyzipay.model.subscription;
+package com.iyzipay.sample.subscription;
 
 import com.iyzipay.model.Status;
+import com.iyzipay.model.subscription.SubscriptionProductOperation;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SubscriptionProductOperationTest extends Sample {
+public class SubscriptionProductOperationSample extends Sample {
 
     @Test
     public void should_delete() {
