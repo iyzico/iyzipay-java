@@ -16,7 +16,6 @@ public class SubscriptionCustomerSample extends Sample {
 
     @Test
     public void should_create() {
-        //given
         Address address = new Address();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
@@ -36,10 +35,8 @@ public class SubscriptionCustomerSample extends Sample {
         subscriptionCustomerRequest.setConversationId("123456");
         subscriptionCustomerRequest.setLocale(Locale.TR.name());
 
-        //when
         SubscriptionCustomer response = SubscriptionCustomer.create(subscriptionCustomerRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());
@@ -54,7 +51,6 @@ public class SubscriptionCustomerSample extends Sample {
 
     @Test
     public void should_update() {
-        //given
         Address address = new Address();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
@@ -74,10 +70,8 @@ public class SubscriptionCustomerSample extends Sample {
         subscriptionCustomerRequest.setConversationId("123456");
         subscriptionCustomerRequest.setLocale(Locale.TR.name());
 
-        //when
         SubscriptionCustomer response = SubscriptionCustomer.update("1ffb2a89-cf69-4ddd-92ae-a52bd1f7461d", subscriptionCustomerRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());
@@ -92,10 +86,8 @@ public class SubscriptionCustomerSample extends Sample {
 
     @Test
     public void should_retrieve() {
-        //when
         SubscriptionCustomer response = SubscriptionCustomer.retrieve("d6797c6d-b99d-417c-bffc-aa931173f0ef", options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
         assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());

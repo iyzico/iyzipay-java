@@ -4,11 +4,9 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.PagingRequest;
-import com.iyzipay.model.subscription.resource.SubscriptionStatus;
 import com.iyzipay.request.subscription.SearchSubscriptionRequest;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,23 +81,23 @@ public class SubscriptionSearch extends IyzipayResource {
             return this;
         }
 
-        public SubscriptionSearchQueryParamBuilder subscriptionStatus(SubscriptionStatus subscriptionStatus) {
+        public SubscriptionSearchQueryParamBuilder subscriptionStatus(String subscriptionStatus) {
             if (subscriptionStatus != null) {
                 subscriptionSearchQueryParams.put("subscriptionStatus", subscriptionStatus);
             }
             return this;
         }
 
-        public SubscriptionSearchQueryParamBuilder startDate(Date startDate) {
+        public SubscriptionSearchQueryParamBuilder startDate(String startDate) {
             if (startDate != null) {
-                subscriptionSearchQueryParams.put("startDate", startDate.getTime());
+                subscriptionSearchQueryParams.put("startDate", startDate);
             }
             return this;
         }
 
-        public SubscriptionSearchQueryParamBuilder endDate(Date endDate) {
+        public SubscriptionSearchQueryParamBuilder endDate(String endDate) {
             if (endDate != null) {
-                subscriptionSearchQueryParams.put("endDate", endDate.getTime());
+                subscriptionSearchQueryParams.put("endDate", endDate);
             }
             return this;
         }

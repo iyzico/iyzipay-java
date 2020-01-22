@@ -1,18 +1,14 @@
 package com.iyzipay.request.subscription;
 
-import com.iyzipay.model.subscription.resource.SubscriptionStatus;
-
-import java.util.Date;
-
 public class SearchSubscriptionRequest {
 
     private String subscriptionReferenceCode;
     private String parentReferenceCode;
     private String customerReferenceCode;
     private String pricingPlanReferenceCode;
-    private SubscriptionStatus subscriptionStatus;
-    private Date startDate;
-    private Date endDate;
+    private String subscriptionStatus;
+    private String startDate;
+    private String endDate;
 
     public String getSubscriptionReferenceCode() {
         return subscriptionReferenceCode;
@@ -46,27 +42,27 @@ public class SearchSubscriptionRequest {
         this.pricingPlanReferenceCode = pricingPlanReferenceCode;
     }
 
-    public SubscriptionStatus getSubscriptionStatus() {
+    public String getSubscriptionStatus() {
         return subscriptionStatus;
     }
 
-    public void setSubscriptionStatus(SubscriptionStatus subscriptionStatus) {
+    public void setSubscriptionStatus(String subscriptionStatus) {
         this.subscriptionStatus = subscriptionStatus;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 }

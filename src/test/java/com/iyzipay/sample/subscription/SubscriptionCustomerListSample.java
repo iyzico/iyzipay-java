@@ -12,15 +12,12 @@ public class SubscriptionCustomerListSample extends Sample {
 
     @Test
     public void should_retrieve_customer_list() {
-        //given
         PagingRequest pagingRequest = new PagingRequest();
         pagingRequest.setCount(10);
         pagingRequest.setPage(2);
 
-        //when
         SubscriptionCustomerList response = SubscriptionCustomerList.retrieve(pagingRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }
 }

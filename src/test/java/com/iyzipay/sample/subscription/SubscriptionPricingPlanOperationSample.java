@@ -11,10 +11,8 @@ public class SubscriptionPricingPlanOperationSample extends Sample {
 
     @Test
     public void should_delete() {
-        //when
         SubscriptionPricingPlanOperation response = SubscriptionPricingPlanOperation.delete("ffa7b210-7990-4a3b-ad2c-e57774e8ec24", options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }
 }

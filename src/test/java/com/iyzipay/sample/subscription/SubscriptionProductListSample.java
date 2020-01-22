@@ -14,17 +14,14 @@ public class SubscriptionProductListSample extends Sample {
 
     @Test
     public void should_retrieve_product_list() {
-        //given
         PagingRequest request = new PagingRequest();
         request.setCount(4);
         request.setPage(1);
         request.setConversationId("12345");
         request.setLocale(Locale.TR.name());
 
-        //when
         SubscriptionProductList response = SubscriptionProductList.retrieve(request, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getSubscriptionProductListResource());
     }

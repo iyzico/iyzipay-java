@@ -8,7 +8,7 @@ public class InitializeSubscriptionCheckoutFormRequest extends Request {
     private String callbackUrl;
     private String pricingPlanReferenceCode;
     private String subscriptionInitialStatus;
-    private SubscriptionCustomerResource subscriptionCustomerResource;
+    private SubscriptionCustomerResource customer;
 
     public String getCallbackUrl() {
         return callbackUrl;
@@ -34,11 +34,11 @@ public class InitializeSubscriptionCheckoutFormRequest extends Request {
         this.subscriptionInitialStatus = subscriptionInitialStatus;
     }
 
-    public SubscriptionCustomerResource getSubscriptionCustomerResource() {
-        return subscriptionCustomerResource;
+    public SubscriptionCustomerResource getCustomer() {
+        return customer;
     }
 
-    public void setSubscriptionCustomerResource(SubscriptionCustomerResource subscriptionCustomerResource) {
-        this.subscriptionCustomerResource = subscriptionCustomerResource;
+    public void setCustomer(SubscriptionCustomerResource customer) {
+        this.customer = customer;
     }
 }

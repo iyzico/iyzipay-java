@@ -20,7 +20,6 @@ public class SubscriptionInitializeSample extends Sample {
 
     @Test
     public void should_create() {
-        //given
         Address address = new Address();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
@@ -52,10 +51,8 @@ public class SubscriptionInitializeSample extends Sample {
         initializeSubscriptionRequest.setConversationId("12345");
         initializeSubscriptionRequest.setLocale(Locale.TR.name());
 
-        //when
         SubscriptionInitialize response = SubscriptionInitialize.create(initializeSubscriptionRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getCreatedSubscriptionResource().getCustomerReferenceCode());
         assertNotNull(response.getCreatedSubscriptionResource().getCreatedDate());
@@ -73,7 +70,6 @@ public class SubscriptionInitializeSample extends Sample {
 
     @Test
     public void should_create_with_existing_customer() {
-        //given
         InitializeSubscriptionWithExistingCustomerRequest initializeSubscriptionWithExistingCustomerRequest = new InitializeSubscriptionWithExistingCustomerRequest();
         initializeSubscriptionWithExistingCustomerRequest.setCustomerReferenceCode("dfc1d5d2-1859-4582-9889-30f9c409d86f");
         initializeSubscriptionWithExistingCustomerRequest.setPricingPlanReferenceCode("553d006c-da91-46d3-81a4-8297881d6b9e");
@@ -81,10 +77,8 @@ public class SubscriptionInitializeSample extends Sample {
         initializeSubscriptionWithExistingCustomerRequest.setConversationId("12345");
         initializeSubscriptionWithExistingCustomerRequest.setLocale(Locale.TR.name());
 
-        //when
         SubscriptionInitialize response = SubscriptionInitialize.createWithExistingCustomer(initializeSubscriptionWithExistingCustomerRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getCreatedSubscriptionResource().getCustomerReferenceCode());
         assertNotNull(response.getCreatedSubscriptionResource().getCreatedDate());

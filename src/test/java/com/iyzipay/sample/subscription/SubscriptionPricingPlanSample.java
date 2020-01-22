@@ -20,7 +20,6 @@ public class SubscriptionPricingPlanSample extends Sample {
 
     @Test
     public void should_create() {
-        //given
         CreateSubscriptionPricingPlanRequest createSubscriptionPricingPlanRequest = new CreateSubscriptionPricingPlanRequest();
         createSubscriptionPricingPlanRequest.setPlanPaymentType(SubscriptionPaymentType.RECURRING.name());
         createSubscriptionPricingPlanRequest.setName("caner-pricing-plan-2");
@@ -33,10 +32,8 @@ public class SubscriptionPricingPlanSample extends Sample {
         createSubscriptionPricingPlanRequest.setLocale(Locale.TR.name());
         createSubscriptionPricingPlanRequest.setConversationId("12345678");
 
-        //when
         SubscriptionPricingPlan response = SubscriptionPricingPlan.create("c777b5b0-bc79-4f3f-ac1f-71c064990939", createSubscriptionPricingPlanRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertNotNull(response.getSubscriptionPricingPlanResource().getPlanPaymentType());
         assertNotNull(response.getSubscriptionPricingPlanResource().getName());
@@ -53,17 +50,14 @@ public class SubscriptionPricingPlanSample extends Sample {
 
     @Test
     public void should_update() {
-        //given
         UpdateSubscriptionPricingPlanRequest updateSubscriptionPricingPlanRequest = new UpdateSubscriptionPricingPlanRequest();
         updateSubscriptionPricingPlanRequest.setName("caner-pricing-plan");
         updateSubscriptionPricingPlanRequest.setTrialPeriodDays(13);
         updateSubscriptionPricingPlanRequest.setLocale(Locale.TR.name());
         updateSubscriptionPricingPlanRequest.setConversationId("12345678");
 
-        //when
         SubscriptionPricingPlan response = SubscriptionPricingPlan.update("553d006c-da91-46d3-81a4-8297881d6b9e", updateSubscriptionPricingPlanRequest, options);
 
-        //then
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
         assertEquals(response.getSubscriptionPricingPlanResource().getTrialPeriodDays(), updateSubscriptionPricingPlanRequest.getTrialPeriodDays());
         assertNotNull(response.getSubscriptionPricingPlanResource().getCreatedDate());
@@ -79,7 +73,6 @@ public class SubscriptionPricingPlanSample extends Sample {
 
     @Test
     public void should_retrieve() {
-        //when
         SubscriptionPricingPlan response = SubscriptionPricingPlan.retrieve("553d006c-da91-46d3-81a4-8297881d6b9e", options);
 
         //then

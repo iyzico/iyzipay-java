@@ -11,7 +11,7 @@ public class SubscriptionCheckoutForm extends IyzipayResource {
     @SerializedName("data")
     private CreatedSubscriptionResource createdSubscriptionResource;
 
-    public static SubscriptionCheckoutForm retrieveSubscription(String subscriptionCheckoutFormToken, Options options) {
+    public static SubscriptionCheckoutForm retrieve(String subscriptionCheckoutFormToken, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/checkoutform/" + subscriptionCheckoutFormToken;
         return HttpClient.create().get(uri,
                 getHttpHeadersV2(uri, null, options),
