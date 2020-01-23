@@ -4,7 +4,7 @@ import com.iyzipay.PagingRequest;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.model.subscription.SubscriptionSearch;
-import com.iyzipay.model.subscription.resource.SubscriptionStatus;
+import com.iyzipay.model.subscription.enumtype.SubscriptionStatus;
 import com.iyzipay.request.subscription.SearchSubscriptionRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;

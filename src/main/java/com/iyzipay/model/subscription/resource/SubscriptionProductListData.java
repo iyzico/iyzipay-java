@@ -4,20 +4,20 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SubscriptionCustomerListResource {
+public class SubscriptionProductListData {
 
     @SerializedName("items")
-    private List<SubscriptionCustomerResponseResource> subscriptionCustomer;
+    private List<SubscriptionProductData> productList;
     private Long totalCount;
     private Integer currentPage;
     private Integer pageCount;
 
-    public List<SubscriptionCustomerResponseResource> getSubscriptionCustomer() {
-        return subscriptionCustomer;
+    public List<SubscriptionProductData> getProductList() {
+        return productList;
     }
 
-    public void setSubscriptionCustomer(List<SubscriptionCustomerResponseResource> subscriptionCustomer) {
-        this.subscriptionCustomer = subscriptionCustomer;
+    public void setProductList(List<SubscriptionProductData> productList) {
+        this.productList = productList;
     }
 
     public Long getTotalCount() {

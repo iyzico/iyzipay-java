@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.subscription.resource.SubscriptionPricingPlanResource;
+import com.iyzipay.model.subscription.resource.SubscriptionPricingPlanData;
 import com.iyzipay.request.subscription.CreateSubscriptionPricingPlanRequest;
 import com.iyzipay.request.subscription.UpdateSubscriptionPricingPlanRequest;
 
-public class SubscriptionPricingPlan  extends IyzipayResource {
+public class SubscriptionPricingPlan extends IyzipayResource {
 
     @SerializedName("data")
-    private SubscriptionPricingPlanResource subscriptionPricingPlanResource;
+    private SubscriptionPricingPlanData subscriptionPricingPlanData;
 
     public static SubscriptionPricingPlan retrieve(String subscriptionPricingPlanReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
@@ -37,11 +37,19 @@ public class SubscriptionPricingPlan  extends IyzipayResource {
                 SubscriptionPricingPlan.class);
     }
 
-    public SubscriptionPricingPlanResource getSubscriptionPricingPlanResource() {
-        return subscriptionPricingPlanResource;
+    public static IyzipayResource delete(String subscriptionPricingPlanReferenceCode, Options options) {
+        String uri = options.getBaseUrl() + "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
+        return HttpClient.create().delete(uri,
+                getHttpHeadersV2(uri, null, options),
+                null,
+                IyzipayResource.class);
     }
 
-    public void setSubscriptionPricingPlanResource(SubscriptionPricingPlanResource subscriptionPricingPlanResource) {
-        this.subscriptionPricingPlanResource = subscriptionPricingPlanResource;
+    public SubscriptionPricingPlanData getSubscriptionPricingPlanData() {
+        return subscriptionPricingPlanData;
+    }
+
+    public void setSubscriptionPricingPlanData(SubscriptionPricingPlanData subscriptionPricingPlanData) {
+        this.subscriptionPricingPlanData = subscriptionPricingPlanData;
     }
 }

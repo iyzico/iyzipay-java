@@ -1,14 +1,14 @@
 package com.iyzipay.request.subscription;
 
 import com.iyzipay.Request;
-import com.iyzipay.model.subscription.resource.SubscriptionCustomerResource;
+import com.iyzipay.model.subscription.resource.SubscriptionCustomer;
 
 public class InitializeSubscriptionCheckoutFormRequest extends Request {
 
     private String callbackUrl;
     private String pricingPlanReferenceCode;
     private String subscriptionInitialStatus;
-    private SubscriptionCustomerResource customer;
+    private SubscriptionCustomer customer;
 
     public String getCallbackUrl() {
         return callbackUrl;
@@ -34,11 +34,11 @@ public class InitializeSubscriptionCheckoutFormRequest extends Request {
         this.subscriptionInitialStatus = subscriptionInitialStatus;
     }
 
-    public SubscriptionCustomerResource getCustomer() {
+    public SubscriptionCustomer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(SubscriptionCustomerResource customer) {
+    public void setCustomer(SubscriptionCustomer customer) {
         this.customer = customer;
     }
 }

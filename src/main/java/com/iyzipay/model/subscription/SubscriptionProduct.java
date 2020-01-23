@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.subscription.resource.SubscriptionProductResource;
+import com.iyzipay.model.subscription.resource.SubscriptionProductData;
 import com.iyzipay.request.subscription.CreateSubscriptionProductRequest;
 import com.iyzipay.request.subscription.SubscriptionUpdateProductRequest;
 
 public class SubscriptionProduct extends IyzipayResource {
 
     @SerializedName("data")
-    private SubscriptionProductResource subscriptionProductResource;
+    private SubscriptionProductData subscriptionProductData;
 
     public static SubscriptionProduct retrieve(String subscriptionProductReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
@@ -37,11 +37,19 @@ public class SubscriptionProduct extends IyzipayResource {
                 SubscriptionProduct.class);
     }
 
-    public SubscriptionProductResource getSubscriptionProductResource() {
-        return subscriptionProductResource;
+    public static IyzipayResource delete(String subscriptionProductReferenceCode, Options options) {
+        String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        return HttpClient.create().delete(uri,
+                getHttpHeadersV2(uri, null, options),
+                null,
+                IyzipayResource.class);
     }
 
-    public void setSubscriptionProductResource(SubscriptionProductResource subscriptionProductResource) {
-        this.subscriptionProductResource = subscriptionProductResource;
+    public SubscriptionProductData getSubscriptionProductData() {
+        return subscriptionProductData;
+    }
+
+    public void setSubscriptionProductData(SubscriptionProductData subscriptionProductData) {
+        this.subscriptionProductData = subscriptionProductData;
     }
 }

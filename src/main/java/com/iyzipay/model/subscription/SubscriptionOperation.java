@@ -3,6 +3,7 @@ package com.iyzipay.model.subscription;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
+import com.iyzipay.request.subscription.SubscriptionOrderOperationRequest;
 import com.iyzipay.request.subscription.UpgradeSubscriptionRequest;
 
 public class SubscriptionOperation extends IyzipayResource {
@@ -25,6 +26,14 @@ public class SubscriptionOperation extends IyzipayResource {
 
     public static SubscriptionOperation upgrade(String subscriptionReferenceCode, UpgradeSubscriptionRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/subscriptions/" + subscriptionReferenceCode + "/upgrade";
+        return HttpClient.create().post(uri,
+                getHttpHeadersV2(uri, request, options),
+                request,
+                SubscriptionOperation.class);
+    }
+
+    public static SubscriptionOperation retryPayment(SubscriptionOrderOperationRequest request, Options options) {
+        String uri = options.getBaseUrl() + "/v2/subscription/operation/retry";
         return HttpClient.create().post(uri,
                 getHttpHeadersV2(uri, request, options),
                 request,

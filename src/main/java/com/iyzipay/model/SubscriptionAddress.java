@@ -1,12 +1,11 @@
 package com.iyzipay.model;
 
-import com.iyzipay.ToStringRequestBuilder;
-
-public class Address {
+public class SubscriptionAddress {
 
     private String address;
     private String zipCode;
     private String contactName;
+    private String district;
     private String city;
     private String country;
 
@@ -34,6 +33,14 @@ public class Address {
         this.contactName = contactName;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
     public String getCity() {
         return city;
     }
@@ -52,12 +59,13 @@ public class Address {
 
     @Override
     public String toString() {
-        return new ToStringRequestBuilder(this)
-                .append("address", address)
-                .append("zipCode", zipCode)
-                .append("contactName", contactName)
-                .append("city", city)
-                .append("country", country)
-                .toString();
+        return "SubscriptionAddress{" +
+                "address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", contactName='" + contactName + '\'' +
+                ", district='" + district + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

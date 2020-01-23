@@ -1,8 +1,9 @@
 package com.iyzipay.sample.subscription;
 
-import com.iyzipay.model.Address;
+import com.iyzipay.IyzipayResource;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.SubscriptionAddress;
 import com.iyzipay.model.subscription.SubscriptionCustomer;
 import com.iyzipay.request.subscription.CreateSubscriptionCustomerRequest;
 import com.iyzipay.request.subscription.UpdateSubscriptionCustomerRequest;
@@ -16,7 +17,7 @@ public class SubscriptionCustomerSample extends Sample {
 
     @Test
     public void should_create() {
-        Address address = new Address();
+        SubscriptionAddress address = new SubscriptionAddress();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
         address.setCountry("Turkey");
@@ -38,20 +39,20 @@ public class SubscriptionCustomerSample extends Sample {
         SubscriptionCustomer response = SubscriptionCustomer.create(subscriptionCustomerRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getCreatedDate());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getEmail());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getGsmNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getIdentityNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getName());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getReferenceCode());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getSurname());
+        assertNotNull(response.getSubscriptionCustomerData().getBillingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getShippingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getCreatedDate());
+        assertNotNull(response.getSubscriptionCustomerData().getEmail());
+        assertNotNull(response.getSubscriptionCustomerData().getGsmNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getIdentityNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getName());
+        assertNotNull(response.getSubscriptionCustomerData().getReferenceCode());
+        assertNotNull(response.getSubscriptionCustomerData().getSurname());
     }
 
     @Test
     public void should_update() {
-        Address address = new Address();
+        SubscriptionAddress address = new SubscriptionAddress();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
         address.setCountry("Turkey");
@@ -73,15 +74,15 @@ public class SubscriptionCustomerSample extends Sample {
         SubscriptionCustomer response = SubscriptionCustomer.update("1ffb2a89-cf69-4ddd-92ae-a52bd1f7461d", subscriptionCustomerRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getCreatedDate());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getEmail());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getGsmNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getIdentityNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getName());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getReferenceCode());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getSurname());
+        assertNotNull(response.getSubscriptionCustomerData().getBillingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getShippingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getCreatedDate());
+        assertNotNull(response.getSubscriptionCustomerData().getEmail());
+        assertNotNull(response.getSubscriptionCustomerData().getGsmNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getIdentityNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getName());
+        assertNotNull(response.getSubscriptionCustomerData().getReferenceCode());
+        assertNotNull(response.getSubscriptionCustomerData().getSurname());
     }
 
     @Test
@@ -89,14 +90,21 @@ public class SubscriptionCustomerSample extends Sample {
         SubscriptionCustomer response = SubscriptionCustomer.retrieve("d6797c6d-b99d-417c-bffc-aa931173f0ef", options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getBillingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getShippingAddress());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getCreatedDate());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getEmail());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getGsmNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getIdentityNumber());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getName());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getReferenceCode());
-        assertNotNull(response.getSubscriptionCustomerResponseResource().getSurname());
+        assertNotNull(response.getSubscriptionCustomerData().getBillingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getShippingAddress());
+        assertNotNull(response.getSubscriptionCustomerData().getCreatedDate());
+        assertNotNull(response.getSubscriptionCustomerData().getEmail());
+        assertNotNull(response.getSubscriptionCustomerData().getGsmNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getIdentityNumber());
+        assertNotNull(response.getSubscriptionCustomerData().getName());
+        assertNotNull(response.getSubscriptionCustomerData().getReferenceCode());
+        assertNotNull(response.getSubscriptionCustomerData().getSurname());
+    }
+
+    @Test
+    public void should_delete() {
+        IyzipayResource response = SubscriptionCustomer.delete("1ffb2a89-cf69-4ddd-92ae-a52bd1f7461d", options);
+
+        assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }
 }

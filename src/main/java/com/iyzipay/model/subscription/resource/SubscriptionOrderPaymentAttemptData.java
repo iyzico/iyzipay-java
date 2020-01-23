@@ -1,8 +1,10 @@
 package com.iyzipay.model.subscription.resource;
 
+import com.iyzipay.model.subscription.enumtype.SubscriptionPaymentStatus;
+
 import java.util.Date;
 
-public class SubscriptionOrderPaymentAttemptResource {
+public class SubscriptionOrderPaymentAttemptData {
 
     private String conversationId;
     private Date createdDate;

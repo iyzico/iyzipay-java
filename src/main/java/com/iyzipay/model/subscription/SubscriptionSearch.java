@@ -31,7 +31,7 @@ public class SubscriptionSearch extends IyzipayResource {
                 SubscriptionSearch.class);
     }
 
-    public static class SubscriptionSearchQueryParamBuilder {
+    private static class SubscriptionSearchQueryParamBuilder {
 
         private Map<String, Object> subscriptionSearchQueryParams;
 

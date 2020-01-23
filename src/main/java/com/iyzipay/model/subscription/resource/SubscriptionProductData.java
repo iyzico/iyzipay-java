@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SubscriptionProductResource {
+public class SubscriptionProductData {
 
     private String referenceCode;
     private String createdDate;
@@ -12,7 +12,7 @@ public class SubscriptionProductResource {
     private String description;
     private String status;
     @SerializedName("pricingPlans")
-    private List<SubscriptionPricingPlanResource> pricingPlanList;
+    private List<SubscriptionPricingPlanData> pricingPlanList;
 
     public String getReferenceCode() {
         return referenceCode;
@@ -54,11 +54,11 @@ public class SubscriptionProductResource {
         this.status = status;
     }
 
-    public List<SubscriptionPricingPlanResource> getPricingPlanList() {
+    public List<SubscriptionPricingPlanData> getPricingPlanList() {
         return pricingPlanList;
     }
 
-    public void setPricingPlanList(List<SubscriptionPricingPlanResource> pricingPlanList) {
+    public void setPricingPlanList(List<SubscriptionPricingPlanData> pricingPlanList) {
         this.pricingPlanList = pricingPlanList;
     }
 }

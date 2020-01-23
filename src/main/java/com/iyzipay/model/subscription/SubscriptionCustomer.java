@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.subscription.resource.SubscriptionCustomerResponseResource;
+import com.iyzipay.model.subscription.resource.SubscriptionCustomerData;
 import com.iyzipay.request.subscription.CreateSubscriptionCustomerRequest;
 import com.iyzipay.request.subscription.UpdateSubscriptionCustomerRequest;
 
 public class SubscriptionCustomer extends IyzipayResource {
 
     @SerializedName("data")
-    private SubscriptionCustomerResponseResource subscriptionCustomerResponseResource;
+    private SubscriptionCustomerData subscriptionCustomerData;
 
     public static SubscriptionCustomer create(CreateSubscriptionCustomerRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/customers";
@@ -37,11 +37,19 @@ public class SubscriptionCustomer extends IyzipayResource {
                 SubscriptionCustomer.class);
     }
 
-    public SubscriptionCustomerResponseResource getSubscriptionCustomerResponseResource() {
-        return subscriptionCustomerResponseResource;
+    public static IyzipayResource delete(String subscriptionCustomerReferenceCode, Options options) {
+        String uri = options.getBaseUrl() + "/v2/subscription/customers/" + subscriptionCustomerReferenceCode;
+        return HttpClient.create().delete(uri,
+                getHttpHeadersV2(uri, null, options),
+                null,
+                IyzipayResource.class);
     }
 
-    public void setSubscriptionCustomerResponseResource(SubscriptionCustomerResponseResource subscriptionCustomerResponseResource) {
-        this.subscriptionCustomerResponseResource = subscriptionCustomerResponseResource;
+    public SubscriptionCustomerData getSubscriptionCustomerData() {
+        return subscriptionCustomerData;
+    }
+
+    public void setSubscriptionCustomerData(SubscriptionCustomerData subscriptionCustomerData) {
+        this.subscriptionCustomerData = subscriptionCustomerData;
     }
 }

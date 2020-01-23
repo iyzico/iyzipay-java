@@ -1,4 +1,4 @@
-package com.iyzipay.model.subscription.resource;
+package com.iyzipay.model.subscription.enumtype;
 
 public enum SubscriptionStatus {
 

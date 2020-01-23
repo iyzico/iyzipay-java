@@ -1,10 +1,8 @@
 package com.iyzipay.model.subscription.resource;
 
-import com.iyzipay.model.Address;
+import com.iyzipay.model.SubscriptionAddress;
 
-import java.util.Date;
-
-public class SubscriptionCustomerResponseResource {
+public class SubscriptionCustomerData {
 
     private String referenceCode;
     private String createdDate;
@@ -14,8 +12,8 @@ public class SubscriptionCustomerResponseResource {
     private String identityNumber;
     private String email;
     private String gsmNumber;
-    private Address billingAddress;
-    private Address shippingAddress;
+    private SubscriptionAddress billingAddress;
+    private SubscriptionAddress shippingAddress;
 
     public String getReferenceCode() {
         return referenceCode;
@@ -81,19 +79,19 @@ public class SubscriptionCustomerResponseResource {
         this.gsmNumber = gsmNumber;
     }
 
-    public Address getBillingAddress() {
+    public SubscriptionAddress getBillingAddress() {
         return billingAddress;
     }
 
-    public void setBillingAddress(Address billingAddress) {
+    public void setBillingAddress(SubscriptionAddress billingAddress) {
         this.billingAddress = billingAddress;
     }
 
-    public Address getShippingAddress() {
+    public SubscriptionAddress getShippingAddress() {
         return shippingAddress;
     }
 
-    public void setShippingAddress(Address shippingAddress) {
+    public void setShippingAddress(SubscriptionAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 }

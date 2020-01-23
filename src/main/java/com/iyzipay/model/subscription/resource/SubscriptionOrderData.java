@@ -1,12 +1,13 @@
 package com.iyzipay.model.subscription.resource;
 
 import com.google.gson.annotations.SerializedName;
+import com.iyzipay.model.subscription.enumtype.SubscriptionOrderStatus;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class SubscriptionOrderResource {
+public class SubscriptionOrderData {
 
     private String referenceCode;
     private BigDecimal price;
@@ -15,7 +16,7 @@ public class SubscriptionOrderResource {
     private Date endPeriod;
     private SubscriptionOrderStatus orderStatus;
     @SerializedName(value = "paymentAttempts")
-    private List<SubscriptionOrderPaymentAttemptResource> orderPaymentAttempts;
+    private List<SubscriptionOrderPaymentAttemptData> orderPaymentAttempts;
 
     public String getReferenceCode() {
         return referenceCode;
@@ -65,11 +66,11 @@ public class SubscriptionOrderResource {
         this.orderStatus = orderStatus;
     }
 
-    public List<SubscriptionOrderPaymentAttemptResource> getOrderPaymentAttempts() {
+    public List<SubscriptionOrderPaymentAttemptData> getOrderPaymentAttempts() {
         return orderPaymentAttempts;
     }
 
-    public void setOrderPaymentAttempts(List<SubscriptionOrderPaymentAttemptResource> orderPaymentAttempts) {
+    public void setOrderPaymentAttempts(List<SubscriptionOrderPaymentAttemptData> orderPaymentAttempts) {
         this.orderPaymentAttempts = orderPaymentAttempts;
     }
 }

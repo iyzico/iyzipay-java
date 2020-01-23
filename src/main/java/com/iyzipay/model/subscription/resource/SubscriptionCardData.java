@@ -1,6 +1,6 @@
 package com.iyzipay.model.subscription.resource;
 
-public class SubscriptionCardResource {
+public class SubscriptionCardData {
 
     private String cardHolderName;
     private String cardNumber;

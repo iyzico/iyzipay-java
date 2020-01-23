@@ -4,6 +4,7 @@ import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.model.subscription.SubscriptionOperation;
 import com.iyzipay.model.subscription.enumtype.SubscriptionUpgradePeriod;
+import com.iyzipay.request.subscription.SubscriptionOrderOperationRequest;
 import com.iyzipay.request.subscription.UpgradeSubscriptionRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
@@ -37,6 +38,18 @@ public class SubscriptionOperationSample extends Sample {
         upgradeSubscriptionRequest.setLocale(Locale.TR.name());
 
         SubscriptionOperation response = SubscriptionOperation.upgrade("6f65af3c-030f-45cc-bc7f-4d05be7f066c", upgradeSubscriptionRequest, options);
+
+        assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+    }
+
+    @Test
+    public void should_retry_payment() {
+        SubscriptionOrderOperationRequest subscriptionOrderOperationRequest = new SubscriptionOrderOperationRequest();
+        subscriptionOrderOperationRequest.setReferenceCode("cd6fa908-42af-47e6-9eef-5311fd2b9b32");
+        subscriptionOrderOperationRequest.setConversationId("123456");
+        subscriptionOrderOperationRequest.setLocale(Locale.TR.name());
+
+        SubscriptionOperation response = SubscriptionOperation.retryPayment(subscriptionOrderOperationRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }

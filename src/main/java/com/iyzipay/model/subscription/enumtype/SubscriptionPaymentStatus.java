@@ -1,6 +1,6 @@
-package com.iyzipay.model.subscription.resource;
+package com.iyzipay.model.subscription.enumtype;
 
-public enum  SubscriptionPaymentStatus {
+public enum SubscriptionPaymentStatus {
 
     FAILED(-1),
     SUCCESS(1),

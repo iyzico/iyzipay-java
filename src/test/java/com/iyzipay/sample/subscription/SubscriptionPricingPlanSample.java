@@ -1,5 +1,6 @@
 package com.iyzipay.sample.subscription;
 
+import com.iyzipay.IyzipayResource;
 import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
@@ -35,17 +36,17 @@ public class SubscriptionPricingPlanSample extends Sample {
         SubscriptionPricingPlan response = SubscriptionPricingPlan.create("c777b5b0-bc79-4f3f-ac1f-71c064990939", createSubscriptionPricingPlanRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPlanPaymentType());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getName());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPrice());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getCurrencyCode());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPaymentInterval());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPaymentIntervalCount());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getTrialPeriodDays());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getRecurrenceCount());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getReferenceCode());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getProductReferenceCode());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getCreatedDate());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPlanPaymentType());
+        assertNotNull(response.getSubscriptionPricingPlanData().getName());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPrice());
+        assertNotNull(response.getSubscriptionPricingPlanData().getCurrencyCode());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPaymentInterval());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPaymentIntervalCount());
+        assertNotNull(response.getSubscriptionPricingPlanData().getTrialPeriodDays());
+        assertNotNull(response.getSubscriptionPricingPlanData().getRecurrenceCount());
+        assertNotNull(response.getSubscriptionPricingPlanData().getReferenceCode());
+        assertNotNull(response.getSubscriptionPricingPlanData().getProductReferenceCode());
+        assertNotNull(response.getSubscriptionPricingPlanData().getCreatedDate());
     }
 
     @Test
@@ -59,16 +60,16 @@ public class SubscriptionPricingPlanSample extends Sample {
         SubscriptionPricingPlan response = SubscriptionPricingPlan.update("553d006c-da91-46d3-81a4-8297881d6b9e", updateSubscriptionPricingPlanRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertEquals(response.getSubscriptionPricingPlanResource().getTrialPeriodDays(), updateSubscriptionPricingPlanRequest.getTrialPeriodDays());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getCreatedDate());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getCurrencyCode());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getName());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPaymentInterval());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPaymentIntervalCount());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPlanPaymentType());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getPrice());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getProductReferenceCode());
-        assertNotNull(response.getSubscriptionPricingPlanResource().getRecurrenceCount());
+        assertEquals(response.getSubscriptionPricingPlanData().getTrialPeriodDays(), updateSubscriptionPricingPlanRequest.getTrialPeriodDays());
+        assertNotNull(response.getSubscriptionPricingPlanData().getCreatedDate());
+        assertNotNull(response.getSubscriptionPricingPlanData().getCurrencyCode());
+        assertNotNull(response.getSubscriptionPricingPlanData().getName());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPaymentInterval());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPaymentIntervalCount());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPlanPaymentType());
+        assertNotNull(response.getSubscriptionPricingPlanData().getPrice());
+        assertNotNull(response.getSubscriptionPricingPlanData().getProductReferenceCode());
+        assertNotNull(response.getSubscriptionPricingPlanData().getRecurrenceCount());
     }
 
     @Test
@@ -76,6 +77,13 @@ public class SubscriptionPricingPlanSample extends Sample {
         SubscriptionPricingPlan response = SubscriptionPricingPlan.retrieve("553d006c-da91-46d3-81a4-8297881d6b9e", options);
 
         //then
+        assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+    }
+
+    @Test
+    public void should_delete() {
+        IyzipayResource response = SubscriptionPricingPlan.delete("ffa7b210-7990-4a3b-ad2c-e57774e8ec24", options);
+
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }
 }

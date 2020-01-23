@@ -1,29 +1,29 @@
 package com.iyzipay.request.subscription;
 
 import com.iyzipay.Request;
-import com.iyzipay.model.subscription.resource.SubscriptionCardResource;
-import com.iyzipay.model.subscription.resource.SubscriptionCustomerResource;
+import com.iyzipay.model.subscription.resource.SubscriptionCardData;
+import com.iyzipay.model.subscription.resource.SubscriptionCustomer;
 
 public class InitializeSubscriptionRequest extends Request {
 
-    private SubscriptionCardResource paymentCard;
-    private SubscriptionCustomerResource customer;
+    private SubscriptionCardData paymentCard;
+    private SubscriptionCustomer customer;
     private String pricingPlanReferenceCode;
     private String subscriptionInitialStatus;
 
-    public SubscriptionCardResource getPaymentCard() {
+    public SubscriptionCardData getPaymentCard() {
         return paymentCard;
     }
 
-    public void setPaymentCard(SubscriptionCardResource paymentCard) {
+    public void setPaymentCard(SubscriptionCardData paymentCard) {
         this.paymentCard = paymentCard;
     }
 
-    public SubscriptionCustomerResource getCustomer() {
+    public SubscriptionCustomer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(SubscriptionCustomerResource customer) {
+    public void setCustomer(SubscriptionCustomer customer) {
         this.customer = customer;
     }
 

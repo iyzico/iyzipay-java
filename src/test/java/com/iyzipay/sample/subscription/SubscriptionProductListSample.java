@@ -23,6 +23,6 @@ public class SubscriptionProductListSample extends Sample {
         SubscriptionProductList response = SubscriptionProductList.retrieve(request, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionProductListResource());
+        assertNotNull(response.getSubscriptionProductListData());
     }
 }

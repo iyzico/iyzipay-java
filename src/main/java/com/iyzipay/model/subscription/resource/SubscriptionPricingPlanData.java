@@ -2,7 +2,7 @@ package com.iyzipay.model.subscription.resource;
 
 import java.math.BigDecimal;
 
-public class SubscriptionPricingPlanResource {
+public class SubscriptionPricingPlanData {
 
     private String referenceCode;
     private String createdDate;

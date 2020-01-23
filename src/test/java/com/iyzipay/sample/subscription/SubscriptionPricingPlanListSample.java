@@ -23,6 +23,6 @@ public class SubscriptionPricingPlanListSample extends Sample {
         SubscriptionPricingPlanList response = SubscriptionPricingPlanList.retrieve("553d006c-da91-46d3-81a4-8297881d6b9e", pagingRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertNotNull(response.getSubscriptionPricingPlanListResource().getSubscriptionPricingPlansResource());
+        assertNotNull(response.getSubscriptionPricingPlanListData().getSubscriptionPricingPlansResource());
     }
 }

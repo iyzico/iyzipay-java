@@ -6,12 +6,12 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.PagingRequest;
 import com.iyzipay.model.subscription.builder.PageRequestQueryParamBuilder;
-import com.iyzipay.model.subscription.resource.SubscriptionPricingPlanListResource;
+import com.iyzipay.model.subscription.resource.SubscriptionPricingPlanListData;
 
 public class SubscriptionPricingPlanList extends IyzipayResource {
 
     @SerializedName("data")
-    private SubscriptionPricingPlanListResource subscriptionPricingPlanListResource;
+    private SubscriptionPricingPlanListData subscriptionPricingPlanListData;
 
     public static SubscriptionPricingPlanList retrieve(String subscriptionPricingPlanReferenceCode, PagingRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionPricingPlanReferenceCode + "/pricing-plans/" + new PageRequestQueryParamBuilder()
@@ -24,11 +24,11 @@ public class SubscriptionPricingPlanList extends IyzipayResource {
                 SubscriptionPricingPlanList.class);
     }
 
-    public SubscriptionPricingPlanListResource getSubscriptionPricingPlanListResource() {
-        return subscriptionPricingPlanListResource;
+    public SubscriptionPricingPlanListData getSubscriptionPricingPlanListData() {
+        return subscriptionPricingPlanListData;
     }
 
-    public void setSubscriptionPricingPlanListResource(SubscriptionPricingPlanListResource subscriptionPricingPlanListResource) {
-        this.subscriptionPricingPlanListResource = subscriptionPricingPlanListResource;
+    public void setSubscriptionPricingPlanListData(SubscriptionPricingPlanListData subscriptionPricingPlanListData) {
+        this.subscriptionPricingPlanListData = subscriptionPricingPlanListData;
     }
 }

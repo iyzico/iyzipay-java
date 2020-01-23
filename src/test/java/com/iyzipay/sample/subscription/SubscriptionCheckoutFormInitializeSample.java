@@ -1,11 +1,11 @@
 package com.iyzipay.sample.subscription;
 
-import com.iyzipay.model.Address;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.SubscriptionAddress;
 import com.iyzipay.model.subscription.SubscriptionCheckoutFormInitialize;
 import com.iyzipay.model.subscription.enumtype.SubscriptionInitialStatus;
-import com.iyzipay.model.subscription.resource.SubscriptionCustomerResource;
+import com.iyzipay.model.subscription.resource.SubscriptionCustomer;
 import com.iyzipay.request.subscription.InitializeSubscriptionCheckoutFormRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
@@ -17,14 +17,14 @@ public class SubscriptionCheckoutFormInitializeSample extends Sample {
 
     @Test
     public void should_init_subscription_checkoutForm() {
-        Address address = new Address();
+        SubscriptionAddress address = new SubscriptionAddress();
         address.setContactName("Jane Doe");
         address.setCity("Istanbul");
         address.setCountry("Turkey");
         address.setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         address.setZipCode("347");
 
-        SubscriptionCustomerResource customer = new SubscriptionCustomerResource();
+        SubscriptionCustomer customer = new SubscriptionCustomer();
         customer.setBillingAddress(address);
         customer.setShippingAddress(address);
         customer.setEmail("caner@email.com");

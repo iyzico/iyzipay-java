@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.subscription.resource.CreatedSubscriptionResource;
+import com.iyzipay.model.subscription.resource.CreatedSubscriptionData;
 
 public class SubscriptionCheckoutForm extends IyzipayResource {
 
     @SerializedName("data")
-    private CreatedSubscriptionResource createdSubscriptionResource;
+    private CreatedSubscriptionData createdSubscriptionData;
 
     public static SubscriptionCheckoutForm retrieve(String subscriptionCheckoutFormToken, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/checkoutform/" + subscriptionCheckoutFormToken;
@@ -19,11 +19,11 @@ public class SubscriptionCheckoutForm extends IyzipayResource {
                 SubscriptionCheckoutForm.class);
     }
 
-    public CreatedSubscriptionResource getCreatedSubscriptionResource() {
-        return createdSubscriptionResource;
+    public CreatedSubscriptionData getCreatedSubscriptionData() {
+        return createdSubscriptionData;
     }
 
-    public void setCreatedSubscriptionResource(CreatedSubscriptionResource createdSubscriptionResource) {
-        this.createdSubscriptionResource = createdSubscriptionResource;
+    public void setCreatedSubscriptionData(CreatedSubscriptionData createdSubscriptionData) {
+        this.createdSubscriptionData = createdSubscriptionData;
     }
 }
