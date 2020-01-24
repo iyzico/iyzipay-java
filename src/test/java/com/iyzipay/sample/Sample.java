@@ -5,7 +5,7 @@ import org.junit.Before;
 
 public abstract class Sample {
 
-    Options options;
+    public Options options;
 
     @Before
     public void setUp() {
