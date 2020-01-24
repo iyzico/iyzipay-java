@@ -35,7 +35,7 @@ public class SubscriptionCheckoutFormInitializeSample extends Sample {
 
         InitializeSubscriptionCheckoutFormRequest request = new InitializeSubscriptionCheckoutFormRequest();
         request.setCustomer(customer);
-        request.setCallbackUrl("www.google.com");
+        request.setCallbackUrl("https://www.merchant.com/callback");
         request.setPricingPlanReferenceCode("23893e87-ef29-4b96-936f-e50ffce1f362");
         request.setSubscriptionInitialStatus(SubscriptionInitialStatus.ACTIVE.name());
         request.setConversationId("12345");

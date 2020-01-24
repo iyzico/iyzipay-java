@@ -1,14 +1,15 @@
 package com.iyzipay.model.subscription.enumtype;
 
-public enum SubscriptionProductType {
+public enum SubscriptionPaymentInterval {
 
-    UNKNOWN(-1),
-    PHYSICAL(1),
-    VIRTUAL(2);
+    DAILY(1),
+    WEEKLY(2),
+    MONTHLY(3),
+    YEARLY(4);
 
     private final Integer value;
 
-    SubscriptionProductType(Integer value) {
+    SubscriptionPaymentInterval(Integer value) {
         this.value = value;
     }
 

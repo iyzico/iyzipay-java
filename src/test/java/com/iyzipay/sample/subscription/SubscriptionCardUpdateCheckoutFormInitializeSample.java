@@ -14,7 +14,7 @@ public class SubscriptionCardUpdateCheckoutFormInitializeSample extends Sample {
     @Test
     public void should_initialize_subscription_card_update_checkout_form() {
         InitializeSubscriptionCardUpdateCheckoutFormRequest cardUpdateCheckoutFormRequest = new InitializeSubscriptionCardUpdateCheckoutFormRequest();
-        cardUpdateCheckoutFormRequest.setCallbackUrl("www.google.com");
+        cardUpdateCheckoutFormRequest.setCallbackUrl("https://www.merchant.com/callback");
         cardUpdateCheckoutFormRequest.setCustomerReferenceCode("dfc1d5d2-1859-4582-9889-30f9c409d86f");
         cardUpdateCheckoutFormRequest.setConversationId("123456");
         cardUpdateCheckoutFormRequest.setLocale(Locale.TR.name());

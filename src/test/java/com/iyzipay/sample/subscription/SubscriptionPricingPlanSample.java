@@ -5,7 +5,7 @@ import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.model.subscription.SubscriptionPricingPlan;
-import com.iyzipay.model.subscription.enumtype.SubscriptionInterval;
+import com.iyzipay.model.subscription.enumtype.SubscriptionPaymentInterval;
 import com.iyzipay.model.subscription.enumtype.SubscriptionPaymentType;
 import com.iyzipay.request.subscription.CreateSubscriptionPricingPlanRequest;
 import com.iyzipay.request.subscription.UpdateSubscriptionPricingPlanRequest;
@@ -26,7 +26,7 @@ public class SubscriptionPricingPlanSample extends Sample {
         createSubscriptionPricingPlanRequest.setName("caner-pricing-plan-2");
         createSubscriptionPricingPlanRequest.setPrice(BigDecimal.TEN);
         createSubscriptionPricingPlanRequest.setCurrencyCode(Currency.TRY.name());
-        createSubscriptionPricingPlanRequest.setPaymentInterval(SubscriptionInterval.WEEKLY.name());
+        createSubscriptionPricingPlanRequest.setPaymentInterval(SubscriptionPaymentInterval.WEEKLY.name());
         createSubscriptionPricingPlanRequest.setPaymentIntervalCount(1);
         createSubscriptionPricingPlanRequest.setTrialPeriodDays(10);
         createSubscriptionPricingPlanRequest.setRecurrenceCount(9);
