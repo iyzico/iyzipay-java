@@ -48,6 +48,7 @@ public class RefundSample extends Sample {
         System.out.println(amountBasedRefund);
 
         assertEquals(Status.SUCCESS.getValue(), amountBasedRefund.getStatus());
+        assertEquals(amountBasedRefund.getPrice(), request.getPrice());
         assertEquals(Locale.TR.getValue(), amountBasedRefund.getLocale());
         assertEquals("123456789", amountBasedRefund.getConversationId());
         assertNotNull(amountBasedRefund.getSystemTime());
