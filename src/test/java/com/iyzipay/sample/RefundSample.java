@@ -1,6 +1,7 @@
 package com.iyzipay.sample;
 
 import com.iyzipay.model.*;
+import com.iyzipay.request.CreateAmountBasedRefundRequest;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
 
@@ -31,6 +32,28 @@ public class RefundSample extends Sample {
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());
+    }
+
+    @Test
+    public void should_amount_based_refund_payment() {
+        CreateAmountBasedRefundRequest request = new CreateAmountBasedRefundRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setIp("85.34.78.112");
+        request.setPrice(new BigDecimal("0.5"));
+        request.setPaymentId("1");
+
+        Refund amountBasedRefund = Refund.createAmountBasedRefund(request, options);
+
+        System.out.println(amountBasedRefund);
+
+        assertEquals(Status.SUCCESS.getValue(), amountBasedRefund.getStatus());
+        assertEquals(Locale.TR.getValue(), amountBasedRefund.getLocale());
+        assertEquals("123456789", amountBasedRefund.getConversationId());
+        assertNotNull(amountBasedRefund.getSystemTime());
+        assertNull(amountBasedRefund.getErrorCode());
+        assertNull(amountBasedRefund.getErrorMessage());
+        assertNull(amountBasedRefund.getErrorGroup());
     }
 
     @Test
