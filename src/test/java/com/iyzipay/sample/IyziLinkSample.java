@@ -17,6 +17,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class IyziLinkSample extends Sample {
@@ -43,7 +44,7 @@ public class IyziLinkSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertNotNull(response.getData().getToken());
         assertNotNull(response.getData().getUrl());
         assertNotNull(response.getData().getImageUrl());
@@ -66,7 +67,7 @@ public class IyziLinkSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertNotNull(response.getData().getToken());
         assertNotNull(response.getData().getUrl());
         assertNotNull(response.getData().getImageUrl());
@@ -87,7 +88,7 @@ public class IyziLinkSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertEquals(new Integer(1), response.getData().getCurrentPage());
         assertEquals(1, response.getData().getIyziLinkItems().size());
         assertNotNull(response.getData().getIyziLinkItems().get(0).getToken());
@@ -106,7 +107,7 @@ public class IyziLinkSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertNotNull(response.getData().getName());
         assertNotNull(response.getData().getDescription());
         assertNotNull(response.getData().getPrice());
@@ -127,6 +128,6 @@ public class IyziLinkSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
     }
 }

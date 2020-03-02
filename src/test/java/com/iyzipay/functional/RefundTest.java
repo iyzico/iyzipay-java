@@ -38,7 +38,7 @@ public class RefundTest extends BaseTest {
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
         assertEquals(new BigDecimal("0.2"), refund.getPrice());
-        assertNotNull(refund.getSystemTime());
+        assertNotEquals(0, refund.getSystemTime());
         assertNotNull(refund.getHostReference());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
@@ -73,7 +73,7 @@ public class RefundTest extends BaseTest {
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
         assertEquals(new BigDecimal("0.2"), refund.getPrice());
-        assertNotNull(refund.getSystemTime());
+        assertNotEquals(0, refund.getSystemTime());
         assertNotNull(refund.getHostReference());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());

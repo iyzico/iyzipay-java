@@ -6,7 +6,10 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class CardManagementPageSample extends Sample {
 
@@ -33,7 +36,7 @@ public class CardManagementPageSample extends Sample {
         assertEquals("123456789", cardManagementPageInitialize.getConversationId());
         assertNotNull(cardManagementPageInitialize.getToken());
         assertNotNull(cardManagementPageInitialize.getCardPageUrl());
-        assertNotNull(cardManagementPageInitialize.getSystemTime());
+        assertNotEquals(0, cardManagementPageInitialize.getSystemTime());
         assertNull(cardManagementPageInitialize.getErrorCode());
         assertNull(cardManagementPageInitialize.getErrorMessage());
         assertNull(cardManagementPageInitialize.getErrorGroup());

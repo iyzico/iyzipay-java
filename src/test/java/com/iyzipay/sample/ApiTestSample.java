@@ -6,7 +6,9 @@ import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class ApiTestSample extends Sample {
 
@@ -18,7 +20,7 @@ public class ApiTestSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), iyzipayResource.getStatus());
         assertEquals(Locale.TR.getValue(), iyzipayResource.getLocale());
-        assertNotNull(iyzipayResource.getSystemTime());
+        assertNotEquals(0, iyzipayResource.getSystemTime());
         assertNull(iyzipayResource.getErrorCode());
         assertNull(iyzipayResource.getErrorMessage());
         assertNull(iyzipayResource.getErrorGroup());

@@ -9,7 +9,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class PaymentSample extends Sample {
 
@@ -103,7 +105,7 @@ public class PaymentSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());
@@ -205,7 +207,7 @@ public class PaymentSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());
@@ -297,7 +299,7 @@ public class PaymentSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());
@@ -318,7 +320,7 @@ public class PaymentSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals("123456789", payment.getConversationId());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());

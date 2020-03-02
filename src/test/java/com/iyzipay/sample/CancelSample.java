@@ -1,13 +1,15 @@
 package com.iyzipay.sample;
 
-import com.iyzipay.model.*;
+import com.iyzipay.model.Cancel;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.RefundReason;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCancelRequest;
-import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class CancelSample extends Sample {
 
@@ -26,7 +28,7 @@ public class CancelSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), cancel.getStatus());
         assertEquals(Locale.TR.getValue(), cancel.getLocale());
         assertEquals("123456789", cancel.getConversationId());
-        assertNotNull(cancel.getSystemTime());
+        assertNotEquals(0, cancel.getSystemTime());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());
@@ -49,7 +51,7 @@ public class CancelSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), cancel.getStatus());
         assertEquals(Locale.TR.getValue(), cancel.getLocale());
         assertEquals("123456789", cancel.getConversationId());
-        assertNotNull(cancel.getSystemTime());
+        assertNotEquals(0, cancel.getSystemTime());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());
@@ -72,7 +74,7 @@ public class CancelSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), cancel.getStatus());
         assertEquals(Locale.TR.getValue(), cancel.getLocale());
         assertEquals("123456789", cancel.getConversationId());
-        assertNotNull(cancel.getSystemTime());
+        assertNotEquals(0, cancel.getSystemTime());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());
         assertNull(cancel.getErrorGroup());

@@ -2,7 +2,6 @@ package com.iyzipay.sample;
 
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreateIyziupFormInitializeRequest;
-import com.iyzipay.request.RetrieveCheckoutFormRequest;
 import com.iyzipay.request.RetrieveIyziupFormRequest;
 import org.junit.Test;
 
@@ -10,7 +9,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class IyziupFormSample extends Sample {
 
@@ -81,7 +83,7 @@ public class IyziupFormSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), iyziupFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), iyziupFormInitialize.getLocale());
         assertEquals("123456789", iyziupFormInitialize.getConversationId());
-        assertNotNull(iyziupFormInitialize.getSystemTime());
+        assertNotEquals(0, iyziupFormInitialize.getSystemTime());
         assertNull(iyziupFormInitialize.getErrorCode());
         assertNull(iyziupFormInitialize.getErrorMessage());
         assertNull(iyziupFormInitialize.getErrorGroup());
@@ -185,7 +187,7 @@ public class IyziupFormSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), iyziupFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), iyziupFormInitialize.getLocale());
         assertEquals("123456789", iyziupFormInitialize.getConversationId());
-        assertNotNull(iyziupFormInitialize.getSystemTime());
+        assertNotEquals(0, iyziupFormInitialize.getSystemTime());
         assertNull(iyziupFormInitialize.getErrorCode());
         assertNull(iyziupFormInitialize.getErrorMessage());
         assertNull(iyziupFormInitialize.getErrorGroup());
@@ -206,7 +208,7 @@ public class IyziupFormSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), iyziupForm.getStatus());
         assertEquals(Locale.TR.getValue(), iyziupForm.getLocale());
         assertEquals("123456789", iyziupForm.getConversationId());
-        assertNotNull(iyziupForm.getSystemTime());
+        assertNotEquals(0, iyziupForm.getSystemTime());
         assertNull(iyziupForm.getErrorCode());
         assertNull(iyziupForm.getErrorMessage());
         assertNull(iyziupForm.getErrorGroup());

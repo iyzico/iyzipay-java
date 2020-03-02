@@ -1,12 +1,18 @@
 package com.iyzipay.sample;
 
-import com.iyzipay.model.*;
+import com.iyzipay.model.Currency;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Refund;
+import com.iyzipay.model.RefundReason;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateRefundRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class RefundSample extends Sample {
 
@@ -27,7 +33,7 @@ public class RefundSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertEquals("123456789", refund.getConversationId());
-        assertNotNull(refund.getSystemTime());
+        assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());
@@ -52,7 +58,7 @@ public class RefundSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertEquals("123456789", refund.getConversationId());
-        assertNotNull(refund.getSystemTime());
+        assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());
@@ -77,7 +83,7 @@ public class RefundSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertEquals("123456789", refund.getConversationId());
-        assertNotNull(refund.getSystemTime());
+        assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
         assertNull(refund.getErrorMessage());
         assertNull(refund.getErrorGroup());

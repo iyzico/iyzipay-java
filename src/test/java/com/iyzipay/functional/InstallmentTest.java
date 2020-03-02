@@ -8,7 +8,11 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class InstallmentTest extends BaseTest {
 
@@ -36,7 +40,7 @@ public class InstallmentTest extends BaseTest {
         assertNotNull(installmentInfo.getInstallmentDetails().get(0).getInstallmentPrices().get(0).getInstallmentNumber());
         assertNotNull(installmentInfo.getInstallmentDetails().get(0).getInstallmentPrices().get(0).getInstallmentPrice());
         assertNotNull(installmentInfo.getInstallmentDetails().get(0).getInstallmentPrices().get(0).getTotalPrice());
-        assertNotNull(installmentInfo.getSystemTime());
+        assertNotEquals(0, installmentInfo.getSystemTime());
         assertNull(installmentInfo.getErrorCode());
         assertNull(installmentInfo.getErrorMessage());
         assertNull(installmentInfo.getErrorGroup());

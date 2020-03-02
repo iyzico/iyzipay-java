@@ -8,7 +8,11 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class InstallmentSample extends Sample {
 
@@ -27,7 +31,7 @@ public class InstallmentSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), installmentInfo.getStatus());
         assertEquals(Locale.TR.getValue(), installmentInfo.getLocale());
         assertEquals("123456789", installmentInfo.getConversationId());
-        assertNotNull(installmentInfo.getSystemTime());
+        assertNotEquals(0, installmentInfo.getSystemTime());
         assertNull(installmentInfo.getErrorCode());
         assertNull(installmentInfo.getErrorMessage());
         assertNull(installmentInfo.getErrorGroup());
