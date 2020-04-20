@@ -3,13 +3,20 @@ package com.iyzipay.functional;
 import com.iyzipay.functional.builder.request.CreateApprovalRequestBuilder;
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
 import com.iyzipay.functional.builder.request.CreateSubMerchantRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Approval;
+import com.iyzipay.model.Disapproval;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Payment;
+import com.iyzipay.model.Status;
+import com.iyzipay.model.SubMerchant;
 import com.iyzipay.request.CreateApprovalRequest;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class DisapproveTest extends BaseTest {
 
@@ -40,7 +47,7 @@ public class DisapproveTest extends BaseTest {
         assertEquals(paymentTransactionId, disapproval.getPaymentTransactionId());
         assertEquals(Status.SUCCESS.getValue(), disapproval.getStatus());
         assertEquals(Locale.TR.getValue(), disapproval.getLocale());
-        assertNotNull(disapproval.getSystemTime());
+        assertNotEquals(0, disapproval.getSystemTime());
         assertNull(disapproval.getErrorCode());
         assertNull(disapproval.getErrorMessage());
         assertNull(disapproval.getErrorGroup());

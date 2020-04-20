@@ -3,7 +3,12 @@ package com.iyzipay.functional;
 import com.iyzipay.functional.builder.BasketItemBuilder;
 import com.iyzipay.functional.builder.request.CreateCheckoutFormInitializeRequestBuilder;
 import com.iyzipay.functional.builder.request.RetrieveCheckoutFormRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.BasketItem;
+import com.iyzipay.model.CheckoutForm;
+import com.iyzipay.model.CheckoutFormInitialize;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.PaymentGroup;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 import com.iyzipay.request.RetrieveCheckoutFormRequest;
 import org.junit.Test;
@@ -13,6 +18,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class CheckoutFormTest extends BaseTest {
@@ -34,7 +40,7 @@ public class CheckoutFormTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
-        assertNotNull(checkoutFormInitialize.getSystemTime());
+        assertNotEquals(0, checkoutFormInitialize.getSystemTime());
         assertNotNull(checkoutFormInitialize.getToken());
         assertNotNull(checkoutFormInitialize.getCheckoutFormContent());
     }
@@ -62,6 +68,6 @@ public class CheckoutFormTest extends BaseTest {
 
         assertNotNull(checkoutForm.getErrorMessage());
         assertEquals(Status.FAILURE.getValue(), checkoutForm.getStatus());
-        assertNotNull(checkoutForm.getSystemTime());
+        assertNotEquals(0, checkoutForm.getSystemTime());
     }
 }

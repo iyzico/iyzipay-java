@@ -7,13 +7,18 @@ import com.iyzipay.Request;
 import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
-import com.iyzipay.model.iyzilink.*;
+import com.iyzipay.model.iyzilink.IyziLink;
+import com.iyzipay.model.iyzilink.IyziLinkPagingResource;
+import com.iyzipay.model.iyzilink.IyziLinkResource;
+import com.iyzipay.model.iyzilink.IyziLinkSaveResource;
+import com.iyzipay.model.iyzilink.IyziLinkStatus;
 import com.iyzipay.request.IyziLinkSaveRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class IyziLinkTest extends BaseTest {
@@ -40,7 +45,7 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertNotNull(response.getData().getToken());
         assertNotNull(response.getData().getUrl());
         assertNotNull(response.getData().getImageUrl());
@@ -78,7 +83,7 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertNotNull(response.getData().getToken());
         assertNotNull(response.getData().getUrl());
         assertNotNull(response.getData().getImageUrl());
@@ -114,7 +119,7 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertEquals(1, response.getData().getIyziLinkItems().size());
         assertEquals(new Integer(1), response.getData().getCurrentPage());
     }
@@ -147,7 +152,7 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
         assertEquals("ft-name", response.getData().getName());
         assertEquals("ft-description", response.getData().getDescription());
         assertEquals(new BigDecimal("1.00000000"), response.getData().getPrice());
@@ -186,6 +191,6 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), response.getStatus());
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
-        assertNotNull(response.getSystemTime());
+        assertNotEquals(0, response.getSystemTime());
     }
 }

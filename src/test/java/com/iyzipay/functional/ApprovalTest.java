@@ -3,13 +3,19 @@ package com.iyzipay.functional;
 import com.iyzipay.functional.builder.request.CreateApprovalRequestBuilder;
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
 import com.iyzipay.functional.builder.request.CreateSubMerchantRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Approval;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Payment;
+import com.iyzipay.model.Status;
+import com.iyzipay.model.SubMerchant;
 import com.iyzipay.request.CreateApprovalRequest;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class ApprovalTest extends BaseTest {
 
@@ -38,7 +44,7 @@ public class ApprovalTest extends BaseTest {
         assertEquals(paymentTransactionId, approval.getPaymentTransactionId());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());

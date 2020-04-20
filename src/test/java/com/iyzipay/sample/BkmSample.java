@@ -1,6 +1,14 @@
 package com.iyzipay.sample;
 
-import com.iyzipay.model.*;
+import com.iyzipay.model.Address;
+import com.iyzipay.model.BasketItem;
+import com.iyzipay.model.BasketItemType;
+import com.iyzipay.model.Bkm;
+import com.iyzipay.model.BkmInitialize;
+import com.iyzipay.model.Buyer;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.PaymentGroup;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateBkmInitializeRequest;
 import com.iyzipay.request.RetrieveBkmRequest;
 import org.junit.Test;
@@ -9,7 +17,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class BkmSample extends Sample {
 
@@ -98,7 +109,7 @@ public class BkmSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
         assertEquals("123456789", bkmInitialize.getConversationId());
-        assertNotNull(bkmInitialize.getSystemTime());
+        assertNotEquals(0, bkmInitialize.getSystemTime());
         assertNull(bkmInitialize.getErrorCode());
         assertNull(bkmInitialize.getErrorMessage());
         assertNull(bkmInitialize.getErrorGroup());
@@ -119,7 +130,7 @@ public class BkmSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), bkm.getStatus());
         assertEquals(Locale.TR.getValue(), bkm.getLocale());
         assertEquals("123456789", bkm.getConversationId());
-        assertNotNull(bkm.getSystemTime());
+        assertNotEquals(0, bkm.getSystemTime());
         assertNull(bkm.getErrorCode());
         assertNull(bkm.getErrorMessage());
         assertNull(bkm.getErrorGroup());

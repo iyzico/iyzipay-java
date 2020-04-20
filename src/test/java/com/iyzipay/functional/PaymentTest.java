@@ -6,7 +6,13 @@ import com.iyzipay.functional.builder.request.CreateCardRequestBuilder;
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
 import com.iyzipay.functional.builder.request.CreateSubMerchantRequestBuilder;
 import com.iyzipay.functional.util.RandomGenerator;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Card;
+import com.iyzipay.model.CardInformation;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Payment;
+import com.iyzipay.model.PaymentCard;
+import com.iyzipay.model.Status;
+import com.iyzipay.model.SubMerchant;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
@@ -15,7 +21,10 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class PaymentTest extends BaseTest {
 
@@ -32,7 +41,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());
@@ -65,7 +74,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
         assertNull(payment.getErrorGroup());
@@ -110,7 +119,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertEquals("123456789", payment.getConversationId());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
@@ -150,7 +159,7 @@ public class PaymentTest extends BaseTest {
         assertEquals("123456789", payment.getConversationId());
         assertEquals(createdPayment.getPaymentId(), payment.getPaymentId());
         assertEquals("0008", createdPayment.getLastFourDigits());
-        assertNotNull(payment.getSystemTime());
+        assertNotEquals(0, payment.getSystemTime());
         assertNotNull(payment.getHostReference());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());

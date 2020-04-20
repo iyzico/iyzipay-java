@@ -2,13 +2,20 @@ package com.iyzipay.functional;
 
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
 import com.iyzipay.functional.builder.request.CreateSubMerchantRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
+import com.iyzipay.model.SubMerchant;
+import com.iyzipay.model.ThreedsInitialize;
+import com.iyzipay.model.ThreedsPayment;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class ThreedsTest extends BaseTest {
 
@@ -25,7 +32,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
-        assertNotNull(threedsInitialize.getSystemTime());
+        assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());
         assertNull(threedsInitialize.getErrorMessage());
@@ -51,7 +58,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
-        assertNotNull(threedsInitialize.getSystemTime());
+        assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());
         assertNull(threedsInitialize.getErrorMessage());
