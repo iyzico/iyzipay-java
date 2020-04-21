@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import com.iyzipay.model.subscription.enumtype.SubscriptionOrderStatus;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public class SubscriptionOrderData {
@@ -12,8 +11,8 @@ public class SubscriptionOrderData {
     private String referenceCode;
     private BigDecimal price;
     private String currencyCode;
-    private Date startPeriod;
-    private Date endPeriod;
+    private String startPeriod;
+    private String endPeriod;
     private SubscriptionOrderStatus orderStatus;
     @SerializedName(value = "paymentAttempts")
     private List<SubscriptionOrderPaymentAttemptData> orderPaymentAttempts;
@@ -42,19 +41,19 @@ public class SubscriptionOrderData {
         this.currencyCode = currencyCode;
     }
 
-    public Date getStartPeriod() {
+    public String getStartPeriod() {
         return startPeriod;
     }
 
-    public void setStartPeriod(Date startPeriod) {
+    public void setStartPeriod(String startPeriod) {
         this.startPeriod = startPeriod;
     }
 
-    public Date getEndPeriod() {
+    public String getEndPeriod() {
         return endPeriod;
     }
 
-    public void setEndPeriod(Date endPeriod) {
+    public void setEndPeriod(String endPeriod) {
         this.endPeriod = endPeriod;
     }
 

@@ -42,6 +42,9 @@ public class SubscriptionInitializeSample extends Sample {
         paymentCard.setExpireMonth("12");
         paymentCard.setExpireYear("2030");
         paymentCard.setCvc("123");
+        paymentCard.setCardToken("5vZtGWtagt+eqUOSJ4Dy0/l79Fc=");
+        paymentCard.setConsumerToken("62277603-31ac-452f-8257-fd506072bfd7");
+        paymentCard.setUcsToken("ucs-123");
 
         InitializeSubscriptionRequest initializeSubscriptionRequest = new InitializeSubscriptionRequest();
         initializeSubscriptionRequest.setPaymentCard(paymentCard);

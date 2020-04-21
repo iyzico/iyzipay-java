@@ -2,12 +2,10 @@ package com.iyzipay.model.subscription.resource;
 
 import com.iyzipay.model.subscription.enumtype.SubscriptionPaymentStatus;
 
-import java.util.Date;
-
 public class SubscriptionOrderPaymentAttemptData {
 
     private String conversationId;
-    private Date createdDate;
+    private String createdDate;
     private Long paymentId;
     private SubscriptionPaymentStatus paymentStatus;
     private String errorCode;
@@ -21,11 +19,11 @@ public class SubscriptionOrderPaymentAttemptData {
         this.conversationId = conversationId;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 

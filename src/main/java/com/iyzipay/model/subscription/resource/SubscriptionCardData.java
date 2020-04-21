@@ -7,6 +7,9 @@ public class SubscriptionCardData {
     private String expireYear;
     private String expireMonth;
     private String cvc;
+    private String ucsToken;
+    private String cardToken;
+    private String consumerToken;
 
     public String getCardHolderName() {
         return cardHolderName;
@@ -46,5 +49,29 @@ public class SubscriptionCardData {
 
     public void setCvc(String cvc) {
         this.cvc = cvc;
+    }
+
+    public String getUcsToken() {
+        return ucsToken;
+    }
+
+    public void setUcsToken(String ucsToken) {
+        this.ucsToken = ucsToken;
+    }
+
+    public String getCardToken() {
+        return cardToken;
+    }
+
+    public void setCardToken(String cardToken) {
+        this.cardToken = cardToken;
+    }
+
+    public String getConsumerToken() {
+        return consumerToken;
+    }
+
+    public void setConsumerToken(String consumerToken) {
+        this.consumerToken = consumerToken;
     }
 }
