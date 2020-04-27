@@ -14,6 +14,7 @@ public class SubscriptionData {
     private String productReferenceCode;
     private String customerEmail;
     private String customerReferenceCode;
+    private String customerGsmNumber;
     private Long paymentId;
     private String subscriptionStatus;
     private Integer trialDays;
@@ -72,6 +73,14 @@ public class SubscriptionData {
 
     public void setProductReferenceCode(String productReferenceCode) {
         this.productReferenceCode = productReferenceCode;
+    }
+
+    public String getCustomerGsmNumber() {
+        return customerGsmNumber;
+    }
+
+    public void setCustomerGsmNumber(String customerGsmNumber) {
+        this.customerGsmNumber = customerGsmNumber;
     }
 
     public String getCustomerEmail() {
