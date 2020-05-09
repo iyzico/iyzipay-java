@@ -1,9 +1,11 @@
 package com.iyzipay.model.subscription;
 
+import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.PagingRequest;
+import com.iyzipay.model.subscription.resource.SubscriptionSearchListData;
 import com.iyzipay.request.subscription.SearchSubscriptionRequest;
 import org.apache.commons.lang3.StringUtils;
 
@@ -11,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SubscriptionSearch extends IyzipayResource {
+
+    @SerializedName("data")
+    private SubscriptionSearchListData subscriptionSearchListData;
 
     public static SubscriptionSearch search(SearchSubscriptionRequest request, PagingRequest pagingRequest, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/subscriptions" + new SubscriptionSearchQueryParamBuilder().page(pagingRequest.getPage())
@@ -29,6 +34,14 @@ public class SubscriptionSearch extends IyzipayResource {
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionSearch.class);
+    }
+
+    public SubscriptionSearchListData getSubscriptionSearchListData() {
+        return subscriptionSearchListData;
+    }
+
+    public void setSubscriptionSearchListData(SubscriptionSearchListData subscriptionSearchListData) {
+        this.subscriptionSearchListData = subscriptionSearchListData;
     }
 
     private static class SubscriptionSearchQueryParamBuilder {
