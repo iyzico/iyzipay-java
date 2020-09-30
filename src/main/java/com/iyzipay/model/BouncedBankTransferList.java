@@ -1,12 +1,12 @@
 package com.iyzipay.model;
 
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveTransactionsRequest;
-
-import java.util.List;
 
 public class BouncedBankTransferList extends IyzipayResource {
 
@@ -15,6 +15,7 @@ public class BouncedBankTransferList extends IyzipayResource {
 
     public static BouncedBankTransferList retrieve(RetrieveTransactionsRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/reporting/settlement/bounced",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 BouncedBankTransferList.class);

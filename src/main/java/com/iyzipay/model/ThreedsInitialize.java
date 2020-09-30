@@ -14,6 +14,7 @@ public class ThreedsInitialize extends IyzipayResource {
 
     public static ThreedsInitialize create(CreatePaymentRequest request, Options options) {
         ThreedsInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/initialize",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 ThreedsInitialize.class);

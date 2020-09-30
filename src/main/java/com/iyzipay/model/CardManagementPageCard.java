@@ -1,11 +1,11 @@
 package com.iyzipay.model;
 
+import java.util.List;
+
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.RetrieveCardManagementPageCardRequest;
-
-import java.util.List;
 
 public class CardManagementPageCard extends IyzipayResource {
 
@@ -15,6 +15,7 @@ public class CardManagementPageCard extends IyzipayResource {
 
     public static CardManagementPageCard retrieve(RetrieveCardManagementPageCardRequest request, Options options) {
         return HttpClient.create().get(prepareRetrieveCardManagementPageCardRequest(request, options),
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 CardManagementPageCard.class);

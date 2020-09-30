@@ -8,6 +8,7 @@ public class CheckoutFormInitializePreAuth extends CheckoutFormInitializeResourc
 
     public static CheckoutFormInitializePreAuth create(CreateCheckoutFormInitializeRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/preauth/ecom",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 CheckoutFormInitializePreAuth.class);

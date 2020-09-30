@@ -11,6 +11,7 @@ public class Approval extends IyzipayResource {
 
     public static Approval create(CreateApprovalRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/item/approve",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Approval.class);

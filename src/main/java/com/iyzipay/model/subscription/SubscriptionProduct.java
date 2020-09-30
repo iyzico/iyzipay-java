@@ -16,6 +16,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct retrieve(String subscriptionProductReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
         return HttpClient.create().get(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionProduct.class);
@@ -24,6 +25,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct create(CreateSubscriptionProductRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionProduct.class);
@@ -32,6 +34,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct update(String subscriptionProductReferenceCode, SubscriptionUpdateProductRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionProduct.class);
@@ -40,6 +43,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static IyzipayResource delete(String subscriptionProductReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
         return HttpClient.create().delete(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 IyzipayResource.class);

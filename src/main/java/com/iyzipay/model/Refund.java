@@ -1,11 +1,11 @@
 package com.iyzipay.model;
 
+import java.math.BigDecimal;
+
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateRefundRequest;
-
-import java.math.BigDecimal;
 
 public class Refund extends IyzipayResource {
 
@@ -19,6 +19,7 @@ public class Refund extends IyzipayResource {
 
     public static Refund create(CreateRefundRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Refund.class);

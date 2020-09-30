@@ -16,6 +16,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan retrieve(String subscriptionPricingPlanReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
         return HttpClient.create().get(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionPricingPlan.class);
@@ -24,6 +25,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan create(String subscriptionProductReferenceCode, CreateSubscriptionPricingPlanRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode + "/pricing-plans";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionPricingPlan.class);
@@ -32,6 +34,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan update(String subscriptionPricingPlanReferenceCode, UpdateSubscriptionPricingPlanRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionPricingPlan.class);
@@ -40,6 +43,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static IyzipayResource delete(String subscriptionPricingPlanReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
         return HttpClient.create().delete(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 IyzipayResource.class);

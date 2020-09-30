@@ -1,11 +1,11 @@
 package com.iyzipay.model;
 
+import java.math.BigDecimal;
+
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateCancelRequest;
-
-import java.math.BigDecimal;
 
 public class Cancel extends IyzipayResource {
 
@@ -18,6 +18,7 @@ public class Cancel extends IyzipayResource {
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/cancel",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Cancel.class);

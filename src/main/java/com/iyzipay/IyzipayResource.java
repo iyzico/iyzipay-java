@@ -1,13 +1,17 @@
-package com.iyzipay;
+package com.iyzipay ;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import static org.apache.commons.lang3.StringUtils.isNotBlank ;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.net.InetSocketAddress ;
+import java.net.Proxy ;
+import java.util.HashMap ;
+import java.util.Map ;
+import java.util.UUID ;
+
+import org.apache.commons.lang3.RandomStringUtils ;
+import org.apache.commons.lang3.StringUtils ;
+import org.apache.commons.lang3.builder.ToStringBuilder ;
+import org.apache.commons.lang3.builder.ToStringStyle ;
 
 public class IyzipayResource {
 
@@ -51,6 +55,13 @@ public class IyzipayResource {
 
         putClientVersionHeader(headers);
         return headers;
+    }
+
+    protected static Proxy getHttpProxy(Options options) {
+        if (isNotBlank(options.getProxyHost())) {
+            return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(options.getProxyHost(), options.getProxyPort())) ;
+        }
+        return null ;
     }
 
     private static void putClientVersionHeader(Map<String, String> headers) {

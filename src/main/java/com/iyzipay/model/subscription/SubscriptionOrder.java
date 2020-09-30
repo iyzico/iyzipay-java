@@ -14,6 +14,7 @@ public class SubscriptionOrder extends IyzipayResource {
     public static SubscriptionOrder retrieve(String subscriptionOrderReferenceCode, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/orders/" + subscriptionOrderReferenceCode;
         return HttpClient.create().get(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionOrder.class);

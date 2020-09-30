@@ -1,13 +1,14 @@
 package com.iyzipay.model;
 
+import java.math.BigDecimal;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.UpdatePaymentItemRequest;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
-import java.math.BigDecimal;
 
 public class PaymentItem extends IyzipayResource {
 
@@ -33,6 +34,7 @@ public class PaymentItem extends IyzipayResource {
 
     public static PaymentItem update(UpdatePaymentItemRequest request, Options options) {
         return HttpClient.create().put(options.getBaseUrl() + "/payment/item",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 PaymentItem.class);

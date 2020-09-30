@@ -14,6 +14,7 @@ public class SubscriptionCheckoutFormInitialize extends IyzipayResource {
     public static SubscriptionCheckoutFormInitialize create(InitializeSubscriptionCheckoutFormRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/checkoutform/initialize";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionCheckoutFormInitialize.class);
