@@ -28,6 +28,8 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private List<Integer> enabledInstallments;
     private Boolean paymentWithNewCardEnabled;
     private Boolean debitCardAllowed;
+    private Boolean subscriptionPaymentEnabled;
+    private Boolean payWithIyzico;
 
     public BigDecimal getPrice() {
         return price;
@@ -186,6 +188,8 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("enabledInstallments", enabledInstallments)
                 .append("paymentWithNewCardEnabled", paymentWithNewCardEnabled)
                 .append("debitCardAllowed", debitCardAllowed)
+                .append("subscriptionPaymentEnabled", subscriptionPaymentEnabled)
+                .append("payWithIyzico", payWithIyzico)
                 .toString();
     }
 }
