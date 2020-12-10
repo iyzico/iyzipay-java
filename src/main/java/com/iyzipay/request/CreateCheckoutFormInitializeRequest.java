@@ -167,6 +167,22 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.debitCardAllowed = debitCardAllowed;
     }
 
+    public Boolean getSubscriptionPaymentEnabled() {
+        return subscriptionPaymentEnabled;
+    }
+
+    public void setSubscriptionPaymentEnabled(Boolean subscriptionPaymentEnabled) {
+        this.subscriptionPaymentEnabled = subscriptionPaymentEnabled;
+    }
+
+    public Boolean getPayWithIyzico() {
+        return payWithIyzico;
+    }
+
+    public void setPayWithIyzico(Boolean payWithIyzico) {
+        this.payWithIyzico = payWithIyzico;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
