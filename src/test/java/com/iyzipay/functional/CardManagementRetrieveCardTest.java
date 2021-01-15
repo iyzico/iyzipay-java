@@ -11,9 +11,9 @@ import com.iyzipay.request.RetrieveCardManagementPageCardRequest;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import java.util.UUID;
+
+import static org.junit.Assert.*;
 
 public class CardManagementRetrieveCardTest extends BaseTest {
 
@@ -51,15 +51,15 @@ public class CardManagementRetrieveCardTest extends BaseTest {
     @Test
     public void should_not_retrieve_cards_when_pageToken_is_not_exist() {
         RetrieveCardManagementPageCardRequest retrieveCardRequest = CardManagementRetrieveCardBuilder.create()
-                .pageToken("pagetoken")
+                .pageToken(UUID.randomUUID().toString())
                 .build();
 
         CardManagementPageCard cardManagementPageCard = CardManagementPageCard.retrieve(retrieveCardRequest, options);
 
         System.out.println(cardManagementPageCard);
 
-        assertEquals(Status.FAILURE.getValue(), cardManagementPageCard.getStatus());
-        assertEquals("4002", cardManagementPageCard.getErrorCode());
-        assertEquals("Geçersiz token", cardManagementPageCard.getErrorMessage());
+        assertEquals(Status.SUCCESS.getValue(), cardManagementPageCard.getStatus());
+        assertNull(cardManagementPageCard.getCardUserKey());
+        assertEquals(0, cardManagementPageCard.getCardDetails().size());
     }
 }
