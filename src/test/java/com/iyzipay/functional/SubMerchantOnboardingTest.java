@@ -1,9 +1,7 @@
 package com.iyzipay.functional;
 
 import com.iyzipay.model.Locale;
-import com.iyzipay.model.marketplace.onboarding.settlementtobalance.SubMerchantOnboardingApiCredentials;
 import com.iyzipay.model.marketplace.onboarding.settlementtobalance.SubMerchantOnboardingInitialize;
-import com.iyzipay.model.marketplace.onboarding.settlementtobalance.SubMerchantOnboardingSmsVerificationCodeEncrypter;
 import com.iyzipay.model.marketplace.onboarding.settlementtobalance.SubMerchantOnboardingVerify;
 import com.iyzipay.request.SubMerchantOnboardingInitializeRequest;
 import com.iyzipay.request.SubMerchantOnboardingVerifyRequest;
@@ -69,12 +67,6 @@ public class SubMerchantOnboardingTest extends BaseTest {
         final String gsmNumber = randomGsmNumber();
         final String externalId = UUID.randomUUID().toString();
 
-        final SubMerchantOnboardingApiCredentials apiCredentials = new SubMerchantOnboardingApiCredentials();
-        apiCredentials.setSalt("D75CD3813ED14079");
-        apiCredentials.setSecretKey("myKey");
-
-        final String encryptedVerificationCode = SubMerchantOnboardingSmsVerificationCodeEncrypter.encrypt(apiCredentials, "123456");
-
         SubMerchantOnboardingInitializeRequest request = new SubMerchantOnboardingInitializeRequest();
         request.setLocale(Locale.TR.getValue());
         request.setConversationId(conversationId);
@@ -89,6 +81,8 @@ public class SubMerchantOnboardingTest extends BaseTest {
 
         SubMerchantOnboardingInitialize response = SubMerchantOnboardingInitialize.initialize(request, options);
         System.out.println(response);
+
+        final String encryptedVerificationCode = "HZ87equxm70klGxX1nZX7A=="; // 123456
 
         SubMerchantOnboardingVerifyRequest verifyRequest = new SubMerchantOnboardingVerifyRequest();
         verifyRequest.setLocale(Locale.TR.getValue());

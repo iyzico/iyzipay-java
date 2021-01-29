@@ -10,10 +10,12 @@ import com.iyzipay.request.SubMerchantOnboardingVerifyRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+@Ignore // FIXME: remove @Ignore after Java8+ migration
 public class SubMerchantOnboardingSample extends Sample {
 
     public SubMerchantOnboardingApiCredentials onboardingApiCredentials;
@@ -107,7 +109,10 @@ public class SubMerchantOnboardingSample extends Sample {
         assertNotNull(response.getTxId());
         assertFalse(StringUtils.isBlank(response.getTxId()));
 
-        // Verify the Claim and create sub-merchant
+        /*
+        Encrypt the verification code using AES using PBKDF2WithHmacSHA256 key derivation algorithm
+        with your own secret key and salt (onboarding api credentials)
+         */
         final String encryptedVerificationCode = SubMerchantOnboardingSmsVerificationCodeEncrypter.encrypt(onboardingApiCredentials, "123456");
 
         SubMerchantOnboardingVerifyRequest verifyRequest = new SubMerchantOnboardingVerifyRequest();
