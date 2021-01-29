@@ -36,6 +36,10 @@ public class PaymentResource extends IyzipayResource {
     private String lastFourDigits;
     private String posOrderId;
     private String hostReference;
+    private String iban;
+    private String legalCompanyTitle;
+    private String bankName;
+    private String referenceCode;
 
     public BigDecimal getPrice() {
         return price;
@@ -235,6 +239,38 @@ public class PaymentResource extends IyzipayResource {
 
     public void setHostReference(String hostReference) {
         this.hostReference = hostReference;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getLegalCompanyTitle() {
+        return legalCompanyTitle;
+    }
+
+    public void setLegalCompanyTitle(String legalCompanyTitle) {
+        this.legalCompanyTitle = legalCompanyTitle;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getReferenceCode() {
+        return referenceCode;
+    }
+
+    public void setReferenceCode(String referenceCode) {
+        this.referenceCode = referenceCode;
     }
 
     @Override
