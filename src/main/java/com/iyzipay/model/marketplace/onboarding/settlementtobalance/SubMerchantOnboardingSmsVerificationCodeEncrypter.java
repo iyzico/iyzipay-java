@@ -15,6 +15,8 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.spec.KeySpec;
 
 public class SubMerchantOnboardingSmsVerificationCodeEncrypter {
+    private static final int VERIFICATION_CODE_LENGTH = 6;
+
     private SubMerchantOnboardingSmsVerificationCodeEncrypter() {
     }
 
@@ -57,8 +59,10 @@ public class SubMerchantOnboardingSmsVerificationCodeEncrypter {
             throw new SubMerchantOnboardingInvalidSmsVerificationCode("SMS verification code can not be empty or null");
         }
 
-        if (StringUtils.length(verificationCode) != 6) {
-            throw new SubMerchantOnboardingInvalidSmsVerificationCode("SMS verification code should be 6 characters long");
+        if (StringUtils.length(verificationCode) != VERIFICATION_CODE_LENGTH) {
+            throw new SubMerchantOnboardingInvalidSmsVerificationCode(
+                    String.format("SMS verification code should be %d characters long", VERIFICATION_CODE_LENGTH)
+            );
         }
     }
 }
