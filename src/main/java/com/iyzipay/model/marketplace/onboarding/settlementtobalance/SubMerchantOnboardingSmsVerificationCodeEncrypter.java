@@ -23,7 +23,7 @@ public class SubMerchantOnboardingSmsVerificationCodeEncrypter {
         validateSmsVerificationCode(plainTextSmsVerificationCode);
 
         try {
-            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
             KeySpec spec = new PBEKeySpec(credentials.getSecretKey().toCharArray(), credentials.getSalt().getBytes(), 65536, 256);
             SecretKey tmp = factory.generateSecret(spec);
             SecretKeySpec secretKeySpec = new SecretKeySpec(tmp.getEncoded(), "AES");
