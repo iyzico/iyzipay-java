@@ -8,6 +8,7 @@ public class CheckoutFormInitializeResource extends IyzipayResource {
     private String checkoutFormContent;
     private Long tokenExpireTime;
     private String paymentPageUrl;
+    private String payWithIyzicoPageUrl;
 
     public String getToken() {
         return token;
@@ -39,5 +40,13 @@ public class CheckoutFormInitializeResource extends IyzipayResource {
 
     public void setPaymentPageUrl(String paymentPageUrl) {
         this.paymentPageUrl = paymentPageUrl;
+    }
+
+    public String getPayWithIyzicoPageUrl() {
+        return payWithIyzicoPageUrl;
+    }
+
+    public void setPayWithIyzicoPageUrl(String payWithIyzicoPageUrl) {
+        this.payWithIyzicoPageUrl = payWithIyzicoPageUrl;
     }
 }
