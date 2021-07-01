@@ -57,7 +57,7 @@
         <maven-versions-plugin.version>2.2</maven-versions-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
         <commons-lang3.version>3.4</commons-lang3.version>
-        <junit-version>4.12</junit-version>
+        <junit-version>4.13.1</junit-version>
         <gson.version>2.5</gson.version>
     </properties>
 
