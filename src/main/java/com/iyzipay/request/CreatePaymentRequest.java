@@ -7,6 +7,7 @@ import com.iyzipay.model.Address;
 import com.iyzipay.model.BasketItem;
 import com.iyzipay.model.Buyer;
 import com.iyzipay.model.PaymentCard;
+import com.iyzipay.model.loyalty.Loyalty;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -30,9 +31,18 @@ public class CreatePaymentRequest extends Request {
     private String connectorName;
     private String callbackUrl;
     private String gsmNumber;
+    private Loyalty reward;
 
     public CreatePaymentRequest() {
         setInstallment(Constants.SINGLE_INSTALLMENT);
+    }
+
+    public Loyalty getReward() {
+        return reward;
+    }
+
+    public void setReward(Loyalty reward) {
+        this.reward = reward;
     }
 
     public BigDecimal getPrice() {
