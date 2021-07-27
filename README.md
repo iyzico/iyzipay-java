@@ -178,6 +178,13 @@ Card Number      | Country
 4054180000000007 | Non-Turkish (Debit)
 5400010000000004 | Non-Turkish (Credit)
 
+*Loyalty* test cards:
+
+Card Number      | Card Family                
+-----------      | ----                      
+5549607159333771 | Bonus   
+5451030000000000 | World                
+
 Test cards to get specific *error* codes:
 
 Card Number       | Description
