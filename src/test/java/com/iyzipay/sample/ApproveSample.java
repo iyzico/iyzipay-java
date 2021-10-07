@@ -6,7 +6,9 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateApprovalRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class ApproveSample extends Sample {
 
@@ -24,7 +26,7 @@ public class ApproveSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), approval.getStatus());
         assertEquals(Locale.TR.getValue(), approval.getLocale());
         assertEquals("123456789", approval.getConversationId());
-        assertNotNull(approval.getSystemTime());
+        assertNotEquals(0, approval.getSystemTime());
         assertNull(approval.getErrorCode());
         assertNull(approval.getErrorMessage());
         assertNull(approval.getErrorGroup());

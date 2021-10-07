@@ -14,6 +14,7 @@ public class ThreedsInitializePreAuth extends IyzipayResource {
 
     public static ThreedsInitializePreAuth create(CreatePaymentRequest request, Options options) {
         ThreedsInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/initialize/preauth",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 ThreedsInitializePreAuth.class);

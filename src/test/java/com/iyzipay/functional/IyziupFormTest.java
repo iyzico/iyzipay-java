@@ -3,7 +3,13 @@ package com.iyzipay.functional;
 import com.iyzipay.functional.builder.OrderItemBuilder;
 import com.iyzipay.functional.builder.request.CreateIyziupFormInitializeRequestBuilder;
 import com.iyzipay.functional.builder.request.RetrieveIyziupFormRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.InitialConsumer;
+import com.iyzipay.model.IyziupAddress;
+import com.iyzipay.model.IyziupForm;
+import com.iyzipay.model.IyziupFormInitialize;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.OrderItem;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateIyziupFormInitializeRequest;
 import com.iyzipay.request.RetrieveIyziupFormRequest;
 import org.junit.Test;
@@ -14,6 +20,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class IyziupFormTest extends IyziupBaseTest {
@@ -38,7 +45,7 @@ public class IyziupFormTest extends IyziupBaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), iyziupFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), iyziupFormInitialize.getLocale());
-        assertNotNull(iyziupFormInitialize.getSystemTime());
+        assertNotEquals(0, iyziupFormInitialize.getSystemTime());
         assertNotNull(iyziupFormInitialize.getToken());
         assertNotNull(iyziupFormInitialize.getContent());
     }
@@ -64,7 +71,7 @@ public class IyziupFormTest extends IyziupBaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), iyziupFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), iyziupFormInitialize.getLocale());
-        assertNotNull(iyziupFormInitialize.getSystemTime());
+        assertNotEquals(0, iyziupFormInitialize.getSystemTime());
         assertNotNull(iyziupFormInitialize.getToken());
         assertNotNull(iyziupFormInitialize.getContent());
     }
@@ -95,7 +102,7 @@ public class IyziupFormTest extends IyziupBaseTest {
 
         assertNotNull(iyziupForm.getErrorMessage());
         assertEquals(Status.FAILURE.getValue(), iyziupForm.getStatus());
-        assertNotNull(iyziupForm.getSystemTime());
+        assertNotEquals(0, iyziupFormInitialize.getSystemTime());
     }
 
     private InitialConsumer createDummyInitialConsumerData() {

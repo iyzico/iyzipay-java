@@ -19,7 +19,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.iyzipay</groupId>
   <artifactId>iyzipay-java</artifactId>
-  <version>2.0.66</version>
+  <version>2.0.85</version>
 </dependency>
 ```
 
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.iyzipay:iyzipay-java:2.0.66"
+compile "com.iyzipay:iyzipay-java:2.0.85"
 ```
 
 ### Others
@@ -177,6 +177,13 @@ Card Number      | Country
 -----------      | -------
 4054180000000007 | Non-Turkish (Debit)
 5400010000000004 | Non-Turkish (Credit)
+
+*Loyalty* test cards:
+
+Card Number      | Card Family                
+-----------      | ----                      
+5549607159333771 | Bonus   
+5451030000000000 | World                
 
 Test cards to get specific *error* codes:
 

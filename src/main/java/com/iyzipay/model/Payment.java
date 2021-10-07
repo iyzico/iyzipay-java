@@ -9,6 +9,7 @@ public class Payment extends PaymentResource {
 
     public static Payment create(CreatePaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/auth",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Payment.class);
@@ -16,6 +17,7 @@ public class Payment extends PaymentResource {
 
     public static Payment retrieve(RetrievePaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/detail",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Payment.class);

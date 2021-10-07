@@ -23,7 +23,7 @@ public class CardManagementRetrieveCardTest extends BaseTest {
     }
 
     @Test
-    public void should_retrieve_cards() throws Exception {
+    public void should_retrieve_cards() {
         // given
         CreateCardManagementPageInitializeRequest initializeRequest = CardManagementPageRequestBuilder.create().build();
         CardManagementPageInitialize cardManagementPageInitialize = CardManagementPageInitialize.create(initializeRequest, options);
@@ -47,7 +47,7 @@ public class CardManagementRetrieveCardTest extends BaseTest {
     }
 
     @Test
-    public void should_not_retrieve_cards_when_pageToken_is_not_exist() throws Exception {
+    public void should_not_retrieve_cards_when_pageToken_is_not_exist() {
         RetrieveCardManagementPageCardRequest retrieveCardRequest = CardManagementRetrieveCardBuilder.create()
                 .pageToken("pagetoken")
                 .build();

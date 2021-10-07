@@ -1,11 +1,11 @@
 package com.iyzipay.model;
 
+import java.math.BigDecimal;
+
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateRefundRequest;
-
-import java.math.BigDecimal;
 
 public class RefundChargedFromMerchant extends IyzipayResource {
 
@@ -16,6 +16,7 @@ public class RefundChargedFromMerchant extends IyzipayResource {
 
     public static RefundChargedFromMerchant create(CreateRefundRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund/merchant/charge",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 RefundChargedFromMerchant.class);

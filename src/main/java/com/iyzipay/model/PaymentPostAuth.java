@@ -8,6 +8,7 @@ public class PaymentPostAuth extends PaymentResource {
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/postauth",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 PaymentPostAuth.class);

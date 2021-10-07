@@ -16,6 +16,7 @@ public class SubscriptionInitialize extends IyzipayResource {
     public static SubscriptionInitialize create(InitializeSubscriptionRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/initialize";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionInitialize.class);
@@ -24,6 +25,7 @@ public class SubscriptionInitialize extends IyzipayResource {
     public static SubscriptionInitialize createWithExistingCustomer(InitializeSubscriptionWithExistingCustomerRequest request, Options options) {
         String uri = options.getBaseUrl() + "/v2/subscription/initialize/with-customer";
         return HttpClient.create().post(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, request, options),
                 request,
                 SubscriptionInitialize.class);

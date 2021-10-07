@@ -9,6 +9,7 @@ public class Apm extends ApmResource {
 
     public static Apm create(CreateApmInitializeRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/initialize",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Apm.class);
@@ -16,6 +17,7 @@ public class Apm extends ApmResource {
 
     public static Apm retrieve(RetrieveApmRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/retrieve",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Apm.class);

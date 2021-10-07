@@ -6,7 +6,9 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.RetrieveBinNumberRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 public class BinNumberSample extends Sample {
 
@@ -24,7 +26,7 @@ public class BinNumberSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), binNumber.getStatus());
         assertEquals(Locale.TR.getValue(), binNumber.getLocale());
         assertEquals("123456789", binNumber.getConversationId());
-        assertNotNull(binNumber.getSystemTime());
+        assertNotEquals(0, binNumber.getSystemTime());
         assertNull(binNumber.getErrorCode());
         assertNull(binNumber.getErrorMessage());
         assertNull(binNumber.getErrorGroup());

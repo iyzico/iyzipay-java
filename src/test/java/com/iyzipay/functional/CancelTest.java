@@ -2,14 +2,22 @@ package com.iyzipay.functional;
 
 import com.iyzipay.functional.builder.request.CreateCancelRequestBuilder;
 import com.iyzipay.functional.builder.request.CreatePaymentRequestBuilder;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Cancel;
+import com.iyzipay.model.Currency;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Payment;
+import com.iyzipay.model.RefundReason;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCancelRequest;
 import com.iyzipay.request.CreatePaymentRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class CancelTest extends BaseTest {
 
@@ -35,7 +43,7 @@ public class CancelTest extends BaseTest {
         assertEquals(new BigDecimal("1.10000000"), cancel.getPrice());
         assertEquals(Currency.TRY.name(), cancel.getCurrency());
         assertNotNull(cancel.getAuthCode());
-        assertNotNull(cancel.getSystemTime());
+        assertNotEquals(0, cancel.getSystemTime());
         assertNotNull(cancel.getHostReference());
         assertNull(cancel.getErrorCode());
         assertNull(cancel.getErrorMessage());

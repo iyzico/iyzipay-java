@@ -9,6 +9,7 @@ public class PaymentPreAuth extends PaymentResource {
 
     public static PaymentPreAuth create(CreatePaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/preauth",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 PaymentPreAuth.class);
@@ -16,6 +17,7 @@ public class PaymentPreAuth extends PaymentResource {
 
     public static PaymentPreAuth retrieve(RetrievePaymentRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/detail",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 PaymentPreAuth.class);

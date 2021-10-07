@@ -17,6 +17,7 @@ public class IyziupForm extends IyzipayResource {
 
     public static IyziupForm retrieve(RetrieveIyziupFormRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/v1/iyziup/form/order/retrieve",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 IyziupForm.class);

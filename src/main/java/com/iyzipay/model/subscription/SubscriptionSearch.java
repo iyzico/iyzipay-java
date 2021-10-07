@@ -13,7 +13,7 @@ import java.util.Map;
 public class SubscriptionSearch extends IyzipayResource {
 
     public static SubscriptionSearch search(SearchSubscriptionRequest request, PagingRequest pagingRequest, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/initialize" + new SubscriptionSearchQueryParamBuilder().page(pagingRequest.getPage())
+        String uri = options.getBaseUrl() + "/v2/subscription/subscriptions" + new SubscriptionSearchQueryParamBuilder().page(pagingRequest.getPage())
                 .count(pagingRequest.getCount())
                 .page(pagingRequest.getPage())
                 .subscriptionReferenceCode(request.getSubscriptionReferenceCode())
@@ -26,6 +26,7 @@ public class SubscriptionSearch extends IyzipayResource {
                 .build();
 
         return HttpClient.create().get(uri,
+                getHttpProxy(options),
                 getHttpHeadersV2(uri, null, options),
                 null,
                 SubscriptionSearch.class);

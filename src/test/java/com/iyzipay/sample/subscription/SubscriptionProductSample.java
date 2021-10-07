@@ -25,7 +25,7 @@ public class SubscriptionProductSample extends Sample {
         SubscriptionProduct response = SubscriptionProduct.create(createSubscriptionProductRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
-        assertEquals(response.getSubscriptionProductData().getDescription(), "product");
+        assertEquals("product", response.getSubscriptionProductData().getDescription());
         assertNotNull(response.getSubscriptionProductData().getReferenceCode());
         assertNotNull(response.getSubscriptionProductData().getPricingPlanList());
         assertNotNull(response.getSubscriptionProductData().getCreatedDate());

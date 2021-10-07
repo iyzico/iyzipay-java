@@ -7,6 +7,7 @@ import com.iyzipay.request.RetrieveCardManagementPageCardRequest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -25,7 +26,7 @@ public class CardManagementRetrieveCardSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), cardManagementPageCard.getStatus());
         assertEquals(Locale.TR.getValue(), cardManagementPageCard.getLocale());
-        assertNotNull(cardManagementPageCard.getSystemTime());
+        assertNotEquals(0, cardManagementPageCard.getSystemTime());
         assertNull(cardManagementPageCard.getErrorCode());
         assertNull(cardManagementPageCard.getErrorMessage());
         assertNull(cardManagementPageCard.getErrorGroup());

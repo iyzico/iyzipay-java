@@ -11,6 +11,7 @@ public class Bkm extends PaymentResource {
 
     public static Bkm retrieve(RetrieveBkmRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/auth/detail",
+                getHttpProxy(options),
                 getHttpHeaders(request, options),
                 request,
                 Bkm.class);

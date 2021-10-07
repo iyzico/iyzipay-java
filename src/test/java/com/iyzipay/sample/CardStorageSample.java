@@ -1,12 +1,20 @@
 package com.iyzipay.sample;
 
-import com.iyzipay.model.*;
+import com.iyzipay.model.Card;
+import com.iyzipay.model.CardInformation;
+import com.iyzipay.model.CardList;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
 import com.iyzipay.request.RetrieveCardListRequest;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class CardStorageSample extends Sample {
 
@@ -33,7 +41,7 @@ public class CardStorageSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals("123456789", card.getConversationId());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertNull(card.getErrorCode());
         assertNull(card.getErrorMessage());
         assertNull(card.getErrorGroup());
@@ -72,7 +80,7 @@ public class CardStorageSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals("123456789", card.getConversationId());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertNull(card.getErrorCode());
         assertNull(card.getErrorMessage());
         assertNull(card.getErrorGroup());
@@ -104,7 +112,7 @@ public class CardStorageSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals("123456789", card.getConversationId());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertNull(card.getErrorCode());
         assertNull(card.getErrorMessage());
         assertNull(card.getErrorGroup());
@@ -135,7 +143,7 @@ public class CardStorageSample extends Sample {
         assertEquals(Status.SUCCESS.getValue(), cardList.getStatus());
         assertEquals(Locale.TR.getValue(), cardList.getLocale());
         assertEquals("123456789", cardList.getConversationId());
-        assertNotNull(cardList.getSystemTime());
+        assertNotEquals(0, cardList.getSystemTime());
         assertNull(cardList.getErrorCode());
         assertNull(cardList.getErrorMessage());
         assertNull(cardList.getErrorGroup());

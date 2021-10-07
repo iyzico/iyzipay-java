@@ -3,7 +3,11 @@ package com.iyzipay.functional;
 import com.iyzipay.functional.builder.CardInformationBuilder;
 import com.iyzipay.functional.builder.request.CreateCardRequestBuilder;
 import com.iyzipay.functional.util.RandomGenerator;
-import com.iyzipay.model.*;
+import com.iyzipay.model.Card;
+import com.iyzipay.model.CardInformation;
+import com.iyzipay.model.CardList;
+import com.iyzipay.model.Locale;
+import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCardRequest;
 import com.iyzipay.request.DeleteCardRequest;
 import com.iyzipay.request.RetrieveCardListRequest;
@@ -12,7 +16,11 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class CardStorageTest extends BaseTest {
 
@@ -34,7 +42,7 @@ public class CardStorageTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
         assertEquals("email@email.com", card.getEmail());
         assertEquals("552879", card.getBinNumber());
@@ -43,13 +51,13 @@ public class CardStorageTest extends BaseTest {
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
         assertEquals("Halk Bankası", card.getCardBankName());
-        assertTrue(card.getCardBankCode().equals(12L));
+        assertEquals(12L, (long) card.getCardBankCode());
     }
 
     @Test
     public void should_create_user_and_add_card_when_metadata_exist() {
         String externalUserId = RandomGenerator.randomId();
-        Map<String, String> metadata = Collections.singletonMap("CUT_OFF_DAY","15");
+        Map<String, String> metadata = Collections.singletonMap("CUT_OFF_DAY", "15");
 
         CardInformation cardInformation = CardInformationBuilder.create()
                 .metadata(metadata)
@@ -69,7 +77,7 @@ public class CardStorageTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
         assertEquals("email@email.com", card.getEmail());
         assertEquals("552879", card.getBinNumber());
@@ -77,9 +85,9 @@ public class CardStorageTest extends BaseTest {
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
-        assertEquals(card.getMetadata().get("CUT_OFF_DAY"), "15");
+        assertEquals("15", card.getMetadata().get("CUT_OFF_DAY"));
         assertEquals("Halk Bankası", card.getCardBankName());
-        assertTrue(card.getCardBankCode().equals(12L));
+        assertEquals(12L, (long) card.getCardBankCode());
     }
 
     @Test
@@ -109,7 +117,7 @@ public class CardStorageTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), card.getLocale());
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
-        assertNotNull(card.getSystemTime());
+        assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
         assertEquals("552879", card.getBinNumber());
         assertEquals("card alias", card.getCardAlias());
@@ -118,7 +126,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals("Paraf", card.getCardFamily());
         assertEquals("Halk Bankası", card.getCardBankName());
         assertEquals(externalUserId, card.getExternalId());
-        assertTrue(card.getCardBankCode().equals(12L));
+        assertEquals(12L, (long) card.getCardBankCode());
     }
 
     @Test
@@ -135,7 +143,7 @@ public class CardStorageTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), deletedCard.getStatus());
         assertEquals(Locale.TR.getValue(), deletedCard.getLocale());
-        assertNotNull(deletedCard.getSystemTime());
+        assertNotEquals(0, deletedCard.getSystemTime());
         assertNull(deletedCard.getErrorCode());
         assertNull(deletedCard.getErrorMessage());
         assertNull(deletedCard.getErrorGroup());
@@ -168,7 +176,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), cardList.getStatus());
         assertEquals(Locale.TR.getValue(), cardList.getLocale());
         assertEquals("123456789", cardList.getConversationId());
-        assertNotNull(cardList.getSystemTime());
+        assertNotEquals(0, cardList.getSystemTime());
         assertNull(cardList.getErrorCode());
         assertNull(cardList.getErrorMessage());
         assertNull(cardList.getErrorGroup());
