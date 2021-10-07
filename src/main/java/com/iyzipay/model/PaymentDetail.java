@@ -1,45 +1,71 @@
 package com.iyzipay.model;
 
-import com.google.gson.annotations.SerializedName;
-import com.iyzipay.IyzipayResource;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
-public class PaymentResource extends IyzipayResource {
+public class PaymentDetail {
 
+    private Long paymentId;
+    private Integer paymentStatus;
+    private String paymentRefundStatus;
     private BigDecimal price;
     private BigDecimal paidPrice;
-    private String currency;
     private Integer installment;
-    private String paymentId;
-    private String paymentStatus;
-    private Integer fraudStatus;
     private BigDecimal merchantCommissionRate;
     private BigDecimal merchantCommissionRateAmount;
     private BigDecimal iyziCommissionRateAmount;
     private BigDecimal iyziCommissionFee;
+    private String paymentConversationId;
+    private Integer fraudStatus;
     private String cardType;
     private String cardAssociation;
     private String cardFamily;
     private String cardToken;
     private String cardUserKey;
     private String binNumber;
+    private String lastFourDigits;
     private String basketId;
-    @SerializedName("itemTransactions")
-    private List<PaymentItem> paymentItems;
+    private String currency;
     private String connectorName;
     private String authCode;
+    private boolean threeDS;
     private String phase;
-    private String lastFourDigits;
-    private String posOrderId;
+    private String acquirerBankName;
+    private Integer mdStatus;
     private String hostReference;
-    private String iban;
-    private String legalCompanyTitle;
-    private String bankName;
-    private String referenceCode;
+    private Date createdDate;
+    private Date updatedDate;
+    private String orderId;
+    private List<RefundDetail> cancels;
+    private List<PaymentTxDetail> itemTransactions;
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public Integer getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(Integer paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentRefundStatus() {
+        return paymentRefundStatus;
+    }
+
+    public void setPaymentRefundStatus(String paymentRefundStatus) {
+        this.paymentRefundStatus = paymentRefundStatus;
+    }
 
     public BigDecimal getPrice() {
         return price;
@@ -57,44 +83,12 @@ public class PaymentResource extends IyzipayResource {
         this.paidPrice = paidPrice;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
     public Integer getInstallment() {
         return installment;
     }
 
     public void setInstallment(Integer installment) {
         this.installment = installment;
-    }
-
-    public String getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
-
-    public Integer getFraudStatus() {
-        return fraudStatus;
-    }
-
-    public void setFraudStatus(Integer fraudStatus) {
-        this.fraudStatus = fraudStatus;
     }
 
     public BigDecimal getMerchantCommissionRate() {
@@ -127,6 +121,22 @@ public class PaymentResource extends IyzipayResource {
 
     public void setIyziCommissionFee(BigDecimal iyziCommissionFee) {
         this.iyziCommissionFee = iyziCommissionFee;
+    }
+
+    public String getPaymentConversationId() {
+        return paymentConversationId;
+    }
+
+    public void setPaymentConversationId(String paymentConversationId) {
+        this.paymentConversationId = paymentConversationId;
+    }
+
+    public Integer getFraudStatus() {
+        return fraudStatus;
+    }
+
+    public void setFraudStatus(Integer fraudStatus) {
+        this.fraudStatus = fraudStatus;
     }
 
     public String getCardType() {
@@ -177,6 +187,14 @@ public class PaymentResource extends IyzipayResource {
         this.binNumber = binNumber;
     }
 
+    public String getLastFourDigits() {
+        return lastFourDigits;
+    }
+
+    public void setLastFourDigits(String lastFourDigits) {
+        this.lastFourDigits = lastFourDigits;
+    }
+
     public String getBasketId() {
         return basketId;
     }
@@ -185,12 +203,12 @@ public class PaymentResource extends IyzipayResource {
         this.basketId = basketId;
     }
 
-    public List<PaymentItem> getPaymentItems() {
-        return paymentItems;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setPaymentItems(List<PaymentItem> paymentItems) {
-        this.paymentItems = paymentItems;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getConnectorName() {
@@ -209,6 +227,14 @@ public class PaymentResource extends IyzipayResource {
         this.authCode = authCode;
     }
 
+    public boolean isThreeDS() {
+        return threeDS;
+    }
+
+    public void setThreeDS(boolean threeDS) {
+        this.threeDS = threeDS;
+    }
+
     public String getPhase() {
         return phase;
     }
@@ -217,20 +243,20 @@ public class PaymentResource extends IyzipayResource {
         this.phase = phase;
     }
 
-    public String getLastFourDigits() {
-        return lastFourDigits;
+    public String getAcquirerBankName() {
+        return acquirerBankName;
     }
 
-    public void setLastFourDigits(String lastFourDigits) {
-        this.lastFourDigits = lastFourDigits;
+    public void setAcquirerBankName(String acquirerBankName) {
+        this.acquirerBankName = acquirerBankName;
     }
 
-    public String getPosOrderId() {
-        return posOrderId;
+    public Integer getMdStatus() {
+        return mdStatus;
     }
 
-    public void setPosOrderId(String posOrderId) {
-        this.posOrderId = posOrderId;
+    public void setMdStatus(Integer mdStatus) {
+        this.mdStatus = mdStatus;
     }
 
     public String getHostReference() {
@@ -241,40 +267,49 @@ public class PaymentResource extends IyzipayResource {
         this.hostReference = hostReference;
     }
 
-    public String getIban() {
-        return iban;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setIban(String iban) {
-        this.iban = iban;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getLegalCompanyTitle() {
-        return legalCompanyTitle;
+    public Date getUpdatedDate() {
+        return updatedDate;
     }
 
-    public void setLegalCompanyTitle(String legalCompanyTitle) {
-        this.legalCompanyTitle = legalCompanyTitle;
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
-    public String getBankName() {
-        return bankName;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public String getReferenceCode() {
-        return referenceCode;
+    public List<RefundDetail> getCancels() {
+        return cancels;
     }
 
-    public void setReferenceCode(String referenceCode) {
-        this.referenceCode = referenceCode;
+    public void setCancels(List<RefundDetail> cancels) {
+        this.cancels = cancels;
+    }
+
+    public List<PaymentTxDetail> getItemTransactions() {
+        return itemTransactions;
+    }
+
+    public void setItemTransactions(List<PaymentTxDetail> itemTransactions) {
+        this.itemTransactions = itemTransactions;
     }
 
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
 }
