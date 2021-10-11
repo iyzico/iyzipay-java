@@ -40,6 +40,7 @@ public class PaymentResource extends IyzipayResource {
     private String legalCompanyTitle;
     private String bankName;
     private String referenceCode;
+    private Integer mdStatus;
 
     public BigDecimal getPrice() {
         return price;
@@ -271,6 +272,14 @@ public class PaymentResource extends IyzipayResource {
 
     public void setReferenceCode(String referenceCode) {
         this.referenceCode = referenceCode;
+    }
+
+    public Integer getMdStatus() {
+        return mdStatus;
+    }
+
+    public void setMdStatus(Integer mdStatus) {
+        this.mdStatus = mdStatus;
     }
 
     @Override
