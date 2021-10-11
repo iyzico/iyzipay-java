@@ -19,7 +19,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.iyzipay</groupId>
   <artifactId>iyzipay-java</artifactId>
-  <version>2.0.89</version>
+  <version>2.0.91</version>
 </dependency>
 ```
 
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.iyzipay:iyzipay-java:2.0.89"
+compile "com.iyzipay:iyzipay-java:2.0.91"
 ```
 
 ### Others
