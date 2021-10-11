@@ -24,21 +24,6 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Yalcin Yenigun</name>
-            <email>yalcin.yenigun@iyzico.com</email>
-            <organization>iyzico</organization>
-            <organizationUrl>https://iyzico.com</organizationUrl>
-        </developer>
-        <developer>
-            <name>Sabri Onur Tüzün</name>
-            <email>onur.tuzun@iyzico.com</email>
-            <organization>iyzico</organization>
-            <organizationUrl>https://iyzico.com</organizationUrl>
-        </developer>
-    </developers>
-
     <scm>
         <connection>scm:git:https://github.com/iyzico/iyzipay-java.git</connection>
         <developerConnection>scm:git:https://github.com/iyzico/iyzipay-java.git</developerConnection>
