@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.xml.bind.DatatypeConverter;
 
+
 public final class DigestHelper {
 
     private DigestHelper() {
