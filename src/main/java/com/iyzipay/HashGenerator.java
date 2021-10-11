@@ -2,8 +2,8 @@ package com.iyzipay;
 
 import com.iyzipay.exception.HttpClientException;
 
-import jakarta.xml.bind.DatatypeConverter;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
