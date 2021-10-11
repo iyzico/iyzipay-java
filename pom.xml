@@ -24,6 +24,15 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Caglar Parilti</name>
+            <email>caglar.parilti@iyzico.com</email>
+            <organization>iyzico</organization>
+            <organizationUrl>https://iyzico.com</organizationUrl>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:https://github.com/iyzico/iyzipay-java.git</connection>
         <developerConnection>scm:git:https://github.com/iyzico/iyzipay-java.git</developerConnection>
