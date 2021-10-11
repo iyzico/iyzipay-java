@@ -4,6 +4,7 @@ import com.iyzipay.model.marketplace.onboarding.settlementtobalance.exception.Su
 import com.iyzipay.model.marketplace.onboarding.settlementtobalance.exception.SubMerchantOnboardingInvalidSaltException;
 import com.iyzipay.model.marketplace.onboarding.settlementtobalance.exception.SubMerchantOnboardingInvalidSecretKeyException;
 import com.iyzipay.model.marketplace.onboarding.settlementtobalance.exception.SubMerchantOnboardingInvalidSmsVerificationCode;
+import jakarta.xml.bind.DatatypeConverter;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.Cipher;
@@ -11,7 +12,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 import java.security.spec.KeySpec;
 
 public class SubMerchantOnboardingSmsVerificationCodeEncrypter {

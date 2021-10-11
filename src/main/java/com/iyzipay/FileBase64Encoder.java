@@ -1,8 +1,8 @@
 package com.iyzipay;
 
 import com.iyzipay.exception.FileEncodingException;
+import jakarta.xml.bind.DatatypeConverter;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
