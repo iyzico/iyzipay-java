@@ -32,6 +32,7 @@ public class CreatePaymentRequest extends Request {
     private String callbackUrl;
     private String gsmNumber;
     private Loyalty reward;
+    private String merchantCampaignParameter;
 
     public CreatePaymentRequest() {
         setInstallment(Constants.SINGLE_INSTALLMENT);
@@ -181,6 +182,14 @@ public class CreatePaymentRequest extends Request {
         this.gsmNumber = gsmNumber;
     }
 
+    public String getMerchantCampaignParameter() {
+        return merchantCampaignParameter;
+    }
+
+    public void setMerchantCampaignParameter(String merchantCampaignParameter) {
+        this.merchantCampaignParameter = merchantCampaignParameter;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -202,6 +211,7 @@ public class CreatePaymentRequest extends Request {
                 .append("connectorName", connectorName)
                 .append("callbackUrl", callbackUrl)
                 .append("gsmNumber", gsmNumber)
+                .append("merchantCampaignParameter", merchantCampaignParameter)
                 .toString();
     }
 }
