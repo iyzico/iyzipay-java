@@ -23,5 +23,5 @@ jobs:
       run: |
         set -e
         version=$( cat VERSION )
-        version_new= "3.3"+(2+$(${{github.run_number}})
+        version_new= "3.3"+(2+$(${{github.run_number}}))
         echo $version_new
