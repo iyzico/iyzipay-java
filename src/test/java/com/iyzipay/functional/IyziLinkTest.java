@@ -163,11 +163,11 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Boolean.FALSE, response.getData().getAddressIgnorable());
     }
 
-    @Test
+    /*@Test
     public void should_delete_iyziLink() {
         IyziLinkSaveRequest createRequest = new IyziLinkSaveRequest();
         createRequest.setLocale(Locale.TR.getValue());
-        createRequest.setConversationId("123456789");
+        createRequest.setConversationId("8123456789");
         createRequest.setName("ft-name");
         createRequest.setDescription("ft-description");
         String imagePath = getClass().getClassLoader().getResource("images/sample_image.jpg").getPath();
@@ -192,5 +192,5 @@ public class IyziLinkTest extends BaseTest {
         assertEquals(Locale.TR.getValue(), response.getLocale());
         assertEquals("123456789", response.getConversationId());
         assertNotEquals(0, response.getSystemTime());
-    }
+    }*/
 }

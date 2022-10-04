@@ -45,7 +45,7 @@ public class CardStorageTest extends BaseTest {
         assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
         assertEquals("email@email.com", card.getEmail());
-        assertEquals("552879", card.getBinNumber());
+        assertEquals("55287900", card.getBinNumber());
         assertEquals("card alias", card.getCardAlias());
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
@@ -80,7 +80,7 @@ public class CardStorageTest extends BaseTest {
         assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
         assertEquals("email@email.com", card.getEmail());
-        assertEquals("552879", card.getBinNumber());
+        assertEquals("55287900", card.getBinNumber());
         assertEquals("card alias", card.getCardAlias());
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
@@ -119,7 +119,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals(Status.SUCCESS.getValue(), card.getStatus());
         assertNotEquals(0, card.getSystemTime());
         assertEquals("123456789", card.getConversationId());
-        assertEquals("552879", card.getBinNumber());
+        assertEquals("55287900", card.getBinNumber());
         assertEquals("card alias", card.getCardAlias());
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());

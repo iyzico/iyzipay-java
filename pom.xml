@@ -41,7 +41,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java-compileSource.version>1.6</java-compileSource.version>
+        <java-compileSource.version>1.8</java-compileSource.version>
         <maven-compiler-plugin.version>3.5</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.4</maven-source-plugin.version>
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
