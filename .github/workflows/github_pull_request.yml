@@ -1,8 +1,6 @@
-name: Java CI with Maven
+name: Java CI with Maven for Test
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -19,8 +17,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Change versions in files
-      run: |
-        set -e
-        version_new= "3.3."+(2+$(${{github.run_number}}))
-        echo $version_new
+    - name: Install with Maven
+      run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - name: Test with Maven
+      run: mvn test -Dft
