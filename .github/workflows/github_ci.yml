@@ -20,7 +20,7 @@ jobs:
     - name: 
       run: |
         set -e
-        version_new="2.0."$((80+${{github.run_number}}))
+        version_new="2.0."$((79+${{github.run_number}}))
         version=$(cat VERSION)
         sed -i -e 's/'$version'/'$version_new'/g' VERSION README.md
         echo "ver=$version_new" >> $GITHUB_ENV
