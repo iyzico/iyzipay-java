@@ -31,6 +31,8 @@ jobs:
     - name: Clean install with Maven
       run: mvn clean install
     - name: Git Tasks
+      env:
+        GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
       run: |
         set -e
         git config user.name "iyzico-ci"
