@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - env:
-        GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
     - uses: actions/checkout@v3
       with:
-        token: ${{secrets.GITHUB_TOKEN}}
+        token: ${{secrets.TOKEN_GITHUB}}
     - name: Set up JDK 8
       uses: actions/setup-java@v3
       with:
@@ -37,7 +35,7 @@ jobs:
         set -e
         git config user.name "iyzico-ci"
         git config user.email iyzico-ci@iyzico.com
-        git remote set-url origin https://${{secrets.GITHUB_TOKEN}}:@github.com/iyzico/iyzipay-java.git
+        git remote set-url origin https://${{secrets.TOKEN_GITHUB}}:@github.com/iyzico/iyzipay-java.git
         git add .
         git commit -m "Automatic commit by iyzico-ci v${{env.ver}}"
         git push origin master
@@ -46,7 +44,7 @@ jobs:
     - name: Github Release
       run: |
         echo "Creating GitHub release..."
-        create_asset_json=$( curl -# -XPOST -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" -H "Content-Type: application/json" -H "Accept:application/json" --data-binary '{"tag_name": "${{env.ver}}","target_commitish": "master","name": "iyzipay-java ${{env.ver}}","body": "version ${{env.ver}}","draft": false,"prerelease": false}' https://api.github.com/repos/iyzico/iyzipay-java/releases )
+        create_asset_json=$( curl -# -XPOST -H "Authorization: token ${{secrets.TOKEN_GITHUB}}" -H "Content-Type: application/json" -H "Accept:application/json" --data-binary '{"tag_name": "${{env.ver}}","target_commitish": "master","name": "iyzipay-java ${{env.ver}}","body": "version ${{env.ver}}","draft": false,"prerelease": false}' https://api.github.com/repos/iyzico/iyzipay-java/releases )
         echo $create_asset_json
         echo "GitHub release created!"
         upload_url=$( echo $create_asset_json | python -c 'import json,sys;obj=json.load(sys.stdin);print (obj["upload_url"][0:obj["upload_url"].find("{")]);' )
@@ -55,7 +53,7 @@ jobs:
         upload_artifact="iyzipay-java-"${{env.ver}}".jar"
         upload_assets_url=${upload_url}"?name="${upload_artifact}
         echo "Artifact "${upload_artifact}" will be uploaded to "${upload_assets_url}
-        upload_asset_json=$( curl -# -XPOST -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" -H "Content-Type: application/octet-stream" --data-binary "@target/"${upload_artifact} $upload_assets_url )
+        upload_asset_json=$( curl -# -XPOST -H "Authorization: token ${{secrets.TOKEN_GITHUB}}" -H "Content-Type: application/octet-stream" --data-binary "@target/"${upload_artifact} $upload_assets_url )
         echo $upload_asset_json
         echo "GitHub release asset uploaded!"
     - name: Sonatype Deploy
