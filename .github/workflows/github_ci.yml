@@ -11,18 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      env:
-        GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
-      with:
-        token: ${{secrets.GITHUB_TOKEN}}
+      #with:
+        #token: ${{secrets.GITHUB_TOKEN}}
     - name: Set up JDK 8
       uses: actions/setup-java@v3
       with:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: 
-      run: |
+    - run: |
         set -e
         version_new="2.0."$((78+${{github.run_number}}))
         version=$(cat VERSION)
@@ -33,13 +30,11 @@ jobs:
     - name: Clean install with Maven
       run: mvn clean install
     - name: Git Tasks
-      env:
-        GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
       run: |
         set -e
         git config user.name "iyzico-ci"
         git config user.email iyzico-ci@iyzico.com
-        git remote set-url origin https://${{secrets.GITHUB_TOKEN}}:@github.com/iyzico/iyzipay-java.git
+        #git remote set-url origin https://${{secrets.GITHUB_TOKEN}}:@github.com/iyzico/iyzipay-java.git
         git add .
         git commit -m "Automatic commit by iyzico-ci v${{env.ver}}"
         git push origin master
