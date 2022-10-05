@@ -37,7 +37,7 @@ jobs:
         set -e
         git config user.name "iyzico-ci"
         git config user.email iyzico-ci@iyzico.com
-        git remote set-url origin https://${{secrets.GITHUB_TOKEN}}:@github.com/iyzico/iyzipay-java.git
+        #git remote set-url origin https://${{secrets.GITHUB_TOKEN}}:@github.com/iyzico/iyzipay-java.git
         git add .
         git commit -m "Automatic commit by iyzico-ci v${{env.ver}}"
         git push origin master
