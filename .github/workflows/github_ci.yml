@@ -61,9 +61,7 @@ jobs:
         echo $upload_asset_json
         echo "GitHub release asset uploaded!"
     - name: Sonatype Deploy
-      run: |
-        export GPG_TTY=$(tty)
-        mvn deploy -Dsg
+      run: mvn deploy -Dsg
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
