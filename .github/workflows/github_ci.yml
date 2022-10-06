@@ -19,6 +19,11 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
+        server-id: sonatype-nexus-staging
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_CENTRAL_TOKEN
+        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg-passphrase: MAVEN_GPG_PASSPHRASE
     - run: |
         set -e
         version_new="2.0."$((78+${{github.run_number}}))
@@ -56,4 +61,8 @@ jobs:
         echo $upload_asset_json
         echo "GitHub release asset uploaded!"
     - name: Sonatype Deploy
-      run: mvn deploy -Dsg -Dgpg.passphrase=${{secrets.SONATYPE_GPG_PASSPHRASE}}
+      run: mvn deploy -Dsg
+      env:
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
