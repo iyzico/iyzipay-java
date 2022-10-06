@@ -61,7 +61,7 @@ jobs:
         echo $upload_asset_json
         echo "GitHub release asset uploaded!"
     - name: Sonatype Deploy
-      run: mvn deploy -Dsg
+      run: mvn deploy -Dsg -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
