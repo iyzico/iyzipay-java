@@ -135,10 +135,6 @@
                 <configuration>
                     <serverId>sonatype-nexus-staging</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <gpgArguments>
-                      <arg>--pinentry-mode</arg>
-                      <arg>loopback</arg>
-                    </gpgArguments>
                 </configuration>
             </plugin>
         </plugins>
@@ -223,6 +219,13 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                          <!-- Prevent gpg from using pinentry programs -->
+                          <gpgArguments>
+                          <arg>--pinentry-mode</arg>
+                          <arg>loopback</arg>
+                          </gpgArguments>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
