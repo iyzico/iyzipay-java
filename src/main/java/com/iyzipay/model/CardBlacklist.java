@@ -10,7 +10,7 @@ public class CardBlacklist extends IyzipayResource {
     private String cardNumber;
     private boolean blacklisted;
 
-    public static IyzipayResource createCardBlacklist(CardBlacklistRequest request, Options options) {
+    public static IyzipayResource create(CardBlacklistRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/blacklist/card",
                 getHttpProxy(options),
                 getHttpHeaders(request, options),
@@ -18,7 +18,7 @@ public class CardBlacklist extends IyzipayResource {
                 IyzipayResource.class);
     }
 
-    public static IyzipayResource updateCardBlacklist(CardBlacklistRequest request, Options options) {
+    public static IyzipayResource update(CardBlacklistRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/blacklist/card/inactive",
                 getHttpProxy(options),
                 getHttpHeaders(request, options),
@@ -26,7 +26,7 @@ public class CardBlacklist extends IyzipayResource {
                 IyzipayResource.class);
     }
 
-    public static CardBlacklist retrieveBlacklist(RetrieveCardBlacklistRequest request, Options options) {
+    public static CardBlacklist retrieve(RetrieveCardBlacklistRequest request, Options options) {
         return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/blacklist/card/retrieve",
                 getHttpProxy(options),
                 getHttpHeaders(request, options),
