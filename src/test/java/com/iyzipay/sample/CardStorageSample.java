@@ -1,13 +1,8 @@
 package com.iyzipay.sample;
 
-import com.iyzipay.model.Card;
-import com.iyzipay.model.CardInformation;
-import com.iyzipay.model.CardList;
-import com.iyzipay.model.Locale;
-import com.iyzipay.model.Status;
-import com.iyzipay.request.CreateCardRequest;
-import com.iyzipay.request.DeleteCardRequest;
-import com.iyzipay.request.RetrieveCardListRequest;
+import com.iyzipay.IyzipayResource;
+import com.iyzipay.model.*;
+import com.iyzipay.request.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -150,5 +145,67 @@ public class CardStorageSample extends Sample {
         assertNotNull(cardList.getCardDetails());
         assertFalse(cardList.getCardDetails().isEmpty());
         assertNotNull(cardList.getCardUserKey());
+    }
+
+
+    @Test
+    public void should_create_card_blacklist() {
+        CardBlacklistRequest request = new CardBlacklistRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setCardUserKey("card user key");
+        request.setCardToken("card token");
+
+        IyzipayResource cardBlacklist = CardBlacklist.create(request, options);
+
+        System.out.println(cardBlacklist);
+
+        assertEquals(Status.SUCCESS.getValue(), cardBlacklist.getStatus());
+        assertEquals(Locale.TR.getValue(), cardBlacklist.getLocale());
+        assertEquals("123456789", cardBlacklist.getConversationId());
+        assertNotEquals(0, cardBlacklist.getSystemTime());
+        assertNull(cardBlacklist.getErrorCode());
+        assertNull(cardBlacklist.getErrorMessage());
+        assertNull(cardBlacklist.getErrorGroup());
+    }
+
+    @Test
+    public void should_update_card_blacklist() {
+        CardBlacklistRequest request = new CardBlacklistRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setCardUserKey("card user key");
+        request.setCardToken("card token");
+
+        IyzipayResource cardBlacklist = CardBlacklist.update(request, options);
+
+        System.out.println(cardBlacklist);
+
+        assertEquals(Status.SUCCESS.getValue(), cardBlacklist.getStatus());
+        assertEquals(Locale.TR.getValue(), cardBlacklist.getLocale());
+        assertEquals("123456789", cardBlacklist.getConversationId());
+        assertNotEquals(0, cardBlacklist.getSystemTime());
+        assertNull(cardBlacklist.getErrorCode());
+        assertNull(cardBlacklist.getErrorMessage());
+        assertNull(cardBlacklist.getErrorGroup());
+    }
+
+    @Test
+    public void should_retrieve_card_blacklist() {
+        RetrieveCardBlacklistRequest request = new RetrieveCardBlacklistRequest();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setCardNumber("card number");
+
+        CardBlacklist cardBlacklist = CardBlacklist.retrieve(request, options);
+
+        System.out.println(cardBlacklist);
+
+        assertEquals(Status.SUCCESS.getValue(), cardBlacklist.getStatus());
+        assertEquals(Locale.TR.getValue(), cardBlacklist.getLocale());
+        assertNotEquals(0, cardBlacklist.getSystemTime());
+        assertNull(cardBlacklist.getErrorCode());
+        assertNull(cardBlacklist.getErrorMessage());
+        assertNull(cardBlacklist.getErrorGroup());
     }
 }
