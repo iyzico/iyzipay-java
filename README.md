@@ -7,7 +7,7 @@ You can sign up for an iyzico account at https://iyzico.com
 
 # Requirements
 
-Java 1.7 or newer (End of support for Java 1.7 is planned to 31.08.2022)
+Java 1.8 or newer
 
 # Installation
 
