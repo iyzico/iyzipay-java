@@ -217,6 +217,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("debitCardAllowed", debitCardAllowed)
                 .append("subscriptionPaymentEnabled", subscriptionPaymentEnabled)
                 .append("payWithIyzico", payWithIyzico)
+                .append("captchaToken", captchaToken)
                 .toString();
     }
 }
