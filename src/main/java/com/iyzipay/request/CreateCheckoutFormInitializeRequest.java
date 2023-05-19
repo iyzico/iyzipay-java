@@ -30,7 +30,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private Boolean debitCardAllowed;
     private Boolean subscriptionPaymentEnabled;
     private Boolean payWithIyzico;
-    private String captchaToken;
 
     public BigDecimal getPrice() {
         return price;
@@ -184,15 +183,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.payWithIyzico = payWithIyzico;
     }
 
-    public String getCaptchaToken() {
-
-        return captchaToken;
-    }
-
-    public void setCaptchaToken(String captchaToken) {
-
-        this.captchaToken = captchaToken;
-    }
 
     @Override
     public String toString() {
@@ -217,7 +207,6 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("debitCardAllowed", debitCardAllowed)
                 .append("subscriptionPaymentEnabled", subscriptionPaymentEnabled)
                 .append("payWithIyzico", payWithIyzico)
-                .append("captchaToken", captchaToken)
                 .toString();
     }
 }
