@@ -48,4 +48,9 @@ public class SubscriptionOperation extends IyzipayResource {
                 request,
                 SubscriptionOperation.class);
     }
+
+    public SubscriptionUpgradeData getSubscriptionUpgradeData() {
+        return subscriptionUpgradeData;
+    }
+
 }
