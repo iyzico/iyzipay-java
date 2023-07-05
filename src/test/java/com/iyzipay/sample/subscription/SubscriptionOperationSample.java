@@ -7,8 +7,10 @@ import com.iyzipay.model.subscription.enumtype.SubscriptionUpgradePeriod;
 import com.iyzipay.request.subscription.SubscriptionOrderOperationRequest;
 import com.iyzipay.request.subscription.UpgradeSubscriptionRequest;
 import com.iyzipay.sample.Sample;
+import junit.framework.TestCase;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 public class SubscriptionOperationSample extends Sample {
@@ -18,6 +20,18 @@ public class SubscriptionOperationSample extends Sample {
         SubscriptionOperation response = SubscriptionOperation.cancel("6081cea6-fae5-45f0-9f9e-2c979259f0a7", options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+        assertNotNull(response.getSubscriptionUpgradeData().getReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getParentReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getPricingPlanReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getCustomerReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getSubscriptionStatus());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialDays());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialEndDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getCanceledAt());
+        assertNotNull(response.getSubscriptionUpgradeData().getCreatedDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getEndDate());
     }
 
     @Test
@@ -25,6 +39,18 @@ public class SubscriptionOperationSample extends Sample {
         SubscriptionOperation response = SubscriptionOperation.activate("6f65af3c-030f-45cc-bc7f-4d05be7f066c", options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+        assertNotNull(response.getSubscriptionUpgradeData().getReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getParentReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getPricingPlanReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getCustomerReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getSubscriptionStatus());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialDays());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialEndDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getCanceledAt());
+        assertNotNull(response.getSubscriptionUpgradeData().getCreatedDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getEndDate());
     }
 
     @Test
@@ -40,6 +66,18 @@ public class SubscriptionOperationSample extends Sample {
         SubscriptionOperation response = SubscriptionOperation.upgrade("6f65af3c-030f-45cc-bc7f-4d05be7f066c", upgradeSubscriptionRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+        assertNotNull(response.getSubscriptionUpgradeData().getReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getParentReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getPricingPlanReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getCustomerReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getSubscriptionStatus());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialDays());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialEndDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getCanceledAt());
+        assertNotNull(response.getSubscriptionUpgradeData().getCreatedDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getEndDate());
     }
 
     @Test
@@ -52,5 +90,17 @@ public class SubscriptionOperationSample extends Sample {
         SubscriptionOperation response = SubscriptionOperation.retryPayment(subscriptionOrderOperationRequest, options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
+        assertNotNull(response.getSubscriptionUpgradeData().getReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getParentReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getPricingPlanReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getCustomerReferenceCode());
+        assertNotNull(response.getSubscriptionUpgradeData().getSubscriptionStatus());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialDays());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getTrialEndDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getCanceledAt());
+        assertNotNull(response.getSubscriptionUpgradeData().getCreatedDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getStartDate());
+        assertNotNull(response.getSubscriptionUpgradeData().getEndDate());
     }
 }
