@@ -14,6 +14,7 @@ public class BasketItem {
     private String itemType;
     private String subMerchantKey;
     private BigDecimal subMerchantPrice;
+    private boolean chargedFromMerchant;
 
     public String getId() {
         return id;
@@ -77,6 +78,14 @@ public class BasketItem {
 
     public void setSubMerchantPrice(BigDecimal subMerchantPrice) {
         this.subMerchantPrice = subMerchantPrice;
+    }
+
+    public boolean isChargedFromMerchant() {
+        return chargedFromMerchant;
+    }
+
+    public void setChargedFromMerchant(boolean chargedFromMerchant) {
+        this.chargedFromMerchant = chargedFromMerchant;
     }
 
     @Override
