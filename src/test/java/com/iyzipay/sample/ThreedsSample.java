@@ -15,6 +15,7 @@ import com.iyzipay.model.ThreedsPayment;
 import com.iyzipay.model.loyalty.Loyalty;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
+import com.iyzipay.request.CreateThreedsPaymentRequestV2;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -135,6 +136,30 @@ public class ThreedsSample extends Sample {
         request.setConversationData("conversation data");
 
         ThreedsPayment threedsPayment = ThreedsPayment.create(request, options);
+
+        System.out.println(threedsPayment);
+
+        assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertEquals("123456789", threedsPayment.getConversationId());
+        assertNotEquals(0, threedsPayment.getSystemTime());
+        assertNull(threedsPayment.getErrorCode());
+        assertNull(threedsPayment.getErrorMessage());
+        assertNull(threedsPayment.getErrorGroup());
+    }
+
+    @Test
+    public void should_create_threeds_payment_v2() {
+        CreateThreedsPaymentRequestV2 request = new CreateThreedsPaymentRequestV2();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setPaymentId("1");
+        request.setConversationData("conversation data");
+        request.setBasketId("B67832");
+        request.setCurrency("TRY");
+        request.setPaidPrice(new BigDecimal("1.2"));
+
+        ThreedsPayment threedsPayment = ThreedsPayment.createV2(request, options);
 
         System.out.println(threedsPayment);
 
