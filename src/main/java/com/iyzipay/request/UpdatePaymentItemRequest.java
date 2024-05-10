@@ -11,6 +11,7 @@ public class UpdatePaymentItemRequest extends Request {
     private Long paymentTransactionId;
     private BigDecimal subMerchantPrice;
     private boolean crossBookingOperation;
+    private BigDecimal chargedPriceFromMerchant;
 
     public String getSubMerchantKey() {
         return subMerchantKey;
@@ -42,6 +43,14 @@ public class UpdatePaymentItemRequest extends Request {
 
     public void setCrossBookingOperation(boolean crossBookingOperation) {
         this.crossBookingOperation = crossBookingOperation;
+    }
+
+    public BigDecimal getChargedPriceFromMerchant() {
+        return chargedPriceFromMerchant;
+    }
+
+    public void setChargedPriceFromMerchant(BigDecimal chargedPriceFromMerchant) {
+        this.chargedPriceFromMerchant = chargedPriceFromMerchant;
     }
 
     @Override
