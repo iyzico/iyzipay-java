@@ -10,9 +10,10 @@ public class Approval extends IyzipayResource {
     private String paymentTransactionId;
 
     public static Approval create(CreateApprovalRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/item/approve",
+        String path = "/payment/iyzipos/item/approve";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Approval.class);
     }

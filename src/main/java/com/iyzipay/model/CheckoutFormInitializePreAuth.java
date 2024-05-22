@@ -7,9 +7,10 @@ import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 public class CheckoutFormInitializePreAuth extends CheckoutFormInitializeResource {
 
     public static CheckoutFormInitializePreAuth create(CreateCheckoutFormInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/preauth/ecom",
+        String path = "/payment/iyzipos/checkoutform/initialize/preauth/ecom";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CheckoutFormInitializePreAuth.class);
     }

@@ -6,10 +6,11 @@ import com.iyzipay.request.SubMerchantOnboardingInitializeRequest;
 
 public class SubMerchantOnboardingInitialize extends SubmerchantOnboardingInitializeResource {
     public static SubMerchantOnboardingInitialize initialize(SubMerchantOnboardingInitializeRequest request, Options options) {
+        String path = "/onboarding/settlement-to-balance/submerchant";
         return HttpClient.create().post(
-                options.getBaseUrl() + "/onboarding/settlement-to-balance/submerchant",
+                options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubMerchantOnboardingInitialize.class
         );

@@ -36,6 +36,7 @@ public class IyzipayResource {
     public IyzipayResource() {
     }
 
+    @Deprecated
     protected static Map<String, String> getHttpHeaders(Request request, Options options) {
         Map<String, String> headers = new HashMap<String, String>();
 

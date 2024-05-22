@@ -7,9 +7,10 @@ import com.iyzipay.model.LoyaltyResource;
 public class LoyaltyInquire extends LoyaltyResource {
 
     public static LoyaltyInquire create(LoyaltyInquireRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/loyalty/inquire",
+        String path = "/payment/loyalty/inquire";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 LoyaltyInquire.class);
     }

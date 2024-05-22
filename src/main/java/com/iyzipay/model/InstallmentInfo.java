@@ -12,9 +12,10 @@ public class InstallmentInfo extends IyzipayResource {
     private List<InstallmentDetail> installmentDetails;
 
     public static InstallmentInfo retrieve(RetrieveInstallmentInfoRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/installment",
+        String path = "/payment/iyzipos/installment";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 InstallmentInfo.class);
     }

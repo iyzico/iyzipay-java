@@ -7,9 +7,10 @@ import com.iyzipay.request.CreatePaymentPostAuthRequest;
 public class BasicPaymentPostAuth extends BasicPaymentResource {
 
     public static BasicPaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/postauth/basic",
+        String path = "/payment/postauth/basic";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 BasicPaymentPostAuth.class);
     }

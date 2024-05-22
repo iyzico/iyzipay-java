@@ -12,9 +12,10 @@ public class BasicBkmInitialize extends IyzipayResource {
     private String token;
 
     public static BasicBkmInitialize create(CreateBasicBkmInitializeRequest request, Options options) {
-        BasicBkmInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/initialize/basic",
+        String path = "/payment/bkm/initialize/basic";
+        BasicBkmInitialize response = HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 BasicBkmInitialize.class);
         if (response != null) {

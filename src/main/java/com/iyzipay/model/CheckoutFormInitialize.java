@@ -7,9 +7,10 @@ import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 public class CheckoutFormInitialize extends CheckoutFormInitializeResource {
 
     public static CheckoutFormInitialize create(CreateCheckoutFormInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/auth/ecom",
+        String path = "/payment/iyzipos/checkoutform/initialize/auth/ecom";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CheckoutFormInitialize.class);
     }

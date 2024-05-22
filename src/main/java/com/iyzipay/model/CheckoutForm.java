@@ -10,9 +10,10 @@ public class CheckoutForm extends PaymentResource {
     private String callbackUrl;
 
     public static CheckoutForm retrieve(RetrieveCheckoutFormRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/auth/ecom/detail",
+        String path = "/payment/iyzipos/checkoutform/auth/ecom/detail";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CheckoutForm.class);
     }

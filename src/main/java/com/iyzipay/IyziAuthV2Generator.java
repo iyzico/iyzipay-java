@@ -40,9 +40,6 @@ public final class IyziAuthV2Generator {
     }
 
     private static String getPayload(String uri, Object request) {
-        int startIndex = uri.indexOf("/v2");
-        int endIndex = uri.indexOf("?");
-        String uriPath = endIndex == -1 ? uri.substring(startIndex) : uri.substring(startIndex, endIndex);
-        return request == null ? uriPath : uriPath + new Gson().toJson(request);
+        return request == null ? uri : uri + new Gson().toJson(request);
     }
 }

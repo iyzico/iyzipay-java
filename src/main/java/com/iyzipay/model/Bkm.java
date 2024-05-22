@@ -10,9 +10,10 @@ public class Bkm extends PaymentResource {
     private String callbackUrl;
 
     public static Bkm retrieve(RetrieveBkmRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/auth/detail",
+        String path = "/payment/bkm/auth/detail";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Bkm.class);
     }

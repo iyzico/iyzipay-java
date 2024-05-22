@@ -8,17 +8,19 @@ import com.iyzipay.request.RetrieveApmRequest;
 public class Apm extends ApmResource {
 
     public static Apm create(CreateApmInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/initialize",
+        String path = "/payment/apm/initialize";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Apm.class);
     }
 
     public static Apm retrieve(RetrieveApmRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/retrieve",
+        String path = "/payment/apm/retrieve";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Apm.class);
     }

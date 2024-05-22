@@ -8,17 +8,19 @@ import com.iyzipay.request.RetrievePaymentRequest;
 public class Payment extends PaymentResource {
 
     public static Payment create(CreatePaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/auth",
+        String path = "/payment/auth";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Payment.class);
     }
 
     public static Payment retrieve(RetrievePaymentRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/detail",
+        String path = "/payment/detail";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Payment.class);
     }
