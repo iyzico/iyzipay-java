@@ -48,11 +48,11 @@ public class IyzipayResource {
         return headers;
     }
 
-    protected static Map<String, String> getHttpHeadersV2(String uri, Request request, Options options) {
+    protected static Map<String, String> getHttpHeadersV2(String path, Request request, Options options) {
         Map<String, String> headers = new HashMap<String, String>();
 
         String randomString = UUID.randomUUID().toString();
-        headers.put(AUTHORIZATION, prepareAuthorizationStringV2(uri, request, randomString, options));
+        headers.put(AUTHORIZATION, prepareAuthorizationStringV2(path, request, randomString, options));
 
         putClientVersionHeader(headers);
         return headers;
@@ -76,8 +76,8 @@ public class IyzipayResource {
         return IYZIWS_HEADER_NAME + options.getApiKey() + COLON + hash;
     }
 
-    private static String prepareAuthorizationStringV2(String uri, Request request, String randomString, Options options) {
-        String authContent = IyziAuthV2Generator.generateAuthContent(uri, options.getApiKey(), options.getSecretKey(), randomString, request);
+    private static String prepareAuthorizationStringV2(String path, Request request, String randomString, Options options) {
+        String authContent = IyziAuthV2Generator.generateAuthContent(path, options.getApiKey(), options.getSecretKey(), randomString, request);
         return IYZIWS_V2_HEADER_NAME + authContent;
     }
 
