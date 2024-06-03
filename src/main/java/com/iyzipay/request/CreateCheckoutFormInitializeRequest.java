@@ -30,6 +30,7 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private Boolean debitCardAllowed;
     private Boolean subscriptionPaymentEnabled;
     private Boolean payWithIyzico;
+    private Boolean shippingAmountExcluded;
 
     public BigDecimal getPrice() {
         return price;
@@ -181,6 +182,14 @@ public class CreateCheckoutFormInitializeRequest extends Request {
 
     public void setPayWithIyzico(Boolean payWithIyzico) {
         this.payWithIyzico = payWithIyzico;
+    }
+
+    public Boolean getShippingAmountExcluded() {
+        return shippingAmountExcluded;
+    }
+
+    public void setShippingAmountExcluded(Boolean shippingAmountExcluded) {
+        this.shippingAmountExcluded = shippingAmountExcluded;
     }
 
 
