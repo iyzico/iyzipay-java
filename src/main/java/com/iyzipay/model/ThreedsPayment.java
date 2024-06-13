@@ -1,12 +1,23 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequestV2;
 import com.iyzipay.request.RetrievePaymentRequest;
 
-public class ThreedsPayment extends PaymentResource {
+import java.util.Arrays;
+
+public class ThreedsPayment extends PaymentResource implements ResponseSignatureGenerator {
+
+    public boolean verifyChecksum(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getCurrency(), getBasketId(),
+                        getConversationId(), getPaidPrice(), getPrice()));
+        return HashValidator.hashValid(getChecksum(), calculated);
+    }
 
     public static ThreedsPayment create(CreateThreedsPaymentRequest request, Options options) {
         String path = "/payment/3dsecure/auth";

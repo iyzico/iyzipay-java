@@ -16,6 +16,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class ApprovalTest extends BaseTest {
 
@@ -44,6 +45,7 @@ public class ApprovalTest extends BaseTest {
         assertEquals(paymentTransactionId, approval.getPaymentTransactionId());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
+        assertTrue(payment.verifyChecksum(options.getSecretKey()));
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());

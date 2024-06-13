@@ -1,15 +1,25 @@
 package com.iyzipay.model;
 
 import com.iyzipay.DigestHelper;
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreateBkmInitializeRequest;
 
-public class BkmInitialize extends IyzipayResource {
+import java.util.Arrays;
+
+public class BkmInitialize extends IyzipayResource implements ResponseSignatureGenerator {
 
     private String htmlContent;
     private String token;
+    private String checksum;
+
+    public boolean verifyChecksum(String secretKey) {
+        String calculated = generateSignature(secretKey, Arrays.asList(getToken(), getConversationId()));
+        return HashValidator.hashValid(getChecksum(), calculated);
+    }
 
     public static BkmInitialize create(CreateBkmInitializeRequest request, Options options) {
         String path = "/payment/bkm/initialize";
@@ -38,5 +48,13 @@ public class BkmInitialize extends IyzipayResource {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getChecksum() {
+        return checksum;
+    }
+
+    public void setChecksum(String checksum) {
+        this.checksum = checksum;
     }
 }

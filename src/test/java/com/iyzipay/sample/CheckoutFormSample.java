@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class CheckoutFormSample extends Sample {
 
@@ -103,6 +104,7 @@ public class CheckoutFormSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
+        assertTrue(checkoutFormInitialize.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", checkoutFormInitialize.getConversationId());
         assertNotEquals(0, checkoutFormInitialize.getSystemTime());
         assertNull(checkoutFormInitialize.getErrorCode());
@@ -125,6 +127,7 @@ public class CheckoutFormSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), checkoutForm.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutForm.getLocale());
+        assertTrue(checkoutForm.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", checkoutForm.getConversationId());
         assertNotEquals(0, checkoutForm.getSystemTime());
         assertNull(checkoutForm.getErrorCode());

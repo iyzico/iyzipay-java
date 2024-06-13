@@ -20,6 +20,7 @@ public class IyzipayResource {
     private static final String CLIENT_VERSION_HEADER_NAME = "x-iyzi-client-version";
     private static final String IYZIWS_HEADER_NAME = "IYZWS ";
     private static final String IYZIWS_V2_HEADER_NAME = "IYZWSv2 ";
+    private static final String AUTHORIZATION_FALLBACK_HEADER = "Authorization_Fallback";
     private static final String CLIENT_VERSION = IyzipayResource.class.getPackage().getImplementationVersion();
     private static final String CLIENT_TITLE = IyzipayResource.class.getPackage().getImplementationTitle();
     private static final String COLON = ":";
@@ -53,6 +54,8 @@ public class IyzipayResource {
 
         String randomString = UUID.randomUUID().toString();
         headers.put(AUTHORIZATION, prepareAuthorizationStringV2(path, request, randomString, options));
+        headers.put(RANDOM_HEADER_NAME, randomString);
+        headers.put(AUTHORIZATION_FALLBACK_HEADER,  prepareAuthorizationString(request, randomString, options));
 
         putClientVersionHeader(headers);
         return headers;

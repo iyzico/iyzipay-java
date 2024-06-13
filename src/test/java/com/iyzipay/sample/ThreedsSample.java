@@ -26,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class ThreedsSample extends Sample {
 
@@ -119,6 +120,7 @@ public class ThreedsSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertTrue(threedsInitialize.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", threedsInitialize.getConversationId());
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNull(threedsInitialize.getErrorCode());
@@ -141,6 +143,7 @@ public class ThreedsSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
         assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertTrue(threedsPayment.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", threedsPayment.getConversationId());
         assertNotEquals(0, threedsPayment.getSystemTime());
         assertNull(threedsPayment.getErrorCode());
@@ -267,6 +270,7 @@ public class ThreedsSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertTrue(threedsInitialize.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", threedsInitialize.getConversationId());
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNull(threedsInitialize.getErrorCode());
@@ -370,6 +374,7 @@ public class ThreedsSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
+        assertTrue(threedsInitialize.verifyChecksum(options.getSecretKey()));
         assertEquals("123456789", threedsInitialize.getConversationId());
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNull(threedsInitialize.getErrorCode());

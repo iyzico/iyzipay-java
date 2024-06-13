@@ -34,6 +34,7 @@ public class ApmResource extends IyzipayResource {
     private String apm;
     private String mobilePhone;
     private String paymentStatus;
+    private String checksum;
 
     public String getRedirectUrl() {
         return redirectUrl;
@@ -217,6 +218,14 @@ public class ApmResource extends IyzipayResource {
 
     public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    public String getChecksum() {
+        return checksum;
+    }
+
+    public void setCheckSum(String checkSum) {
+        this.checksum = checkSum;
     }
 
     @Override

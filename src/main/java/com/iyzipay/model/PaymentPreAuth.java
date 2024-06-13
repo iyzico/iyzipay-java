@@ -1,11 +1,23 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.RetrievePaymentRequest;
 
-public class PaymentPreAuth extends PaymentResource {
+import java.util.Arrays;
+
+public class PaymentPreAuth extends PaymentResource implements ResponseSignatureGenerator {
+
+    public boolean verifyChecksum(String secretKey){
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getCurrency(), getBasketId(),
+                        getConversationId(), getPaidPrice(), getPrice()));
+        return HashValidator.hashValid(getChecksum(), calculated);
+    }
+
 
     public static PaymentPreAuth create(CreatePaymentRequest request, Options options) {
         String path = "/payment/preauth";

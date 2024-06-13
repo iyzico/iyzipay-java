@@ -2,15 +2,28 @@ package com.iyzipay.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.iyzipay.DigestHelper;
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreatePaymentRequest;
 
-public class ThreedsInitializePreAuth extends IyzipayResource {
+import java.util.Arrays;
+
+public class ThreedsInitializePreAuth extends IyzipayResource implements ResponseSignatureGenerator {
 
     @SerializedName("threeDSHtmlContent")
     private String htmlContent;
+    private String paymentId;
+    private String checksum;
+
+    public boolean verifyChecksum(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getConversationId()));
+        return HashValidator.hashValid(getChecksum(), calculated);
+
+    }
 
     public static ThreedsInitializePreAuth create(CreatePaymentRequest request, Options options) {
         String path = "/payment/3dsecure/initialize/preauth";
@@ -31,5 +44,21 @@ public class ThreedsInitializePreAuth extends IyzipayResource {
 
     public void setHtmlContent(String htmlContent) {
         this.htmlContent = htmlContent;
+    }
+
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public String getChecksum() {
+        return checksum;
+    }
+
+    public void setChecksum(String checksum) {
+        this.checksum = checksum;
     }
 }

@@ -20,6 +20,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class CheckoutFormTest extends BaseTest {
 
@@ -40,6 +41,7 @@ public class CheckoutFormTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
+        assertTrue(checkoutFormInitialize.verifyChecksum(options.getSecretKey()));
         assertNotEquals(0, checkoutFormInitialize.getSystemTime());
         assertNotNull(checkoutFormInitialize.getToken());
         assertNotNull(checkoutFormInitialize.getCheckoutFormContent());

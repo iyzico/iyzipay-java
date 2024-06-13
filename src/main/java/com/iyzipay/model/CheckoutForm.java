@@ -1,13 +1,25 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.RetrieveCheckoutFormRequest;
 
-public class CheckoutForm extends PaymentResource {
+import java.util.Arrays;
+
+public class CheckoutForm extends PaymentResource implements ResponseSignatureGenerator {
 
     private String token;
     private String callbackUrl;
+
+    public boolean verifyChecksum(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentStatus(), getPaymentId(),
+                        getCurrency(), getBasketId(), getConversationId(),
+                        getPaidPrice(), getPrice(), getToken()));
+        return HashValidator.hashValid(getChecksum(), calculated);
+    }
 
     public static CheckoutForm retrieve(RetrieveCheckoutFormRequest request, Options options) {
         String path = "/payment/iyzipos/checkoutform/auth/ecom/detail";
