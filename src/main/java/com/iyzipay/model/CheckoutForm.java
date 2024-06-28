@@ -13,12 +13,12 @@ public class CheckoutForm extends PaymentResource implements ResponseSignatureGe
     private String token;
     private String callbackUrl;
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getPaymentStatus(), getPaymentId(),
                         getCurrency(), getBasketId(), getConversationId(),
                         getPaidPrice(), getPrice(), getToken()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static CheckoutForm retrieve(RetrieveCheckoutFormRequest request, Options options) {

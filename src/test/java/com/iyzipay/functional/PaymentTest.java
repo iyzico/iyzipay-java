@@ -42,7 +42,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
@@ -76,7 +76,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());
@@ -122,7 +122,7 @@ public class PaymentTest extends BaseTest {
         assertNull(payment.getConnectorName());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertNotEquals(0, payment.getSystemTime());
         assertEquals("123456789", payment.getConversationId());
         assertNull(payment.getErrorCode());
@@ -159,7 +159,7 @@ public class PaymentTest extends BaseTest {
         Payment payment = Payment.retrieve(retrievePaymentRequest, options);
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertTrue(createdPayment.verifyChecksum(options.getSecretKey()));
+        assertTrue(createdPayment.verifySignature(options.getSecretKey()));
         assertEquals(new Integer(1), payment.getInstallment());
         assertEquals("123456789", payment.getConversationId());
         assertEquals(createdPayment.getPaymentId(), payment.getPaymentId());

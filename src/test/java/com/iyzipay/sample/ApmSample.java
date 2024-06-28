@@ -97,7 +97,7 @@ public class ApmSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), apmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), apmInitialize.getLocale());
-        assertTrue(apmInitialize.verifyChecksumForCreate(options.getSecretKey()));
+        assertTrue(apmInitialize.verifySignatureForCreate(options.getSecretKey()));
         assertEquals("123456789", apmInitialize.getConversationId());
         assertNotNull(apmInitialize.getRedirectUrl());
         assertNull(apmInitialize.getErrorCode());
@@ -118,7 +118,7 @@ public class ApmSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), retrieve.getStatus());
         assertEquals(Locale.TR.getValue(), retrieve.getLocale());
-        assertTrue(retrieve.verifyChecksumForRetrieve(options.getSecretKey()));
+        assertTrue(retrieve.verifySignatureForRetrieve(options.getSecretKey()));
         assertEquals("123456789", retrieve.getConversationId());
     }
 }

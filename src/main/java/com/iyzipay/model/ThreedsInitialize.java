@@ -16,12 +16,12 @@ public class ThreedsInitialize extends IyzipayResource implements ResponseSignat
     @SerializedName("threeDSHtmlContent")
     private String htmlContent;
     private String paymentId;
-    private String checksum;
+    private String signature;
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getPaymentId(), getConversationId()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static ThreedsInitialize create(CreatePaymentRequest request, Options options) {
@@ -53,11 +53,11 @@ public class ThreedsInitialize extends IyzipayResource implements ResponseSignat
         this.paymentId = paymentId;
     }
 
-    public String getChecksum() {
-        return checksum;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

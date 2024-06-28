@@ -10,10 +10,10 @@ import java.util.Arrays;
 
 public class CheckoutFormInitialize extends CheckoutFormInitializeResource implements ResponseSignatureGenerator {
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getConversationId(), getToken()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static CheckoutFormInitialize create(CreateCheckoutFormInitializeRequest request, Options options) {

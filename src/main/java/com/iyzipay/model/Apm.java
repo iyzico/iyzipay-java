@@ -11,9 +11,9 @@ import java.util.Arrays;
 
 public class Apm extends ApmResource implements ResponseSignatureGenerator {
 
-    public boolean verifyChecksumForCreate(String secretKey) {
+    public boolean verifySignatureForCreate(String secretKey) {
         String calculated = generateSignature(secretKey, Arrays.asList(getPaymentId(), getRedirectUrl()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static Apm create(CreateApmInitializeRequest request, Options options) {
@@ -25,12 +25,12 @@ public class Apm extends ApmResource implements ResponseSignatureGenerator {
                 Apm.class);
     }
 
-    public boolean verifyChecksumForRetrieve(String secretKey) {
+    public boolean verifySignatureForRetrieve(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getCurrency(), getBasketId(),
                         getConversationId(), getPaidPrice(),
                         getPrice(), getPaymentId(), getRedirectUrl()));
-        return HashValidator.hashValid(this.getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static Apm retrieve(RetrieveApmRequest request, Options options) {

@@ -34,7 +34,7 @@ public class RefundTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
@@ -70,7 +70,7 @@ public class RefundTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());

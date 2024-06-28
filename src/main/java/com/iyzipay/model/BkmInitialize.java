@@ -14,11 +14,11 @@ public class BkmInitialize extends IyzipayResource implements ResponseSignatureG
 
     private String htmlContent;
     private String token;
-    private String checksum;
+    private String signature;
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey, Arrays.asList(getToken(), getConversationId()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static BkmInitialize create(CreateBkmInitializeRequest request, Options options) {
@@ -50,11 +50,11 @@ public class BkmInitialize extends IyzipayResource implements ResponseSignatureG
         this.token = token;
     }
 
-    public String getChecksum() {
-        return checksum;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

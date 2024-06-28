@@ -10,11 +10,11 @@ import java.util.Arrays;
 
 public class PaymentPostAuth extends PaymentResource implements ResponseSignatureGenerator {
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getPaymentId(), getCurrency(), getBasketId(),
                         getConversationId(), getPaidPrice(), getPrice()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {

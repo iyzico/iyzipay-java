@@ -41,7 +41,7 @@ public class PaymentResource extends IyzipayResource {
     private String bankName;
     private String referenceCode;
     private Integer mdStatus;
-    private String checksum;
+    private String signature;
 
     public BigDecimal getPrice() {
         return price;
@@ -283,12 +283,12 @@ public class PaymentResource extends IyzipayResource {
         this.mdStatus = mdStatus;
     }
 
-    public String getChecksum() {
-        return checksum;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
     @Override

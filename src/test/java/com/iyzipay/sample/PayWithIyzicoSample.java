@@ -101,7 +101,7 @@ public class PayWithIyzicoSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payWithIyzicoInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), payWithIyzicoInitialize.getLocale());
-        assertTrue(payWithIyzicoInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(payWithIyzicoInitialize.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payWithIyzicoInitialize.getConversationId());
         assertNotEquals(0, payWithIyzicoInitialize.getSystemTime());
         assertNull(payWithIyzicoInitialize.getErrorCode());
@@ -211,7 +211,7 @@ public class PayWithIyzicoSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payWithIyzicoInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), payWithIyzicoInitialize.getLocale());
-        assertTrue(payWithIyzicoInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(payWithIyzicoInitialize.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payWithIyzicoInitialize.getConversationId());
         assertNotEquals(0, payWithIyzicoInitialize.getSystemTime());
         assertNull(payWithIyzicoInitialize.getErrorCode());

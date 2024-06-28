@@ -41,7 +41,7 @@ public class CheckoutFormTest extends BaseTest {
 
         assertEquals(Status.SUCCESS.getValue(), checkoutFormInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), checkoutFormInitialize.getLocale());
-        assertTrue(checkoutFormInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(checkoutFormInitialize.verifySignature(options.getSecretKey()));
         assertNotEquals(0, checkoutFormInitialize.getSystemTime());
         assertNotNull(checkoutFormInitialize.getToken());
         assertNotNull(checkoutFormInitialize.getCheckoutFormContent());

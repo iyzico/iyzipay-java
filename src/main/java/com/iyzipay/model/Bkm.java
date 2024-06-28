@@ -13,12 +13,12 @@ public class Bkm extends PaymentResource implements ResponseSignatureGenerator {
     private String token;
     private String callbackUrl;
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getPaymentId(), getPaymentStatus(),
                         getBasketId(), getConversationId(), getCurrency(),
                         getPaidPrice(), getPrice(), getToken()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static Bkm retrieve(RetrieveBkmRequest request, Options options) {

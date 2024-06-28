@@ -9,7 +9,7 @@ public class CheckoutFormInitializeResource extends IyzipayResource {
     private Long tokenExpireTime;
     private String paymentPageUrl;
     private String payWithIyzicoPageUrl;
-    private String checksum;
+    private String signature;
 
     public String getToken() {
         return token;
@@ -51,11 +51,11 @@ public class CheckoutFormInitializeResource extends IyzipayResource {
         this.payWithIyzicoPageUrl = payWithIyzicoPageUrl;
     }
 
-    public String getChecksum() {
-        return checksum;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

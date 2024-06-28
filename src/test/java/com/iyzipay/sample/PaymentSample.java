@@ -116,7 +116,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
@@ -219,7 +219,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
@@ -312,7 +312,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
@@ -334,7 +334,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
@@ -438,7 +438,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
@@ -542,7 +542,7 @@ public class PaymentSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", payment.getConversationId());
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());

@@ -45,7 +45,7 @@ public class ApprovalTest extends BaseTest {
         assertEquals(paymentTransactionId, approval.getPaymentTransactionId());
         assertEquals(Locale.TR.getValue(), payment.getLocale());
         assertEquals(Status.SUCCESS.getValue(), payment.getStatus());
-        assertTrue(payment.verifyChecksum(options.getSecretKey()));
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertNotEquals(0, payment.getSystemTime());
         assertNull(payment.getErrorCode());
         assertNull(payment.getErrorMessage());

@@ -6,7 +6,7 @@ public class PayWithIyzicoInitializeResource extends IyzipayResource {
     private String token;
     private Long tokenExpireTime;
     private String payWithIyzicoPageUrl;
-    private String checksum;
+    private String signature;
 
     public String getToken() {
         return token;
@@ -32,11 +32,11 @@ public class PayWithIyzicoInitializeResource extends IyzipayResource {
         this.payWithIyzicoPageUrl = payWithIyzicoPageUrl;
     }
 
-    public String getChecksum() {
-        return checksum;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

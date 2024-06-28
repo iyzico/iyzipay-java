@@ -10,10 +10,10 @@ import java.util.Arrays;
 
 public class PayWithIyzicoInitialize extends PayWithIyzicoInitializeResource implements ResponseSignatureGenerator {
 
-    public boolean verifyChecksum(String secretKey) {
+    public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
                 Arrays.asList(getConversationId(), getToken()));
-        return HashValidator.hashValid(getChecksum(), calculated);
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public static PayWithIyzicoInitialize create(PayWithIyzicoInitializeRequest request, Options options) {

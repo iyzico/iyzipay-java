@@ -23,7 +23,7 @@ public class BkmTest extends BaseTest {
 
         System.out.println(bkmInitialize);
 
-        assertTrue(bkmInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(bkmInitialize.verifySignature(options.getSecretKey()));
         assertNotNull(bkmInitialize.getHtmlContent());
         assertNotNull(bkmInitialize.getToken());
         assertTrue(bkmInitialize.getHtmlContent().contains(bkmInitialize.getToken()));

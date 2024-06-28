@@ -33,7 +33,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
-        assertTrue(threedsInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(threedsInitialize.verifySignature(options.getSecretKey()));
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());
@@ -60,7 +60,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
-        assertTrue(threedsInitialize.verifyChecksum(options.getSecretKey()));
+        assertTrue(threedsInitialize.verifySignature(options.getSecretKey()));
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());

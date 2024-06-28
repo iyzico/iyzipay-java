@@ -6,24 +6,18 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public interface ResponseSignatureGenerator {
-
     String SEPARATOR = ":";
     String HMAC_SHA_256 = "HmacSHA256";
-    DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00000000");
-    int DECIMAL_SCALE = 8;
     String EMPTY_PARAM = "";
-
 
     default String generateSignature(String secretKey, List<Object> params) {
         try {
@@ -40,15 +34,17 @@ public interface ResponseSignatureGenerator {
 
     default String appendSignatureParams(List<Object> signatureParameters) {
         return signatureParameters.stream()
-                .map(parameter -> {
-                    if (Objects.isNull(parameter)) {
-                        return EMPTY_PARAM;
-                    } else if (parameter instanceof BigDecimal) {
-                        return DECIMAL_FORMAT.format(((BigDecimal) parameter).setScale(DECIMAL_SCALE, RoundingMode.DOWN));
-                    } else {
-                        return parameter.toString();
-                    }
-                })
+                .map(this::convertParamToString)
                 .collect(Collectors.joining(SEPARATOR));
+    }
+
+    default String convertParamToString(Object parameter) {
+        if (Objects.isNull(parameter)) {
+            return EMPTY_PARAM;
+        } else if (parameter instanceof BigDecimal) {
+            return ((BigDecimal) parameter).stripTrailingZeros().toPlainString();
+        } else {
+            return parameter.toString();
+        }
     }
 }
