@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class ThreedsTest extends BaseTest {
 
@@ -32,6 +33,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
+        assertTrue(threedsInitialize.verifySignature(options.getSecretKey()));
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());
@@ -58,6 +60,7 @@ public class ThreedsTest extends BaseTest {
 
         assertEquals(Locale.TR.getValue(), threedsInitialize.getLocale());
         assertEquals(Status.SUCCESS.getValue(), threedsInitialize.getStatus());
+        assertTrue(threedsInitialize.verifySignature(options.getSecretKey()));
         assertNotEquals(0, threedsInitialize.getSystemTime());
         assertNotNull(threedsInitialize.getHtmlContent());
         assertNull(threedsInitialize.getErrorCode());

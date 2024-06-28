@@ -16,9 +16,10 @@ public class IyziupForm extends IyzipayResource {
     private IyziupPayment paymentDetail;
 
     public static IyziupForm retrieve(RetrieveIyziupFormRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/v1/iyziup/form/order/retrieve",
+        String path = "/v1/iyziup/form/order/retrieve";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 IyziupForm.class);
     }

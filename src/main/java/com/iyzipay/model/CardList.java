@@ -13,9 +13,10 @@ public class CardList extends IyzipayResource {
     private List<Card> cardDetails;
 
     public static CardList retrieve(RetrieveCardListRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/cards",
+        String path = "/cardstorage/cards";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CardList.class);
     }

@@ -12,10 +12,11 @@ public class SubscriptionCheckoutForm extends IyzipayResource {
     private CreatedSubscriptionData createdSubscriptionData;
 
     public static SubscriptionCheckoutForm retrieve(String subscriptionCheckoutFormToken, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/checkoutform/" + subscriptionCheckoutFormToken;
+        String path = "/v2/subscription/checkoutform/" + subscriptionCheckoutFormToken;
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 SubscriptionCheckoutForm.class);
     }

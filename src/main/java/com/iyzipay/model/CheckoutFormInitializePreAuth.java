@@ -1,15 +1,26 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreateCheckoutFormInitializeRequest;
 
-public class CheckoutFormInitializePreAuth extends CheckoutFormInitializeResource {
+import java.util.Arrays;
+
+public class CheckoutFormInitializePreAuth extends CheckoutFormInitializeResource implements ResponseSignatureGenerator {
+
+    public boolean verifySignature(String secretKey){
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getConversationId(), getToken()));
+        return HashValidator.hashValid(getSignature(), calculated);
+    }
 
     public static CheckoutFormInitializePreAuth create(CreateCheckoutFormInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/checkoutform/initialize/preauth/ecom",
+        String path = "/payment/iyzipos/checkoutform/initialize/preauth/ecom";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CheckoutFormInitializePreAuth.class);
     }

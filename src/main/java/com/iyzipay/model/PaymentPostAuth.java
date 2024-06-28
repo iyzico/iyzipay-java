@@ -1,15 +1,27 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreatePaymentPostAuthRequest;
 
-public class PaymentPostAuth extends PaymentResource {
+import java.util.Arrays;
+
+public class PaymentPostAuth extends PaymentResource implements ResponseSignatureGenerator {
+
+    public boolean verifySignature(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getCurrency(), getBasketId(),
+                        getConversationId(), getPaidPrice(), getPrice()));
+        return HashValidator.hashValid(getSignature(), calculated);
+    }
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/postauth",
+        String path = "/payment/postauth";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 PaymentPostAuth.class);
     }

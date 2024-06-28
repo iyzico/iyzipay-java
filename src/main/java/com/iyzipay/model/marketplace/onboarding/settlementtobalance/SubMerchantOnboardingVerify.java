@@ -6,10 +6,11 @@ import com.iyzipay.request.SubMerchantOnboardingVerifyRequest;
 
 public class SubMerchantOnboardingVerify extends SubMerchantOnboardingVerifyResource {
     public static SubMerchantOnboardingVerify verify(SubMerchantOnboardingVerifyRequest request, Options options) {
+        String path = "/onboarding/settlement-to-balance/submerchant/verify";
         return HttpClient.create().post(
-                options.getBaseUrl() + "/onboarding/settlement-to-balance/submerchant/verify",
+                options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubMerchantOnboardingVerify.class
         );

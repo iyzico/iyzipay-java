@@ -13,9 +13,10 @@ public class BasicThreedsInitialize extends IyzipayResource {
     private String htmlContent;
 
     public static BasicThreedsInitialize create(CreateBasicPaymentRequest request, Options options) {
-        BasicThreedsInitialize response = HttpClient.create().post(options.getBaseUrl() + "/payment/3dsecure/initialize/basic",
+        String path = "/payment/3dsecure/initialize/basic";
+        BasicThreedsInitialize response = HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 BasicThreedsInitialize.class);
         if (response != null) {

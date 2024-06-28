@@ -15,9 +15,10 @@ public class RefundChargedFromMerchant extends IyzipayResource {
     private String hostReference;
 
     public static RefundChargedFromMerchant create(CreateRefundRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/iyzipos/refund/merchant/charge",
+        String path = "/payment/iyzipos/refund/merchant/charge";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 RefundChargedFromMerchant.class);
     }

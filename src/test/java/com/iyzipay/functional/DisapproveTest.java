@@ -17,6 +17,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class DisapproveTest extends BaseTest {
 
@@ -47,6 +48,7 @@ public class DisapproveTest extends BaseTest {
         assertEquals(paymentTransactionId, disapproval.getPaymentTransactionId());
         assertEquals(Status.SUCCESS.getValue(), disapproval.getStatus());
         assertEquals(Locale.TR.getValue(), disapproval.getLocale());
+        assertTrue(payment.verifySignature(options.getSecretKey()));
         assertNotEquals(0, disapproval.getSystemTime());
         assertNull(disapproval.getErrorCode());
         assertNull(disapproval.getErrorMessage());

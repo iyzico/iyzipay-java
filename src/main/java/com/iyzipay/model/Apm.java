@@ -1,24 +1,43 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreateApmInitializeRequest;
 import com.iyzipay.request.RetrieveApmRequest;
 
-public class Apm extends ApmResource {
+import java.util.Arrays;
+
+public class Apm extends ApmResource implements ResponseSignatureGenerator {
+
+    public boolean verifySignatureForCreate(String secretKey) {
+        String calculated = generateSignature(secretKey, Arrays.asList(getPaymentId(), getRedirectUrl()));
+        return HashValidator.hashValid(getSignature(), calculated);
+    }
 
     public static Apm create(CreateApmInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/initialize",
+        String path = "/payment/apm/initialize";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Apm.class);
     }
 
+    public boolean verifySignatureForRetrieve(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getCurrency(), getBasketId(),
+                        getConversationId(), getPaidPrice(),
+                        getPrice(), getPaymentId(), getRedirectUrl()));
+        return HashValidator.hashValid(getSignature(), calculated);
+    }
+
     public static Apm retrieve(RetrieveApmRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/apm/retrieve",
+        String path = "/payment/apm/retrieve";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Apm.class);
     }

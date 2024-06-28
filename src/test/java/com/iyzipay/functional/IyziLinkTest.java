@@ -1,7 +1,6 @@
 package com.iyzipay.functional;
 
 import com.iyzipay.FileBase64Encoder;
-import com.iyzipay.IyzipayResource;
 import com.iyzipay.PagingRequest;
 import com.iyzipay.Request;
 import com.iyzipay.model.Currency;

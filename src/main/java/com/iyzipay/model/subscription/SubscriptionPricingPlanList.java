@@ -14,13 +14,14 @@ public class SubscriptionPricingPlanList extends IyzipayResource {
     private SubscriptionPricingPlanListData subscriptionPricingPlanListData;
 
     public static SubscriptionPricingPlanList retrieve(String subscriptionPricingPlanReferenceCode, PagingRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionPricingPlanReferenceCode + "/pricing-plans/" + new PageRequestQueryParamBuilder()
+        String path = "/v2/subscription/products/" + subscriptionPricingPlanReferenceCode + "/pricing-plans";
+        String uri = options.getBaseUrl() + path + "/" + new PageRequestQueryParamBuilder()
                 .page(request.getPage())
                 .count(request.getCount())
                 .build();
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 SubscriptionPricingPlanList.class);
     }

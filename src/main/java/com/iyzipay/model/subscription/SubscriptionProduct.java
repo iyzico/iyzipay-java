@@ -14,37 +14,41 @@ public class SubscriptionProduct extends IyzipayResource {
     private SubscriptionProductData subscriptionProductData;
 
     public static SubscriptionProduct retrieve(String subscriptionProductReferenceCode, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 SubscriptionProduct.class);
     }
 
     public static SubscriptionProduct create(CreateSubscriptionProductRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/products";
+        String path = "/v2/subscription/products";
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().post(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubscriptionProduct.class);
     }
 
     public static SubscriptionProduct update(String subscriptionProductReferenceCode, SubscriptionUpdateProductRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().post(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubscriptionProduct.class);
     }
 
     public static IyzipayResource delete(String subscriptionProductReferenceCode, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().delete(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 IyzipayResource.class);
     }

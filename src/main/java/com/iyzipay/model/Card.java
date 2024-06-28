@@ -28,17 +28,19 @@ public class Card extends IyzipayResource {
     private Map<String, String> metadata;
 
     public static Card create(CreateCardRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/cardstorage/card",
+        String path = "/cardstorage/card";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Card.class);
     }
 
     public static Card delete(DeleteCardRequest request, Options options) {
-        return HttpClient.create().delete(options.getBaseUrl() + "/cardstorage/card",
+        String path = "/cardstorage/card";
+        return HttpClient.create().delete(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Card.class);
     }
