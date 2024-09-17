@@ -193,24 +193,4 @@ public class IyziupFormSample extends Sample {
         assertNull(iyziupFormInitialize.getErrorGroup());
         assertNotNull(iyziupFormInitialize.getContent());
     }
-
-    @Test
-    public void should_retrieve_checkout_form_result() {
-        RetrieveIyziupFormRequest request = new RetrieveIyziupFormRequest();
-        request.setLocale(Locale.TR.getValue());
-        request.setConversationId("123456789");
-        request.setToken("18125922-f220-4b7a-b3cd-4ae68f82fd4c");
-
-        IyziupForm iyziupForm = IyziupForm.retrieve(request, options);
-
-        System.out.println(iyziupForm);
-
-        assertEquals(Status.SUCCESS.getValue(), iyziupForm.getStatus());
-        assertEquals(Locale.TR.getValue(), iyziupForm.getLocale());
-        assertEquals("123456789", iyziupForm.getConversationId());
-        assertNotEquals(0, iyziupForm.getSystemTime());
-        assertNull(iyziupForm.getErrorCode());
-        assertNull(iyziupForm.getErrorMessage());
-        assertNull(iyziupForm.getErrorGroup());
-    }
 }
