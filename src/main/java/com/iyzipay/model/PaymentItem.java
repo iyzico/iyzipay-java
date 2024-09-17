@@ -33,9 +33,10 @@ public class PaymentItem extends IyzipayResource {
     private ConvertedPayout convertedPayout;
 
     public static PaymentItem update(UpdatePaymentItemRequest request, Options options) {
-        return HttpClient.create().put(options.getBaseUrl() + "/payment/item",
+        String path = "/payment/item";
+        return HttpClient.create().put(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 PaymentItem.class);
     }

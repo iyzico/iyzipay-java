@@ -1,18 +1,31 @@
 package com.iyzipay.model;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.RetrieveBkmRequest;
 
-public class Bkm extends PaymentResource {
+import java.util.Arrays;
+
+public class Bkm extends PaymentResource implements ResponseSignatureGenerator {
 
     private String token;
     private String callbackUrl;
 
+    public boolean verifySignature(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getPaymentStatus(),
+                        getBasketId(), getConversationId(), getCurrency(),
+                        getPaidPrice(), getPrice(), getToken()));
+        return HashValidator.hashValid(getSignature(), calculated);
+    }
+
     public static Bkm retrieve(RetrieveBkmRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/bkm/auth/detail",
+        String path = "/payment/bkm/auth/detail";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Bkm.class);
     }

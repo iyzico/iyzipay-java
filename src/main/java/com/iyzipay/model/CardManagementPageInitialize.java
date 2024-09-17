@@ -12,9 +12,10 @@ public class CardManagementPageInitialize extends IyzipayResource {
     private String cardPageUrl;
 
     public static CardManagementPageInitialize create(CreateCardManagementPageInitializeRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/v1/card-management/pages",
+        String path = "/v1/card-management/pages";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 CardManagementPageInitialize.class);
     }

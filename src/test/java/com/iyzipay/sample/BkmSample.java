@@ -21,6 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class BkmSample extends Sample {
 
@@ -108,6 +109,7 @@ public class BkmSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), bkmInitialize.getStatus());
         assertEquals(Locale.TR.getValue(), bkmInitialize.getLocale());
+        assertTrue(bkmInitialize.verifySignature(options.getSecretKey()));
         assertEquals("123456789", bkmInitialize.getConversationId());
         assertNotEquals(0, bkmInitialize.getSystemTime());
         assertNull(bkmInitialize.getErrorCode());
@@ -129,6 +131,7 @@ public class BkmSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), bkm.getStatus());
         assertEquals(Locale.TR.getValue(), bkm.getLocale());
+        assertTrue(bkm.verifySignature(options.getSecretKey()));
         assertEquals("123456789", bkm.getConversationId());
         assertNotEquals(0, bkm.getSystemTime());
         assertNull(bkm.getErrorCode());

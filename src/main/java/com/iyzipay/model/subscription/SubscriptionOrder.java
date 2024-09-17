@@ -12,10 +12,11 @@ public class SubscriptionOrder extends IyzipayResource {
     private SubscriptionOrderData subscriptionOrderData;
 
     public static SubscriptionOrder retrieve(String subscriptionOrderReferenceCode, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/orders/" + subscriptionOrderReferenceCode;
+        String path = "/v2/subscription/orders/" + subscriptionOrderReferenceCode;
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 SubscriptionOrder.class);
     }

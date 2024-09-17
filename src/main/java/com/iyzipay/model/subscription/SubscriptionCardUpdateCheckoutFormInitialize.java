@@ -13,19 +13,21 @@ public class SubscriptionCardUpdateCheckoutFormInitialize extends IyzipayResourc
     private Long tokenExpireTime;
 
     public static SubscriptionCardUpdateCheckoutFormInitialize create(InitializeSubscriptionCardUpdateCheckoutFormRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/card-update/checkoutform/initialize";
+        String path = "/v2/subscription/card-update/checkoutform/initialize";
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().post(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubscriptionCardUpdateCheckoutFormInitialize.class);
     }
 
     public static SubscriptionCardUpdateCheckoutFormInitialize createWithSubscription(InitializeCardUpdateWithSubscriptionCheckoutFormRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/card-update/checkoutform/initialize/with-subscription";
+        String path = "/v2/subscription/card-update/checkoutform/initialize/with-subscription";
+        String uri = options.getBaseUrl() + path;
         return HttpClient.create().post(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 SubscriptionCardUpdateCheckoutFormInitialize.class);
     }

@@ -6,6 +6,7 @@ public class PayWithIyzicoInitializeResource extends IyzipayResource {
     private String token;
     private Long tokenExpireTime;
     private String payWithIyzicoPageUrl;
+    private String signature;
 
     public String getToken() {
         return token;
@@ -29,5 +30,13 @@ public class PayWithIyzicoInitializeResource extends IyzipayResource {
 
     public void setPayWithIyzicoPageUrl(String payWithIyzicoPageUrl) {
         this.payWithIyzicoPageUrl = payWithIyzicoPageUrl;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

@@ -14,13 +14,14 @@ public class SubscriptionCustomerList extends IyzipayResource {
     private SubscriptionCustomerListData subscriptionCustomerListData;
 
     public static SubscriptionCustomerList retrieve(PagingRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/subscription/customers/" + new PageRequestQueryParamBuilder()
+        String path = "/v2/subscription/customers";
+        String uri = options.getBaseUrl() + path + "/" + new PageRequestQueryParamBuilder()
                 .page(request.getPage())
                 .count(request.getCount())
                 .build();
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 SubscriptionCustomerList.class);
     }

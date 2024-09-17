@@ -18,9 +18,10 @@ public class Refund extends IyzipayResource {
     private String hostReference;
 
     public static Refund create(CreateRefundRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/refund",
+        String path = "/payment/refund";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 Refund.class);
     }

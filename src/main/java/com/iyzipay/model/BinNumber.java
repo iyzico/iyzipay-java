@@ -16,9 +16,10 @@ public class BinNumber extends IyzipayResource {
     private Integer commercial;
 
     public static BinNumber retrieve(RetrieveBinNumberRequest request, Options options) {
-        return HttpClient.create().post(options.getBaseUrl() + "/payment/bin/check",
+        String path = "/payment/bin/check";
+        return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(path, request, options),
                 request,
                 BinNumber.class);
     }

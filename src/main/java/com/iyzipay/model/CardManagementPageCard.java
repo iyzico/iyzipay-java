@@ -16,7 +16,7 @@ public class CardManagementPageCard extends IyzipayResource {
     public static CardManagementPageCard retrieve(RetrieveCardManagementPageCardRequest request, Options options) {
         return HttpClient.create().get(prepareRetrieveCardManagementPageCardRequest(request, options),
                 getHttpProxy(options),
-                getHttpHeaders(request, options),
+                getHttpHeadersV2(prepareRequestPath(request), request, options),
                 request,
                 CardManagementPageCard.class);
     }
@@ -53,5 +53,8 @@ public class CardManagementPageCard extends IyzipayResource {
         sb.append("&conversationId=").append(request.getConversationId());
 
         return sb.toString();
+    }
+    private static String prepareRequestPath(RetrieveCardManagementPageCardRequest request) {
+        return "/v1/card-management/pages/" + request.getPageToken() + "/cards";
     }
 }

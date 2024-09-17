@@ -18,10 +18,11 @@ public class ReportingPaymentTransaction extends IyzipayResource {
     private Integer totalPageCount;
 
     public static ReportingPaymentTransaction create(ReportingPaymentTransactionRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/reporting/payment/transactions" + getQueryParams(request);
+        String path = "/v2/reporting/payment/transactions";
+        String uri = options.getBaseUrl() + path + getQueryParams(request);
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 ReportingPaymentTransaction.class);
     }

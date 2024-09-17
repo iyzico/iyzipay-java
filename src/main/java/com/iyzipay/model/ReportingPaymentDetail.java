@@ -16,10 +16,11 @@ public class ReportingPaymentDetail extends IyzipayResource {
     private List<PaymentDetail> payments;
 
     public static ReportingPaymentDetail create(ReportingPaymentDetailRequest request, Options options) {
-        String uri = options.getBaseUrl() + "/v2/reporting/payment/details" + getQueryParams(request);
+        String path = "/v2/reporting/payment/details";
+        String uri = options.getBaseUrl() + path + getQueryParams(request);
         return HttpClient.create().get(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(uri, null, options),
+                getHttpHeadersV2(path, null, options),
                 null,
                 ReportingPaymentDetail.class);
     }
