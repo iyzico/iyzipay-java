@@ -13,6 +13,8 @@ public class BasketItem {
     private String category2;
     private String itemType;
     private String subMerchantKey;
+
+    private String externalSubMerchantId;
     private BigDecimal subMerchantPrice;
     private boolean chargedFromMerchant;
     private BigDecimal chargedPriceFromMerchant;
@@ -70,6 +72,14 @@ public class BasketItem {
         return subMerchantKey;
     }
 
+    public String getExternalSubMerchantId() {
+        return externalSubMerchantId;
+    }
+
+    public void setExternalSubMerchantId(String externalSubMerchantId) {
+        this.externalSubMerchantId = externalSubMerchantId;
+    }
+
     public void setSubMerchantKey(String subMerchantKey) {
         this.subMerchantKey = subMerchantKey;
     }
@@ -108,6 +118,7 @@ public class BasketItem {
                 .append("category2", category2)
                 .append("itemType", itemType)
                 .append("subMerchantKey", subMerchantKey)
+                .append("externalSubMerchantId", externalSubMerchantId)
                 .append("subMerchantPrice", subMerchantPrice)
                 .toString();
     }
