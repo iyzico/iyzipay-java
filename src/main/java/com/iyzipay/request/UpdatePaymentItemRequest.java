@@ -8,6 +8,8 @@ import java.math.BigDecimal;
 public class UpdatePaymentItemRequest extends Request {
 
     private String subMerchantKey;
+    private String externalSubMerchantId;
+
     private Long paymentTransactionId;
     private BigDecimal subMerchantPrice;
     private boolean crossBookingOperation;
@@ -19,6 +21,14 @@ public class UpdatePaymentItemRequest extends Request {
 
     public void setSubMerchantKey(String subMerchantKey) {
         this.subMerchantKey = subMerchantKey;
+    }
+
+    public String getExternalSubMerchantId() {
+        return externalSubMerchantId;
+    }
+
+    public void setExternalSubMerchantId(String externalSubMerchantId) {
+        this.externalSubMerchantId = externalSubMerchantId;
     }
 
     public Long getPaymentTransactionId() {
@@ -58,6 +68,7 @@ public class UpdatePaymentItemRequest extends Request {
         return new ToStringRequestBuilder(this)
                 .appendSuper(super.toString())
                 .append("subMerchantKey", subMerchantKey)
+                .append("externalSubMerchantId", externalSubMerchantId)
                 .append("paymentTransactionId", paymentTransactionId)
                 .append("subMerchantPrice", subMerchantPrice)
                 .toString();
