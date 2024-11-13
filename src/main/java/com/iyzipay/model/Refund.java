@@ -16,6 +16,7 @@ public class Refund extends IyzipayResource {
     private String connectorName;
     private String authCode;
     private String hostReference;
+    private String refundHostReference;
 
     public static Refund create(CreateRefundRequest request, Options options) {
         String path = "/payment/refund";
@@ -80,5 +81,12 @@ public class Refund extends IyzipayResource {
 
     public void setHostReference(String hostReference) {
         this.hostReference = hostReference;
+    }
+    public String getRefundHostReference() {
+        return refundHostReference;
+    }
+
+    public void setRefundHostReference(String refundHostReference) {
+        this.refundHostReference = refundHostReference;
     }
 }
