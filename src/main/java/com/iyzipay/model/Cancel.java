@@ -15,6 +15,7 @@ public class Cancel extends IyzipayResource {
     private String connectorName;
     private String authCode;
     private String hostReference;
+    private String cancelHostReference;
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         String path = "/payment/cancel";
@@ -71,5 +72,13 @@ public class Cancel extends IyzipayResource {
 
     public void setHostReference(String hostReference) {
         this.hostReference = hostReference;
+    }
+
+    public String getCancelHostReference() {
+        return cancelHostReference;
+    }
+
+    public void setCancelHostReference(String cancelHostReference) {
+        this.cancelHostReference = cancelHostReference;
     }
 }
