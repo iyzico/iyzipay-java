@@ -17,6 +17,7 @@ public class ThreedsInitialize extends IyzipayResource implements ResponseSignat
     private String htmlContent;
     private String paymentId;
     private String signature;
+    private String threeDsRedirectionUrl;
 
     public boolean verifySignature(String secretKey) {
         String calculated = generateSignature(secretKey,
@@ -60,4 +61,13 @@ public class ThreedsInitialize extends IyzipayResource implements ResponseSignat
     public void setSignature(String signature) {
         this.signature = signature;
     }
+
+    public String getThreeDsRedirectionUrl() {
+        return threeDsRedirectionUrl;
+    }
+
+    public void setThreeDsRedirectionUrl(String threeDsRedirectionUrl) {
+        this.threeDsRedirectionUrl = threeDsRedirectionUrl;
+    }
+
 }
