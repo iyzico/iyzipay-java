@@ -6,6 +6,7 @@ import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.request.CreateRefundRequest;
+import com.iyzipay.request.CreateRefundV2Request;
 
 public class Refund extends IyzipayResource {
 
@@ -20,6 +21,15 @@ public class Refund extends IyzipayResource {
 
     public static Refund create(CreateRefundRequest request, Options options) {
         String path = "/payment/refund";
+        return HttpClient.create().post(options.getBaseUrl() + path,
+                getHttpProxy(options),
+                getHttpHeadersV2(path, request, options),
+                request,
+                Refund.class);
+    }
+
+    public static Refund createV2(CreateRefundV2Request request, Options options) {
+        String path = "/v2/payment/refund";
         return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
