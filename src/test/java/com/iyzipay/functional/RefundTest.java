@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 
-public class RefundTest extends IyziupBaseTest {
+public class RefundTest extends StandardBaseTest {
 
     @Test
     public void should_refund_payment() {
