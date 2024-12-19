@@ -168,6 +168,7 @@ public class ThreedsSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
         assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertTrue(threedsPayment.verifySignature(options.getSecretKey()));
         assertEquals("123456789", threedsPayment.getConversationId());
         assertNotEquals(0, threedsPayment.getSystemTime());
         assertNull(threedsPayment.getErrorCode());

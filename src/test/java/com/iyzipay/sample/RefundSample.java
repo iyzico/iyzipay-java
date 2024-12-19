@@ -6,6 +6,7 @@ import com.iyzipay.model.Refund;
 import com.iyzipay.model.RefundReason;
 import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateRefundRequest;
+import com.iyzipay.request.CreateRefundV2Request;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -77,6 +78,28 @@ public class RefundSample extends Sample {
         request.setDescription("stolen card request with 11000 try payment for default sample");
 
         Refund refund = Refund.create(request, options);
+
+        System.out.println(refund);
+
+        assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
+        assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertEquals("123456789", refund.getConversationId());
+        assertNotEquals(0, refund.getSystemTime());
+        assertNull(refund.getErrorCode());
+        assertNull(refund.getErrorMessage());
+        assertNull(refund.getErrorGroup());
+    }
+
+    @Test
+    public void should_refund_v2_payment() {
+        CreateRefundV2Request request = new CreateRefundV2Request();
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456789");
+        request.setPaymentId("1");
+        request.setPrice(new BigDecimal("1.1"));
+        request.setIp("85.34.78.112");
+
+        Refund refund = Refund.createV2(request, options);
 
         System.out.println(refund);
 
