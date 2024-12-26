@@ -15,6 +15,8 @@ public class UpdatePaymentItemRequest extends Request {
     private boolean crossBookingOperation;
     private BigDecimal chargedPriceFromMerchant;
 
+    private BigDecimal withholdingTax;
+
     public String getSubMerchantKey() {
         return subMerchantKey;
     }
@@ -61,6 +63,14 @@ public class UpdatePaymentItemRequest extends Request {
 
     public void setChargedPriceFromMerchant(BigDecimal chargedPriceFromMerchant) {
         this.chargedPriceFromMerchant = chargedPriceFromMerchant;
+    }
+
+    public BigDecimal getWithholdingTax() {
+        return withholdingTax;
+    }
+
+    public void setWithholdingTax(BigDecimal withholdingTax) {
+        this.withholdingTax = withholdingTax;
     }
 
     @Override
