@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class RefundSample extends Sample {
 
@@ -33,6 +34,7 @@ public class RefundSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
@@ -58,6 +60,7 @@ public class RefundSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
@@ -83,6 +86,7 @@ public class RefundSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());
@@ -105,6 +109,7 @@ public class RefundSample extends Sample {
 
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertNotEquals(0, refund.getSystemTime());
         assertNull(refund.getErrorCode());

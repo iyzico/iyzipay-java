@@ -1,14 +1,17 @@
 package com.iyzipay.model;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
+import com.iyzipay.HashValidator;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
+import com.iyzipay.ResponseSignatureGenerator;
 import com.iyzipay.request.CreateRefundRequest;
 import com.iyzipay.request.CreateRefundV2Request;
 
-public class Refund extends IyzipayResource {
+public class Refund extends IyzipayResource implements ResponseSignatureGenerator {
 
     private String paymentId;
     private String paymentTransactionId;
@@ -18,6 +21,7 @@ public class Refund extends IyzipayResource {
     private String authCode;
     private String hostReference;
     private String refundHostReference;
+    private String signature;
 
     public static Refund create(CreateRefundRequest request, Options options) {
         String path = "/payment/refund";
@@ -35,6 +39,12 @@ public class Refund extends IyzipayResource {
                 getHttpHeadersV2(path, request, options),
                 request,
                 Refund.class);
+    }
+
+    public boolean verifySignature(String secretKey) {
+        String calculated = generateSignature(secretKey,
+                Arrays.asList(getPaymentId(), getPrice(), getCurrency(), getConversationId()));
+        return HashValidator.hashValid(getSignature(), calculated);
     }
 
     public String getPaymentId() {
@@ -98,5 +108,13 @@ public class Refund extends IyzipayResource {
 
     public void setRefundHostReference(String refundHostReference) {
         this.refundHostReference = refundHostReference;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

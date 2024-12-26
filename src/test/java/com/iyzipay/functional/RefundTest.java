@@ -36,6 +36,7 @@ public class RefundTest extends StandardBaseTest {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertTrue(payment.verifySignature(options.getSecretKey()));
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
@@ -72,6 +73,7 @@ public class RefundTest extends StandardBaseTest {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertTrue(payment.verifySignature(options.getSecretKey()));
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertEquals(payment.getPaymentItems().get(0).getPaymentTransactionId(), refund.getPaymentTransactionId());
@@ -105,6 +107,7 @@ public class RefundTest extends StandardBaseTest {
         assertEquals(Status.SUCCESS.getValue(), refund.getStatus());
         assertEquals(Locale.TR.getValue(), refund.getLocale());
         assertTrue(payment.verifySignature(options.getSecretKey()));
+        assertTrue(refund.verifySignature(options.getSecretKey()));
         assertEquals("123456789", refund.getConversationId());
         assertEquals(payment.getPaymentId(), refund.getPaymentId());
         assertNotEquals(0, refund.getSystemTime());
