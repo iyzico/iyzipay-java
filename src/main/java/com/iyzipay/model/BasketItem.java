@@ -19,6 +19,8 @@ public class BasketItem {
     private boolean chargedFromMerchant;
     private BigDecimal chargedPriceFromMerchant;
 
+    private BigDecimal withholdingTax;
+
 
     public String getId() {
         return id;
@@ -106,6 +108,14 @@ public class BasketItem {
 
     public void setChargedPriceFromMerchant(BigDecimal chargedPriceFromMerchant) {
         this.chargedPriceFromMerchant = chargedPriceFromMerchant;
+    }
+
+    public BigDecimal getWithholdingTax() {
+        return withholdingTax;
+    }
+
+    public void setWithholdingTax(BigDecimal withholdingTax) {
+        this.withholdingTax = withholdingTax;
     }
 
     @Override

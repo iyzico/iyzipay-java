@@ -31,6 +31,7 @@ public class PaymentItem extends IyzipayResource {
     private BigDecimal subMerchantPayoutAmount;
     private BigDecimal merchantPayoutAmount;
     private ConvertedPayout convertedPayout;
+    private BigDecimal withholdingTax;
 
     public static PaymentItem update(UpdatePaymentItemRequest request, Options options) {
         String path = "/payment/item";
@@ -191,6 +192,14 @@ public class PaymentItem extends IyzipayResource {
 
     public void setConvertedPayout(ConvertedPayout convertedPayout) {
         this.convertedPayout = convertedPayout;
+    }
+
+    public BigDecimal getWithholdingTax() {
+        return withholdingTax;
+    }
+
+    public void setWithholdingTax(BigDecimal withholdingTax) {
+        this.withholdingTax = withholdingTax;
     }
 
     @Override
