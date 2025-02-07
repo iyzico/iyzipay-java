@@ -19,6 +19,7 @@ public final class UpdateSubMerchantRequestBuilder extends BaseRequestBuilder {
     private String identityNumber;
     private String taxNumber;
     private String swiftCode;
+    private String blockageAmount;
 
     private UpdateSubMerchantRequestBuilder() {
     }
@@ -97,6 +98,11 @@ public final class UpdateSubMerchantRequestBuilder extends BaseRequestBuilder {
         return this;
     }
 
+    public UpdateSubMerchantRequestBuilder blockageAmount(String blockageAmount) {
+        this.blockageAmount = blockageAmount;
+        return this;
+    }
+
     public UpdateSubMerchantRequest build() {
         UpdateSubMerchantRequest updateSubMerchantRequest = new UpdateSubMerchantRequest();
         updateSubMerchantRequest.setLocale(locale);
@@ -115,6 +121,7 @@ public final class UpdateSubMerchantRequestBuilder extends BaseRequestBuilder {
         updateSubMerchantRequest.setTaxNumber(taxNumber);
         updateSubMerchantRequest.setCurrency(currency);
         updateSubMerchantRequest.setSwiftCode(swiftCode);
+        updateSubMerchantRequest.setBlockageAmount(blockageAmount);
         return updateSubMerchantRequest;
     }
 }

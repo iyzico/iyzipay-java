@@ -19,6 +19,7 @@ public class UpdateSubMerchantRequest extends Request {
     private String identityNumber;
     private String taxNumber;
     private String subMerchantKey;
+    private String blockageAmount;
 
     public String getName() {
         return name;
@@ -132,6 +133,14 @@ public class UpdateSubMerchantRequest extends Request {
         this.subMerchantKey = subMerchantKey;
     }
 
+    public String getBlockageAmount() {
+        return blockageAmount;
+    }
+
+    public void setBlockageAmount(String blockageAmount) {
+        this.blockageAmount = blockageAmount;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -150,6 +159,7 @@ public class UpdateSubMerchantRequest extends Request {
                 .append("subMerchantKey", subMerchantKey)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)
+                .append("blockageAmount", blockageAmount)
                 .toString();
     }
 }

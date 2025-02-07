@@ -8,6 +8,7 @@ import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.model.SubMerchant;
 import com.iyzipay.model.SubMerchantType;
+import com.iyzipay.request.BlockageInfoRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
@@ -206,5 +207,45 @@ public class SubMerchantTest extends BaseTest {
         assertNull(subMerchant.getErrorCode());
         assertNull(subMerchant.getErrorMessage());
         assertNull(subMerchant.getErrorGroup());
+    }
+
+    @Test
+    public void should_create_personal_sub_merchant_with_blockage() {
+        String subMerchantExternalId = RandomGenerator.randomId();
+        CreateSubMerchantRequest request = CreateSubMerchantRequestBuilder.create()
+                .subMerchantType(SubMerchantType.PERSONAL.name())
+                .contactName("John")
+                .contactSurname("Doe")
+                .identityNumber("123456789")
+                .subMerchantExternalId(subMerchantExternalId)
+                .blockageAmount("100.00")
+                .build();
+
+        SubMerchant subMerchant = SubMerchant.create(request, options);
+
+        System.out.println(subMerchant);
+
+        assertEquals(Status.SUCCESS.getValue(), subMerchant.getStatus());
+        assertEquals(Locale.TR.getValue(), subMerchant.getLocale());
+        assertEquals("123456789", subMerchant.getConversationId());
+        assertNotEquals(0, subMerchant.getSystemTime());
+        assertNull(subMerchant.getErrorCode());
+        assertNull(subMerchant.getErrorMessage());
+        assertNull(subMerchant.getErrorGroup());
+    }
+
+    @Test
+    public void should_retrieve_blockage_info() {
+
+        BlockageInfoRequest request = new BlockageInfoRequest();
+        request.setSubMerchantKey("+SBpNqAV+HmUd5GYG5+CzebDcmA=");
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456");
+
+        SubMerchant subMerchant = SubMerchant.retrieveBlockageInfo(request, options);
+
+        System.out.println(subMerchant);
+        assertEquals("100.00000000", subMerchant.getTotalBlockage());
+
     }
 }

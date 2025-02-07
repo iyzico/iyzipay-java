@@ -20,6 +20,7 @@ public class CreateSubMerchantRequest extends Request {
     private String taxNumber;
     private String subMerchantExternalId;
     private String subMerchantType;
+    private String blockageAmount;
 
     public String getName() {
         return name;
@@ -141,6 +142,14 @@ public class CreateSubMerchantRequest extends Request {
         this.subMerchantType = subMerchantType;
     }
 
+    public String getBlockageAmount() {
+        return blockageAmount;
+    }
+
+    public void setBlockageAmount(String blockageAmount) {
+        this.blockageAmount = blockageAmount;
+    }
+
     @Override
     public String toString() {
         return new ToStringRequestBuilder(this)
@@ -160,6 +169,7 @@ public class CreateSubMerchantRequest extends Request {
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)
                 .append("subMerchantType", subMerchantType)
+                .append("blockageAmount", blockageAmount)
                 .toString();
     }
 }
