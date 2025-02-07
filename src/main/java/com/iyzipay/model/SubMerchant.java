@@ -220,24 +220,4 @@ public class SubMerchant extends IyzipayResource {
         this.totalBalance = totalBalance;
     }
 
-    private static String getQueryParams(Request request) {
-        if (request == null) {
-            return "";
-        }
-
-        String queryParams = "?conversationId=" + request.getConversationId();
-
-        if (StringUtils.isNotBlank(request.getLocale())) {
-            queryParams += "&locale=" + request.getLocale();
-        }
-
-        if (request instanceof BlockageInfoRequest) {
-            BlockageInfoRequest blockageInfoRequest = (BlockageInfoRequest) request;
-            if (StringUtils.isNoneEmpty(blockageInfoRequest.getSubMerchantKey())) {
-                queryParams += "&subMerchantKey=" + blockageInfoRequest.getSubMerchantKey();
-            }
-        }
-        return queryParams;
-    }
-
 }
