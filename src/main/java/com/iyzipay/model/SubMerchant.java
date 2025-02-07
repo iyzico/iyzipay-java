@@ -3,9 +3,12 @@ package com.iyzipay.model;
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
+import com.iyzipay.Request;
+import com.iyzipay.request.BlockageInfoRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
+import org.apache.commons.lang3.StringUtils;
 
 public class SubMerchant extends IyzipayResource {
 
@@ -25,6 +28,9 @@ public class SubMerchant extends IyzipayResource {
     private String taxNumber;
     private String subMerchantType;
     private String subMerchantKey;
+    private String usableBlockage;
+    private String totalBlockage;
+    private String totalBalance;
 
     public static SubMerchant create(CreateSubMerchantRequest request, Options options) {
         String path = "/onboarding/submerchant";
@@ -46,6 +52,15 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options) {
         String path = "/onboarding/submerchant/detail";
+        return HttpClient.create().post(options.getBaseUrl() + path,
+                getHttpProxy(options),
+                getHttpHeadersV2(path, request, options),
+                request,
+                SubMerchant.class);
+    }
+
+    public static SubMerchant retrieveBlockageInfo(BlockageInfoRequest request, Options options) {
+        String path = "/blockage";
         return HttpClient.create().post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
@@ -180,4 +195,29 @@ public class SubMerchant extends IyzipayResource {
     public void setSubMerchantKey(String subMerchantKey) {
         this.subMerchantKey = subMerchantKey;
     }
+
+    public String getUsableBlockage() {
+        return usableBlockage;
+    }
+
+    public void setUsableBlockage(String usableBlockage) {
+        this.usableBlockage = usableBlockage;
+    }
+
+    public String getTotalBlockage() {
+        return totalBlockage;
+    }
+
+    public void setTotalBlockage(String totalBlockage) {
+        this.totalBlockage = totalBlockage;
+    }
+
+    public String getTotalBalance() {
+        return totalBalance;
+    }
+
+    public void setTotalBalance(String totalBalance) {
+        this.totalBalance = totalBalance;
+    }
+
 }

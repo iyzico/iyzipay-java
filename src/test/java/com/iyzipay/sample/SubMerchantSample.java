@@ -5,6 +5,7 @@ import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.model.SubMerchant;
 import com.iyzipay.model.SubMerchantType;
+import com.iyzipay.request.BlockageInfoRequest;
 import com.iyzipay.request.CreateSubMerchantRequest;
 import com.iyzipay.request.RetrieveSubMerchantRequest;
 import com.iyzipay.request.UpdateSubMerchantRequest;
@@ -211,5 +212,20 @@ public class SubMerchantSample extends Sample {
         assertNull(subMerchant.getErrorCode());
         assertNull(subMerchant.getErrorMessage());
         assertNull(subMerchant.getErrorGroup());
+    }
+
+    @Test
+    public void should_retrieve_blokage_info() {
+
+        BlockageInfoRequest request = new BlockageInfoRequest();
+        request.setSubMerchantKey("+SBpNqAV+HmUd5GYG5+CzebDcmA=");
+        request.setLocale(Locale.TR.getValue());
+        request.setConversationId("123456");
+
+        SubMerchant subMerchant = SubMerchant.retrieveBlockageInfo(request, options);
+
+        System.out.println(subMerchant);
+        assertEquals("100.00000000", subMerchant.getTotalBlockage());
+
     }
 }
