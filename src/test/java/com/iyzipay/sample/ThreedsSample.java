@@ -10,12 +10,14 @@ import com.iyzipay.model.PaymentCard;
 import com.iyzipay.model.PaymentChannel;
 import com.iyzipay.model.PaymentGroup;
 import com.iyzipay.model.Status;
+import com.iyzipay.model.ThreedsComplete;
 import com.iyzipay.model.ThreedsInitialize;
 import com.iyzipay.model.ThreedsPayment;
 import com.iyzipay.model.loyalty.Loyalty;
 import com.iyzipay.request.CreatePaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
 import com.iyzipay.request.CreateThreedsPaymentRequestV2;
+import com.iyzipay.request.ThreedsCompleteRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -382,5 +384,27 @@ public class ThreedsSample extends Sample {
         assertNull(threedsInitialize.getErrorMessage());
         assertNull(threedsInitialize.getErrorGroup());
         assertNotNull(threedsInitialize.getHtmlContent());
+    }
+
+    @Test
+    public void should_complete_threeds_payment() {
+        ThreedsCompleteRequest threedsCompleteRequest = new ThreedsCompleteRequest();
+        threedsCompleteRequest.setLocale(Locale.TR.getValue());
+        threedsCompleteRequest.setConversationId("123456789");
+        threedsCompleteRequest.setMd("1");
+        threedsCompleteRequest.setPaRes("pares");
+        threedsCompleteRequest.setTermUrl("termUrl");
+
+        ThreedsComplete threedsPayment = ThreedsComplete.create(threedsCompleteRequest, options);
+
+        System.out.println(threedsPayment);
+
+        assertEquals(Status.SUCCESS.getValue(), threedsPayment.getStatus());
+        assertEquals(Locale.TR.getValue(), threedsPayment.getLocale());
+        assertEquals("123456789", threedsPayment.getConversationId());
+        assertNotEquals(0, threedsPayment.getSystemTime());
+        assertNull(threedsPayment.getErrorCode());
+        assertNull(threedsPayment.getErrorMessage());
+        assertNull(threedsPayment.getErrorGroup());
     }
 }
