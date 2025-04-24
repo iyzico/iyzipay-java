@@ -119,19 +119,17 @@
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>${maven-versions-plugin.version}</version>
             </plugin>
-            <plugins>
-                <plugin>
-                   <groupId>org.sonatype.central</groupId>
-                   <artifactId>central-publishing-maven-plugin</artifactId>
-                   <version>${sonatype-central.version}</version>
-                   <extensions>true</extensions>
-                   <configuration>
-                      <publishingServerId>central</publishingServerId>
-                      <autoPublish>true</autoPublish>
-                      <waitUntil>published</waitUntil>
-                   </configuration>
-                </plugin>
-            <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${sonatype-central.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                   <publishingServerId>central</publishingServerId>
+                   <autoPublish>true</autoPublish>
+                   <waitUntil>published</waitUntil>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
