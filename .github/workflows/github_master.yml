@@ -20,6 +20,8 @@ jobs:
         server-id: central
         server-username: MAVEN_USERNAME
         server-password: MAVEN_CENTRAL_TOKEN
+        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg-passphrase: MAVEN_GPG_PASSPHRASE
     - run: |
         set -e
         version_new="2.0."$((107+${{github.run_number}}))
@@ -60,3 +62,4 @@ jobs:
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
