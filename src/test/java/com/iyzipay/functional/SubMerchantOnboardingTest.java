@@ -38,7 +38,7 @@ public class SubMerchantOnboardingTest extends BaseTest {
         System.out.println(response);
 
         assertEquals(Locale.TR.getValue(), response.getLocale());
-        //assertEquals(conversationId, response.getConversationId());
+        assertEquals(conversationId, response.getConversationId());
         assertNotNull(response.getTxId());
         assertFalse(StringUtils.isBlank(response.getTxId()));
     }
@@ -55,7 +55,7 @@ public class SubMerchantOnboardingTest extends BaseTest {
                 "@",
                 String.format(
                         "+%s@",
-                        RandomStringUtils.randomAlphanumeric(5)
+                        RandomStringUtils.randomAlphanumeric(100)
                 )
         );
     }
