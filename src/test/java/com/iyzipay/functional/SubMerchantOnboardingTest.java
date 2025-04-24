@@ -55,7 +55,7 @@ public class SubMerchantOnboardingTest extends BaseTest {
                 "@",
                 String.format(
                         "+%s@",
-                        RandomStringUtils.randomAlphanumeric(100)
+                        RandomStringUtils.randomAlphanumeric(90)
                 )
         );
     }
