@@ -50,7 +50,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
-        assertEquals("Halk Bankası", card.getCardBankName());
+        assertEquals("Halkbank", card.getCardBankName());
         assertEquals(12L, (long) card.getCardBankCode());
     }
 
@@ -86,7 +86,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
         assertEquals("15", card.getMetadata().get("CUT_OFF_DAY"));
-        assertEquals("Halk Bankası", card.getCardBankName());
+        assertEquals("Halkbank", card.getCardBankName());
         assertEquals(12L, (long) card.getCardBankCode());
     }
 
@@ -124,7 +124,7 @@ public class CardStorageTest extends BaseTest {
         assertEquals("CREDIT_CARD", card.getCardType());
         assertEquals("MASTER_CARD", card.getCardAssociation());
         assertEquals("Paraf", card.getCardFamily());
-        assertEquals("Halk Bankası", card.getCardBankName());
+        assertEquals("Halkbank", card.getCardBankName());
         assertEquals(externalUserId, card.getExternalId());
         assertEquals(12L, (long) card.getCardBankCode());
     }
