@@ -18,6 +18,7 @@ public class CreateSubMerchantRequest extends Request {
     private String currency;
     private String identityNumber;
     private String taxNumber;
+    private String settlementDescriptionTemplate;
     private String subMerchantExternalId;
     private String subMerchantType;
     private String blockageAmount;
@@ -118,6 +119,14 @@ public class CreateSubMerchantRequest extends Request {
         this.identityNumber = identityNumber;
     }
 
+    public String getSettlementDescriptionTemplate() {
+        return settlementDescriptionTemplate;
+    }
+
+    public void setSettlementDescriptionTemplate(String settlementDescriptionTemplate) {
+        this.settlementDescriptionTemplate = settlementDescriptionTemplate;
+    }
+
     public String getTaxNumber() {
         return taxNumber;
     }
@@ -165,6 +174,7 @@ public class CreateSubMerchantRequest extends Request {
                 .append("legalCompanyTitle", legalCompanyTitle)
                 .append("swiftCode", swiftCode)
                 .append("currency", currency)
+                .append("settlementDescriptionTemplate", settlementDescriptionTemplate)
                 .append("subMerchantExternalId", subMerchantExternalId)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)
