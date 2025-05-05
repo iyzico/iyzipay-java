@@ -18,6 +18,7 @@ public class UpdateSubMerchantRequest extends Request {
     private String currency;
     private String identityNumber;
     private String taxNumber;
+    private String settlementDescriptionTemplate;
     private String subMerchantKey;
     private String blockageAmount;
 
@@ -125,6 +126,14 @@ public class UpdateSubMerchantRequest extends Request {
         this.taxNumber = taxNumber;
     }
 
+    public String getSettlementDescriptionTemplate() {
+        return settlementDescriptionTemplate;
+    }
+
+    public void setSettlementDescriptionTemplate(String settlementDescriptionTemplate) {
+        this.settlementDescriptionTemplate = settlementDescriptionTemplate;
+    }
+
     public String getSubMerchantKey() {
         return subMerchantKey;
     }
@@ -156,6 +165,7 @@ public class UpdateSubMerchantRequest extends Request {
                 .append("legalCompanyTitle", legalCompanyTitle)
                 .append("swiftCode", swiftCode)
                 .append("currency", currency)
+                .append("settlementDescriptionTemplate", settlementDescriptionTemplate)
                 .append("subMerchantKey", subMerchantKey)
                 .append("identityNumber", identityNumber)
                 .append("taxNumber", taxNumber)
