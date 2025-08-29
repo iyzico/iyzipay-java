@@ -13,7 +13,7 @@ public final class HashGenerator {
     }
 
     public static String generateHash(String apiKey, String secretKey, String randomString, Object request) {
-        byte[] result = null;
+        byte[] result;
         try {
             MessageDigest crypt = MessageDigest.getInstance("SHA1");
             String input = apiKey + randomString + secretKey + request;

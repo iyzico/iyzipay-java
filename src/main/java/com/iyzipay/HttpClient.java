@@ -10,6 +10,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,7 +84,7 @@ public class HttpClient {
                 prepareRequestBody(httpMethod, content, conn);
             }
 
-            return new String(body(conn), Charset.forName("UTF-8"));
+            return new String(body(conn), StandardCharsets.UTF_8);
         } catch (Exception e) {
             throw new HttpClientException(e.getMessage(), e);
         } finally {

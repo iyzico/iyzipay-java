@@ -31,9 +31,7 @@ public final class IyziAuthV2Generator {
             return DatatypeConverter.printHexBinary(mac.doFinal(dataToSign.getBytes("UTF-8"))).toLowerCase();
         } catch (NoSuchAlgorithmException e) {
             throw new HttpClientException("HMAC couldn't be generated", e);
-        } catch (UnsupportedEncodingException e) {
-            throw new HttpClientException("Authentication content couldn't be generated", e);
-        } catch (InvalidKeyException e) {
+        } catch (UnsupportedEncodingException | InvalidKeyException e) {
             throw new HttpClientException("Authentication content couldn't be generated", e);
         }
     }

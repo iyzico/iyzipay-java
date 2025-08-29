@@ -45,8 +45,9 @@ If you want to run samples you'll need to manually install Junit JAR:
 ### Build
 
 If you don't have Maven installed in your local environment, you can use Maven Wrapper script:
-
+```shell
     ./mvnw clean install
+```
 
 # Usage
 
