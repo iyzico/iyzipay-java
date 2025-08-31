@@ -46,13 +46,11 @@ public class CardManagementPageCard extends IyzipayResource {
     }
 
     private static String prepareRetrieveCardManagementPageCardRequest(RetrieveCardManagementPageCardRequest request, Options options){
-        StringBuilder sb = new StringBuilder();
-        sb.append(options.getBaseUrl());
-        sb.append("/v1/card-management/pages/").append(request.getPageToken());
-        sb.append("/cards?locale=").append(request.getLocale());
-        sb.append("&conversationId=").append(request.getConversationId());
 
-        return sb.toString();
+        return options.getBaseUrl() +
+                "/v1/card-management/pages/" + request.getPageToken() +
+                "/cards?locale=" + request.getLocale() +
+                "&conversationId=" + request.getConversationId();
     }
     private static String prepareRequestPath(RetrieveCardManagementPageCardRequest request) {
         return "/v1/card-management/pages/" + request.getPageToken() + "/cards";

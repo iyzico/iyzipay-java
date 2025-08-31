@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class PageRequestQueryParamBuilder {
 
-    private Map<String, Object> subscriptionCustomerQueryParams;
+    private final Map<String, Object> subscriptionCustomerQueryParams;
 
     public PageRequestQueryParamBuilder() {
         subscriptionCustomerQueryParams = new HashMap<String, Object>();
@@ -27,7 +27,7 @@ public class PageRequestQueryParamBuilder {
 
     public String build() {
         StringBuilder queryParams = new StringBuilder();
-        if (subscriptionCustomerQueryParams.size() > 0) {
+        if (!subscriptionCustomerQueryParams.isEmpty()) {
             queryParams.append("?");
         }
         for (Map.Entry<String, Object> entry : subscriptionCustomerQueryParams.entrySet()) {
