@@ -31,6 +31,8 @@ public class CreateCheckoutFormInitializeRequest extends Request {
     private Boolean subscriptionPaymentEnabled;
     private Boolean payWithIyzico;
     private Boolean shippingAmountExcluded;
+    private Boolean shopifyTestMode;
+    private String shopifyTestModeCallbackUrl;
 
     public BigDecimal getPrice() {
         return price;
@@ -192,6 +194,21 @@ public class CreateCheckoutFormInitializeRequest extends Request {
         this.shippingAmountExcluded = shippingAmountExcluded;
     }
 
+    public Boolean getShopifyTestMode() {
+        return shopifyTestMode;
+    }
+
+    public void setShopifyTestMode(Boolean shopifyTestMode) {
+        this.shopifyTestMode = shopifyTestMode;
+    }
+
+    public String getShopifyTestModeCallbackUrl() {
+        return shopifyTestModeCallbackUrl;
+    }
+
+    public void setShopifyTestModeCallbackUrl(String shopifyTestModeCallbackUrl) {
+        this.shopifyTestModeCallbackUrl = shopifyTestModeCallbackUrl;
+    }
 
     @Override
     public String toString() {
@@ -216,6 +233,8 @@ public class CreateCheckoutFormInitializeRequest extends Request {
                 .append("debitCardAllowed", debitCardAllowed)
                 .append("subscriptionPaymentEnabled", subscriptionPaymentEnabled)
                 .append("payWithIyzico", payWithIyzico)
+                .append("shopifyTestMode", shopifyTestMode)
+                .append("shopifyTestModeCallbackUrl", shopifyTestModeCallbackUrl)
                 .toString();
     }
 }
