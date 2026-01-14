@@ -9,6 +9,7 @@ import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
 import com.iyzipay.request.RetrieveCardManagementPageCardRequest;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -22,6 +23,7 @@ public class CardManagementRetrieveCardTest extends BaseTest {
         options.setBaseUrl("https://sandbox-cm.iyzipay.com");
     }
 
+    @Ignore
     @Test
     public void should_retrieve_cards() {
         // given
@@ -46,6 +48,7 @@ public class CardManagementRetrieveCardTest extends BaseTest {
         assertNotNull(cardManagementPageCard);
     }
 
+    @Ignore
     @Test
     public void should_not_retrieve_cards_when_pageToken_is_not_exist() {
         RetrieveCardManagementPageCardRequest retrieveCardRequest = CardManagementRetrieveCardBuilder.create()

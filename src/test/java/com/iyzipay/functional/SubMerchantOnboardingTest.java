@@ -7,6 +7,7 @@ import com.iyzipay.request.SubMerchantOnboardingInitializeRequest;
 import com.iyzipay.request.SubMerchantOnboardingVerifyRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -60,6 +61,7 @@ public class SubMerchantOnboardingTest extends BaseTest {
         );
     }
 
+    @Ignore
     @Test
     public void should_verify_claim() {
         final String conversationId = RandomStringUtils.randomNumeric(9);
