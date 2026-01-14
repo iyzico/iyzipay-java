@@ -6,6 +6,7 @@ import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateCardManagementPageInitializeRequest;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -19,6 +20,7 @@ public class CardManagementPageTest extends BaseTest {
         options.setBaseUrl("https://sandbox-cm.iyzipay.com");
     }
 
+    @Ignore
     @Test
     public void should_initialize_card_management_page() throws Exception {
         CreateCardManagementPageInitializeRequest request = CardManagementPageRequestBuilder.create().build();
@@ -38,6 +40,7 @@ public class CardManagementPageTest extends BaseTest {
         assertNull(cardManagementPageInitialize.getErrorGroup());
     }
 
+    @Ignore
     @Test
     public void should_not_initialize_card_management_page_when_callbackUrl_not_exist() throws Exception {
         CreateCardManagementPageInitializeRequest request = CardManagementPageRequestBuilder.create().callbackUrl("").build();

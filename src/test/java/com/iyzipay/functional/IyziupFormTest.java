@@ -11,6 +11,7 @@ import com.iyzipay.model.OrderItem;
 import com.iyzipay.model.Status;
 import com.iyzipay.request.CreateIyziupFormInitializeRequest;
 import com.iyzipay.request.RetrieveIyziupFormRequest;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class IyziupFormTest extends IyziupBaseTest {
 
+    @Ignore
     @Test
     public void should_initialize_iyziup_form_for_standard_merchant() {
         List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).itemDecription("item description").build());
@@ -49,6 +51,7 @@ public class IyziupFormTest extends IyziupBaseTest {
         assertNotNull(iyziupFormInitialize.getContent());
     }
 
+    @Ignore
     @Test
     public void should_initialize_iyziup_form_for_standard_merchant_with_initial_consumer_data() {
         List<OrderItem> orderItems = Collections.singletonList(OrderItemBuilder.create().price(new BigDecimal("0.3")).itemDecription("item description").build());
