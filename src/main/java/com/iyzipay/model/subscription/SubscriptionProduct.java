@@ -6,6 +6,7 @@ import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
 import com.iyzipay.model.subscription.resource.SubscriptionProductData;
 import com.iyzipay.request.subscription.CreateSubscriptionProductRequest;
+import com.iyzipay.request.subscription.DeleteSubscriptionProductRequest;
 import com.iyzipay.request.subscription.SubscriptionUpdateProductRequest;
 
 public class SubscriptionProduct extends IyzipayResource {
@@ -43,14 +44,16 @@ public class SubscriptionProduct extends IyzipayResource {
                 SubscriptionProduct.class);
     }
 
-    public static IyzipayResource delete(String subscriptionProductReferenceCode, Options options) {
+    public static SubscriptionProduct delete(String subscriptionProductReferenceCode, Options options) {
         String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
         String uri = options.getBaseUrl() + path;
+        DeleteSubscriptionProductRequest request = new DeleteSubscriptionProductRequest();
+        request.setProductReferenceCode(subscriptionProductReferenceCode);
         return HttpClient.create().delete(uri,
                 getHttpProxy(options),
-                getHttpHeadersV2(path, null, options),
-                null,
-                IyzipayResource.class);
+                getHttpHeadersV2(path, request, options),
+                request,
+                SubscriptionProduct.class);
     }
 
     public SubscriptionProductData getSubscriptionProductData() {

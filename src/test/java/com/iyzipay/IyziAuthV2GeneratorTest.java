@@ -1,8 +1,10 @@
 package com.iyzipay;
 
+import com.iyzipay.request.subscription.DeleteSubscriptionProductRequest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class IyziAuthV2GeneratorTest {
 
@@ -19,5 +21,16 @@ public class IyziAuthV2GeneratorTest {
     @Test
     public void should_generate_hash_when_given_request_body_is_null_request() {
         assertEquals("YXBpS2V5OmFwaUtleSZyYW5kb21LZXk6cmFuZG9tJnNpZ25hdHVyZTpiN2EyZjYzNGRlOWNkNTkzYWNjZDlhNTNhZjI4Zjc4YjgyZWM3NmRjMjYyN2Y2NTdmNjY0M2NmNjYyYzI2Njdh", IyziAuthV2Generator.generateAuthContent("/v2/uri?test=true", "apiKey", "secretKey", "random", null));
+    }
+
+    @Test
+    public void should_include_delete_subscription_product_request_body_in_signature() {
+        DeleteSubscriptionProductRequest request = new DeleteSubscriptionProductRequest();
+        request.setProductReferenceCode("ref-123");
+
+        String pathOnlyHash = IyziAuthV2Generator.generateAuthContent("/v2/subscription/products/ref-123", "apiKey", "secretKey", "random", null);
+        String bodyAwareHash = IyziAuthV2Generator.generateAuthContent("/v2/subscription/products/ref-123", "apiKey", "secretKey", "random", request);
+
+        assertNotEquals(pathOnlyHash, bodyAwareHash);
     }
 }
