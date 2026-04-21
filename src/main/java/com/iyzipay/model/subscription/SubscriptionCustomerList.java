@@ -15,7 +15,7 @@ public class SubscriptionCustomerList extends IyzipayResource {
 
     public static SubscriptionCustomerList retrieve(PagingRequest request, Options options) {
         String path = "/v2/subscription/customers";
-        String uri = options.getBaseUrl() + path + "/" + new PageRequestQueryParamBuilder()
+        String uri = options.getBaseUrl() + path + new PageRequestQueryParamBuilder()
                 .page(request.getPage())
                 .count(request.getCount())
                 .build();

@@ -15,7 +15,7 @@ public class SubscriptionPricingPlanList extends IyzipayResource {
 
     public static SubscriptionPricingPlanList retrieve(String subscriptionPricingPlanReferenceCode, PagingRequest request, Options options) {
         String path = "/v2/subscription/products/" + subscriptionPricingPlanReferenceCode + "/pricing-plans";
-        String uri = options.getBaseUrl() + path + "/" + new PageRequestQueryParamBuilder()
+        String uri = options.getBaseUrl() + path + new PageRequestQueryParamBuilder()
                 .page(request.getPage())
                 .count(request.getCount())
                 .build();

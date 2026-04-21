@@ -1,6 +1,5 @@
 package com.iyzipay.sample.subscription;
 
-import com.iyzipay.IyzipayResource;
 import com.iyzipay.model.Currency;
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
@@ -82,7 +81,7 @@ public class SubscriptionPricingPlanSample extends Sample {
 
     @Test
     public void should_delete() {
-        IyzipayResource response = SubscriptionPricingPlan.delete("ffa7b210-7990-4a3b-ad2c-e57774e8ec24", options);
+        SubscriptionPricingPlan response = SubscriptionPricingPlan.delete("ffa7b210-7990-4a3b-ad2c-e57774e8ec24", options);
 
         assertEquals(response.getStatus(), Status.SUCCESS.getValue());
     }
