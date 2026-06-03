@@ -1,11 +1,11 @@
-package com.iyzipay.model.masspayout;
+package com.iyzipay.model.masspayout.resource;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.MassPayoutOrderRetrieveVo;
-import com.iyzipay.model.MassPayoutRetrieveVo;
-import com.iyzipay.model.PageDto;
+import com.iyzipay.model.masspayout.MassPayoutOrderRetrieveVo;
+import com.iyzipay.model.masspayout.MassPayoutRetrieveVo;
+import com.iyzipay.model.masspayout.PageDto;
 import com.iyzipay.request.masspayout.MassPayoutRetrieveRequest;
 
 public class MassPayoutRetrieve extends IyzipayResource {
@@ -39,3 +39,4 @@ public class MassPayoutRetrieve extends IyzipayResource {
         this.massPayoutItems = massPayoutItems;
     }
 }
+

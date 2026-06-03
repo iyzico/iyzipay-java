@@ -1,4 +1,4 @@
-package com.iyzipay.model;
+package com.iyzipay.model.masspayout.enumtype;
 
 public enum OrderStatus {
     INVALID(-2),
@@ -21,3 +21,4 @@ public enum OrderStatus {
         return value;
     }
 }
+

@@ -1,9 +1,9 @@
-package com.iyzipay.model.masspayout;
+package com.iyzipay.model.masspayout.resource;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
 import com.iyzipay.Options;
-import com.iyzipay.model.InvalidOrderVo;
+import com.iyzipay.model.masspayout.InvalidOrderVo;
 import com.iyzipay.request.masspayout.MassPayoutInitRequest;
 
 import java.util.List;
@@ -39,3 +39,4 @@ public class MassPayoutInit extends IyzipayResource {
         this.invalidItems = invalidItems;
     }
 }
+

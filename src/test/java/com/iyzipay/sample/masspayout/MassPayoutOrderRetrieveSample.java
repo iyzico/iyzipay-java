@@ -1,8 +1,8 @@
 package com.iyzipay.sample.masspayout;
 
-import com.iyzipay.model.OrderStatus;
+import com.iyzipay.model.masspayout.enumtype.OrderStatus;
 import com.iyzipay.model.Status;
-import com.iyzipay.model.masspayout.MassPayoutOrderRetrieve;
+import com.iyzipay.model.masspayout.resource.MassPayoutOrderRetrieve;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
 

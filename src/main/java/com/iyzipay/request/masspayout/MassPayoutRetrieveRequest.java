@@ -1,7 +1,7 @@
 package com.iyzipay.request.masspayout;
 
 import com.iyzipay.Request;
-import com.iyzipay.model.ItemType;
+import com.iyzipay.model.masspayout.enumtype.ItemType;
 
 public class MassPayoutRetrieveRequest extends Request {
 

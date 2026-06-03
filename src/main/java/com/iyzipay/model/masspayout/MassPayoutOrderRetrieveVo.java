@@ -1,5 +1,6 @@
-package com.iyzipay.model;
+package com.iyzipay.model.masspayout;
 
+import com.iyzipay.model.masspayout.enumtype.OrderStatus;
 import java.math.BigDecimal;
 
 public class MassPayoutOrderRetrieveVo {

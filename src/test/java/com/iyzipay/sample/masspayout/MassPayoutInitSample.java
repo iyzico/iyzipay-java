@@ -1,10 +1,10 @@
 package com.iyzipay.sample.masspayout;
 
-import com.iyzipay.model.Amount;
+import com.iyzipay.model.masspayout.Amount;
 import com.iyzipay.model.Locale;
-import com.iyzipay.model.MassPayoutItem;
+import com.iyzipay.model.masspayout.MassPayoutItem;
 import com.iyzipay.model.Status;
-import com.iyzipay.model.masspayout.MassPayoutInit;
+import com.iyzipay.model.masspayout.resource.MassPayoutInit;
 import com.iyzipay.request.masspayout.MassPayoutInitRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;

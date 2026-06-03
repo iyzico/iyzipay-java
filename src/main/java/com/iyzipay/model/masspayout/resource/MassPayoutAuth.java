@@ -1,4 +1,4 @@
-package com.iyzipay.model.masspayout;
+package com.iyzipay.model.masspayout.resource;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
@@ -17,3 +17,4 @@ public class MassPayoutAuth extends IyzipayResource {
                 MassPayoutAuth.class);
     }
 }
+

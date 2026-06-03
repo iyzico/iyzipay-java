@@ -2,7 +2,7 @@ package com.iyzipay.sample.masspayout;
 
 import com.iyzipay.model.Locale;
 import com.iyzipay.model.Status;
-import com.iyzipay.model.masspayout.MassPayoutAuth;
+import com.iyzipay.model.masspayout.resource.MassPayoutAuth;
 import com.iyzipay.request.masspayout.MassPayoutAuthRequest;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;

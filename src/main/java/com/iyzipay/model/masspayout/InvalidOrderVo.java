@@ -1,4 +1,4 @@
-package com.iyzipay.model;
+package com.iyzipay.model.masspayout;
 
 public class InvalidOrderVo {
     private String externalId;

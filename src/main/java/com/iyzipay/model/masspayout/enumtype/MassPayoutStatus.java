@@ -1,4 +1,4 @@
-package com.iyzipay.model;
+package com.iyzipay.model.masspayout.enumtype;
 
 public enum MassPayoutStatus {
     INIT(1),
@@ -20,3 +20,4 @@ public enum MassPayoutStatus {
         return value;
     }
 }
+

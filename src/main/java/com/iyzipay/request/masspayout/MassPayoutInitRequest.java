@@ -1,7 +1,7 @@
 package com.iyzipay.request.masspayout;
 
 import com.iyzipay.Request;
-import com.iyzipay.model.MassPayoutItem;
+import com.iyzipay.model.masspayout.MassPayoutItem;
 
 import java.util.List;
 

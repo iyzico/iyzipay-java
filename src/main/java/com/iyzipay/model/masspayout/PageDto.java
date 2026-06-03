@@ -1,4 +1,4 @@
-package com.iyzipay.model;
+package com.iyzipay.model.masspayout;
 
 import java.util.List;
 

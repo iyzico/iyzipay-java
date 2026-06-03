@@ -1,4 +1,4 @@
-package com.iyzipay.model.masspayout;
+package com.iyzipay.model.masspayout.resource;
 
 import com.iyzipay.HttpClient;
 import com.iyzipay.IyzipayResource;
@@ -27,3 +27,4 @@ public class MassPayoutBalanceRetrieve extends IyzipayResource {
         this.balance = balance;
     }
 }
+

@@ -1,7 +1,7 @@
 package com.iyzipay.sample.masspayout;
 
 import com.iyzipay.model.Status;
-import com.iyzipay.model.masspayout.MassPayoutCancel;
+import com.iyzipay.model.masspayout.resource.MassPayoutCancel;
 import com.iyzipay.sample.Sample;
 import org.junit.Test;
 
