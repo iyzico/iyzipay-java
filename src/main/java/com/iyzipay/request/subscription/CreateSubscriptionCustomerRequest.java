@@ -13,7 +13,6 @@ public class CreateSubscriptionCustomerRequest extends Request {
     private SubscriptionAddress billingAddress;
     private SubscriptionAddress shippingAddress;
 
-
     public String getName() {
         return name;
     }
