@@ -141,6 +141,34 @@ Payment payment = Payment.create(request, options);
 ```
 See other samples under src/test/java/com/iyzipay/sample package.
 
+### TLS trust configuration
+
+By default the client verifies TLS certificates against the JDK trust store (`cacerts`). If your
+environment needs a different trust configuration - for example a corporate trust store, a
+TLS-inspecting egress proxy, or a JDK image whose trust store changed between updates - supply
+your own `SSLSocketFactory` on `Options`:
+
+```java
+KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+try (InputStream in = new FileInputStream("/path/to/truststore.p12")) {
+    trustStore.load(in, "changeit".toCharArray());
+}
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(trustStore);
+SSLContext sslContext = SSLContext.getInstance("TLS");
+sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
+
+Options options = new Options();
+options.setApiKey("your api key");
+options.setSecretKey("your secret key");
+options.setBaseUrl("https://sandbox-api.iyzipay.com");
+options.setSslSocketFactory(sslContext.getSocketFactory());
+```
+
+The configured factory is used as-is for all requests made with those `Options`; other `Options`
+instances in the same JVM are unaffected. When no factory is set, the client keeps using the JDK
+default SSL socket factory.
+
 ### Mock test cards
 
 Test cards that can be used to simulate a *successful* payment:

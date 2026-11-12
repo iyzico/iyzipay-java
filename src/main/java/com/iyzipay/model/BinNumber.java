@@ -17,7 +17,7 @@ public class BinNumber extends IyzipayResource {
 
     public static BinNumber retrieve(RetrieveBinNumberRequest request, Options options) {
         String path = "/payment/bin/check";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

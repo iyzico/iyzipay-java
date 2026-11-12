@@ -4,14 +4,18 @@ import com.google.gson.Gson;
 import com.iyzipay.exception.HttpClientException;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static com.iyzipay.HttpMethod.*;
 
@@ -24,11 +28,32 @@ public class HttpClient {
     private static final int TIMEOUT = 140000;
     private static final IyzipaySSLSocketFactory socketFactory = IyzipaySSLSocketFactory.getInstance();
 
+    private final SSLSocketFactory sslSocketFactory;
+
     private HttpClient() {
+        this(null);
+    }
+
+    private HttpClient(SSLSocketFactory sslSocketFactory) {
+        this.sslSocketFactory = sslSocketFactory;
     }
 
     public static HttpClient create() {
         return new HttpClient();
+    }
+
+    /**
+     * Creates a client that uses the ssl socket factory configured on the given options,
+     * or the JDK default when none is configured.
+     *
+     * @param options the options carrying the optional ssl socket factory.
+     * @return a new http client.
+     */
+    public static HttpClient create(Options options) {
+        if (options == null) {
+            return new HttpClient();
+        }
+        return new HttpClient(options.getSslSocketFactory());
     }
 
     public <T> T get(String url, Proxy proxy, Class<T> responseType) {
@@ -70,7 +95,7 @@ public class HttpClient {
             raw = (null != proxy) ? new URL(url).openConnection(proxy) : new URL(url).openConnection();
             conn = HttpsURLConnection.class.cast(raw);
 
-            conn.setSSLSocketFactory(socketFactory);
+            conn.setSSLSocketFactory(sslSocketFactory != null ? sslSocketFactory : socketFactory);
             conn.setRequestMethod(httpMethod.name());
 
             conn.setConnectTimeout(TIMEOUT);
@@ -85,12 +110,34 @@ public class HttpClient {
 
             return new String(body(conn), Charset.forName("UTF-8"));
         } catch (Exception e) {
-            throw new HttpClientException(e.getMessage(), e);
+            throw new HttpClientException(describeFailure(e), e);
         } finally {
             if (conn != null) {
                 conn.disconnect();
             }
         }
+    }
+
+    private String describeFailure(Throwable throwable) {
+        StringBuilder description = new StringBuilder();
+        Set<Throwable> visited = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
+        int depth = 0;
+        Throwable current = throwable;
+        while (current != null && visited.add(current)) {
+            if (depth > 0) {
+                description.append(" (");
+            }
+            description.append(current.getClass().getSimpleName());
+            if (current.getMessage() != null && !current.getMessage().isEmpty()) {
+                description.append(": ").append(current.getMessage());
+            }
+            current = current.getCause();
+            depth++;
+        }
+        for (depth--; depth > 0; depth--) {
+            description.append(')');
+        }
+        return description.toString();
     }
 
     private void prepareHeaders(Map<String, String> headers, HttpURLConnection conn) {

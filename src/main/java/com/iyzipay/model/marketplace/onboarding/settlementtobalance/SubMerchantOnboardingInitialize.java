@@ -8,7 +8,7 @@ public class SubMerchantOnboardingInitialize extends SubmerchantOnboardingInitia
 
     public static SubMerchantOnboardingInitialize initialize(SubMerchantOnboardingInitializeRequest request, Options options) {
         String path = "/onboarding/settlement-to-balance/submerchant";
-        return HttpClient.create().post(
+        return HttpClient.create(options).post(
                 options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),

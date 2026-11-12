@@ -75,3 +75,6 @@ $RECYCLE.BIN/
 log.txt
 
 *.DS_Store
+
+openspec/**
+.opencode/**

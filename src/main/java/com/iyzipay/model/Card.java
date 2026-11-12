@@ -29,7 +29,7 @@ public class Card extends IyzipayResource {
 
     public static Card create(CreateCardRequest request, Options options) {
         String path = "/cardstorage/card";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -38,7 +38,7 @@ public class Card extends IyzipayResource {
 
     public static Card delete(DeleteCardRequest request, Options options) {
         String path = "/cardstorage/card";
-        return HttpClient.create().delete(options.getBaseUrl() + path,
+        return HttpClient.create(options).delete(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

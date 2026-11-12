@@ -14,7 +14,7 @@ public class CardManagementPageCard extends IyzipayResource {
     private List<Card> cardDetails;
 
     public static CardManagementPageCard retrieve(RetrieveCardManagementPageCardRequest request, Options options) {
-        return HttpClient.create().get(prepareRetrieveCardManagementPageCardRequest(request, options),
+        return HttpClient.create(options).get(prepareRetrieveCardManagementPageCardRequest(request, options),
                 getHttpProxy(options),
                 getHttpHeadersV2(prepareRequestPath(request), request, options),
                 request,

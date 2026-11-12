@@ -27,7 +27,7 @@ public class ThreedsInitialize extends IyzipayResource implements ResponseSignat
 
     public static ThreedsInitialize create(CreatePaymentRequest request, Options options) {
         String path = "/payment/3dsecure/initialize";
-        ThreedsInitialize response = HttpClient.create().post(options.getBaseUrl() + path,
+        ThreedsInitialize response = HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

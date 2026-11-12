@@ -20,7 +20,7 @@ public class ReportingPaymentTransaction extends IyzipayResource {
     public static ReportingPaymentTransaction create(ReportingPaymentTransactionRequest request, Options options) {
         String path = "/v2/reporting/payment/transactions";
         String uri = options.getBaseUrl() + path + getQueryParams(request);
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

@@ -7,6 +7,6 @@ import com.iyzipay.Options ;
 public class ApiTest extends IyzipayResource {
 
     public static IyzipayResource retrieve(Options options) {
-        return HttpClient.create().get(options.getBaseUrl() + "/payment/test", getHttpProxy(options), IyzipayResource.class) ;
+        return HttpClient.create(options).get(options.getBaseUrl() + "/payment/test", getHttpProxy(options), IyzipayResource.class) ;
     }
 }

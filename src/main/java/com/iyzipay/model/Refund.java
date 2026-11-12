@@ -25,7 +25,7 @@ public class Refund extends IyzipayResource implements ResponseSignatureGenerato
 
     public static Refund create(CreateRefundRequest request, Options options) {
         String path = "/payment/refund";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -34,7 +34,7 @@ public class Refund extends IyzipayResource implements ResponseSignatureGenerato
 
     public static Refund createV2(CreateRefundV2Request request, Options options) {
         String path = "/v2/payment/refund";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

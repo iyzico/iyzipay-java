@@ -8,7 +8,7 @@ public class LoyaltyInquire extends LoyaltyResource {
 
     public static LoyaltyInquire create(LoyaltyInquireRequest request, Options options) {
         String path = "/payment/loyalty/inquire";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

@@ -15,7 +15,7 @@ public class SubscriptionCardUpdateCheckoutFormInitialize extends IyzipayResourc
     public static SubscriptionCardUpdateCheckoutFormInitialize create(InitializeSubscriptionCardUpdateCheckoutFormRequest request, Options options) {
         String path = "/v2/subscription/card-update/checkoutform/initialize";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -25,7 +25,7 @@ public class SubscriptionCardUpdateCheckoutFormInitialize extends IyzipayResourc
     public static SubscriptionCardUpdateCheckoutFormInitialize createWithSubscription(InitializeCardUpdateWithSubscriptionCheckoutFormRequest request, Options options) {
         String path = "/v2/subscription/card-update/checkoutform/initialize/with-subscription";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

@@ -18,7 +18,7 @@ public class CheckoutFormInitialize extends CheckoutFormInitializeResource imple
 
     public static CheckoutFormInitialize create(CreateCheckoutFormInitializeRequest request, Options options) {
         String path = "/payment/iyzipos/checkoutform/initialize/auth/ecom";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

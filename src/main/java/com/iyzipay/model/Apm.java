@@ -18,7 +18,7 @@ public class Apm extends ApmResource implements ResponseSignatureGenerator {
 
     public static Apm create(CreateApmInitializeRequest request, Options options) {
         String path = "/payment/apm/initialize";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -35,7 +35,7 @@ public class Apm extends ApmResource implements ResponseSignatureGenerator {
 
     public static Apm retrieve(RetrieveApmRequest request, Options options) {
         String path = "/payment/apm/retrieve";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

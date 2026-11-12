@@ -34,7 +34,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant create(CreateSubMerchantRequest request, Options options) {
         String path = "/onboarding/submerchant";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -43,7 +43,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant update(UpdateSubMerchantRequest request, Options options) {
         String path = "/onboarding/submerchant";
-        return HttpClient.create().put(options.getBaseUrl() + path,
+        return HttpClient.create(options).put(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -52,7 +52,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant retrieve(RetrieveSubMerchantRequest request, Options options) {
         String path = "/onboarding/submerchant/detail";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -61,7 +61,7 @@ public class SubMerchant extends IyzipayResource {
 
     public static SubMerchant retrieveBlockageInfo(BlockageInfoRequest request, Options options) {
         String path = "/blockage";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

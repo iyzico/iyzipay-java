@@ -19,7 +19,7 @@ public class PaymentPostAuth extends PaymentResource implements ResponseSignatur
 
     public static PaymentPostAuth create(CreatePaymentPostAuthRequest request, Options options) {
         String path = "/payment/postauth";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

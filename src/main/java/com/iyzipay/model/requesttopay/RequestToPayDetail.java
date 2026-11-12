@@ -17,7 +17,7 @@ public class RequestToPayDetail extends IyzipayResource {
     public static RequestToPayDetail retrieve(RetrieveRequestToPayDetailRequest request, Options options) {
         String path = BASE_PATH + "/retrieve-detail";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

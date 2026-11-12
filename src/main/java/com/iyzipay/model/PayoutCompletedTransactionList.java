@@ -13,7 +13,7 @@ public class PayoutCompletedTransactionList extends IyzipayResource {
 
     public static PayoutCompletedTransactionList retrieve(RetrieveTransactionsRequest request, Options options) {
         String path = "/reporting/settlement/payoutcompleted";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
