@@ -23,7 +23,7 @@ public class BkmInitialize extends IyzipayResource implements ResponseSignatureG
 
     public static BkmInitialize create(CreateBkmInitializeRequest request, Options options) {
         String path = "/payment/bkm/initialize";
-        BkmInitialize response = HttpClient.create().post(options.getBaseUrl() + path,
+        BkmInitialize response = HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

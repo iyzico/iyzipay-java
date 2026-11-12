@@ -19,7 +19,7 @@ public class Cancel extends IyzipayResource {
 
     public static Cancel create(CreateCancelRequest request, Options options) {
         String path = "/payment/cancel";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

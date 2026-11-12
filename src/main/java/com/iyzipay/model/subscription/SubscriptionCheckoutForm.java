@@ -14,7 +14,7 @@ public class SubscriptionCheckoutForm extends IyzipayResource {
     public static SubscriptionCheckoutForm retrieve(String subscriptionCheckoutFormToken, Options options) {
         String path = "/v2/subscription/checkoutform/" + subscriptionCheckoutFormToken;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

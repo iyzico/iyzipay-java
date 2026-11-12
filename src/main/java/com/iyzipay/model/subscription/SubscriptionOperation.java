@@ -16,7 +16,7 @@ public class SubscriptionOperation extends IyzipayResource {
     public static SubscriptionOperation cancel(String subscriptionReferenceCode, Options options) {
         String path = "/v2/subscription/subscriptions/" + subscriptionReferenceCode + "/cancel";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -26,7 +26,7 @@ public class SubscriptionOperation extends IyzipayResource {
     public static SubscriptionOperation activate(String subscriptionReferenceCode, Options options) {
         String path = "/v2/subscription/subscriptions/" + subscriptionReferenceCode + "/activate";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -36,7 +36,7 @@ public class SubscriptionOperation extends IyzipayResource {
     public static SubscriptionOperation upgrade(String subscriptionReferenceCode, UpgradeSubscriptionRequest request, Options options) {
         String path = "/v2/subscription/subscriptions/" + subscriptionReferenceCode + "/upgrade";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -46,7 +46,7 @@ public class SubscriptionOperation extends IyzipayResource {
     public static SubscriptionOperation retryPayment(SubscriptionOrderOperationRequest request, Options options) {
         String path = "/v2/subscription/operation/retry";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

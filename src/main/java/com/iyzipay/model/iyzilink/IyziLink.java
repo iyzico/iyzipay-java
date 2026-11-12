@@ -15,7 +15,7 @@ public class IyziLink extends IyzipayResource {
 
     public static IyziLinkSaveResource create(IyziLinkSaveRequest request, Options options) {
         String uri = options.getBaseUrl() + V2_IYZILINK_PRODUCTS + getQueryParams(request);
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(V2_IYZILINK_PRODUCTS, request, options),
                 request,
@@ -25,7 +25,7 @@ public class IyziLink extends IyzipayResource {
     public static IyziLinkSaveResource update(String token, IyziLinkSaveRequest request, Options options) {
         String path = V2_IYZILINK_PRODUCTS + "/" + token;
         String uri = options.getBaseUrl() + path + getQueryParams(request);
-        return HttpClient.create().put(uri,
+        return HttpClient.create(options).put(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -37,7 +37,7 @@ public class IyziLink extends IyzipayResource {
         String iyziLinkQueryParam = "productType=IYZILINK";
         queryParams = StringUtils.isEmpty(queryParams) ? "?" + iyziLinkQueryParam : queryParams + "&" + iyziLinkQueryParam;
         String uri = options.getBaseUrl() + V2_IYZILINK_PRODUCTS + queryParams;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(V2_IYZILINK_PRODUCTS, null, options),
                 null,
@@ -47,7 +47,7 @@ public class IyziLink extends IyzipayResource {
     public static IyziLinkResource retrieve(String token, Request request, Options options) {
         String path = V2_IYZILINK_PRODUCTS + "/" + token;
         String uri = options.getBaseUrl() + path + getQueryParams(request);
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -57,7 +57,7 @@ public class IyziLink extends IyzipayResource {
     public static IyzipayResource delete(String token, Request request, Options options) {
         String path = V2_IYZILINK_PRODUCTS + "/" + token;
         String uri = options.getBaseUrl() + path + getQueryParams(request);
-        return HttpClient.create().delete(uri,
+        return HttpClient.create(options).delete(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

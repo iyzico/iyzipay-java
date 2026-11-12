@@ -16,7 +16,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan retrieve(String subscriptionPricingPlanReferenceCode, Options options) {
         String path = "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -26,7 +26,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan create(String subscriptionProductReferenceCode, CreateSubscriptionPricingPlanRequest request, Options options) {
         String path = "/v2/subscription/products/" + subscriptionProductReferenceCode + "/pricing-plans";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -36,7 +36,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static SubscriptionPricingPlan update(String subscriptionPricingPlanReferenceCode, UpdateSubscriptionPricingPlanRequest request, Options options) {
         String path = "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -46,7 +46,7 @@ public class SubscriptionPricingPlan extends IyzipayResource {
     public static IyzipayResource delete(String subscriptionPricingPlanReferenceCode, Options options) {
         String path = "/v2/subscription/pricing-plans/" + subscriptionPricingPlanReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().delete(uri,
+        return HttpClient.create(options).delete(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

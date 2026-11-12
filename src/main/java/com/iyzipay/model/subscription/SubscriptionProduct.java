@@ -16,7 +16,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct retrieve(String subscriptionProductReferenceCode, Options options) {
         String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -26,7 +26,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct create(CreateSubscriptionProductRequest request, Options options) {
         String path = "/v2/subscription/products";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -36,7 +36,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static SubscriptionProduct update(String subscriptionProductReferenceCode, SubscriptionUpdateProductRequest request, Options options) {
         String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -46,7 +46,7 @@ public class SubscriptionProduct extends IyzipayResource {
     public static IyzipayResource delete(String subscriptionProductReferenceCode, Options options) {
         String path = "/v2/subscription/products/" + subscriptionProductReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().delete(uri,
+        return HttpClient.create(options).delete(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

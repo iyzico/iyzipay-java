@@ -19,7 +19,7 @@ public class SubscriptionProductList extends IyzipayResource {
                 .page(request.getPage())
                 .count(request.getCount())
                 .build();
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,

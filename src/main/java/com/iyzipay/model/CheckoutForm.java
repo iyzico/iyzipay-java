@@ -23,7 +23,7 @@ public class CheckoutForm extends PaymentResource implements ResponseSignatureGe
 
     public static CheckoutForm retrieve(RetrieveCheckoutFormRequest request, Options options) {
         String path = "/payment/iyzipos/checkoutform/auth/ecom/detail";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

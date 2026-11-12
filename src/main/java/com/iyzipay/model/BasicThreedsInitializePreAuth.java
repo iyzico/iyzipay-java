@@ -14,7 +14,7 @@ public class BasicThreedsInitializePreAuth extends IyzipayResource {
 
     public static BasicThreedsInitializePreAuth create(CreateBasicPaymentRequest request, Options options) {
         String path = "/payment/3dsecure/initialize/preauth/basic";
-        BasicThreedsInitializePreAuth response = HttpClient.create().post(options.getBaseUrl() + path,
+        BasicThreedsInitializePreAuth response = HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

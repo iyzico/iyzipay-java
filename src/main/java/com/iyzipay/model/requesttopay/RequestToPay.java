@@ -26,7 +26,7 @@ public class RequestToPay extends IyzipayResource {
     public static RequestToPay create(CreateRequestToPayRequest request, Options options) {
         String path = BASE_PATH + "/create";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -36,7 +36,7 @@ public class RequestToPay extends IyzipayResource {
     public static RequestToPay reply(ReplyRequestToPayRequest request, Options options) {
         String path = BASE_PATH + "/reply";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -46,7 +46,7 @@ public class RequestToPay extends IyzipayResource {
     public static RequestToPay cancel(String referenceNumber, Options options) {
         String path = BASE_PATH + "/cancel/" + referenceNumber;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -56,7 +56,7 @@ public class RequestToPay extends IyzipayResource {
     public static RequestToPay retrieve(String referenceNumber, Options options) {
         String path = BASE_PATH + "/" + referenceNumber;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -66,7 +66,7 @@ public class RequestToPay extends IyzipayResource {
     public static RequestToPay deny(DenyRequestToPayRequest request, Options options) {
         String path = BASE_PATH + "/deny";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

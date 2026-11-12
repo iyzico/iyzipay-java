@@ -20,7 +20,7 @@ public class Payment extends PaymentResource implements ResponseSignatureGenerat
 
     public static Payment create(CreatePaymentRequest request, Options options) {
         String path = "/payment/auth";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -29,7 +29,7 @@ public class Payment extends PaymentResource implements ResponseSignatureGenerat
 
     public static Payment retrieve(RetrievePaymentRequest request, Options options) {
         String path = "/payment/detail";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

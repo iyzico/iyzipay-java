@@ -9,7 +9,7 @@ public class ThreedsComplete extends PaymentResource {
 
     public static ThreedsComplete create(ThreedsCompleteRequest request, Options options) {
         String path = "/iyzipos/3dsecure/complete";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

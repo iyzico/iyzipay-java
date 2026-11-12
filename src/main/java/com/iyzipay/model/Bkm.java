@@ -23,7 +23,7 @@ public class Bkm extends PaymentResource implements ResponseSignatureGenerator {
 
     public static Bkm retrieve(RetrieveBkmRequest request, Options options) {
         String path = "/payment/bkm/auth/detail";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

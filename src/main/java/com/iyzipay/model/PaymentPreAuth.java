@@ -21,7 +21,7 @@ public class PaymentPreAuth extends PaymentResource implements ResponseSignature
 
     public static PaymentPreAuth create(CreatePaymentRequest request, Options options) {
         String path = "/payment/preauth";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -30,7 +30,7 @@ public class PaymentPreAuth extends PaymentResource implements ResponseSignature
 
     public static PaymentPreAuth retrieve(RetrievePaymentRequest request, Options options) {
         String path = "/payment/detail";
-        return HttpClient.create().post(options.getBaseUrl() + path,
+        return HttpClient.create(options).post(options.getBaseUrl() + path,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,

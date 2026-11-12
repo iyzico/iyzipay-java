@@ -16,7 +16,7 @@ public class SubscriptionCustomer extends IyzipayResource {
     public static SubscriptionCustomer create(CreateSubscriptionCustomerRequest request, Options options) {
         String path = "/v2/subscription/customers";
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -26,7 +26,7 @@ public class SubscriptionCustomer extends IyzipayResource {
     public static SubscriptionCustomer update(String subscriptionCustomerReferenceCode, UpdateSubscriptionCustomerRequest request, Options options) {
         String path = "/v2/subscription/customers/" + subscriptionCustomerReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().post(uri,
+        return HttpClient.create(options).post(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, request, options),
                 request,
@@ -36,7 +36,7 @@ public class SubscriptionCustomer extends IyzipayResource {
     public static SubscriptionCustomer retrieve(String subscriptionCustomerReferenceCode, Options options) {
         String path = "/v2/subscription/customers/" + subscriptionCustomerReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().get(uri,
+        return HttpClient.create(options).get(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
@@ -46,7 +46,7 @@ public class SubscriptionCustomer extends IyzipayResource {
     public static IyzipayResource delete(String subscriptionCustomerReferenceCode, Options options) {
         String path = "/v2/subscription/customers/" + subscriptionCustomerReferenceCode;
         String uri = options.getBaseUrl() + path;
-        return HttpClient.create().delete(uri,
+        return HttpClient.create(options).delete(uri,
                 getHttpProxy(options),
                 getHttpHeadersV2(path, null, options),
                 null,
